@@ -2,7 +2,7 @@ name: mkdocs-ci
 on:
   push:
     branches:
-      - master
+      - main
       - documentation
 permissions:
   contents: write
