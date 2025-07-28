@@ -81,7 +81,7 @@ The air quality device operates by transmitting data every ten minutes for all t
 
 [Back to top](#top)
 
-## 📑 Citations
+## 📑 Citations *(REVISAR)*
 Please consider citing our papers in your publications if the project helps your research.
 
 #### IEEE
@@ -118,7 +118,7 @@ All hardware materials and designs provided here are licensed under the CERN-OHL
 
 [Back to top](#top)
 
-## 🗨️ Contact information
+## 🗨️ Contact information *(REVISAR)*
 
 - **Email**: Send us your inquiries or support requests at grupoibt "at" uca.es
 - **Website**: Visit the CICERONE project oficial website for more information [Cicerone](https://cicerone.uca.es)
@@ -127,7 +127,7 @@ All hardware materials and designs provided here are licensed under the CERN-OHL
 
 [Back to top](#top)
 
-## Author contributions
+## Author contributions *(REVISAR)*
 
 - Patricia: *writing-review and editing, software, validation, investigation, data curation, visualization, resources.*
 - Diego: *writingo-original draft, writing-review and editing, hardware, firmware, validation, investigation, data curation, visualization, resources.*
