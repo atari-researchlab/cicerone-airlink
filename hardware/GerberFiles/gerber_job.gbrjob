@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2025-07-24T19:36:38Z",
+        "GenerationSoftware": {
+            "Application": "Fusion Electronics",
+            "Vendor": "Autodesk",
+            "Version": "9.7.0"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.586,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "CICERONE AirLink PCB v53"
+        },
+        "Owner": "Alejandro Lara Doña <ale87jan@gmail.com>",
+        "Size": {
+            "X": 94.5,
+            "Y": 74.5
+        }
+    }
+}
