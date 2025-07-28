@@ -1,0 +1,9 @@
+profiles:
+  nano33ble:
+    fqbn: arduino:mbed_nano:nano33ble
+    platforms:
+      - platform: arduino:mbed_nano (4.4.1)
+    libraries:
+      - ArduinoJson (7.4.2)
+      - Sensirion I2C SEN5X (0.3.0)
+      - Sensirion Core (0.7.1)

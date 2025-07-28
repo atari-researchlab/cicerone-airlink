@@ -81,7 +81,7 @@ The air quality device operates by transmitting data every ten minutes for all t
 
 [Back to top](#top)
 
-## 📑 Citations *(REVISAR)*
+## 📑 Citations
 Please consider citing our papers in your publications if the project helps your research.
 
 #### IEEE
@@ -111,14 +111,14 @@ Please consider citing our papers in your publications if the project helps your
 
 ## 📃 Licensing
 
-All hardware materials and designs provided here are licensed under the CERN-OHL-S hardware license. All software is under the GNU General Public License v3.0 (GPL-3.0). All documentation is under the GNU Free Documentation License v1.3 (FDL-1.3).
+All hardware materials and designs provided here are licensed under the CERN-OHL-P hardware license. All software is under the GNU General Public License v3.0 (GPL-3.0). All documentation is under the GNU Free Documentation License v1.3 (FDL-1.3).
 - Hardware: <a href="/hardware/LICENSE.md" target="_blank"><img src="docs/img/_lic/oshw-logo-filled-color.svg" height="25" alt="Open Source Hardware Logo" /> CERN Open Hardware Licence Version 2 - Strongly Reciprocal</a>
 - Firmware source code: <a href="/LICENSE.md" target="_blank"><img src="docs/img/_lic/gplv3-or-later.svg" height="25" alt="GNU General Public License version 3 or later Logo" /> GNU General Public License version 3 or later</a>
 - Documentation: <a href="/docs/LICENSE.md" target="_blank"><img src="docs/img/_lic/gfdl-logo.svg" height="25" alt="GNU Free Documentation License, Version 1.3 or later Logo" /> GNU Free Documentation License, Version 1.3 or later</a>
 
 [Back to top](#top)
 
-## 🗨️ Contact information *(REVISAR)*
+## 🗨️ Contact information
 
 - **Email**: Send us your inquiries or support requests at grupoibt "at" uca.es
 - **Website**: Visit the CICERONE project oficial website for more information [Cicerone](https://cicerone.uca.es)
@@ -127,7 +127,7 @@ All hardware materials and designs provided here are licensed under the CERN-OHL
 
 [Back to top](#top)
 
-## Author contributions *(REVISAR)*
+## Author contributions
 
 - Patricia: *writing-review and editing, software, validation, investigation, data curation, visualization, resources.*
 - Diego: *writingo-original draft, writing-review and editing, hardware, firmware, validation, investigation, data curation, visualization, resources.*
