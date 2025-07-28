@@ -1,7 +1,7 @@
-CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+# CERN Open Hardware Licence Version 2 - Strongly Reciprocal
 
 
-Preamble
+## Preamble
 
 CERN has developed this licence to promote collaboration among
 hardware designers and to provide a legal tool which supports the
@@ -19,7 +19,7 @@ Licensor or their designs nor does it imply any involvement by CERN in
 their development.
 
 
-1 Definitions
+## 1 Definitions
 
   1.1 'Licence' means this CERN-OHL-S.
 
@@ -105,7 +105,7 @@ their development.
  1.13 'Convey' means to communicate to the public or distribute.
 
 
-2 Applicability
+## 2 Applicability
 
   2.1 This Licence governs the use, copying, modification, Conveying
       of Covered Source and Products, and the Making of Products. By
@@ -122,7 +122,7 @@ their development.
       or any other similar right.
 
 
-3 Copying, Modifying and Conveying Covered Source
+## 3 Copying, Modifying and Conveying Covered Source
 
   3.1 You may copy and Convey verbatim copies of Covered Source, in
       any medium, provided You retain all Notices.
@@ -163,7 +163,7 @@ their development.
           applicable licences.
 
 
-4 Making and Conveying Products
+## 4 Making and Conveying Products
 
 You may Make Products, and/or Convey them, provided that You either
 provide each recipient with a copy of the Complete Source or ensure
@@ -175,7 +175,7 @@ the Source Location on it or its packaging or documentation in the
 manner specified in that Notice.
 
 
-5 Research and Development
+## 5 Research and Development
 
 You may Convey Covered Source, modified Covered Source or Products to
 a legal entity carrying out development, testing or quality assurance
@@ -187,7 +187,7 @@ made by the entity shall be deemed to be made by You pursuant to
 subsection 3.2.
 
 
-6 DISCLAIMER AND LIABILITY
+## 6 DISCLAIMER AND LIABILITY
 
   6.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products
       are provided 'as is' and any express or implied warranties,
@@ -220,7 +220,7 @@ subsection 3.2.
       in relation to such use.
 
 
-7 Patents
+## 7 Patents
 
   7.1 Subject to the terms and conditions of this Licence, each
       Licensor hereby grants to You a perpetual, worldwide,
@@ -241,7 +241,7 @@ subsection 3.2.
       terminate as of the date such process is initiated.
 
 
-8 General
+## 8 General
 
   8.1 If any provisions of this Licence are or subsequently become
       invalid or unenforceable for any reason, the remaining

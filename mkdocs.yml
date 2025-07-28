@@ -1,0 +1,116 @@
+site_name: Cicerone Airlink© Documentation
+site_url:  #https://atari-researchlab.github.io/cicerone-airlink
+copyright: Copyright © 2025 Grupo ATARI –
+  <a href="#__consent">Change cookie settings</a>
+
+extra:
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: Español
+      link: /es/
+      lang: es
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    cookies:
+      github:
+        name: GitHub
+        checked: false
+  social:
+    - icon: fontawesome/brands/instagram 
+      link: https://www.instagram.com/grupoatari/
+    - icon: fontawesome/brands/youtube 
+      link: https://www.youtube.com/channel/UC44JD74j4QEr4diN6-1qpBg
+
+theme:
+  name: material
+  language: en
+  logo: img/cicerone-logo.png
+  favicon: img/cicerone-logo.png
+  icon:
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+  features:
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.sections
+    - content.code.copy
+  custom_dir: docs/_overrides
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.snippets:
+      base_path: !relative $docs_dir
+  - pymdownx.superfences
+  - pymdownx.blocks.caption
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+- Home: index.md
+- Description: 
+  - description/index.md
+  - description/electronics.md
+  - description/firmware.md
+- User Guide:
+  - user-guide/index.md
+  - user-guide/assembly.md
+  - user-guide/firmware-configuration.md
+- About:
+  - about/index.md
+  - about/citations.md
+  - about/licences.md
+  - about/authors.md
+  - about/funding.md
+
+not_in_nav: |
+  lic-*.md           # lic files
+
+# /requirements.txt  # Top-level "docs/requirements.txt".
+# *.py               # Any file with this extension anywhere.
+# !/foo/example.py   # But keep this particular file.
+
+# theme:
+#   palette:
+#     # Palette toggle for light mode
+#     - media: "(prefers-color-scheme: light)"
+#       scheme: default
+#       primary: teal
+#       accent: teal
+#       toggle:
+#         icon: material/weather-sunny 
+#         name: Switch to dark mode
+
+#     # Palette toggle for dark mode
+#     - media: "(prefers-color-scheme: dark)"
+#       scheme: slate
+#       primary: teal
+#       accent: teal
+#       toggle:
+#         icon: material/weather-night
+#         name: Switch to light mode
