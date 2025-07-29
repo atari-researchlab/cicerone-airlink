@@ -1,6 +1,5 @@
 # CERN Open Hardware Licence Version 2 - Strongly Reciprocal
 
-
 ## Preamble
 
 CERN has developed this licence to promote collaboration among
@@ -17,7 +16,6 @@ unmodified form only.
 Use of this Licence does not imply any endorsement by CERN of any
 Licensor or their designs nor does it imply any involvement by CERN in
 their development.
-
 
 ## 1 Definitions
 
