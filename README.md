@@ -3,13 +3,11 @@
   <img height="100" title="Funded by Ministerio de Ciencia, Innovación y Universidades, European Union and Agencia Estatal de Investigacion" src="docs/img/micin-uefeder-aei.png" /><br />
 </p>
 
-* * *
-
 <p align="center">
-  <a href="https://www.youtube.com/channel/UC44JD74j4QEr4diN6-1qpBg" target="_blank"><img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="youtube logo" /></a>
-  <a href="https://www.instagram.com/grupoatari/" target="_blank"><img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="instagram logo"  /></a>
-  <a href="https://tic212.uca.es/" target="_blank"><img src="https://img.shields.io/static/v1?message=ATARI%20Group%20Website&label=&color=blue&labelColor=&style=for-the-badge" height="25" alt="WWW" /></a>
-  <a href="https://atari-researchlab.github.io/cicerone-airlink/" target="_blank"><img src="https://img.shields.io/badge/Documentation-018EF5?logo=readme&logoColor=fff" height="25" alt="Documentation" /></a>
+  <a href="https://www.youtube.com/channel/UC44JD74j4QEr4diN6-1qpBg" target="_blank"><img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="youtube logo" /></a>
+  <a href="https://www.instagram.com/grupoatari/" target="_blank"><img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="instagram logo"  /></a>
+  <a href="https://tic212.uca.es/" target="_blank"><img src="https://img.shields.io/static/v1?message=ATARI%20Group%20Website&label=&color=blue&labelColor=&style=for-the-badge" height="40" alt="WWW" /></a>
+  <a href="https://atari-researchlab.github.io/cicerone-airlink/" target="_blank"><img src="https://img.shields.io/badge/Documentation-018EF5?logo=readme&logoColor=fff&style=for-the-badge" height="40" alt="Documentation" /></a>
 </p>
 
 * * *
@@ -20,7 +18,7 @@
 
 <h1 align="center">CICERONE AirLink</h1>
 
-CICERONE AirLink© is a indoor air quality telemonitoring device designed for the project CICERONE (*PID2021-126810OB-I00*).
+CICERONE AirLink© is an indoor air quality telemonitoring device designed for the project CICERONE (*PID2021-126810OB-I00*).
 
 The air quality device operates by transmitting data every ten minutes for all the parameters collected by the various sensors, thanks to the communication module created in conjunction with the RTC. This way, if there are no data transmission failures, a total of 144 daily data points are obtained for each of the parameters collected by the CO2 and PM/VOCs sensors.
 
@@ -30,11 +28,7 @@ The air quality device operates by transmitting data every ten minutes for all t
 - [Specifications](#-specifications)
 - [Documentation](#-documentation)
 - [Citations](#-citations)
-- [Licensing](#-licensing)
-- [Author contributions](#author-contributions)
-- [Funding](#-funding)
-- [Acknowledgments](#acknowledgments)
-- [Conflicts of Interest](#conflicts-of-interest)
+- [Licences](#-licences)
 
 ## 🎓 Features
 
@@ -43,6 +37,8 @@ The air quality device operates by transmitting data every ten minutes for all t
 - Autonomous data transmission independent of the user via an NB-IoT communication module. The device includes its own SIM card for sending average sensor values every ten minutes.
 - Energy autonomy of up to 5 hours of operation on a fully charged battery.
 - Optional cough detection feature using a machine learning algorithm. The device can count the number of cough events within a desired time frame.
+
+[Back to top](#top)
 
 ## 📝 Specifications
 
@@ -70,15 +66,17 @@ The air quality device operates by transmitting data every ten minutes for all t
   - Sends the data to a server containing 10 minutes average measurements of all sensors via the NB-IoT module.
   - Developed in Arduino IDE
 
- [Back to top](#top)
+[Back to top](#top)
 
 ## 📚 Documentation
 
-- [Documentation](/docs/index.md)
-- [Electronics](/docs/electronics.md)
-- [Assembly](/docs/assembly.md)
-- [Firmware](/docs/firmware.md)
-- [Firmware customization](/docs/firmware-configuration.md)
+- [Documentation](https://atari-researchlab.github.io/cicerone-airlink/)
+- [Description](https://atari-researchlab.github.io/cicerone-airlink/description/)
+  - [Electronics](https://atari-researchlab.github.io/cicerone-airlink/description/electronics/)
+  - [Firmware](https://atari-researchlab.github.io/cicerone-airlink/description/firmware/)
+- [User guide](https://atari-researchlab.github.io/cicerone-airlink/user-guide/)
+  - [Assembly](https://atari-researchlab.github.io/cicerone-airlink/user-guide/assembly/)
+  - [Firmware customization](https://atari-researchlab.github.io/cicerone-airlink/user-guide/firmware-configuration/)
 
 [Back to top](#top)
 
@@ -110,47 +108,11 @@ Please consider citing our papers in your publications if the project helps your
 
 [Back to top](#top)
 
-## 📃 Licensing
+## 📃 Licences
 
-All hardware materials and designs provided here are licensed under the CERN-OHL-P hardware license. All software is under the GNU General Public License v3.0 (GPL-3.0). All documentation is under the GNU Free Documentation License v1.3 (FDL-1.3).
+All hardware materials and designs, firmware and documentation provided here are licenced under the following licenses:
 - Hardware: <a href="/hardware/LICENSE.md" target="_blank"><img src="docs/img/_lic/oshw-logo-filled-color.svg" height="25" alt="Open Source Hardware Logo" /> CERN Open Hardware Licence Version 2 - Strongly Reciprocal</a>
-- Firmware source code: <a href="/LICENSE.md" target="_blank"><img src="docs/img/_lic/gplv3-or-later.svg" height="25" alt="GNU General Public License version 3 or later Logo" /> GNU General Public License version 3 or later</a>
+- Firmware source code: <a href="firmware/LICENSE.md" target="_blank"><img src="docs/img/_lic/gplv3-or-later.svg" height="25" alt="GNU General Public License version 3 or later Logo" /> GNU General Public License version 3 or later</a>
 - Documentation: <a href="/docs/LICENSE.md" target="_blank"><img src="docs/img/_lic/gfdl-logo.svg" height="25" alt="GNU Free Documentation License, Version 1.3 or later Logo" /> GNU Free Documentation License, Version 1.3 or later</a>
-
-[Back to top](#top)
-
-## 🗨️ Contact information
-
-- **Email**: Send us your inquiries or support requests at grupoibt "at" uca.es
-- **Website**: Visit the CICERONE project oficial website for more information [Cicerone](https://cicerone.uca.es)
-- **Grupo ATARI UCA**: Know more of the research group in our official website [Grupo ATARI UCA](https://tic212.uca.es)
-<img height="100" title="ATARIUCA Logo" src="docs/img/grupoatari-logo.png" />
-
-[Back to top](#top)
-
-## Author contributions
-
-- Patricia: *writing-review and editing, software, validation, investigation, data curation, visualization, resources.*
-- Diego: *writingo-original draft, writing-review and editing, hardware, firmware, validation, investigation, data curation, visualization, resources.*
-- Alejandro: *writing-review and editing, hardware, firmware, resources.*
-- Daniel: *writing-review and editing, conceptualization, validation, investigation, supervision, project administration, funding acquisition.*
-
-All authors have read and agreed to the published version of this repository.
-
-## 🪙 Funding
-
-This results are part of the project PID2021-126810OB-I00 granted by MCIN/AEI/10.13039/501100011033/; by "ERDF A way of making Europe".
-
-<p align="center">
-  <img height="100" title="Funded by Ministerio de Ciencia, Innovación y Universidades, European Union and Agencia Estatal de Investigacion" src="docs/img/micin-uefeder-aei.png" />
-</p>
-
-## Acknowledgments
-
-This work was supported results are part of the project PID2021-126810OB-I00 granted by MCIN/AEI/10.13039/501100011033/; by "ERDF A way of making Europe"; by the "Instituto de Investigación e Innovación en Ciencias Biomédicas de Cádiz (IN-CO07)"; and by the "Consejería de Economía, Innovación, Ciencia y Empleo de la Junta de Andalucía" (TIC-212).
-
-## Conflicts of Interest
-
-The authors declare no conflicts of interest.
 
 [Back to top](#top)
