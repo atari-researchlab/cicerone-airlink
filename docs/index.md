@@ -25,7 +25,7 @@ icon: material/home
 <p align="center"><img title="CICERONE Logo" src="img/cicerone-logo.png" /></p>
 <p align="center"><img title="CICERONE AirLink" src="img/airlink-final-device.png" /> </p>
 
-CICERONE AirLink© is a indoor air quality telemonitoring device designed for the project CICERONE (*PID2021-126810OB-I00*).
+CICERONE AirLink© is an indoor air quality telemonitoring device designed for the project CICERONE (*PID2021-126810OB-I00*).
 
 The air quality device operates by transmitting data every ten minutes for all the parameters collected by the various sensors, thanks to the communication module created in conjunction with the RTC. This way, if there are no data transmission failures, a total of 144 daily data points are obtained for each of the parameters collected by the CO2 and PM/VOCs sensors.
 

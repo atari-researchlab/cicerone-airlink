@@ -8,7 +8,7 @@ icon: material/license
 
 # Licences
 
-All hardware materials and designs, firmware and documentation provided here are licenced under the following licenses.
+All hardware materials and designs, firmware and documentation provided here are licenced under the following licenses:
 
 <div class="grid cards" markdown>
 
