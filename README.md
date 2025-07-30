@@ -93,27 +93,38 @@ The air quality device operates by transmitting data every ten minutes for all t
 ## 📑 Citations
 Please consider citing our papers in your publications if the project helps your research.
 
-#### IEEE
+#### APA
 ````
-[1]D. Sanchez-Morillo, A. Lara-Doña, B. Priego-Torres, M. Morales-Gonzalez, F. Montoro-Ballesteros, and A. Leon-Jimenez, “Portable Oxygen Therapy: Is the 6-Minute Walking Test Overestimating the Actual Oxygen Needs?,” Journal of Clinical Medicine, vol. 9, no. 12, p. 4007, Dec. 2020, doi: 10.3390/jcm9124007.
+[1] Camacho-Magriñán, P.; Sales-Lerida, D.; León-Jiménez, A.; Sanchez-Morillo, D. Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review. Technologies 2025, 13, 122. https://doi.org/10.3390/technologies13030122
+[2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo. (2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
+
 ````
 
 #### BibTeX
 ````
-@article{Sanchez-Morillo2020,
-   author = {Daniel Sanchez-Morillo and Alejandro Lara-Doña and Blanca Priego-Torres and Maria Morales-Gonzalez and Francisca Montoro-Ballesteros and Antonio Leon-Jimenez},
-   doi = {10.3390/jcm9124007},
-   issn = {2077-0383},
-   issue = {12},
-   journal = {Journal of Clinical Medicine},
-   keywords = {6-minute walk test,COPD,CT90,oximetry,oxygen therapy},
-   month = {12},
-   pages = {4007},
-   title = {Portable Oxygen Therapy: Is the 6-Minute Walking Test Overestimating the Actual Oxygen Needs?},
-   volume = {9},
-   url = {https://www.mdpi.com/2077-0383/9/12/4007},
-   year = {2020}
+@Article{technologies13030122,
+AUTHOR = {Camacho-Magriñán, Patricia and Sales-Lerida, Diego and León-Jiménez, Antonio and Sanchez-Morillo, Daniel},
+TITLE = {Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review},
+JOURNAL = {Technologies},
+VOLUME = {13},
+YEAR = {2025},
+NUMBER = {3},
+ARTICLE-NUMBER = {122},
+URL = {https://www.mdpi.com/2227-7080/13/3/122},
+ISSN = {2227-7080},
+DOI = {10.3390/technologies13030122}
 }
+
+ @inproceedings{6842c68c8a34bb2df9fc79a9,
+title={Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC},
+ISBN={978-84-09-67332-2},
+booktitle={XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024},
+publisher={Sociedad Española de Ingeniería Biomédica (SEIB)},
+author={P. Camacho Magriñan and D. Sales Lerida and R. Moreno Mellado and A. Lara Doña and D. Sánchez Morillo},
+year={2024},
+pages={89-92}
+}
+
 ````
 
 [Back to top](#top)
