@@ -1,12 +1,14 @@
 site_name: Cicerone Airlink© Documentation
-site_url:  #https://atari-researchlab.github.io/cicerone-airlink
+site_url: https://atari-researchlab.github.io/cicerone-airlink
+repo_url: https://github.com/atari-researchlab/cicerone-airlink
+# repo_name: atari-researchlab/cicerone-airlink
 copyright: Copyright © 2025 Grupo ATARI –
   <a href="#__consent">Change cookie settings</a>
 
 extra:
   alternate:
     - name: English
-      link: /en/ 
+      link: /
       lang: en
     - name: Español
       link: /es/
@@ -34,6 +36,7 @@ theme:
   logo: img/cicerone-logo.png
   favicon: img/cicerone-logo.png
   icon:
+    repo: fontawesome/brands/github
     admonition:
       note: fontawesome/solid/note-sticky
       abstract: fontawesome/solid/book
@@ -53,6 +56,10 @@ theme:
     - navigation.indexes
     - navigation.sections
     - content.code.copy
+    - navigation.instant
+    - navigation.instant.progress
+    - search
+    - search.highlight
   custom_dir: docs/_overrides
 
 markdown_extensions:
