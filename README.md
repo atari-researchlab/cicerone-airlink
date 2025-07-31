@@ -120,7 +120,7 @@ DOI = {10.3390/technologies13030122}
 ````
 
 ```` bibtex
- @inproceedings{6842c68c8a34bb2df9fc79a9,
+@inproceedings{6842c68c8a34bb2df9fc79a9,
 title={Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC},
 ISBN={978-84-09-67332-2},
 booktitle={XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024},
