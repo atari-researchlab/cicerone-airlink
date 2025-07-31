@@ -56,11 +56,15 @@ theme:
     - navigation.indexes
     - navigation.sections
     - content.code.copy
+    - content.code.annotate
     - navigation.instant
     - navigation.instant.progress
     - search
     - search.highlight
   custom_dir: docs/_overrides
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition
@@ -70,6 +74,11 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: !relative $docs_dir
   - pymdownx.blocks.caption
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

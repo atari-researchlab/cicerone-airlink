@@ -101,7 +101,8 @@ Please consider citing our papers in your publications if the project helps your
 ````
 
 #### BibTeX
-````
+
+```` bibtex
 @Article{technologies13030122,
 AUTHOR = {Camacho-Magriñán, Patricia and Sales-Lerida, Diego and León-Jiménez, Antonio and Sanchez-Morillo, Daniel},
 TITLE = {Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review},
@@ -114,7 +115,9 @@ URL = {https://www.mdpi.com/2227-7080/13/3/122},
 ISSN = {2227-7080},
 DOI = {10.3390/technologies13030122}
 }
+````
 
+```` bibtex
  @inproceedings{6842c68c8a34bb2df9fc79a9,
 title={Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC},
 ISBN={978-84-09-67332-2},
@@ -124,7 +127,6 @@ author={P. Camacho Magriñan and D. Sales Lerida and R. Moreno Mellado and A. La
 year={2024},
 pages={89-92}
 }
-
 ````
 
 [Back to top](#top)

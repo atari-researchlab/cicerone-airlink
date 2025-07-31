@@ -21,15 +21,12 @@ Free Documentation License".
 <!-- --8<-- [start:cite] -->
 Please consider citing our papers in your publications if the project helps your research.
 
-=== "IEEE"
+=== "APA"
 
-    ````
-    --8<-- "./about/citation/ieee.txt"
-    ````
+    --8<-- "./about/citation/apa.txt"
 
 === "BibTex"
 
-    ````
     --8<-- "./about/citation/bibtex.bib"
-    ````
+    
 <!-- --8<-- [end:cite] -->
