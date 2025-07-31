@@ -96,8 +96,10 @@ Please consider citing our papers in your publications if the project helps your
 #### APA
 ````
 [1] Camacho-Magriñán, P.; Sales-Lerida, D.; León-Jiménez, A.; Sanchez-Morillo, D. Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review. Technologies 2025, 13, 122. https://doi.org/10.3390/technologies13030122
-[2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo. (2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
+````
 
+````
+[2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo. (2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
 ````
 
 #### BibTeX
