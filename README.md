@@ -18,6 +18,7 @@ Free Documentation License".
   <a href="https://www.instagram.com/grupoatari/" target="_blank"><img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="instagram logo"  /></a>
   <a href="https://tic212.uca.es/" target="_blank"><img src="https://img.shields.io/static/v1?message=ATARI%20Group%20Website&label=&color=blue&labelColor=&style=for-the-badge" height="40" alt="WWW" /></a>
   <a href="https://atari-researchlab.github.io/cicerone-airlink/" target="_blank"><img src="https://img.shields.io/badge/Documentation-018EF5?logo=readme&logoColor=fff&style=for-the-badge" height="40" alt="Documentation" /></a>
+  <img src="https://www.repostatus.org/badges/latest/active.svg" height="40" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." />
 </p>
 
 * * *

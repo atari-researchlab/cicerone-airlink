@@ -20,7 +20,7 @@ Free Documentation License".
 
 - Patricia: *writing-review and editing, software, validation, investigation, data curation, visualization, resources.*
 - Diego: *writingo-original draft, writing-review and editing, hardware, firmware, validation, investigation, data curation, visualization, resources.*
-- Alejandro: *writing-review and editing, hardware, firmware, resources.*
+- Alejandro: *writing-review and editing, hardware, firmware, validation, documentation.*
 - Daniel: *writing-review and editing, conceptualization, validation, investigation, supervision, project administration, funding acquisition.*
 
 All authors have read and agreed to the published version of this repository.
