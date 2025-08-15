@@ -45,6 +45,7 @@ extern float avg_temp;
 extern float avg_hum;
 extern float avg_sen5x_nox;
 extern float avg_t6793_co2;
+
 extern DS3231M rtc;
 extern DateTime now;
 extern String fecha;
@@ -63,26 +64,5 @@ void check_alarma_10min(void);
 void promediar_datos(void);
 void reset_acumuladores(void);
 /**@}*/
+
 #endif  // ALARMA_H
-
-/*
- * SECCIÓN DE LICENCIAS DE LIBRERÍAS EXTERNAS (ESPECÍFICAS DE ESTE ARCHIVO)
- *
- * Este archivo es parte de tu proyecto principal y está bajo la Licencia Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0).
- *
- * 1.  **Librería: 'DS3231M'**
- * * **Autor:** DFRobot Co.Ltd (yufeng)
- * * **Licencia:** MIT License
- * * **URL:** https://github.com/DFRobot/DS3231M/blob/master/LICENSE
- * * **Compatibilidad con CC-BY-SA 4.0:** Compatible.
- *
- * Para una descripción más detallada de la compatibilidad general de licencias, consulta la sección
- * "SECCIÓN DE LICENCIAS DE LIBRERÍAS EXTERNAS" en 'Airlink.ino'.
- */
-
-/*
- * SECCIÓN DE REFERENCIAS Y AGRADECIMIENTOS (ESPECÍFICAS DE ESTE ARCHIVO)
- *
- * - Datasheet del DS3231M: [Añadir URL al datasheet si está disponible públicamente]
- * - Repositorio de la librería DS3231M: https://github.com/DFRobot/DS3231M
- */

@@ -48,20 +48,16 @@ void setup() {
 
   // Inicializa el RTC (Reloj de Tiempo Real) y las alarmas periódicas
   rtc_alarma_inicializar();
-  DEBUG_INFO("RTC y Alarmas inicializadas.");
 
   // Inicializa el sensor T6793
   t6793_inicializar();
-  DEBUG_INFO("Sensor T6793 inicializado.");
 
   // Inicializa el sensor SEN5X
   sen5x_inicializar();
-  DEBUG_INFO("Sensor SEN5X inicializado.");
 
   // Inicialización condicional de los módulos
 #if HABILITAR_NBIOT
   nbiot_inicializar();
-  DEBUG_INFO("Módulo NB-IoT inicializado.");
 #endif
 
   DEBUG_INFO("Inicializacion completada. Iniciando bucle principal.");
@@ -82,7 +78,7 @@ void loop() {
 
   // Si la bandera de 5 segundos está activa, ejecuta las lecturas.
   if (alarma_5s) {
-    DEBUG_VERBOSE("Alarma 5s activada. Leyendo sensores...");
+    DEBUG_INFO("Alarma 5s activada. Leyendo sensores...");
 
     // Acumula los datos leídos para su posterior promedio
     acumular_datos();

@@ -84,7 +84,6 @@ float avg_temp = 0.0f;           //!< Promedio de la temperatura ambiente.
 float avg_hum = 0.0f;            //!< Promedio de la humedad ambiente.
 float avg_sen5x_nox = 0.0f;      //!< Promedio del indice NOx del SEN55.
 float avg_t6793_co2 = 0.0f;      //!< Promedio de CO2 del T6793.
-int tTos = 0;                    //!< Conteo total de tos detectadas en el período de promedio.
 /**@}*/
 
 /**
@@ -113,16 +112,18 @@ void inline imprimir_hora(void) {
  */
 void rtc_alarma_inicializar(void) {
   while (!rtc.begin()) {
-    DEBUG_ERROR("Failed to init RTC, please check if the RTC connection is correct...");
+    DEBUG_ERROR("RTC: error al inicializar. Compruebe que la conexión es correcta...");
     delay(1000);
   }
 
   // Ajusta la fecha y hora si se perdió la alimentación auxiliar
   if (rtc.lostPower()) {
-    DEBUG_WARN("RTC error. Aux power lost. Setting RTC to compilation datetime.");
+    DEBUG_WARN("RTC: alimentación auxiliar perdida. Estableciendo fecha/hora a la fecha/hora de compilación");
     // Ajusta la hora usando las macros de Datetime_helper.h
     rtc.setRTCTime(BUILD_YEAR, BUILD_MONTH, BUILD_DAY, BUILD_HOUR, BUILD_MIN, BUILD_SEC);
   }
+
+  DEBUG_INFO("RTC y Alarmas inicializadas.");
 
   now = rtc.getRTCTime();
   // Configura la primera alarma de 10 minutos
@@ -238,7 +239,7 @@ void promediar_datos(void) {
     avg_sen5x_mc_10p0 = sum_sen5x_mc_10p0 / cont1;
     avg_temp = sum_temp / cont1;
     avg_hum = sum_hum / cont1;
-    //avg_sen5x_nox = sum_sen5x_nox / cont1;
+    avg_sen5x_nox = sum_sen5x_nox / cont1;
   }
 
   if (cont2 > 0) {
@@ -246,15 +247,20 @@ void promediar_datos(void) {
   }
 
   imprimir_hora();
-  DEBUG_INFO("Avg. Temp: %f", avg_temp);
-  DEBUG_INFO("Avg. RH: %f", avg_hum);
-  DEBUG_INFO("Avg. PM1: %f", avg_sen5x_mc_1p0);
-  DEBUG_INFO("Avg. PM2: %f", avg_sen5x_mc_2p5);
-  DEBUG_INFO("Avg. PM4: %f", avg_sen5x_mc_4p0);
-  DEBUG_INFO("Avg. PM10: %f", avg_sen5x_mc_10p0);
-  DEBUG_INFO("Avg. VOC: %f", avg_sen5x_voc);
-  //DEBUG_INFO("Avg. NOx: %f", avg_sen5x_nox);
-  DEBUG_INFO("Avg. CO2: %f", avg_t6793_co2);
+  DEBUG_VERBOSE("Avg. Temp: %f", avg_temp);
+  DEBUG_VERBOSE("Avg. RH: %f", avg_hum);
+  DEBUG_VERBOSE("Avg. PM1: %f", avg_sen5x_mc_1p0);
+  DEBUG_VERBOSE("Avg. PM2: %f", avg_sen5x_mc_2p5);
+  DEBUG_VERBOSE("Avg. PM4: %f", avg_sen5x_mc_4p0);
+  DEBUG_VERBOSE("Avg. PM10: %f", avg_sen5x_mc_10p0);
+  DEBUG_VERBOSE("Avg. VOC: %f", avg_sen5x_voc);
+  DEBUG_VERBOSE("Avg. NOx: %f", avg_sen5x_nox);
+  DEBUG_VERBOSE("Avg. CO2: %f", avg_t6793_co2);
+  DEBUG_INFO("%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f",
+             avg_temp, avg_hum,
+             avg_sen5x_mc_1p0, avg_sen5x_mc_2p5,
+             avg_sen5x_mc_4p0, avg_sen5x_mc_10p0,
+             avg_sen5x_voc, avg_t6793_co2);
 
   reset_acumuladores();
 }
@@ -274,5 +280,5 @@ void reset_acumuladores(void) {
   sum_t6793_co2 = 0;
   cont1 = 0;
   cont2 = 0;
-  DEBUG_INFO("Acumuladores reiniciados.");
+  DEBUG_INFO("Acumuladores reiniciados");
 }

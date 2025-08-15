@@ -13,52 +13,47 @@
  * @note        Este módulo es fundamental para la conectividad y el envío de datos recopilados
  * por los sensores a una plataforma de monitoreo remoto.
  **********************************************************************************************************************/
+ 
 #include "Configuracion.h"
+
 #if HABILITAR_NBIOT
 
 #include <ArduinoJson.h>
-#include "Configuracion.h"
 #include "Debug.h"
 #include "Transmision_NBIOT.h"
 #include "Alarma.h"
-#include "SEN5X_API.h"
-#include "T6793_API.h"
 
 #undef DEBUG_LEVEL
 #define DEBUG_LEVEL DEBUG_NBIOT  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
 #define DEBUG_TAG "NBIOT"        //!< Etiqueta al enviar mensajes de depuración
 
-/*
- * DEFINICIONES DE VARIABLES GLOBALES PARA DATOS DE TRANSMISIÓN
- *
- * Aquí se definen (se les asigna memoria) las variables globales declaradas en 'Transmision_NBIOT.h'.
+/**
+ * @{
+ * @name      Variables globales
+ * @details   Aquí se asigna la memoria para las variables globales utilizadas.
  */
-String ppm1 = "100";   // Valor de PM1.0 (ejemplo inicial).
-String ppm25 = "100";  // Valor de PM2.5 (ejemplo inicial).
-String ppm4 = "100";   // Valor de PM4.0 (ejemplo inicial).
-String ppm10 = "100";  // Valor de PM10.0 (ejemplo inicial).
-String temp = "22";    // Valor de temperatura (ejemplo inicial).
-String hum = "70";     // Valor de humedad (ejemplo inicial).
-String co2 = "10";     // Valor de CO2 (ejemplo inicial).
-String voc = "15";     // Valor de VOC (ejemplo inicial).
-// String nox = "100";    // Valor de NOx (ejemplo inicial).
+String ppm1 = "100";   //!< Valor de PM1.0 (ejemplo inicial)
+String ppm25 = "100";  //!< Valor de PM2.5 (ejemplo inicial)
+String ppm4 = "100";   //!< Valor de PM4.0 (ejemplo inicial)
+String ppm10 = "100";  //!< Valor de PM10.0 (ejemplo inicial)
+String temp = "22";    //!< Valor de temperatura (ejemplo inicial)
+String hum = "70";     //!< Valor de humedad (ejemplo inicial)
+String co2 = "10";     //!< Valor de CO2 (ejemplo inicial)
+String voc = "15";     //!< Valor de VOC (ejemplo inicial)
+String nox = "100";    //!< Valor de NOx (ejemplo inicial)
+JsonDocument doc;      //!< Objeto JSON
+String json_data;      //!< Cadena que contendrá el payload JSON completo
+String hexData;        //!< Cadena que contendrá los datos JSON en formato hexadecimal
+/**@}*/
 
-JsonDocument doc;
-String json_data;  // Cadena que contendrá el payload JSON completo.
-String hexData;    // Cadena que contendrá los datos JSON en formato hexadecimal.
-
-const char* respuestas[5] = { "", "OK", "NOTOK", "TIMEOUTERR", "RST" };
-
-/***********************************************************************************************************************
- * IMPLEMENTACIONES DE FUNCIONES PÚBLICAS DEL MÓDULO DE TRANSMISIÓN
- **********************************************************************************************************************/
+const char* respuestas[5] = { "", "OK", "NOTOK", "TIMEOUTERR", "RST" }; //!< Array con los tipos de respuesta que devuelve el módulo SIM7020
 
 /**
  * @brief     Inicializa el módulo NB-IoT (SIM7020).
  * @details   Configura el puerto serie para la comunicación con el módulo y realiza
  * una serie de comandos AT para asegurar que el módulo esté operativo y conectado a la red.
  */
-void nbiot_inicializar() {
+void nbiot_inicializar(void) {
 
   SIM7020board.begin(SIM7020baud);  // Inicia la comunicación serie con el módulo NB-IoT.
   delay(100);                       // Pequeña espera para estabilización.
@@ -84,9 +79,17 @@ void nbiot_inicializar() {
   delay(500);
   SIM7020command("AT+CGCONTRDP=?", "OK", "yy", 5000, 2);
   delay(500);
+
+  DEBUG_INFO("Módulo NB-IoT inicializado.");
 }
 
-bool SIM7020begin() {
+/**
+ * @brief     Inicializa la comunicación con el módulo  SIM7020
+ * @details   Utiliza comandos AT específicos del módulo SIM7020 para detectar si la comunicación es correcta
+ * y resetea lo configura de una manera predefinida
+ * @return    Verdadero si la comunicación y configuración ha sido satisfactoria
+ */
+bool SIM7020begin(void) {
   uint16_t reintentos = 0;
   byte hi;  // 1: registered, home network ; 5: registered, roaming
 
@@ -113,6 +116,10 @@ bool SIM7020begin() {
   return NOTOK;
 }
 
+/**
+ * @brief   Lee los mensajes enviados por el módulo SIM7020
+ * @return  Cadena con el mensaje recibido
+ */
 String SIM7020read(void) {
   String reply = "";
   if (SIM7020board.available()) {
@@ -205,7 +212,6 @@ void nbiot_paquete(void) {
   doc["co2"] = String(avg_t6793_co2);
   doc["voc"] = String(avg_sen5x_voc);
   //doc["nox"] = String(avg_sen5x_nox);
-  //doc["tos"] = HABILITAR_TOS ? String(tTos) : "0";
 
   serializeJsonPretty(doc, json_data);
   DEBUG_INFO("JSON: %s", json_data.c_str());  // Imprime el JSON para depuración.

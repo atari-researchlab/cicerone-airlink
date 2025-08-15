@@ -16,19 +16,11 @@
 #ifndef T6793_API_H
 #define T6793_API_H
 
-// Almacena la última lectura de CO2 en PPM.
+#include <Arduino.h>
+
 extern uint16_t t6793_co2;
 
-/**
- * @brief Inicializa el sensor T6793, Configura la comunicación I2C y deshabilita la calibración ABC.
- * @return void
- */
 void t6793_inicializar(void);
-
-/**
- * @brief Lee el valor de CO2 del sensor y actualiza la variable global 't6793_co2'.
- * @return Verdadero si la lectura ha sido correcta
- */
 bool t6793_leer(void);
 
 #endif  // T6793_API_H

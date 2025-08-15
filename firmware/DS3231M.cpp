@@ -1,6 +1,10 @@
 /***********************************************************************************************************************
  * @file DS3231M.cpp
  * @brief Define la estructura básica de la clase DS3231M.
+ * @details Este archivo implementa las funcionalidades para el módulo de reloj en tiempo real (RTC) DS3231M.
+ * Proporciona métodos para leer y establecer la hora y fecha, gestionar alarmas y otras configuraciones del RTC.
+ * - Datasheet del DS3231M: https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf
+ * - Repositorio de la librería DFRobot_DS3231M: https://github.com/DFRobot/DFRobot_DS3231M
  *
  * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22]
@@ -8,13 +12,12 @@
  *
  * @copyright   GNU General Public License version 3 or later
  *
- * @note Este archivo implementa las funcionalidades para el módulo de reloj en tiempo real (RTC) DS3231M.
- * Proporciona métodos para leer y establecer la hora y fecha, gestionar alarmas y otras configuraciones del RTC.
- *
- * Este módulo se basa en la librería de DFRobot para el DS3231M https://github.com/DFRobot/DFRobot_DS3231M
+ * @note Este módulo se basa en la librería de DFRobot para el DS3231M https://github.com/DFRobot/DFRobot_DS3231M
  * Copyright 2010 DFRobot Co.Ltd
  * Licencia: Licencia MIT
- * 
+ ***********************************************************************************************************************/
+
+/* *********************************************************************************************************************
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
  * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
@@ -30,15 +33,18 @@
  * DEALINGS IN THE SOFTWARE.
  **********************************************************************************************************************/
 
-#include "DS3231M.h"  // Incluye la cabecera de la clase DS3231M.
-#include "Debug.h"    // Contiene las macros para controlar la salida de depuración por Serial.
+#include "Wire.h"
+#include "DS3231M.h"
+#include "Debug.h"
 
 #undef DEBUG_LEVEL
 #define DEBUG_LEVEL DEBUG_DS3231M  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
 #define DEBUG_TAG "DS3231M"        //!< Etiqueta al enviar mensajes de depuración
 
-// Array en PROGMEM (memoria de programa) que almacena el número de días en cada mes.
-// Esto ahorra memoria RAM en microcontroladores.
+/** 
+ * @brief Array que almacena el número de días en cada mes.
+ * @details Al guardarlo en la memoria del programa se ahorra memoria RAM.
+ */
 const uint8_t daysInMonth[] PROGMEM = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 /**
@@ -76,11 +82,6 @@ static uint32_t time2long(uint16_t y, uint8_t m, uint8_t d, uint8_t h, uint8_t m
   // Convierte la fecha a días y luego a segundos, sumando los segundos de la hora, minuto y segundo actuales.
   return ((uint32_t)date2days(y, m, d) * 24L * 60L * 60L) + (h * 60L * 60L) + (mi * 60L) + s;
 }
-
-/**
- * @brief Destructor de la clase DS3231M.
- */
-DS3231M::~DS3231M() {}
 
 /**
  * @brief Inicializa la comunicación I2C.
@@ -288,7 +289,8 @@ void DS3231M::disable32k() {
 }
 
 /**
- *@brief Comprueba si el RTC perdió la alimentación auxiliar
+ * @brief Comprueba si el RTC perdió la alimentación auxiliar
+ * @return Verdadero si se perdió la alimentación auxiliar
  */
 bool DS3231M::lostPower(void) {
   uint8_t status[1];
@@ -397,23 +399,3 @@ uint8_t DS3231M::dayOfTheWeek(uint16_t y, uint8_t m, uint8_t d) const {
   uint8_t dayOfWeek = (k + (26 * (month + 1)) / 10 + D + D / 4 + C / 4 + 5 * C) % 7;
   return (dayOfWeek == 0) ? 7 : dayOfWeek;  // Ajusta para que el domingo sea 7 o 1 según la convención.
 }
-
-/***********************************************************************************************************************
- * SECCIÓN DE LICENCIAS DE LIBRERÍAS EXTERNAS (ESPECÍFICAS DE ESTE ARCHIVO)
- *
- * 1.  **Librería: 'DFRobot_DS3231M'**
- * * **Autor:** DFRobot Co.Ltd (yufeng)
- * * **Licencia:** MIT License
- * * **URL:** https://github.com/DFRobot/DFRobot_DS3231M/blob/master/LICENSE
- * * **Compatibilidad con CC-BY-SA 4.0:** Compatible.
- *
- * Para una descripción más detallada de la compatibilidad general de licencias, consulta la sección
- * "SECCIÓN DE LICENCIAS DE LIBRERÍAS EXTERNAS" en 'Airlink.ino'.
- **********************************************************************************************************************/
-
-/***********************************************************************************************************************
- * SECCIÓN DE REFERENCIAS Y AGRADECIMIENTOS (ESPECÍFICAS DE ESTE ARCHIVO)
- *
- * - Datasheet del DS3231M: https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf
- * - Repositorio de la librería DFRobot_DS3231M: https://github.com/DFRobot/DFRobot_DS3231M
- **********************************************************************************************************************/

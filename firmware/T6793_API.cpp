@@ -7,6 +7,8 @@
  * @version     1.0
  *
  * @copyright   GNU General Public License version 3 or later
+ *
+ * @note        Este módulo es una capa de abstracción sobre la librería T67XX.
  **********************************************************************************************************************/
 
 #include "T6793_API.h"
@@ -14,52 +16,55 @@
 #include "Debug.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_T6793 //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
-#define DEBUG_TAG "T6793_API"   //!< Etiqueta al enviar mensajes de depuración
+#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
+#define DEBUG_TAG "T6793_API"    //!< Etiqueta al enviar mensajes de depuración
 
-// Instancia del objeto de la librería para el sensor.
-T67XX t6793_sensor;
-
-// Definición de la variable global.
-uint16_t t6793_co2 = 0;
+T67XX t6793_sensor;      //!< Instancia del objeto de la librería para el sensor.
+uint16_t t6793_co2 = 0;  //!< Definición de la variable global.
 
 /**
- * @brief Inicializa el sensor T6793.
+ * @brief Inicializa el sensor T6793, Configura la comunicación I2C y deshabilita la calibración ABC.
  */
 void t6793_inicializar(void) {
+  uint16_t sensorStatus = 1;
+
   while (!t6793_sensor.begin()) {
-    DEBUG_ERROR("Could not find a valid T67XX sensor, please check wiring");  // Mensaje de error si el sensor no es detectado.
-    delay(2000);                                                                         // Espera 2 segundos antes de reintentar.
+    DEBUG_ERROR("No se ha podido encontrar el sensor, verifique las conexiones");  // Mensaje de error si el sensor no es detectado.
+    delay(2000);                                                                   // Espera 2 segundos antes de reintentar.
   }
-  DEBUG_INFO("Connection with T67XX sensor established");  // Mensaje de éxito.
-  t6793_sensor.reset();                                               // Reinicia el sensor para asegurar un estado conocido.
+  DEBUG_INFO("Conexión establecida. Reiniciando...");  // Mensaje de éxito.
+  t6793_sensor.reset();                                // Reinicia el sensor para asegurar un estado conocido.
 
-  uint16_t sensorStatus = t6793_sensor.getStatus();  // Lee el estado inicial del sensor.
   // Espera a que el sensor salga del estado de calentamiento o cualquier otro estado de error inicial.
-  while (sensorStatus) {
-    DEBUG_INFO("T67XX Status: %s", t6793_sensor.getStatusMsg().c_str());  // Imprime el mensaje de estado actual.
-    delay(T67XX_MEASURE_DELAY);                                              // Espera el tiempo de medición recomendado.
-    sensorStatus = t6793_sensor.getStatus();                                 // Vuelve a leer el estado.
-  }
-  DEBUG_INFO("Sensor firmware version: %u", t6793_sensor.getFirmwareVersion());  // Imprime la versión del firmware.
-  DEBUG_INFO("Enabling ABC self-calibration");                                   // Mensaje informativo.
-  // Deshabilita la calibración automática (ABC).
-  // Esto es recomendable en aplicaciones donde el sensor no está expuesto
-  // regularmente a aire fresco (400 ppm de CO2).
-  t6793_sensor.setABCMode(ABC_LOGIC_ON);
-  DEBUG_INFO("ABC self-calibration enabled.");
+  do {
+    sensorStatus = t6793_sensor.getStatus();                        // Lee el estado inicial del sensor.
+    DEBUG_INFO("Estado: %s", t6793_sensor.getStatusMsg().c_str());  // Imprime el mensaje de estado actual.
+    delay(T67XX_MEASURE_DELAY);                                     // Espera el tiempo de medición recomendado.
+  } while (sensorStatus);
 
-  DEBUG_INFO("Saving settings to flash");  // Mensaje informativo.
-  t6793_sensor.flashUpdate();                         // Guarda las configuraciones en la memoria flash del sensor.
+  DEBUG_INFO("Firmware version: %u", t6793_sensor.getFirmwareVersion());  // Imprime la versión del firmware.
+
+  DEBUG_VERBOSE("Habilitando autocalibración...");  // Mensaje informativo.
+  /* Habilita la calibración automática (ABC).
+   * Esto es recomendable en aplicaciones donde el sensor está expuesto
+   * regularmente a aire fresco (400 ppm de CO2). */
+  t6793_sensor.enableABCMode();
+  DEBUG_INFO("Autocalibración habilitada...");
+
+  DEBUG_INFO("Guardando configuración...");  // Mensaje informativo.
+  t6793_sensor.flashUpdate();                // Guarda las configuraciones en la memoria flash del sensor.
+
+  DEBUG_INFO("Sensor inicializado.");
 }
 
 /**
- * @brief Lee la concentración de CO2 del sensor.
+ * @brief Lee el valor de CO2 del sensor y actualiza la variable global 't6793_co2'.
+ * @return Verdadero si la lectura ha sido correcta
  */
 bool t6793_leer(void) {
   uint16_t sensorStatus = t6793_sensor.getStatus();
   if (sensorStatus & (~(1u >> 0x0F) & 0x01)) {
-    DEBUG_WARN("Lectura de CO2 invalida (0 PPM). T67XX Status: %s", t6793_sensor.getStatusMsg().c_str());
+    DEBUG_WARN("Lectura de CO2 invalida (0 PPM). Estado: %s", t6793_sensor.getStatusMsg().c_str());
     t6793_co2 = 0;
     return false;
   }

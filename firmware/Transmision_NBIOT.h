@@ -14,14 +14,13 @@
  * por los sensores a una plataforma de monitoreo remoto.
  **********************************************************************************************************************/
 #include "Configuracion.h"
+
 #if HABILITAR_NBIOT
 
 #ifndef TRANSMISION_NBIOT_H
 #define TRANSMISION_NBIOT_H
 
 #include <ArduinoJson.h>
-
-/* --- SETTINGS NB_IoT --- */
 
 #define OK 1
 #define NOTOK 2
