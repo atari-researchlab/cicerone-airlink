@@ -2,12 +2,11 @@
  * @file DS3231M.cpp
  * @brief Define la estructura básica de la clase DS3231M.
  *
- * @author      [ALD-DSL/ATARI-UCA]
+ * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22]
  * @version     1.0
  *
- * @license     Este código fuente está licenciado bajo CC-BY-SA 4.0.
- * http://creativecommons.org/licenses/by-sa/4.0/
+ * @copyright   GNU General Public License version 3 or later
  *
  * @note Este archivo implementa las funcionalidades para el módulo de reloj en tiempo real (RTC) DS3231M.
  * Proporciona métodos para leer y establecer la hora y fecha, gestionar alarmas y otras configuraciones del RTC.
@@ -32,11 +31,11 @@
  **********************************************************************************************************************/
 
 #include "DS3231M.h"  // Incluye la cabecera de la clase DS3231M.
-#include "Debug.h"              // Contiene las macros para controlar la salida de depuración por Serial.
+#include "Debug.h"    // Contiene las macros para controlar la salida de depuración por Serial.
 
-#define DEBUG_TAG "DS3231M"
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_DS3231M
+#define DEBUG_LEVEL DEBUG_DS3231M  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
+#define DEBUG_TAG "DS3231M"        //!< Etiqueta al enviar mensajes de depuración
 
 // Array en PROGMEM (memoria de programa) que almacena el número de días en cada mes.
 // Esto ahorra memoria RAM en microcontroladores.

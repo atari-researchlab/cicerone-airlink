@@ -1,16 +1,14 @@
 /***********************************************************************************************************************
  * @file        Transmision_NBIOT.cpp
  * @brief       Implementación de las funciones para la transmisión de datos vía NB-IoT.
- * Este archivo contiene las definiciones de las variables globales y las implementaciones
+ * @details     Este archivo contiene las definiciones de las variables globales y las implementaciones
  * de las funciones declaradas en 'Transmision_NBIOT.h'.
  *
- * @author      [ALD-DSL/ATARI-UCA]
+ * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07/Última Modificación]
  * @version     1.0
- * @license     Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0)
- * Este archivo es parte de tu proyecto principal y está bajo la Licencia CC-BY-SA 4.0.
- * Las librerías subyacentes como 'ArduinoJson' están bajo Licencia MIT, compatible con CC-BY-SA 4.0.
- * Para más detalles, consulta: https://creativecommons.org/licenses/by-sa/4.0/
+ *
+ * @copyright   GNU General Public License version 3 or later
  *
  * @note        Este módulo es fundamental para la conectividad y el envío de datos recopilados
  * por los sensores a una plataforma de monitoreo remoto.
@@ -18,32 +16,23 @@
 #include "Configuracion.h"
 #if HABILITAR_NBIOT
 
-/***********************************************************************************************************************
- * INCLUSIÓN DE LIBRERÍAS Y ARCHIVOS DE CABECERA DEL PROYECTO
- **********************************************************************************************************************/
-//#include <String.h>
 #include <ArduinoJson.h>
-#include "Configuracion.h"      // Archivo de configuración central para habilitar/deshabilitar módulos.
-#include "Debug.h"              // Contiene las macros para controlar la salida de depuración por Serial.
-#include "Transmision_NBIOT.h"  // Incluye la cabecera con las declaraciones de este módulo.
-#include "Alarma.h"             // Incluye la cabecera con las declaraciones de este módulo.
-#include "SEN5X_API.h"          // Incluye la cabecera para la lectura del sensor SEN5X.
-#include "T6793_API.h"          // Incluye la cabecera para la lectura del sensor T6793.
-/*
-#if HABILITAR_TOS
-#include "Tos.h" // Módulo para la detección de tos usando un modelo de Machine Learning (Edge Impulse).
-#endif
-*/
+#include "Configuracion.h"
+#include "Debug.h"
+#include "Transmision_NBIOT.h"
+#include "Alarma.h"
+#include "SEN5X_API.h"
+#include "T6793_API.h"
 
-#define DEBUG_TAG "NBIOT"
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_NBIOT
+#define DEBUG_LEVEL DEBUG_NBIOT  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
+#define DEBUG_TAG "NBIOT"        //!< Etiqueta al enviar mensajes de depuración
 
-/***********************************************************************************************************************
+/*
  * DEFINICIONES DE VARIABLES GLOBALES PARA DATOS DE TRANSMISIÓN
  *
  * Aquí se definen (se les asigna memoria) las variables globales declaradas en 'Transmision_NBIOT.h'.
- **********************************************************************************************************************/
+ */
 String ppm1 = "100";   // Valor de PM1.0 (ejemplo inicial).
 String ppm25 = "100";  // Valor de PM2.5 (ejemplo inicial).
 String ppm4 = "100";   // Valor de PM4.0 (ejemplo inicial).
@@ -53,7 +42,6 @@ String hum = "70";     // Valor de humedad (ejemplo inicial).
 String co2 = "10";     // Valor de CO2 (ejemplo inicial).
 String voc = "15";     // Valor de VOC (ejemplo inicial).
 // String nox = "100";    // Valor de NOx (ejemplo inicial).
-// String tos = "-1";     // Valor de detección de tos (ejemplo inicial, -1 indica no disponible/no detectado).
 
 JsonDocument doc;
 String json_data;  // Cadena que contendrá el payload JSON completo.
@@ -66,8 +54,8 @@ const char* respuestas[5] = { "", "OK", "NOTOK", "TIMEOUTERR", "RST" };
  **********************************************************************************************************************/
 
 /**
- * @brief Inicializa el módulo NB-IoT (SIM7020).
- * Configura el puerto serie para la comunicación con el módulo y realiza
+ * @brief     Inicializa el módulo NB-IoT (SIM7020).
+ * @details   Configura el puerto serie para la comunicación con el módulo y realiza
  * una serie de comandos AT para asegurar que el módulo esté operativo y conectado a la red.
  */
 void nbiot_inicializar() {
@@ -134,13 +122,13 @@ String SIM7020read(void) {
 }
 
 /**
- * @brief Envía un comando AT al módulo SIM7020 y espera una respuesta específica.
- * @param command El comando AT a enviar.
- * @param response1 La cadena de respuesta esperada para considerar el comando exitoso.
- * @param response2 Cadena a buscar si no se espera una respuesta "OK".
- * @param timeout Tiempo máximo de espera para la respuesta en milisegundos.
- * @param repetitions Número de reintentos si la respuesta no es la esperada.
- * @return OK si la respuesta es la esperada, NOTOK si no, TIMEOUTERR si se agota el tiempo.
+ * @brief   Envía un comando AT al módulo SIM7020 y espera una respuesta específica.
+ * @param   command El comando AT a enviar.
+ * @param   response1 La cadena de respuesta esperada para considerar el comando exitoso.
+ * @param   response2 Cadena a buscar si no se espera una respuesta "OK".
+ * @param   timeout Tiempo máximo de espera para la respuesta en milisegundos.
+ * @param   repetitions Número de reintentos si la respuesta no es la esperada.
+ * @return  OK si la respuesta es la esperada, NOTOK si no, TIMEOUTERR si se agota el tiempo.
  */
 byte SIM7020command(String command, String response1, String response2, unsigned long timeout, uint16_t repetitions) {
   byte returnValue = RST;
@@ -159,11 +147,11 @@ byte SIM7020command(String command, String response1, String response2, unsigned
 }
 
 /**
- * @brief Función de espera una respuesta específica con tiempo máximo.
- * @param response1 La cadena de respuesta esperada para considerar el comando exitoso.
- * @param response2 Cadena a buscar si no se espera una respuesta "OK".
- * @param timeout Tiempo máximo de espera para la respuesta en milisegundos.
- * @return OK si la respuesta es la esperada, NOTOK si no, TIMEOUTERR si se agota el tiempo.
+ * @brief   Función de espera una respuesta específica con tiempo máximo.
+ * @param   response1 La cadena de respuesta esperada para considerar el comando exitoso.
+ * @param   response2 Cadena a buscar si no se espera una respuesta "OK".
+ * @param   timeout Tiempo máximo de espera para la respuesta en milisegundos.
+ * @return  OK si la respuesta es la esperada, NOTOK si no, TIMEOUTERR si se agota el tiempo.
  */
 byte SIM7020waitFor(String response1, String response2, unsigned long timeout) {
   unsigned long millis0 = millis();
@@ -190,8 +178,8 @@ byte SIM7020waitFor(String response1, String response2, unsigned long timeout) {
 }
 
 /**
- * @brief Transmite los datos de los sensores al servidor.
- * Esta función es la principal para la transmisión de datos.
+ * @brief     Transmite los datos de los sensores al servidor.
+ * @details   Esta función es la principal para la transmisión de datos.
  * Construye el JSON, lo convierte a hexadecimal y realiza la solicitud HTTP POST.
  */
 void nbiot_enviar(void) {
@@ -200,8 +188,8 @@ void nbiot_enviar(void) {
 }
 
 /**
- * @brief Crea el payload JSON con los datos actuales de los sensores.
- * Los datos se obtienen de las variables globales y se formatean en una cadena JSON.
+ * @brief     Crea el payload JSON con los datos actuales de los sensores.
+ * @details   Los datos se obtienen de las variables globales y se formatean en una cadena JSON.
  */
 void nbiot_paquete(void) {
 
@@ -228,9 +216,9 @@ void nbiot_paquete(void) {
 }
 
 /**
- * @brief Convierte un objeto JSON a una cadena hexadecimal.
- * @param doc El objeto DynamicJsonDocument a convertir.
- * @return Cadena que representa el JSON en formato hexadecimal.
+ * @brief   Convierte un objeto JSON a una cadena hexadecimal.
+ * @param   doc El objeto DynamicJsonDocument a convertir.
+ * @return  Cadena que representa el JSON en formato hexadecimal.
  */
 String jsonToHex(const JsonDocument& doc) {
   String hexString = "";
@@ -245,8 +233,8 @@ String jsonToHex(const JsonDocument& doc) {
 }
 
 /**
- * @brief Realiza una solicitud HTTP POST al servidor.
- * Utiliza comandos AT específicos del módulo SIM7020 para crear una conexión HTTP
+ * @brief     Realiza una solicitud HTTP POST al servidor.
+ * @details   Utiliza comandos AT específicos del módulo SIM7020 para crear una conexión HTTP
  * y enviar los datos hexadecimales como payload.
  */
 void nbiot_transmitir(void) {

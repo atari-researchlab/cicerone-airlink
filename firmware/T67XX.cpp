@@ -1,7 +1,7 @@
 /***********************************************************************************************************************
  * @file        T67XX.cpp
  * @brief       This is a library for the Telaire T6700 Series Miniature CO2 Sensor Module.
- * These sensors use UART and I2C to communicate, this library intended for I2C communication option,
+ * @details     These sensors use UART and I2C to communicate, this library intended for I2C communication option,
  * 2 pins are required to interface. To enable I2C communication, connect CTRL pin (pin 6 on the module)
  * to GND.
  *
@@ -9,7 +9,7 @@
  * @date        2020
  * @version     1.0.0
  *
- * @license     MIT License
+ * @copyright     MIT License
  *
  * Copyright (c) 2020 Yaroslav Osadchyy
  *
@@ -32,11 +32,11 @@
  * SOFTWARE.
  **********************************************************************************************************************/
 #include "T67XX.h"
-#include "Debug.h"  // Contiene definiciones de macros de depuración.
+#include "Debug.h"
 
-#define DEBUG_TAG "T67XX"
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_T6793
+#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
+#define DEBUG_TAG "T67XX"        //!< Etiqueta al enviar mensajes de depuración
 
 T67XX::T67XX() {}
 

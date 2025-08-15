@@ -2,32 +2,26 @@
  * @file        T6793_API.cpp
  * @brief       Implementación de la API para el sensor de CO2 Telaire T6793-5K.
  *
- * @author      [ALD-DSL/ATARI-UCA]
+ * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22]
  * @version     1.0
  *
- * @license     Este código fuente está licenciado bajo CC-BY-SA 4.0.
- * http://creativecommons.org/licenses/by-sa/4.0/
+ * @copyright   GNU General Public License version 3 or later
  **********************************************************************************************************************/
 
 #include "T6793_API.h"
 #include "T67XX.h"
-#include "Debug.h"              // Contiene las macros para controlar la salida de depuración por Serial.
+#include "Debug.h"
 
-// Etiqueta para los mensajes de depuración.
-#define DEBUG_TAG "T6793_API"
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_T6793
+#define DEBUG_LEVEL DEBUG_T6793 //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
+#define DEBUG_TAG "T6793_API"   //!< Etiqueta al enviar mensajes de depuración
 
 // Instancia del objeto de la librería para el sensor.
 T67XX t6793_sensor;
 
 // Definición de la variable global.
 uint16_t t6793_co2 = 0;
-
-/***********************************************************************************************************************
- * IMPLEMENTACIÓN DE FUNCIONES
- **********************************************************************************************************************/
 
 /**
  * @brief Inicializa el sensor T6793.

@@ -9,7 +9,7 @@
  * @date        2020
  * @version     1.0.0
  *
- * @license     MIT License
+ * @copyright     MIT License
  *
  * Copyright (c) 2020 Yaroslav Osadchyy
  *

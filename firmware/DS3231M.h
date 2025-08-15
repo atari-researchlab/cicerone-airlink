@@ -2,12 +2,11 @@
  * @file DS3231M.cpp
  * @brief Define la estructura básica de la clase DS3231M.
  *
- * @author      [ALD-DSL/ATARI-UCA]
+ * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22]
  * @version     1.0
  *
- * @license     Este código fuente está licenciado bajo CC-BY-SA 4.0.
- * http://creativecommons.org/licenses/by-sa/4.0/
+ * @copyright   GNU General Public License version 3 or later
  *
  * @note Este archivo implementa las funcionalidades para el módulo de reloj en tiempo real (RTC) DS3231M.
  * Proporciona métodos para leer y establecer la hora y fecha, gestionar alarmas y otras configuraciones del RTC.

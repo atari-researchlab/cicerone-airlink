@@ -2,26 +2,24 @@
  * @file        SEN5X_API.cpp
  * @brief       Implementación de las funciones para la lectura e inicialización del sensor Sensirion SEN5X.
  *
- * @author      [ALD-DSL/ATARI-UCA] (Basado en la integración de la librería Sensirion)
+ * @author      [ALD-DSL/ATARI_RESEARCH_LAB] (Basado en la integración de la librería Sensirion)
  * @date        [2024-07-22]
  * @version     1.0
  *
- * @license     Este código fuente está licenciado bajo CC-BY-SA 4.0.
- * http://creativecommons.org/licenses/by-sa/4.0/
+ * @copyright   GNU General Public License version 3 or later
  *
  * @note        Este módulo utiliza la librería 'SensirionI2CSen5x' de Sensirion.
  * Copyright (c) 2021, Sensirion AG
  * Licencia: BSD-3-Clause
  **********************************************************************************************************************/
-#include <Arduino.h>
+
 #include <SensirionI2CSen5x.h>  // Librería de Sensirion. Licencia: BSD-3-Clause.
 #include "SEN5X_API.h"
 #include "Debug.h"              // Contiene las macros para controlar la salida de depuración por Serial.
 
-// Etiqueta para los mensajes de depuración de este módulo.
-#define DEBUG_TAG "SEN5X_API"
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_SEN5X
+#define DEBUG_LEVEL DEBUG_SEN5X //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
+#define DEBUG_TAG "SEN5X_API"   //!< Etiqueta al enviar mensajes de depuración
 
 // Instancia del objeto de la librería de Sensirion para el sensor SEN5X.
 SensirionI2CSen5x sen5x;

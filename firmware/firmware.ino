@@ -1,48 +1,36 @@
 /***********************************************************************************************************************
- * @file        Airlink.ino
+ * @file        firmware.ino
  * @brief       Código principal para un sistema de monitoreo de calidad del aire ("Airlink").
- * Este programa integra lecturas de diversos sensores y gestiona su funcionamiento
+ * @details     Este programa integra lecturas de diversos sensores y gestiona su funcionamiento
  * a través de temporizadores no bloqueantes (millis). Incluye módulos opcionales
  * para transmisión de datos por NB-IoT y para detección de tos mediante Edge Impulse.
  *
- * @author      [TU_NOMBRE_AQUÍ / ALD-DSL/ATARI-UCA]
+ * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22 / Última Modificación]
- * @version     1.0
+ * @version     1.0-rc1
  *
- * @license     Este código fuente (Airlink.ino y los archivos .cpp/.h del proyecto) está licenciado
- * bajo la Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA 4.0).
- * Para ver una copia de la licencia, visita: http://creativecommons.org/licenses/by-sa/4.0/
- *
- * @note        Este archivo es el punto de entrada del programa.
+ * @copyright   GNU General Public License version 3 or later
+ * @warning     Se debe configurar correctamente los valores del servidor y APN para poder utilizar el módulo de IoT.
+ * @see         Configuracion.h
  **********************************************************************************************************************/
 
-/***********************************************************************************************************************
- * INCLUSIÓN DE LIBRERÍAS Y MÓDULOS
- **********************************************************************************************************************/
-#include <Arduino.h>        // Librería principal de Arduino (funciones básicas como setup, loop, millis). Licencia: LGPL.
 #include "Configuracion.h"  // Archivo de configuración central para habilitar/deshabilitar módulos.
 #include "Debug.h"          // Contiene las macros para controlar la salida de depuración por Serial.
 #include "Alarma.h"         // Módulo propio para la gestión de temporizadores (alarmas periódicas).
 #include "SEN5X_API.h"      // API para el manejo del sensor Sensirion SEN5X.
 #include "T6793_API.h"      // API para el manejo del sensor de CO2 T6793-5K.
 
-//--- Inclusión condicional de módulos (controlado desde Configuracion.h) ---
+// --- Inclusión condicional de módulos (controlado desde Configuracion.h) ---
 #if HABILITAR_NBIOT
 #include "Transmision_NBIOT.h"  // Módulo para la transmisión de datos vía Narrowband IoT.
 #endif
-/*
-#if HABILITAR_TOS
-#include "Tos.h" // Módulo para la detección de tos usando un modelo de Machine Learning (Edge Impulse).
-#endif
-*/
 
-#define DEBUG_TAG "MAIN"
+#define DEBUG_TAG "MAIN"  //!< Etiqueta al enviar mensajes de depuración
 
-/***********************************************************************************************************************
- * FUNCIÓN setup()
+/**
+ * @brief Inicializa las comunicaciones, los sensores y los módulos del sistema.
  * Se ejecuta una sola vez al encender o reiniciar el microcontrolador.
- * Inicializa las comunicaciones, los sensores y los módulos del sistema.
- **********************************************************************************************************************/
+ */
 void setup() {
   // Inicialización del puerto serie si la depuración está habilitada en Configuracion.h
 #if (DEBUG_LEVEL >= 1)
@@ -75,20 +63,14 @@ void setup() {
   nbiot_inicializar();
   DEBUG_INFO("Módulo NB-IoT inicializado.");
 #endif
-  /*
-#if HABILITAR_TOS
-  inicializar_tos();
-  DEBUG_INFO("Módulo de Detección de Tos inicializado.");
-#endif
-*/
+
   DEBUG_INFO("Inicializacion completada. Iniciando bucle principal.");
 }
 
-/***********************************************************************************************************************
- * FUNCIÓN loop()
- * Se ejecuta repetidamente después de que setup() ha terminado.
+/**
+ * @brief Se ejecuta repetidamente después de que setup() ha terminado.
  * Es el corazón del programa, donde se comprueban y ejecutan las tareas periódicas.
- **********************************************************************************************************************/
+ */
 void loop() {
   // Comprueba si se ha activado la alarma de 5 segundos para leer los sensores.
   // Esta función es no bloqueante y se basa en millis().
@@ -124,10 +106,4 @@ void loop() {
     // Reinicia la bandera para la siguiente iteración
     alarma_10min = false;
   }
-
-  // Ejecuta el bucle de inferencia para la detección de tos, si está habilitado.
-  // Esta función debe ser llamada tan frecuentemente como sea posible.
-#if HABILITAR_TOS
-  loop_tos();
-#endif
 }
