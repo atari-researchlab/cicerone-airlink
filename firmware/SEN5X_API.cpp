@@ -45,7 +45,6 @@ void sen5x_inicializar(void) {
   sen5x.begin(Wire);  // Inicia la comunicación I2C.
 
   uint16_t error;
-  char errorMessage[256];
 
   // Reinicia el sensor para asegurar un estado conocido.
   error = sen5x.deviceReset();

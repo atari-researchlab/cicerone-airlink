@@ -41,48 +41,6 @@
 #define DEBUG_LEVEL DEBUG_DS3231M  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
 #define DEBUG_TAG "DS3231M"        //!< Etiqueta al enviar mensajes de depuración
 
-/** 
- * @brief Array que almacena el número de días en cada mes.
- * @details Al guardarlo en la memoria del programa se ahorra memoria RAM.
- */
-const uint8_t daysInMonth[] PROGMEM = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
-/**
- * @brief Convierte un año, mes y día en el número total de días desde el año 2000.
- * @param y Año (ej. 2024).
- * @param m Mes (1-12).
- * @param d Día (1-31).
- * @return Número total de días desde el 1 de enero del año 2000.
- */
-static uint16_t date2days(uint16_t y, uint8_t m, uint8_t d) {
-  if (y >= 2000)
-    y -= 2000;        // Elimina el offset del año (ej. 2024 -> 24).
-  uint16_t days = d;  // Inicializa los días con el día actual.
-  for (uint8_t i = 1; i < m; ++i) {
-    // Suma los días de los meses anteriores. pgm_read_byte se usa para leer de PROGMEM.
-    days += pgm_read_byte(daysInMonth + i - 1);
-  }
-  // Si el año es bisiesto y el mes es posterior a febrero, añade un día extra.
-  if (m > 2 && y % 4 == 0)
-    days++;
-  return days + 365 * y + (y + 3) / 4 - 1;  // Calcula los días totales incluyendo años bisiestos.
-}
-
-/**
- * @brief Convierte un año, mes, día y hora en segundos desde el 1 de enero de 2000.
- * @param y Año.
- * @param m Mes.
- * @param d Día.
- * @param h Hora.
- * @param mi Minuto.
- * @param s Segundo.
- * @return Número total de segundos desde el 1 de enero de 2000.
- */
-static uint32_t time2long(uint16_t y, uint8_t m, uint8_t d, uint8_t h, uint8_t mi, uint8_t s) {
-  // Convierte la fecha a días y luego a segundos, sumando los segundos de la hora, minuto y segundo actuales.
-  return ((uint32_t)date2days(y, m, d) * 24L * 60L * 60L) + (h * 60L * 60L) + (mi * 60L) + s;
-}
-
 /**
  * @brief Inicializa la comunicación I2C.
  * @return Verdadero si tiene éxito la comunicación con el módulo, falso si es errónea.

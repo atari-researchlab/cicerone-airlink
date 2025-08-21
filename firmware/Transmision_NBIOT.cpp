@@ -168,7 +168,7 @@ byte SIM7020waitFor(String response1, String response2, unsigned long timeout) {
     reply = SIM7020board.readString();  //SIM7020read();
     if (reply != "") {
       reply.replace('\n', ' ');
-      DEBUG_VERBOSE("Ans: %s in %u ms", reply.c_str(), (millis() - millis0));
+      DEBUG_VERBOSE("Ans: %s in %lu ms", reply.c_str(), (millis() - millis0));
     }
   } while ((reply.indexOf(response1) + reply.indexOf(response2) == -2) && (millis() - millis0) < timeout);
 
@@ -231,7 +231,7 @@ String jsonToHex(const JsonDocument& doc) {
   serializeJson(doc, json_data);
 
   // Itera sobre cada carácter de la cadena JSON.
-  for (int i = 0; i < json_data.length(); i++) {
+  for (uint8_t i = 0; i < json_data.length(); i++) {
     hexString += String(json_data[i], HEX);
   }
 

@@ -13,7 +13,7 @@
 
 #ifndef ALARMA_H
 #define ALARMA_H
-
+#include <Arduino.h>
 #include "DS3231M.h"
 
 /**

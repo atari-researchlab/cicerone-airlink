@@ -6,3 +6,4 @@ Gemfile.lock
 hardware/~$BOM.xlsx
 docs/~$CERONE AirLink.docx
 /firmware/documentation
+/firmware/build

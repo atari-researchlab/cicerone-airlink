@@ -19,7 +19,7 @@
 
 #ifndef TRANSMISION_NBIOT_H
 #define TRANSMISION_NBIOT_H
-
+#include <Arduino.h>
 #include <ArduinoJson.h>
 
 #define OK 1

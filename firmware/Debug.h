@@ -41,7 +41,7 @@
 #define DEBUG_DS3231M 2  //!< Controla la cantidad de información depuración del RTC.
 #define DEBUG_NBIOT 2    //!< Controla la cantidad de información del módulo NB-IoT.
 /**@}*/
-
+#include <Arduino.h>
 #include <stdarg.h>  // Necesario para va_list, va_start, va_end
 #include <stdio.h>   // Necesario para snprintf
 

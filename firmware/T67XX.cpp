@@ -61,8 +61,8 @@ uint16_t T67XX::getStatus(void) {
   DEBUG_VERBOSE("FEDCBA9876543210");
   String sStatus = String("0000000000000000") + String(_status.raw_value, BIN);
   sStatus.remove(0, sStatus.length() - 16);
-  DEBUG_VERBOSE("%s", sStatus);
-  DEBUG_VERBOSE("Banderas: %s", this->getStatusMsg());
+  DEBUG_VERBOSE("%s", sStatus.c_str());
+  DEBUG_VERBOSE("Banderas: %s", this->getStatusMsg().c_str());
 
   return _status.raw_value;
 };
@@ -75,6 +75,7 @@ uint16_t T67XX::getFirmwareVersion(void) {
   DEBUG_VERBOSE("Leyendo versión del firmware...");
   uint16_t firmware_version = this->read16(T67XX_REG_FIRMWARE);
   DEBUG_VERBOSE("Firmware: 0x%04X", firmware_version);
+  return firmware_version;
 };
 
 /**

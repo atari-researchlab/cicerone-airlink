@@ -22,7 +22,7 @@
 
 #ifndef T67XX_H
 #define T67XX_H
-
+#include <Arduino.h>
 #include <Wire.h>
 
 #define T67XX_DEFAULT_I2C_ADDR 0x15   //!< Dirección I2C por defecto

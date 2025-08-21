@@ -143,7 +143,7 @@ void rtc_alarma_inicializar(void) {
     minuto_siguiente = 0;
   }
 #endif
-  DEBUG_INFO("Proxima alarma de 10min programada para el minuto: %lu", minuto_siguiente);
+  DEBUG_INFO("Proxima alarma de 10min programada para el minuto: %u", minuto_siguiente);
 }
 
 /**
@@ -221,7 +221,7 @@ void check_alarma_10min(void) {
     fecha = String(buffer);
     snprintf(buffer, 25, "%02d:%02d:%02d", now.hour(), now.minute(), now.second());
     hora = String(buffer);
-    DEBUG_INFO("Proxima alarma de 10min programada para el minuto: %lu", minuto_siguiente);
+    DEBUG_INFO("Proxima alarma de 10min programada para el minuto: %u", minuto_siguiente);
   }
 }
 

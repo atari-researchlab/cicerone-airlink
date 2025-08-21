@@ -14,7 +14,7 @@
 
 #ifndef SEN5X_API_H
 #define SEN5X_API_H
-
+#include <Arduino.h>
 /**
  * @{
  * @name      Variables globales externas

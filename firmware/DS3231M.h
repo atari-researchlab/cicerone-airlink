@@ -35,7 +35,7 @@
 
 #ifndef _DS3231M_H  // Guarda de inclusión para evitar inclusiones múltiples.
 #define _DS3231M_H
-
+#include <Arduino.h>
 #include <Wire.h>
 
 /**
