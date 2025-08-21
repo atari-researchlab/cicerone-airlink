@@ -3,7 +3,25 @@ _site
 Gemfile.lock
 *.gem
 .jekyll-cache
-hardware/~$BOM.xlsx
-docs/~$CERONE AirLink.docx
-/firmware/documentation
-/firmware/build
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*~
+~*
+
+# Arduino/CPP
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.o
+
+# Binary files
+*.hex
+*.elf
+*.map
+/firmware/build/*
+!/firmware/build/arduino*/

@@ -61,20 +61,20 @@ PROJECT_BRIEF          = "CICERONE AirLink is an indoor air quality telemonitori
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = C:/GitHub/cicerone-airlink/docs/img/cicerone-logo.png
+PROJECT_LOGO           = ../docs/img/cicerone-logo.png
 
 # With the PROJECT_ICON tag one can specify an icon that is included in the tabs
 # when the HTML document is shown. Doxygen will copy the logo to the output
 # directory.
 
-PROJECT_ICON           = C:/GitHub/cicerone-airlink/docs/img/cicerone-logo.png
+PROJECT_ICON           = ../docs/img/cicerone-logo.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
 # entered, it will be relative to the location where Doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = C:/GitHub/cicerone-airlink/firmware/documentation
+OUTPUT_DIRECTORY       = ../docs/firmware
 
 # If the CREATE_SUBDIRS tag is set to YES then Doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -991,7 +991,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = C:/GitHub/cicerone-airlink/firmware
+INPUT                  = ../firmware
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1096,9 +1096,9 @@ RECURSIVE              = NO
 # Note that relative paths are relative to the directory from which Doxygen is
 # run.
 
-EXCLUDE                = C:/GitHub/cicerone-airlink/firmware/LICENSE.md \
-                         C:/GitHub/cicerone-airlink/firmware/nano33.yml \
-                         C:/GitHub/cicerone-airlink/firmware/arduino-cli.yaml
+EXCLUDE                = ../firmware/LICENSE.md \
+                         ../firmware/nano33.yml \
+                         ../firmware/arduino-cli.yaml
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
