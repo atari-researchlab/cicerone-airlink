@@ -1,0 +1,26 @@
+var class_t67_x_x =
+[
+    [ "StatusRegister", "union_t67_x_x_1_1_status_register.html", "union_t67_x_x_1_1_status_register" ],
+    [ "T67XX", "class_t67_x_x.html#a1d74c868e8ec604e027803e800da2497", null ],
+    [ "~T67XX", "class_t67_x_x.html#a1f4d9562a0c81fc0e126e48ef39d1751", null ],
+    [ "begin", "class_t67_x_x.html#aac12eed2212007f454a49ac054a2c824", null ],
+    [ "readPPM", "class_t67_x_x.html#a0c01b3dbe3677210964239346d13a2d7", null ],
+    [ "getStatus", "class_t67_x_x.html#a4b5cd427e993e14e0f9e36f39c165087", null ],
+    [ "getFirmwareVersion", "class_t67_x_x.html#a6ff3dbc1dbeb3f2533258c0dd7a06178", null ],
+    [ "reset", "class_t67_x_x.html#a4594b4c82e4f90efdfe5f6466e99f7ae", null ],
+    [ "enableABCMode", "class_t67_x_x.html#a8fe8a4f7ce7348e552d39c5bdd1bdcf6", null ],
+    [ "disableABCMode", "class_t67_x_x.html#abe1256a791a71836113af31ed666048f", null ],
+    [ "setSlaveAddress", "class_t67_x_x.html#ac1cc4d61525547efa76e3ce5da52da90", null ],
+    [ "flashUpdate", "class_t67_x_x.html#a447a65c4d22a8907e30c82e2e23aadce", null ],
+    [ "beginCalibration", "class_t67_x_x.html#a35bdb687ba69478216327811272524bb", null ],
+    [ "endCalibration", "class_t67_x_x.html#a3ab24fa2a494b983bc718334d2f5b9a5", null ],
+    [ "getStatusMsg", "class_t67_x_x.html#aa742ac80ca8e9b011ee9cbf247344d08", null ],
+    [ "read8", "class_t67_x_x.html#a3db077b48444613b521ee9ce76fa49bc", null ],
+    [ "read16", "class_t67_x_x.html#a198a72f14ad3a99c9f67bfe745b836f2", null ],
+    [ "write8", "class_t67_x_x.html#a64cc363f9de44f23879b362f8b6dcd4f", null ],
+    [ "write16", "class_t67_x_x.html#ac82470832646e615929832f78353fd2f", null ],
+    [ "_data", "class_t67_x_x.html#a533652a8c271b8dfb817d7de8cd4beb4", null ],
+    [ "_pWire", "class_t67_x_x.html#a33d5360dc9a699b62a2accd690b02a3f", null ],
+    [ "_status", "class_t67_x_x.html#a84943fa620846cfb5809cd0a5650d265", null ],
+    [ "_deviceAddr", "class_t67_x_x.html#a7788ed45480e247a71dfda8295b0751d", null ]
+];

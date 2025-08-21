@@ -1,0 +1,7 @@
+{
+    "board": "arduino:mbed_nano:nano33ble",
+    "programmer": "cmsis-dap",
+    "sketch": "firmware/firmware.ino",
+    "output": "firmware/build",
+    "intelliSenseGen": "global"
+}

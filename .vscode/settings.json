@@ -1,0 +1,8 @@
+{
+  "arduino.tools": "${userHome}/AppData/Local/Arduino15/packages/arduino/tools",
+  "arduino.boardtype": "${userHome}/AppData/Local/Arduino15/packages/arduino/hardware/mbed_nano/4.4.1",
+  "arduino.libraries": "${userHome}/Documents/Arduino/libraries",
+  "arduino.useArduinoCli": true,
+  "arduino.logLevel": "info",
+  "arduino.path": "C:/Program Files/Arduino CLI"
+}
