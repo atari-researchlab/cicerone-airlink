@@ -3,6 +3,7 @@
         "vscode-arduino.vscode-arduino-community",
         "ms-vscode.cpptools-extension-pack",
         "yzhang.markdown-all-in-one",
-        "davidanson.vscode-markdownlint"
+        "davidanson.vscode-markdownlint",
+        "redhat.vscode-yaml"
     ]
 }

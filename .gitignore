@@ -11,6 +11,7 @@ Gemfile.lock
 *.tmp
 *~
 ~*
+.mkdoxy
 
 # Arduino/CPP
 # Prerequisites

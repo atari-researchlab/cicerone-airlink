@@ -5,17 +5,32 @@ repo_name: atari-researchlab/cicerone-airlink
 copyright: Copyright © 2025 Grupo ATARI –
   <a href="#__consent">Change cookie settings</a>
 
+plugins:
+  - search:
+      lang:
+        - en
+        - es
+  - mkdoxy:
+      enabled: !ENV [ENABLE_MKDOXY, True]
+      projects:
+        firmware: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: firmware # list of source directories (relative to the mkdocs.yml file)
+          doxy-cfg-file: .doxygen/Doxyfile # relative path to the Doxygen configuration file (relative to the mkdocs.yml file)s
+      save-api: #.mkdoxy # directory where the generated files will be saved (relative to the mkdocs.yml file)
+      debug: False # if True, it will print debug information
+      ignore-errors: False # if True, it will ignore errors and continue generating the documentation
+
 extra:
   alternate:
     - name: English
       link: /
       lang: en
-    - name: Español
-      link: /es/
-      lang: es
+    # - name: Español
+    #   link: /es/
+    #   lang: es
   consent:
     title: Cookie consent
-    description: >- 
+    description: >-
       We use cookies to recognize your repeated visits and preferences, as well
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
@@ -25,9 +40,9 @@ extra:
         name: GitHub
         checked: false
   social:
-    - icon: fontawesome/brands/instagram 
+    - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/grupoatari/
-    - icon: fontawesome/brands/youtube 
+    - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/channel/UC44JD74j4QEr4diN6-1qpBg
 
 theme:
@@ -51,20 +66,22 @@ theme:
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
   features:
-    - navigation.expand
     - navigation.path
     - navigation.indexes
-    - navigation.sections
+    - navigation.top
     - content.code.copy
     - content.code.annotate
     - navigation.instant
     - navigation.instant.progress
-    - search
     - search.highlight
   custom_dir: docs/_overrides
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
   - admonition
@@ -89,23 +106,33 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
-- Home: index.md
-- Description: 
-  - description/index.md
-  - description/electronics.md
-  - description/firmware.md
-- User Guide:
-  - user-guide/index.md
-  - user-guide/assembly.md
-  - user-guide/firmware-configuration.md
-- About:
-  - about/index.md
-  - about/citations.md
-  - about/licences.md
-  - about/authors.md
-  - about/funding.md
+  - Home: index.md
+  - Description:
+      - description/index.md
+      - description/electronics.md
+      - description/enclosure.md
+      - description/other-information.md
+  - User Guide:
+      - user-guide/index.md
+      - user-guide/assembly.md
+      - user-guide/firmware-configuration.md
+  - Reference:
+      - firmware/index.md
+      - Class List: firmware/annotated.md
+      - firmware/macros.md
+      - firmware/functions.md
+      - firmware/files.md
+      - firmware/links.md
+  - About:
+      - about/index.md
+      - about/citations.md
+      - about/licences.md
+      - about/authors.md
+      - about/funding.md
 
 not_in_nav: |
   lic-*.md           # lic files
@@ -122,7 +149,7 @@ not_in_nav: |
 #       primary: teal
 #       accent: teal
 #       toggle:
-#         icon: material/weather-sunny 
+#         icon: material/weather-sunny
 #         name: Switch to dark mode
 
 #     # Palette toggle for dark mode

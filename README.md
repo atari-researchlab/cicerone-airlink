@@ -8,9 +8,11 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License". 
 -->
 
+<!-- markdownlint-disable MD041 -->
+
 <p align="center">
   Grant <strong><em>PID2021-126810OB-I00</em></strong> funded by:<br />
-  <img height="100" title="Funded by Ministerio de Ciencia, Innovación y Universidades, European Union and Agencia Estatal de Investigacion" src="docs/img/micin-uefeder-aei.png" /><br />
+  <img height="100" alt="Funded by Ministerio de Ciencia, Innovación y Universidades, European Union and Agencia Estatal de Investigacion" src="docs/img/micin-uefeder-aei.png" /><br />
 </p>
 
 <p align="center">
@@ -23,11 +25,11 @@ Free Documentation License".
 
 * * *
 <a name="top"></a>
-<p align="center"><img height="150" title="CICERONE Logo" src="docs/img/cicerone-logo.png" /></p>
- 
-<div align="center"><img height="200" title="CICERONE AirLink" src="docs/img/airlink-final-device.png" /> </div>
+<p align="center"><img height="150" alt="CICERONE Logo" src="docs/img/cicerone-logo.png" /></p>
 
-<h1 align="center">CICERONE AirLink</h1>
+<p align="center"><img height="200" alt="CICERONE AirLink" src="docs/img/airlink-final-device.png" /> </p>
+
+# CICERONE AirLink
 
 CICERONE AirLink© is an indoor air quality telemonitoring device designed for the project CICERONE (*PID2021-126810OB-I00*).
 
@@ -35,11 +37,15 @@ The air quality device operates by transmitting data every ten minutes for all t
 
 ## Table of Contents
 
-- [Features](#-features)
-- [Specifications](#-specifications)
-- [Documentation](#-documentation)
-- [Citations](#-citations)
-- [Licences](#-licences)
+- [CICERONE AirLink](#cicerone-airlink)
+  - [Table of Contents](#table-of-contents)
+  - [🎓 Features](#-features)
+  - [📝 Specifications](#-specifications)
+  - [📚 Documentation](#-documentation)
+  - [📑 Citations](#-citations)
+    - [APA](#apa)
+    - [BibTeX](#bibtex)
+  - [📃 Licences](#-licences)
 
 ## 🎓 Features
 
@@ -92,9 +98,11 @@ The air quality device operates by transmitting data every ten minutes for all t
 [Back to top](#top)
 
 ## 📑 Citations
+
 Please consider citing our papers in your publications if the project helps your research.
 
-#### APA
+### APA
+
 ````
 [1] Camacho-Magriñán, P.; Sales-Lerida, D.; León-Jiménez, A.; Sanchez-Morillo, D. Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review. Technologies 2025, 13, 122. https://doi.org/10.3390/technologies13030122
 ````
@@ -103,7 +111,7 @@ Please consider citing our papers in your publications if the project helps your
 [2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo. (2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
 ````
 
-#### BibTeX
+### BibTeX
 
 ```` bibtex
 @Article{technologies13030122,
@@ -137,6 +145,7 @@ pages={89-92}
 ## 📃 Licences
 
 All hardware materials and designs, firmware and documentation provided here are licenced under the following licenses:
+
 - Hardware: <a href="/hardware/LICENSE.md" target="_blank"><img src="docs/img/_lic/oshw-logo-filled-color.svg" height="25" alt="Open Source Hardware Logo" /> CERN Open Hardware Licence Version 2 - Strongly Reciprocal</a>
 - Firmware source code: <a href="firmware/LICENSE.md" target="_blank"><img src="docs/img/_lic/gplv3-or-later.svg" height="25" alt="GNU General Public License version 3 or later Logo" /> GNU General Public License version 3 or later</a>
 - Documentation: <a href="/docs/LICENSE.md" target="_blank"><img src="docs/img/_lic/gfdl-logo.svg" height="25" alt="GNU Free Documentation License, Version 1.3 or later Logo" /> GNU Free Documentation License, Version 1.3 or later</a>
