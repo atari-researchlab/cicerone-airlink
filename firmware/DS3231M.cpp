@@ -1,11 +1,11 @@
 /**
  * @file    DS3231M.cpp
- * @brief   Este archivo implementa las funcionalidades para el módulo RTC DS3231M.
- * @details Proporciona métodos para leer y establecer la hora y fecha, gestionar alarmas y otras
- * configuraciones del RTC.
+ * @brief   This file implements functionalities for the DS3231M RTC module.
+ * @details Provides methods for reading and setting time and date, managing alarms and other
+ * RTC configurations.
  *
- * - Datasheet del DS3231M: https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf
- * - Repositorio de la librería DFRobot_DS3231M: https://github.com/DFRobot/DFRobot_DS3231M
+ * - DS3231M Datasheet: https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf
+ * - DFRobot_DS3231M library repository: https://github.com/DFRobot/DFRobot_DS3231M
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -13,12 +13,12 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note Este módulo se basa en la librería de DFRobot para el DS3231M
+ * @note This module is based on the DFRobot library for the DS3231M
  * https://github.com/DFRobot/DFRobot_DS3231M
  *
  * Copyright 2010 DFRobot Co.Ltd
  *
- * Licencia: Licencia MIT
+ * License: MIT License
  */
 
 /*
@@ -43,8 +43,8 @@
 #include "Debug.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_DS3231M  //!< Redefinición del nivel de depuración de este archivo fuente.
-#define DEBUG_TAG "DS3231M"        //!< Etiqueta al enviar mensajes de depuración.
+#define DEBUG_LEVEL DEBUG_DS3231M  //!< Redefinition of the debug level for this source file.
+#define DEBUG_TAG "DS3231M"        //!< Tag when sending debug messages.
 
 bool DS3231M::begin(void) {
   _pWire->begin();
@@ -57,25 +57,25 @@ bool DS3231M::begin(void) {
 }
 
 void DS3231M::setRTCTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t second) {
-  // Almacena los valores en el array rtc y los convierte a formato BCD (Binary-Coded Decimal)
-  // que es el formato que utiliza el DS3231M.
+  // Stores values in the rtc array and converts them to BCD (Binary-Coded Decimal) format
+  // which is the format used by the DS3231M.
   rtc[0] = bin2bcd(second);
   rtc[1] = bin2bcd(minute);
   rtc[2] = bin2bcd(hour);
-  rtc[3] = bin2bcd(dayOfTheWeek(year, month, day));  // Calcula el día de la semana.
+  rtc[3] = bin2bcd(dayOfTheWeek(year, month, day));  // Calculates the day of the week.
   rtc[4] = bin2bcd(day);
   rtc[5] = bin2bcd(month);
-  rtc[6] = bin2bcd(year - 2000);  // El chip DS3231M almacena el año como offset desde 2000.
+  rtc[6] = bin2bcd(year - 2000);  // The DS3231M chip stores the year as an offset from 2000.
 
-  // Escribe los datos en los registros del RTC a través de I2C.
+  // Writes the data to the RTC registers via I2C.
   writeReg(DS3231M_REG_RTC_SEC, rtc, 7);
 }
 
 DateTime DS3231M::getRTCTime() {
-  // Lee los 7 registros de tiempo y fecha del DS3231M.
+  // Reads the 7 time and date registers from the DS3231M.
   readReg(DS3231M_REG_RTC_SEC, rtc, 7);
 
-  // Convierte los valores BCD a BIN y crea un objeto DateTime.
+  // Converts BCD values to BIN and creates a DateTime object.
   return DateTime(bcd2bin(rtc[6]) + 2000, bcd2bin(rtc[5]), bcd2bin(rtc[4]), bcd2bin(rtc[2]), bcd2bin(rtc[1]), bcd2bin(rtc[0]));
 }
 
@@ -86,43 +86,43 @@ void DS3231M::setAlarm1(const DateTime& dt, eAlarmType_t type) {
   uint8_t day = bin2bcd(dt.day());
   uint8_t dy;
 
-  // Configura el bit de control para el tipo de alarma.
+  // Configures the control bit for the alarm type.
   switch (type) {
-    case eEverySecond:  // Cada segundo
+    case eEverySecond:  // Every second
       sec |= 0x80;
       min |= 0x80;
       hour |= 0x80;
       day |= 0x80;
       break;
-    case eEveryMinute:  // Cada minuto (en el segundo especificado)
+    case eEveryMinute:  // Every minute (at the specified second)
       min |= 0x80;
       hour |= 0x80;
       day |= 0x80;
       break;
-    case eEveryHour:  // Cada hora (en el minuto y segundo especificados)
+    case eEveryHour:  // Every hour (at the specified minute and second)
       hour |= 0x80;
       day |= 0x80;
       break;
-    case eEveryDay:  // Cada día (en la hora, minuto y segundo especificados)
+    case eEveryDay:  // Every day (at the specified hour, minute and second)
       day |= 0x80;
       break;
-    case eEveryWeek:  // Cada semana (en el día de la semana, hora, minuto y segundo especificados)
+    case eEveryWeek:  // Every week (at the specified day of the week, hour, minute and second)
       dy = bin2bcd(dt.dayOfTheWeek());
-      day = dy | 0x40;  // Bit 6 para indicar día de la semana en lugar de día del mes.
+      day = dy | 0x40;  // Bit 6 to indicate day of the week instead of day of the month.
       break;
-    case eEveryMonth:  // Cada mes (en el día del mes, hora, minuto y segundo especificados)
+    case eEveryMonth:  // Every month (at the specified day of the month, hour, minute and second)
       break;
     default:
-      return;  // Tipo de alarma no válido.
+      return;  // Invalid alarm type.
   }
 
-  // Escribe los valores de la alarma en los registros correspondientes.
+  // Writes the alarm values to the corresponding registers.
   writeReg(DS3231M_REG_ALARM1_SEC, &sec, 1);
   writeReg(DS3231M_REG_ALARM1_MIN, &min, 1);
   writeReg(DS3231M_REG_ALARM1_HOUR, &hour, 1);
   writeReg(DS3231M_REG_ALARM1_DAY, &day, 1);
 
-  // Habilita la interrupción de alarma 1 (A1IE) en el registro de control.
+  // Enables alarm 1 interrupt (A1IE) in the control register.
   uint8_t ctrl[1];
   readReg(DS3231M_REG_CTRL, ctrl, 1);
   ctrl[0] |= 0x01;  // Set A1IE bit
@@ -135,36 +135,36 @@ void DS3231M::setAlarm2(const DateTime& dt, eAlarmType_t type) {
   uint8_t day = bin2bcd(dt.day());
   uint8_t dy;
 
-  // Configura el bit de control para el tipo de alarma.
+  // Configures the control bit for the alarm type.
   switch (type) {
-    case eEveryMinute:  // Cada minuto (en el minuto especificado)
+    case eEveryMinute:  // Every minute (at the specified minute)
       min |= 0x80;
       hour |= 0x80;
       day |= 0x80;
       break;
-    case eEveryHour:  // Cada hora (en el minuto especificado)
+    case eEveryHour:  // Every hour (at the specified minute)
       hour |= 0x80;
       day |= 0x80;
       break;
-    case eEveryDay:  // Cada día (en la hora y minuto especificados)
+    case eEveryDay:  // Every day (at the specified hour and minute)
       day |= 0x80;
       break;
-    case eEveryWeek:  // Cada semana (en el día de la semana, hora y minuto especificados)
+    case eEveryWeek:  // Every week (at the specified day of the week, hour and minute)
       dy = bin2bcd(dt.dayOfTheWeek());
-      day = dy | 0x40;  // Bit 6 para indicar día de la semana en lugar de día del mes.
+      day = dy | 0x40;  // Bit 6 to indicate day of the week instead of day of the month.
       break;
-    case eEveryMonth:  // Cada mes (en el día del mes, hora y minuto especificados)
+    case eEveryMonth:  // Every month (at the specified day of the month, hour and minute)
       break;
     default:
-      return;  // Tipo de alarma no válido.
+      return;  // Invalid alarm type.
   }
 
-  // Escribe los valores de la alarma en los registros correspondientes.
+  // Writes the alarm values to the corresponding registers.
   writeReg(DS3231M_REG_ALARM2_MIN, &min, 1);
   writeReg(DS3231M_REG_ALARM2_HOUR, &hour, 1);
   writeReg(DS3231M_REG_ALARM2_DAY, &day, 1);
 
-  // Habilita la interrupción de alarma 2 (A2IE) en el registro de control.
+  // Enables alarm 2 interrupt (A2IE) in the control register.
   uint8_t ctrl[1];
   readReg(DS3231M_REG_CTRL, ctrl, 1);
   ctrl[0] |= 0x02;  // Set A2IE bit
@@ -173,37 +173,37 @@ void DS3231M::setAlarm2(const DateTime& dt, eAlarmType_t type) {
 
 float DS3231M::getTemp() {
   uint8_t temp[2];
-  // Lee los dos bytes del registro de temperatura.
+  // Reads the two bytes from the temperature register.
   readReg(DS3231M_REG_TEMP, temp, 2);
-  // Combina los bytes para obtener la temperatura y la convierte a float.
+  // Combines the bytes to obtain the temperature and converts it to float.
   return (float)temp[0] + ((temp[1] >> 6) * 0.25);
 }
 
 bool DS3231M::isAlarm() {
   uint8_t status[1];
-  readReg(DS3231M_REG_STATUS, status, 1);  // Lee el registro de estado.
-  return status[0] & 3;                    // Retorna true si los bits 0 (A1F) o 1 (A2F) están activados.
+  readReg(DS3231M_REG_STATUS, status, 1);  // Reads the status register.
+  return status[0] & 3;                    // Returns true if bits 0 (A1F) or 1 (A2F) are set.
 }
 
 void DS3231M::clearAlarm() {
   uint8_t status[1];
-  readReg(DS3231M_REG_STATUS, status, 1);   // Lee el registro de estado.
-  status[0] &= 0xFC;                        // Limpia los bits A1F (bit 0) y A2F (bit 1).
-  writeReg(DS3231M_REG_STATUS, status, 1);  // Escribe el nuevo valor de estado.
+  readReg(DS3231M_REG_STATUS, status, 1);   // Reads the status register.
+  status[0] &= 0xFC;                        // Clears bits A1F (bit 0) and A2F (bit 1).
+  writeReg(DS3231M_REG_STATUS, status, 1);  // Writes the new status value.
 }
 
 void DS3231M::enable32k() {
   uint8_t status[1];
-  readReg(DS3231M_REG_STATUS, status, 1);   // Lee el registro de estado.
-  status[0] |= 0x08;                        // Establece el bit EN32kHz (bit 3).
-  writeReg(DS3231M_REG_STATUS, status, 1);  // Escribe el nuevo valor de estado.
+  readReg(DS3231M_REG_STATUS, status, 1);   // Reads the status register.
+  status[0] |= 0x08;                        // Sets the EN32kHz bit (bit 3).
+  writeReg(DS3231M_REG_STATUS, status, 1);  // Writes the new status value.
 }
 
 void DS3231M::disable32k() {
   uint8_t status[1];
-  readReg(DS3231M_REG_STATUS, status, 1);   // Lee el registro de estado.
-  status[0] &= 0xF7;                        // Limpia el bit EN32kHz (bit 3).
-  writeReg(DS3231M_REG_STATUS, status, 1);  // Escribe el nuevo valor de estado.
+  readReg(DS3231M_REG_STATUS, status, 1);   // Reads the status register.
+  status[0] &= 0xF7;                        // Clears the EN32kHz bit (bit 3).
+  writeReg(DS3231M_REG_STATUS, status, 1);  // Writes the new status value.
 }
 
 bool DS3231M::lostPower(void) {
@@ -214,57 +214,57 @@ bool DS3231M::lostPower(void) {
 
 void DS3231M::writeReg(uint8_t reg, const void* pBuf, size_t size) {
   if (pBuf == NULL) {
-    // Imprime un mensaje de depuración si el puntero es nulo.
+    // Prints a debug message if the pointer is null.
     DEBUG_ERROR("pBuf null pointer");
   }
-  uint8_t* _pBuf = (uint8_t*)pBuf;  // Castea el puntero a uint8_t para iterar.
+  uint8_t* _pBuf = (uint8_t*)pBuf;  // Casts the pointer to uint8_t for iteration.
 
-  _pWire->beginTransmission(DS3231M_IIC_ADDRESS);  // Inicia la transmisión I2C al DS3231M.
-  _pWire->write(reg);                              // Envía la dirección del registro.
+  _pWire->beginTransmission(DS3231M_IIC_ADDRESS);  // Starts I2C transmission to the DS3231M.
+  _pWire->write(reg);                              // Sends the register address.
   for (size_t i = 0; i < size; i++) {
-    _pWire->write(_pBuf[i]);  // Envía cada byte del buffer.
+    _pWire->write(_pBuf[i]);  // Sends each byte from the buffer.
   }
-  _pWire->endTransmission();  // Finaliza la transmisión I2C.
+  _pWire->endTransmission();  // Ends I2C transmission.
 }
 
 uint8_t DS3231M::readReg(uint8_t reg, const void* pBuf, size_t size) {
   if (pBuf == NULL) {
-    // Imprime un mensaje de depuración si el puntero es nulo.
+    // Prints a debug message if the pointer is null.
     DEBUG_ERROR("pBuf null pointer");
   }
-  uint8_t* _pBuf = (uint8_t*)pBuf;  // Castea el puntero a uint8_t para iterar.
+  uint8_t* _pBuf = (uint8_t*)pBuf;  // Casts the pointer to uint8_t for iteration.
 
-  _pWire->beginTransmission(DS3231M_IIC_ADDRESS);  // Inicia la transmisión I2C al DS3231M.
-  _pWire->write(reg);                              // Envía la dirección del registro a leer.
-  _pWire->endTransmission(false);                  // Finaliza la transmisión pero mantiene la conexión (repeated start).
+  _pWire->beginTransmission(DS3231M_IIC_ADDRESS);  // Starts I2C transmission to the DS3231M.
+  _pWire->write(reg);                              // Sends the register address to read.
+  _pWire->endTransmission(false);                  // Ends transmission but keeps the connection (repeated start).
 
-  // Solicita 'size' bytes del DS3231M
+  // Requests 'size' bytes from the DS3231M
   uint8_t i = 0;
   _pWire->requestFrom(DS3231M_IIC_ADDRESS, size);
   while (_pWire->available()) {
     if (i < size) {
-      _pBuf[i++] = _pWire->read();  // Lee los bytes y los almacena en el buffer.
+      _pBuf[i++] = _pWire->read();  // Reads bytes and stores them in the buffer.
     } else {
-      _pWire->read();  // Descarta bytes adicionales si se leen más de lo solicitado.
+      _pWire->read();  // Discards extra bytes if more than requested are read.
     }
   }
-  return i;  // Retorna el número de bytes leídos.
+  return i;  // Returns the number of bytes read.
 }
 
 uint8_t DS3231M::bcd2bin(uint8_t val) {
-  return val - 6 * (val >> 4);  // Conversión BCD a BIN.
+  return val - 6 * (val >> 4);  // BCD to BIN conversion.
 }
 
 uint8_t DS3231M::bin2bcd(uint8_t val) {
-  return val + 6 * (val / 10);  // Conversión BIN a BCD.
+  return val + 6 * (val / 10);  // BIN to BCD conversion.
 }
 
 uint8_t DS3231M::dayOfTheWeek(uint16_t y, uint8_t m, uint8_t d) const {
-  // Implementación del algoritmo de Zeller para calcular el día de la semana.
-  // k = día del mes
-  // m = mes (3=marzo, 4=abril, ..., 12=diciembre, 1=enero, 2=febrero)
-  // D = año del siglo (ej. para 2024, D=24)
-  // C = siglo (ej. para 2024, C=20)
+  // Implementation of Zeller's algorithm to calculate the day of the week.
+  // k = day of the month
+  // m = month (3=March, 4=April, ..., 12=December, 1=January, 2=February)
+  // D = year of the century (e.g. for 2024, D=24)
+  // C = century (e.g. for 2024, C=20)
   uint8_t k = d;
   uint8_t month = m;
   uint16_t year = y;
@@ -277,9 +277,10 @@ uint8_t DS3231M::dayOfTheWeek(uint16_t y, uint8_t m, uint8_t d) const {
   uint8_t D = year % 100;
   uint8_t C = year / 100;
 
-  // Fórmula de Zeller: h = (k + floor(2.6 * m - 0.2) + D + floor(D/4) + floor(C/4) - 2 * C) mod 7
-  // El resultado es 0=Sábado, 1=Domingo, ..., 6=Viernes.
-  // Se ajusta para que 1=Domingo, ..., 7=Sábado.
+  // Zeller's formula: h = (k + floor(2.6 * m - 0.2) + D + floor(D/4) + floor(C/4) - 2 * C) mod 7
+  // The result is 0=Saturday, 1=Sunday, ..., 6=Friday.
+  // Adjusted so that 1=Sunday, ..., 7=Saturday.
   uint8_t dayOfWeek = (k + (26 * (month + 1)) / 10 + D + D / 4 + C / 4 + 5 * C) % 7;
-  return (dayOfWeek == 0) ? 7 : dayOfWeek;  // Ajusta para que el domingo sea 7 o 1 según la convención.
+  return (dayOfWeek == 0) ? 7 : dayOfWeek;  // Adjusts so that Sunday is 7 or 1 depending on the convention.
 }
+

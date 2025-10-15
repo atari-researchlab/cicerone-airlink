@@ -1,13 +1,13 @@
 /**
  * @file    Datetime_helper.h
- * @brief   Preprocessor macros to convert @c __DATE__ and @c __TIME__ macros into numeric
- * values for the RTC.
- * @details This file is a utility that allows setting the RTC clock time automatically
- * to the time when the program was compiled. No modification is necessary.
+ * @brief   Macros de preprocesador para convertir las macros @c __DATE__ y @c __TIME__ en valores 
+ * numéricos para el RTC.
+ * @details Este archivo es una utilidad que permite establecer la hora del reloj RTC 
+ * automáticamente a la hora en que se compiló el programa. No es necesario modificarlo.
  *
- * Example of @c __DATE__: "Jul 22 2024"
+ * Ejemplo de @c __DATE__: "Jul 22 2024"
  *
- * Example of @c __TIME__: "18:30:00"
+ * Ejemplo de @c __TIME__: "18:30:00"
  *
  * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22/2025-10-15]
@@ -20,7 +20,7 @@
 #define DATETIME_HELPER_H
 
 /**
- * @brief Extracts the year from the @c __DATE__ string (e.g.: "Jul 22 2024" -> 2024).
+ * @brief Extrae el año de la cadena @c __DATE__ (ej: "Jul 22 2024" -> 2024).
  */
 #define BUILD_YEAR \
   ( \
@@ -31,15 +31,15 @@
    )
 
 /**
- * @brief Extracts the day from the @c __DATE__ string (e.g.: "Jul 22 2024" -> 22). Handles the case
- * where the day has a single digit (e.g.: "Jul  7 2024").
+ * @brief Extrae el día de la cadena @c __DATE__ (ej: "Jul 22 2024" -> 22). Maneja el caso en que
+ * el día tiene un solo dígito (ej: "Jul  7 2024").
  */
 #define BUILD_DAY \
   ( \
     ((__DATE__[4] >= '0') ? (__DATE__[4] - '0') * 10 : 0) + (__DATE__[5] - '0'))
 
 /**
- * @brief Converts the text month to number (e.g.: "Jan" -> 1, "Feb" -> 2, etc).
+ * @brief Convierte el mes de texto a número (ej: "Jan" -> 1, "Feb" -> 2, etc).
  */
 #define BUILD_MONTH \
   ( \
@@ -59,17 +59,17 @@
   )
 
 /**
- * @brief Extracts the hour from the @c __TIME__ string (e.g.: "18:30:00" -> 18).
+ * @brief Extrae la hora de la cadena @c __TIME__ (ej: "18:30:00" -> 18).
  */
 #define BUILD_HOUR ((__TIME__[0] - '0') * 10 + (__TIME__[1] - '0'))
 
 /**
- * @brief Extracts the minute from the @c __TIME__ string (e.g.: "18:30:00" -> 30).
+ * @brief Extrae el minuto de la cadena @c __TIME__ (ej: "18:30:00" -> 30).
  */
 #define BUILD_MIN ((__TIME__[3] - '0') * 10 + (__TIME__[4] - '0'))
 
 /**
- * @brief Extracts the second from the @c __TIME__ string (e.g.: "18:30:00" -> 00).
+ * @brief Extrae el segundo de la cadena @c __TIME__ (ej: "18:30:00" -> 00).
  */
 #define BUILD_SEC ((__TIME__[6] - '0') * 10 + (__TIME__[7] - '0'))
 

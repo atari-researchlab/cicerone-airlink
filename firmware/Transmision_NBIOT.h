@@ -1,8 +1,8 @@
 /**
  * @file    Transmision_NBIOT.cpp
- * @brief   Implementación de las funciones para la transmisión de datos vía NB-IoT.
- * @details Este archivo contiene las definiciones de las variables globales y las implementaciones
- * de las funciones declaradas en 'Transmision_NBIOT.h'.
+ * @brief   Implementation of functions for NB-IoT data transmission.
+ * @details This file contains global variable definitions and implementations
+ * of the functions declared in 'Transmision_NBIOT.h'.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -10,8 +10,8 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  Este módulo es fundamental para la conectividad y el envío de datos recopilados
- * por los sensores a una plataforma de monitoreo remoto.
+ * @note  This module is fundamental for connectivity and sending sensor-collected
+ * data to a remote monitoring platform.
  */
 #include "Configuracion.h"
 
@@ -32,78 +32,78 @@
 #define SERIALTIMEOUT 3000
 
 /**
- * @brief     Inicializa el módulo NB-IoT (SIM7020).
- * @details   Configura el puerto serie para la comunicación con el módulo y realiza una serie de
- * comandos AT para asegurar que el módulo esté operativo y conectado a la red.
+ * @brief     Initializes the NB-IoT module (SIM7020).
+ * @details   Configures the serial port for communication with the module and executes a series
+ * of AT commands to ensure the module is operational and connected to the network.
  */
 void nbiot_inicializar(void);
 
 /**
- * @brief     Transmite los datos de los sensores al servidor.
- * @details   Esta función es la principal para la transmisión de datos.
- * Construye el JSON, lo convierte a hexadecimal y realiza la solicitud HTTP POST.
+ * @brief     Transmits sensor data to the server.
+ * @details   This is the main function for data transmission.
+ * Builds the JSON, converts it to hexadecimal and performs the HTTP POST request.
  */
 void nbiot_enviar(void);
 
 /**
- * @brief     Crea el payload JSON con los datos actuales de los sensores.
- * @details   Los datos se obtienen de las variables globales y se formatean en una cadena JSON.
+ * @brief     Creates the JSON payload with current sensor data.
+ * @details   Data is obtained from global variables and formatted into a JSON string.
  */
 void nbiot_paquete(void);
 
 /**
- * @brief     Realiza una solicitud HTTP POST al servidor.
- * @details   Utiliza comandos AT específicos del módulo SIM7020 para crear una conexión HTTP
- * y enviar los datos hexadecimales como payload.
+ * @brief     Performs an HTTP POST request to the server.
+ * @details   Uses SIM7020 module-specific AT commands to create an HTTP connection
+ * and send hexadecimal data as payload.
  */
 void nbiot_transmitir(void);
 
 /**
- * @brief     Inicializa la comunicación con el módulo SIM7020.
- * @details   Utiliza comandos AT específicos del módulo SIM7020 para detectar si la comunicación
- * es correcta y resetea la configuración a una manera predefinida.
+ * @brief     Initializes communication with the SIM7020 module.
+ * @details   Uses SIM7020 module-specific AT commands to detect if communication
+ * is correct and resets configuration to a predefined state.
  *
- * @return    Verdadero si la comunicación y configuración ha sido satisfactoria
+ * @return    True if communication and configuration were successful
  */
 bool SIM7020begin(void);
 
 /**
- * @brief   Lee los mensajes enviados por el módulo SIM7020.
- * @return  Cadena con el mensaje recibido.
+ * @brief   Reads messages sent by the SIM7020 module.
+ * @return  String with the received message.
  */
 String SIM7020read(void);
 
 /**
- * @brief   Envía un comando AT al módulo SIM7020 y espera una respuesta específica.
- * @param   command El comando AT a enviar.
- * @param   response1 La cadena de respuesta esperada para considerar el comando exitoso.
- * @param   response2 Cadena a buscar si no se espera una respuesta "OK".
- * @param   timeout Tiempo máximo de espera para la respuesta en milisegundos.
- * @param   repetitions Número de reintentos si la respuesta no es la esperada.
- * @return  OK si la respuesta es la esperada, NOTOK si no, TIMEOUTERR si se agota el tiempo.
+ * @brief   Sends an AT command to the SIM7020 module and waits for a specific response.
+ * @param   command The AT command to send.
+ * @param   response1 The expected response string to consider the command successful.
+ * @param   response2 String to search for if an "OK" response is not expected.
+ * @param   timeout Maximum wait time for the response in milliseconds.
+ * @param   repetitions Number of retries if the response is not as expected.
+ * @return  OK if the response is as expected, NOTOK if not, TIMEOUTERR if timeout occurs.
  */
 byte SIM7020command(String command, String response1, String response2, unsigned long timeout,
                     uint16_t repetitions);
 
 /**
- * @brief   Función de espera una respuesta específica con tiempo máximo.
- * @param   response1 La cadena de respuesta esperada para considerar el comando exitoso.
- * @param   response2 Cadena a buscar si no se espera una respuesta "OK".
- * @param   timeout Tiempo máximo de espera para la respuesta en milisegundos.
- * @return  OK si la respuesta es la esperada, NOTOK si no, TIMEOUTERR si se agota el tiempo.
+ * @brief   Function that waits for a specific response with maximum time.
+ * @param   response1 The expected response string to consider the command successful.
+ * @param   response2 String to search for if an "OK" response is not expected.
+ * @param   timeout Maximum wait time for the response in milliseconds.
+ * @return  OK if the response is as expected, NOTOK if not, TIMEOUTERR if timeout occurs.
  */
 byte SIM7020waitFor(String response1, String response2, unsigned long timeOut);
 
 /**
- * @brief   Convierte un objeto JSON a una cadena hexadecimal.
- * @param   doc El objeto DynamicJsonDocument a convertir.
- * @return  Cadena que representa el JSON en formato hexadecimal.
+ * @brief   Converts a JSON object to a hexadecimal string.
+ * @param   doc The DynamicJsonDocument object to convert.
+ * @return  String representing the JSON in hexadecimal format.
  */
 String jsonToHex(const JsonDocument& doc);
 
 /**
- * @brief   Reinicia el microcontrolador.
- * @details Se utiliza para los casos en que no sea posible establecer la conexión con el servidor.
+ * @brief   Restarts the microcontroller.
+ * @details Used for cases where it is not possible to establish a connection to the server.
  */
 inline void ReiniciarDispositivo(void) {
   //NVIC_SystemReset();

@@ -1,105 +1,105 @@
 /***********************************************************************************************************************
  * @file        firmware.ino
- * @brief       Código principal para un sistema de monitoreo de calidad del aire ("Airlink").
- * @details     Este programa integra lecturas de diversos sensores y gestiona su funcionamiento
- * a través de temporizadores no bloqueantes (millis). Incluye módulos opcionales
- * para transmisión de datos por NB-IoT y para detección de tos mediante Edge Impulse.
+ * @brief       Main code for an air quality monitoring system ("Airlink").
+ * @details     This program integrates readings from various sensors and manages their operation
+ * through non-blocking timers (millis). It includes optional modules
+ * for data transmission via NB-IoT and for cough detection using Edge Impulse.
  *
  * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
- * @date        [2024-07-22 / Última Modificación]
+ * @date        [2024-07-22 / Last Modified]
  * @version     1.0-rc1
  *
  * @copyright   GNU General Public License version 3 or later
- * @warning     Se debe configurar correctamente los valores del servidor y APN para poder utilizar el módulo de IoT.
+ * @warning     Server values and APN must be correctly configured to use the IoT module.
  * @see         Configuracion.h
  **********************************************************************************************************************/
 
-#include "Configuracion.h"  // Archivo de configuración central para habilitar/deshabilitar módulos.
-#include "Debug.h"          // Contiene las macros para controlar la salida de depuración por Serial.
-#include "Alarma.h"         // Módulo propio para la gestión de temporizadores (alarmas periódicas).
-#include "SEN5X_API.h"      // API para el manejo del sensor Sensirion SEN5X.
-#include "T6793_API.h"      // API para el manejo del sensor de CO2 T6793-5K.
+#include "Configuracion.h"  // Central configuration file to enable/disable modules.
+#include "Debug.h"          // Contains macros to control debug output via Serial.
+#include "Alarma.h"         // Custom module for timer management (periodic alarms).
+#include "SEN5X_API.h"      // API for handling the Sensirion SEN5X sensor.
+#include "T6793_API.h"      // API for handling the T6793-5K CO2 sensor.
 
-// --- Inclusión condicional de módulos (controlado desde Configuracion.h) ---
+// --- Conditional module inclusion (controlled from Configuracion.h) ---
 #if HABILITAR_NBIOT
-#include "Transmision_NBIOT.h"  // Módulo para la transmisión de datos vía Narrowband IoT.
+#include "Transmision_NBIOT.h"  // Module for data transmission via Narrowband IoT.
 #endif
 
-#define DEBUG_TAG "MAIN"  //!< Etiqueta al enviar mensajes de depuración
+#define DEBUG_TAG "MAIN"  //!< Tag when sending debug messages
 
 /**
- * @brief Inicializa las comunicaciones, los sensores y los módulos del sistema.
- * Se ejecuta una sola vez al encender o reiniciar el microcontrolador.
+ * @brief Initializes communications, sensors, and system modules.
+ * Runs only once when the microcontroller is powered on or reset.
  */
 void setup() {
-  // Inicialización del puerto serie si la depuración está habilitada en Configuracion.h
+  // Serial port initialization if debugging is enabled in Configuracion.h
 #if (DEBUG_LEVEL >= 1)
   Serial.begin(115200);
-  // En algunas placas (como ESP32), es útil esperar a que el puerto serie se conecte.
+  // On some boards (like ESP32), it's useful to wait for the serial port to connect.
   while (!Serial) {
-    ;  // Bucle de espera
+    ;  // Wait loop
   }
 #endif
 
   DEBUG_INFO("**********************************************");
-  DEBUG_INFO("*       Sistema de Monitoreo AIRLINK         *");
+  DEBUG_INFO("*       AIRLINK Monitoring System            *");
   DEBUG_INFO("**********************************************");
-  DEBUG_INFO("Inicializando sistema...");
+  DEBUG_INFO("Initializing system...");
 
-  // Inicializa el RTC (Reloj de Tiempo Real) y las alarmas periódicas
+  // Initialize the RTC (Real-Time Clock) and periodic alarms
   rtc_alarma_inicializar();
 
-  // Inicializa el sensor T6793
+  // Initialize the T6793 sensor
   t6793_inicializar();
 
-  // Inicializa el sensor SEN5X
+  // Initialize the SEN5X sensor
   sen5x_inicializar();
 
-  // Inicialización condicional de los módulos
+  // Conditional module initialization
 #if HABILITAR_NBIOT
   nbiot_inicializar();
 #endif
 
-  DEBUG_INFO("Inicializacion completada. Iniciando bucle principal.");
+  DEBUG_INFO("Initialization completed. Starting main loop.");
 }
 
 /**
- * @brief Se ejecuta repetidamente después de que setup() ha terminado.
- * Es el corazón del programa, donde se comprueban y ejecutan las tareas periódicas.
+ * @brief Runs repeatedly after setup() has finished.
+ * This is the heart of the program, where periodic tasks are checked and executed.
  */
 void loop() {
-  // Comprueba si se ha activado la alarma de 5 segundos para leer los sensores.
-  // Esta función es no bloqueante y se basa en millis().
+  // Check if the 5-second alarm has been triggered to read sensors.
+  // This function is non-blocking and based on millis().
   check_alarma_5s();
 
-  // Comprueba si se ha activado la alarma de 10 minutos para promediar y enviar datos.
-  // Esta función se basa en el reloj RTC.
+  // Check if the 10-minute alarm has been triggered to average and send data.
+  // This function is based on the RTC clock.
   check_alarma_10min();
 
-  // Si la bandera de 5 segundos está activa, ejecuta las lecturas.
+  // If the 5-second flag is active, execute the readings.
   if (alarma_5s) {
-    DEBUG_INFO("Alarma 5s activada. Leyendo sensores...");
+    DEBUG_INFO("5s alarm triggered. Reading sensors...");
 
-    // Acumula los datos leídos para su posterior promedio
+    // Accumulate the read data for later averaging
     acumular_datos();
 
-    // Reinicia la bandera para la siguiente iteración
+    // Reset the flag for the next iteration
     alarma_5s = false;
   }
 
-  // Si la bandera de 10 minutos está activa, ejecuta el promedio y la transmisión.
+  // If the 10-minute flag is active, execute averaging and transmission.
   if (alarma_10min) {
-    DEBUG_INFO("Alarma 10min activada. Procesando y enviando datos...");
+    DEBUG_INFO("10min alarm triggered. Processing and sending data...");
 
-    // Calcula el promedio de las lecturas acumuladas
+    // Calculate the average of accumulated readings
     promediar_datos();
 
-// Transmite los datos promediados si el módulo está habilitado
+// Transmit the averaged data if the module is enabled
 #if HABILITAR_NBIOT
     nbiot_enviar();
 #endif
 
-    // Reinicia la bandera para la siguiente iteración
+    // Reset the flag for the next iteration
     alarma_10min = false;
   }
 }

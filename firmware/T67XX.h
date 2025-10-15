@@ -1,9 +1,9 @@
 /**
  * @file    T67XX.h
- * @brief   Esta es una biblioteca para el módulo sensor de CO2 miniatura de la serie Telaire T67XX.
- * @details Estos sensores utilizan UART e I2C para comunicarse. Esta biblioteca está diseñada para la opción de
- * comunicación I2C. Se requieren 2 pines para la interfaz. Para habilitar la comunicación I2C, conecte el pin
- * CTRL (pin 6 del módulo) a GND.
+ * @brief   This is a library for the Telaire T67XX series miniature CO2 sensor module.
+ * @details These sensors use UART and I2C to communicate. This library is designed for the I2C
+ * communication option. 2 pins are required for the interface. To enable I2C communication,
+ * connect pin CTRL (pin 6 of the module) to GND.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -11,7 +11,7 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note Este módulo se basa en la librería de Yaroslav Osadchyy (drug123@gmail.com) con MIT License
+ * @note This module is based on the library by Yaroslav Osadchyy (drug123@gmail.com) with MIT License
  *
  * Copyright (c) 2020 Yaroslav Osadchyy (drug123@gmail.com) https://github.com/drug123/T67XX
  *
@@ -24,176 +24,173 @@
 #include <Wire.h>
 
 /**
- * @brief Dirección I2C por defecto.
+ * @brief Default I2C address.
  */
 #define T67XX_DEFAULT_I2C_ADDR 0x15
 
 /**
- * @brief Valor para habilitar un registro.
+ * @brief Value to enable a register.
  */
 #define T67XX_REG_VAL_ENABLE 0xFF00
 
 /**
- * @brief Valor para deshabilitar un registro.
+ * @brief Value to disable a register.
  */
 #define T67XX_REG_VAL_DISABLE 0x0000
 
 /**
- * @brief Retardo entre transmisiones de lectura/escritura (valor recomendado por el fabricante).
+ * @brief Delay between read/write transmissions (manufacturer recommended value).
  */
 #define T67XX_READ_DELAY 10
 
 /**
- * @brief Retardo entre el inicio de la medición en PPM y la lectura del dato (valor recomendado
- * por el fabricante).
+ * @brief Delay between starting PPM measurement and reading the data (manufacturer
+ * recommended value).
  */
 #define T67XX_MEASURE_DELAY 2250
 
 /**
- * @brief   Códigos de función del protocolo Modbus.
- * @details La implementación de I2C utiliza el protocolo Modbus y encapsula el mensaje en formato
- * I2C; sin embargo, en este caso no se incluye el CRC. Los códigos de función varían segun el 
- * tipo de dato y si se realiza una lectura o escritura, simple o múltiple.
+ * @brief   Modbus function codes.
+ * @details The I2C implementation uses the Modbus protocol and encapsulates the message in I2C
+ * format; however, in this case CRC is not included. Function codes vary according to the
+ * data type and whether a single or multiple read/write is performed.
  *
- * Modelo de datos de Modbus:
+ * Modbus data model:
  *
- * - Discrete Inputs: 1bit. Solo lectura.
- * - Coils: 1bit. Lectura/Escritura.
- * - Input Registers: 16bits. Solo lectura.
- * - Holding Registers: 16bits. Lectura/Escritura.
+ * - Discrete Inputs: 1bit. Read only.
+ * - Coils: 1bit. Read/Write.
+ * - Input Registers: 16bits. Read only.
+ * - Holding Registers: 16bits. Read/Write.
  */
 enum Modbus_FC {
-  MODBUS_READ_COIL = 0x01,                        //!< Lectura de 1bit de tipo _Coil_
-  MODBUS_READ_DISCRETE_INPUT = 0x02,              //!< Lectura de 1bit de tipo _Discrete Input_
-  MODBUS_READ_MULTIPLE_HOLDING_REGISTERS = 0x03,  //!< Lectura de 1 o varios _Holding Registers_ de 16bits
-  MODBUS_READ_INPUT_REGISTERS = 0x04,             //!< Lectura de 1 o varios _Input Registers_ de 16bits
-  MODBUS_WRITE_SINGLE_COIL = 0x05,                //!< Escritura de 1 _Coil_ de 1 bit
-  MODBUS_WRITE_SINGLE_REGISTER = 0x06,            //!< Escritura de 1 _Holding Registers_ de 16bits
-  MODBUS_WRITE_MULTIPLE_COILS = 0x0F,             //!< Escritura de múltiples _Coil_ de 1 bit
-  MODBUS_WRITE_MULTIPLE_REGISTERS = 0x10,         //!< Escritura de múltiples _Holding Registers_ de 16bits
+  MODBUS_READ_COIL = 0x01,                        //!< Read 1bit _Coil_ type
+  MODBUS_READ_DISCRETE_INPUT = 0x02,              //!< Read 1bit _Discrete Input_ type
+  MODBUS_READ_MULTIPLE_HOLDING_REGISTERS = 0x03,  //!< Read 1 or more 16bit _Holding Registers_
+  MODBUS_READ_INPUT_REGISTERS = 0x04,             //!< Read 1 or more 16bit _Input Registers_
+  MODBUS_WRITE_SINGLE_COIL = 0x05,                //!< Write 1 1bit _Coil_
+  MODBUS_WRITE_SINGLE_REGISTER = 0x06,            //!< Write 1 16bit _Holding Register_
+  MODBUS_WRITE_MULTIPLE_COILS = 0x0F,             //!< Write multiple 1bit _Coils_
+  MODBUS_WRITE_MULTIPLE_REGISTERS = 0x10,         //!< Write multiple 16bit _Holding Registers_
 };
 
 /**
- * @brief Direcciones de los registros del T67XX.
+ * @brief T67XX register addresses.
  */
 enum T67XX_Registers {
-  T67XX_REG_FIRMWARE = 0x1389,      //!< Revisión del firmware del dispositivo (RO)
-  T67XX_REG_STATUS = 0x138A,        //!< Estado del dispositivo (RO)
-  T67XX_REG_PPM = 0x138B,           //!< Valor de CO2 medido (RO)
-  T67XX_REG_RESET = 0x03E8,         //!< Reiniciar el dispositivo (WO)
-  T67XX_REG_SPCAL = 0x03EC,         //!< Iniciar la calibración de punto único (WO)
-  T67XX_REG_FLASH_UPDATE = 0x03ED,  //!< Guardar la configuración en la flash (WO)
-  T67XX_REG_ADDRESS = 0x0FA5,       //!< Dirección I2C del dispositivo (RW)
-  T67XX_REG_ABC_LOGIC = 0x03EE,     //!< Habilita o deshabilita la autocalibración ABC (RW)
-  T67XX_REG_MOD_MODE = 0x100B       //!< Habilita o deshabilita la medición bajo demanda (MOD) (RW)
+  T67XX_REG_FIRMWARE = 0x1389,      //!< Device firmware revision (RO)
+  T67XX_REG_STATUS = 0x138A,        //!< Device status (RO)
+  T67XX_REG_PPM = 0x138B,           //!< Measured CO2 value (RO)
+  T67XX_REG_RESET = 0x03E8,         //!< Reset the device (WO)
+  T67XX_REG_SPCAL = 0x03EC,         //!< Start single point calibration (WO)
+  T67XX_REG_FLASH_UPDATE = 0x03ED,  //!< Save configuration to flash (WO)
+  T67XX_REG_ADDRESS = 0x0FA5,       //!< Device I2C address (RW)
+  T67XX_REG_ABC_LOGIC = 0x03EE,     //!< Enable or disable ABC autocalibration (RW)
+  T67XX_REG_MOD_MODE = 0x100B       //!< Enable or disable measurement on demand (MOD) (RW)
 };
 
 /**
- * @brief Clase para la comunicación del sensor de CO2 T67XX.
+ * @brief Class for T67XX CO2 sensor communication.
  */
 class T67XX {
+public:
   /**
-   * @brief Constructor de la clase T67XX.
-   * @param pWire            Periférico utilizado para la comunicación I2C.
-   * @param deviceAddress    Dirección I2C del sensor utilizado.
+   * @brief T67XX class constructor.
+   * @param pWire            Peripheral used for I2C communication.
+   * @param deviceAddress    I2C address of the sensor used.
    */
   T67XX(TwoWire* pWire = &Wire, uint8_t deviceAddress = T67XX_DEFAULT_I2C_ADDR)
     : _pWire(pWire), _deviceAddr(deviceAddress){};
 
   /**
-   * @brief Destructor de la clase T67XX.
+   * @brief T67XX class destructor.
    */
   ~T67XX(){};
 
   /**
-   * @brief Inicializa la comunicación I2C.
-   * @return Verdadero si tiene éxito la comunicación con el módulo, falso si es errónea.
+   * @brief Initializes I2C communication.
+   * @return True if communication with the module is successful, false if it fails.
    */
   bool begin(void);
 
   /**
-   * @brief Obtiene el valor de CO2 actual del sensor en PPM.
-   * @return Valor de CO2 en PPM.
+   * @brief Gets the current CO2 value from the sensor in PPM.
+   * @return CO2 value in PPM.
    */
   uint16_t readPPM(void);
 
   /**
-   * @brief Obtiene el estado actual del sensor y lo almacena en la variable interna.
-   * @return Estado actual del sensor.
+   * @brief Gets the current sensor status and stores it in the internal variable.
+   * @return Current sensor status.
    */
   uint16_t getStatus(void);
 
   /**
-   * @brief Obtiene la versión de firmware del sensor.
-   * @return Versión del firmware.
+   * @brief Gets the sensor firmware version.
+   * @return Firmware version.
    */
   uint16_t getFirmwareVersion(void);
 
   /**
-   * @brief Reinicia el sensor.
+   * @brief Resets the sensor.
    */
   void reset(void);
   /**
-   * @brief   Habilitar autocalibración ABC.
-   * @details La Lógica Automática de Fondo (Automatic Background Logic), es una técnica de
-   * autocalibración patentada diseñada para usarse en aplicaciones donde las concentraciones
-   * descienden a las condiciones ambientales exteriores (400 ppm) al menos una vez (15 minutos) en
-   * un período de 7 días, lo cual suele ocurrir durante periodos desocupados.
+   * @brief   Enable ABC autocalibration.
+   * @details Automatic Background Logic (ABC) is a patented autocalibration technique designed
+   * for use in applications where concentrations drop to outdoor ambient conditions (400 ppm) at
+   * least once (15 minutes) in a 7-day period, which typically occurs during unoccupied periods.
    *
-   * Se logra una precisión completa utilizando la Lógica ABC. Con la Lógica ABC activada, el sensor
-   * generalmente alcanza su precisión operativa después de 25 horas de funcionamiento continuo,
-   * siempre que haya estado expuesto a niveles ambientales de referencia de aire de 400 ppm ±10ppm
-   * de CO2. El sensor mantendrá las especificaciones de precisión con la Lógica ABC activada,
-   * siempre que esté  expuesto al valor de referencia al menos una vez cada 7 días, y este valor
-   * de referencia sea la concentración más baja a la que está expuesto el sensor.
+   * Full accuracy is achieved using ABC Logic. With ABC Logic enabled, the sensor generally
+   * reaches its operational accuracy after 25 hours of continuous operation, provided it has been
+   * exposed to reference ambient air levels of 400 ppm ±10ppm CO2. The sensor will maintain
+   * accuracy specifications with ABC Logic enabled, as long as it is exposed to the reference
+   * value at least once every 7 days, and this reference value is the lowest concentration to
+   * which the sensor is exposed.
    *
-   * @note La Lógica ABC requiere el funcionamiento continuo del sensor en incrementos de al menos
-   * 4 horas cada uno.
+   * @note ABC Logic requires continuous sensor operation in increments of at least 4 hours each.
    *
-   * @warning No es recomendable en aplicaciones donde el sensor no esté expuesto regularmente a
-   * aire fresco (400 ppm de CO2).
+   * @warning Not recommended for applications where the sensor is not regularly exposed to
+   * fresh air (400 ppm CO2).
    */
   void enableABCMode(void);
 
   /**
-   * @brief Deshabilitar autocalibración ABC.
+   * @brief Disable ABC autocalibration.
    * @see enableABCMode()
    */
   void disableABCMode(void);
   /**
-   * @brief   Modifica la dirección I2C interna del sensor.
-   * @details Configura una nueva dirección I2C del sensor y lo reinicia para aplicar los cambios.
+   * @brief   Modifies the sensor's internal I2C address.
+   * @details Configures a new sensor I2C address and resets it to apply the changes.
    *
-   * @param   newAddress    Nueva dirección I2C del sensor
-   * @return  Verdadero si tiene éxito la comunicación con el módulo en la nueva dirección,
-   * falso si es errónea.
+   * @param   newAddress    New sensor I2C address
+   * @return  True if communication with the module at the new address is successful,
+   * false if it fails.
    *
-   * @warning Este cambio es permanente al reiniciar el sensor.
+   * @warning This change is permanent when the sensor is reset.
    */
   uint8_t setSlaveAddress(uint8_t newAddress);
 
   /**
-   * @brief Guarda la configuración en la flash.
+   * @brief Saves configuration to flash.
    */
   void flashUpdate(void);
 
   /**
-   * @brief     Inicia la rutina de calibración de punto único.
-   * @details   La rutina de calibración de punto único se realiza generalmente a temperatura
-   * ambiente (~500 ppm, 25 °C) y tarda varios minutos en completarse tras su inicio
-   * (aproximadamente 6 minutos). Durante este tiempo, se puede consultar el estado del sensor
-   * y las lecturas actuales de ppm del gas. El usuario puede comprobar el estado de la
-   * calibración leyendo el registro de estado y anotando si el bit de calibración de punto
-   * único está activado. La calibración se puede detener antes de que finalice.
+   * @brief     Starts the single point calibration routine.
+   * @details   The single point calibration routine is generally performed at room temperature
+   * (~500 ppm, 25 °C) and takes several minutes to complete after starting (approximately
+   * 6 minutes). During this time, the sensor status and current ppm gas readings can be queried.
+   * The user can check the calibration status by reading the status register and noting if the
+   * single point calibration bit is active. Calibration can be stopped before it finishes.
    *
-   * @param   waitForCompletion   Opcional: Espera a que finalice la calibración (deshabilitada
-   *                              por defecto).
-   * @return  Verdadero si ha finalizado la calibración.
+   * @param   waitForCompletion   Optional: Wait for calibration to finish (disabled by default).
+   * @return  True if calibration has finished.
    */
   bool beginCalibration(bool waitForCompletion = false);
 
   /**
-   * @brief Detiene la rutina de calibración de punto único.
+   * @brief Stops the single point calibration routine.
    */
   void endCalibration(void);
 
@@ -204,94 +201,92 @@ class T67XX {
   String getStatusMsg(void);
 
   /**
-   * @brief Cada bit representa el estado de una función o error del dispositivo.
-   * @details Permite la verificación del estado del dispositivo y los diferentes errores que
-   * pueden ocurrir.
+   * @brief Each bit represents the status of a device function or error.
+   * @details Allows verification of device status and the different errors that can occur.
    *
-   * En condiciones de error, un "1" indica un error; un "0" indica que no hay error. Un error
-   * de Flash es fatal (es decir, no hay recuperación). Los errores de calibración se pueden
-   * eliminar ejecutando el procedimiento de calibración de nuevo con resultados correctos.
+   * Under error conditions, a "1" indicates an error; a "0" indicates no error. A Flash error
+   * is fatal (i.e., no recovery). Calibration errors can be cleared by running the calibration
+   * procedure again with correct results.
    *
-   * En condiciones de calibración, un "1" indica que el ciclo de calibración está en curso.
-   * No se puede iniciar ningún otro ciclo de calibración mientras uno esté en curso y la
-   * respuesta Modbus informará un error a la nueva solicitud de calibración.
+   * Under calibration conditions, a "1" indicates that the calibration cycle is in progress.
+   * No other calibration cycle can be started while one is in progress and the Modbus response
+   * will report an error to the new calibration request.
    *
-   * Si el bit de calentamiento (_WARMUP_) está activo, el sensor se encuentra en un modo en el
-   * que se están inicializando los registros internos y los datos de gas (ppm) no son
-   * necesariamente correctos.
+   * If the warmup bit (_WARMUP_) is active, the sensor is in a mode where internal registers
+   * and gas data (ppm) are being initialized and are not necessarily correct.
    */
   union StatusRegister {
 
     /**
-     * @brief Acceso al estado completo de 16 bits.
+     * @brief Access to the complete 16-bit status.
      */
     uint16_t raw_value;
 
     /**
-     * @brief Acceso a los bits individuales.
+     * @brief Access to individual bits.
      */
     struct {
       uint16_t ERROR : 1;              //!< Bit 0
       uint16_t FLASH_ERROR : 1;        //!< Bit 1
       uint16_t CALIBRATION_ERROR : 1;  //!< Bit 2
-      uint16_t : 7;                    //!< Bits 3-9 (sin usar, se ignoran)
+      uint16_t : 7;                    //!< Bits 3-9 (unused, ignored)
       uint16_t REBOOT : 1;             //!< Bit 10
       uint16_t WARMUP : 1;             //!< Bit 11
-      uint16_t : 3;                    //!< Bits 12-14 (sin usar)
+      uint16_t : 3;                    //!< Bits 12-14 (unused)
       uint16_t SINGLE_POINT_CAL : 1;   //!< Bit 15
     } bits;
   };
 
-  private:
-    /**
-     * @brief Array para almacenar los datos leidos del dispositivo.
-     */
-    uint8_t _data[6];
+private:
+  /**
+   * @brief Array to store data read from device.
+   */
+  uint8_t _data[6];
 
-    /**
-     * @brief Lee el valor actual de un registro de 8bits.
-     * @param registerAddress Dirección del registro a escribir.
-     * @return Valor del registro leido.
-     */
-    uint8_t read8(uint16_t registerAddress);
+  /**
+   * @brief Reads the current value of an 8-bit register.
+   * @param registerAddress Address of the register to write.
+   * @return Value of the register read.
+   */
+  uint8_t read8(uint16_t registerAddress);
 
-    /**
-     * @brief Lee el valor actual de un registro de 16bits.
-     * @param registerAddress Dirección del registro a escribir.
-     * @return Valor del registro leido.
-     */
-    uint16_t read16(uint16_t registerAddress);
+  /**
+   * @brief Reads the current value of a 16-bit register.
+   * @param registerAddress Address of the register to write.
+   * @return Value of the register read.
+   */
+  uint16_t read16(uint16_t registerAddress);
 
-    /**
-     * @brief Escribe un dato en un registro de 8bits.
-     * @param registerAddress Dirección del registro a escribir.
-     * @param data Dato a escribir.
-     * @return Valor del registro tras la escritura.
-     */
-    uint8_t write8(uint16_t registerAddress, uint8_t data);
+  /**
+   * @brief Writes data to an 8-bit register.
+   * @param registerAddress Address of the register to write.
+   * @param data Data to write.
+   * @return Register value after writing.
+   */
+  uint8_t write8(uint16_t registerAddress, uint8_t data);
 
-    /**
-     * @brief Escribe un dato en un registro de 16bits.
-     * @param registerAddress Dirección del registro a escribir.
-     * @param data Dato a escribir.
-     * @return Valor del registro tras la escritura.
-     */
-    uint16_t write16(uint16_t registerAddress, uint16_t data);
+  /**
+   * @brief Writes data to a 16-bit register.
+   * @param registerAddress Address of the register to write.
+   * @param data Data to write.
+   * @return Register value after writing.
+   */
+  uint16_t write16(uint16_t registerAddress, uint16_t data);
 
-    /**
-     * @brief Puntero al periferico I2C utilizado.
-     */
-    TwoWire* _pWire;
+  /**
+   * @brief Pointer to the I2C peripheral used.
+   */
+  TwoWire* _pWire;
 
-    /**
-     * @brief Último estado leido del dispositivo.
-     */
-    StatusRegister _status;
+  /**
+   * @brief Last status read from device.
+   */
+  StatusRegister _status;
 
-    /**
-     * @brief Dirección I2C del módulo T67XX.
-     */
-    uint8_t _deviceAddr;
+  /**
+   * @brief I2C address of the T67XX module.
+   */
+  uint8_t _deviceAddr;
 };
 
 #endif  // T67XX_H

@@ -1,7 +1,7 @@
 /**
  * @file    SEN5X_API.h
- * @brief   Cabecera para la API del sensor Sensirion SEN5X.
- * @details Declara las funciones y variables globales para interactuar con el sensor.
+ * @brief   Header for the Sensirion SEN5X sensor API.
+ * @details Declares functions and global variables for interacting with the sensor.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -9,7 +9,7 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  Este módulo es una capa de abstracción sobre la librería SensirionI2CSen5x.
+ * @note  This module is an abstraction layer over the SensirionI2CSen5x library.
  */
 
 #ifndef SEN5X_API_H
@@ -17,9 +17,9 @@
 #include <Arduino.h>
  
 /**
- * @name    Variables globales externas
- * @details Estas variables almacenan las últimas lecturas del sensor y son accesibles
- * desde otros módulos que incluyan este archivo.
+ * @name    External global variables
+ * @details These variables store the latest sensor readings and are accessible
+ * from other modules that include this file.
  * @{
  */
 extern float sen5x_mc_1p0;
@@ -33,16 +33,16 @@ extern float sen5x_nox;
 //!@}
 
 /**
- * @brief   Inicializa el sensor SEN5X.
- * @details Busca el sensor en el bus I2C, lo reinicia y comienza las mediciones.
+ * @brief   Initializes the SEN5X sensor.
+ * @details Searches for the sensor on the I2C bus, resets it, and starts measurements.
  */
 void sen5x_inicializar(void);
 
 /**
- * @brief Lee los últimos datos medidos por el sensor y Actualiza las variables globales 
- * @c sen5x_* con los nuevos valores.
+ * @brief Reads the latest data measured by the sensor and updates the global variables
+ * @c sen5x_* with the new values.
  *
- * @return  Verdadero si la lectura ha sido correcta
+ * @return  True if the reading was successful
  */
 bool sen5x_leer(void);
 

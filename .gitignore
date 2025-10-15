@@ -12,6 +12,7 @@ Gemfile.lock
 *~
 ~*
 .mkdoxy
+site
 
 # Arduino/CPP
 # Prerequisites

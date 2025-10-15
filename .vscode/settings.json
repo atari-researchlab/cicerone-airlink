@@ -16,5 +16,20 @@
     "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
     "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
     "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
-  ]
+  ],
+  "editor.rulers": [
+      100
+  ],
+  "editor.autoIndentOnPaste": true,
+  "yaml.format.printWidth": 100,
+  "editor.minimap.maxColumn": 100,
+  "docwriter.custom.author": "Alejandro Lara-Doña (alejandro.lara@uca.es)",
+  "docwriter.progress.trackClasses": true,
+  "docwriter.progress.trackTypes": true,
+  "docwriter.style": "Doxygen",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 100 }"
 }

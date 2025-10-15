@@ -1,8 +1,8 @@
 /**
  * @file    Configuracion.h
- * @brief   Archivo de configuración global para el proyecto Airlink.
- * @details Este archivo centraliza todas las opciones que se pueden ajustar para cambiar el 
- * comportamiento del firmware sin modificar el código fuente.
+ * @brief   Global configuration file for the Airlink project.
+ * @details This file centralizes all options that can be adjusted to change the 
+ * firmware behavior without modifying the source code.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -10,48 +10,45 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  Modifica este archivo para cambiar el comportamiento del programa sin alterar el código 
- * principal.
+ * @note  Modify this file to change the program behavior without altering the main code.
  */
 
 #ifndef CONFIGURACION_H
 #define CONFIGURACION_H
 
 /**
- * @brief     Identificación del dispositivo
- * @details   Define un ID único para este dispositivo.
+ * @brief     Device identification
+ * @details   Defines a unique ID for this device.
  */
 #define ID_USUARIO "AIRLINK_01"
 
 /**
- * @brief     Descomentar para habilitar la transmisión de datos mediante NB-IoT.
- * @details   Comenta o descomenta estas líneas para incluir o excluir funcionalidades del programa final.
- * Esto es útil para ahorrar memoria y potencia si no se usan todos los módulos.
+ * @brief     Uncomment to enable data transmission via NB-IoT.
+ * @details   Comment or uncomment these lines to include or exclude functionalities from the final program.
+ * This is useful to save memory and power if not all modules are used.
  */
 #define HABILITAR_NBIOT 1
 
 /**
- * @name      Configuración del servidor para la transmisión mediante NB-IoT
- * @details   Define la dirección IP y el puerto del servidor al que se enviarán los datos, así como el punto de acceso
- * a la API.
+ * @name      Server configuration for NB-IoT transmission
+ * @details   Defines the IP address and port of the server where data will be sent, as well as the API endpoint.
  * @{
  */
-#define SERVIDOR_IP "http://direccion.servidor.com"   //!< IP del servidor donde se enviarán los datos
-#define SERVIDOR_PUERTO "64340"                       //!< Puerto del servidor
-#define SERVIDOR_API "/aqindoor"          //!< Ubicación de la API para realizar los envios mediante HTTP
+#define SERVIDOR_IP "http://direccion.servidor.com"   //!< Server IP where data will be sent
+#define SERVIDOR_PUERTO "64340"                       //!< Server port
+#define SERVIDOR_API "/aqindoor"          //!< API location for HTTP transmissions
 //!@}
 
 /**
- * @brief   APN del proveedor de internet.
- * @details Introducir el APN del proveedor de internet. Hay proveedores para los que no es 
- * necesario introducir el APN.
+ * @brief   Internet provider APN.
+ * @details Enter the internet provider APN. Some providers do not require an APN to be entered.
  * 
- * Ejemplos:
+ * Examples:
  * 
  * @code{.cpp}
- * #define APN_NBIOT ""             // Sin APN
- * #define APN_NBIOT "iot.1nce.net" // APN de 1NCE
- * #define APN_NBIOT "TM"           // APN de ThingMobile
+ * #define APN_NBIOT ""             // No APN
+ * #define APN_NBIOT "iot.1nce.net" // 1NCE APN
+ * #define APN_NBIOT "TM"           // ThingMobile APN
  * @endcode
  */
 #define APN_NBIOT "iot.1nce.net"

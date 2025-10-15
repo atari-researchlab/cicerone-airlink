@@ -1,9 +1,9 @@
 /**
  * @file    T67XX.cpp
- * @brief   This is a library for the Telaire T67XX series miniature CO2 sensor module.
- * @details These sensors use UART and I2C to communicate. This library is designed for the I2C
- * communication option. 2 pins are required for the interface. To enable I2C communication, connect pin
- * CTRL (pin 6 of the module) to GND.
+ * @brief   Esta es una biblioteca para el módulo sensor de CO2 miniatura de la serie Telaire T67XX.
+ * @details Estos sensores utilizan UART e I2C para comunicarse. Esta biblioteca está diseñada para la opción de
+ * comunicación I2C. Se requieren 2 pines para la interfaz. Para habilitar la comunicación I2C, conecte el pin
+ * CTRL (pin 6 del módulo) a GND.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -11,7 +11,7 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note This module is based on the library by Yaroslav Osadchyy (drug123@gmail.com) with MIT License
+ * @note Este módulo se basa en la librería de Yaroslav Osadchyy (drug123@gmail.com) con MIT License
  *
  * Copyright (c) 2020 Yaroslav Osadchyy (drug123@gmail.com) https://github.com/drug123/T67XX
  *
@@ -22,8 +22,8 @@
 #include "Debug.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinition of debug level for this source file.
-#define DEBUG_TAG "T67XX"        //!< Tag when sending debug messages.
+#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinición del nivel de depuración de este archivo fuente.
+#define DEBUG_TAG "T67XX"        //!< Etiqueta al enviar mensajes de depuración.
 
 bool T67XX::begin(void) {
   _pWire->begin();
@@ -36,49 +36,49 @@ bool T67XX::begin(void) {
 }
 
 uint16_t T67XX::readPPM(void) {
-  DEBUG_VERBOSE("Reading CO2 value [PPM]...");
+  DEBUG_VERBOSE("Leyendo valor de CO2 [PPM]...");
   return this->read16(T67XX_REG_PPM);
 };
 
 uint16_t T67XX::getStatus(void) {
-  DEBUG_VERBOSE("Reading sensor status...");
+  DEBUG_VERBOSE("Leyendo estado del sensor...");
 
   _status.raw_value = this->read16(T67XX_REG_STATUS);
 
-  DEBUG_INFO("Status: %u", _status.raw_value);
+  DEBUG_INFO("Estado: %u", _status.raw_value);
   DEBUG_VERBOSE("FEDCBA9876543210");
   String sStatus = String("0000000000000000") + String(_status.raw_value, BIN);
   sStatus.remove(0, sStatus.length() - 16);
   DEBUG_VERBOSE("%s", sStatus.c_str());
-  DEBUG_VERBOSE("Flags: %s", this->getStatusMsg().c_str());
+  DEBUG_VERBOSE("Banderas: %s", this->getStatusMsg().c_str());
 
   return _status.raw_value;
 };
 
 uint16_t T67XX::getFirmwareVersion(void) {
-  DEBUG_VERBOSE("Reading firmware version...");
+  DEBUG_VERBOSE("Leyendo versión del firmware...");
   uint16_t firmware_version = this->read16(T67XX_REG_FIRMWARE);
   DEBUG_VERBOSE("Firmware: 0x%04X", firmware_version);
   return firmware_version;
 };
 
 void T67XX::reset(void) {
-  DEBUG_VERBOSE("Resetting...");
+  DEBUG_VERBOSE("Reiniciando...");
   this->write16(T67XX_REG_RESET, T67XX_REG_VAL_ENABLE);
 };
 
 void T67XX::enableABCMode(void) {
-  DEBUG_VERBOSE("Enabling ABC autocalibration");
+  DEBUG_VERBOSE("Habilitando autocalibración ABC");
   this->write16(T67XX_REG_ABC_LOGIC, T67XX_REG_VAL_ENABLE);
 };
 
 void T67XX::disableABCMode(void) {
-  DEBUG_VERBOSE("Disabling ABC autocalibration");
+  DEBUG_VERBOSE("Deshabilitando autocalibración ABC");
   this->write16(T67XX_REG_ABC_LOGIC, T67XX_REG_VAL_DISABLE);
 };
 
 uint8_t T67XX::setSlaveAddress(uint8_t newAddress) {
-  DEBUG_VERBOSE("Setting new I2C address to 0x%02X", newAddress);
+  DEBUG_VERBOSE("Estableciendo nueva dirección I2C a 0x%02X", newAddress);
   _deviceAddr = newAddress;
   this->write8(T67XX_REG_ADDRESS, newAddress);
   this->reset();
@@ -91,12 +91,12 @@ uint8_t T67XX::setSlaveAddress(uint8_t newAddress) {
 };
 
 void T67XX::flashUpdate(void) {
-  DEBUG_VERBOSE("Saving configuration to flash...");
+  DEBUG_VERBOSE("Guardando la configuración en la flash...");
   this->write16(T67XX_REG_FLASH_UPDATE, T67XX_REG_VAL_ENABLE);
 }
 
 bool T67XX::beginCalibration(bool waitForCompletion) {
-  DEBUG_VERBOSE("Starting single point calibration %s wait...", waitForCompletion ? "with" : "without");
+  DEBUG_VERBOSE("Iniciando calibración de punto único %s espera...", waitForCompletion ? "con" : "sin");
   this->write16(T67XX_REG_SPCAL, T67XX_REG_VAL_ENABLE);
   do {
     _status.raw_value = this->getStatus();

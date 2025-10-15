@@ -1,8 +1,8 @@
 /**
  * @file    Transmision_NBIOT.cpp
- * @brief   Implementation of functions for NB-IoT data transmission.
- * @details This file contains global variable definitions and implementations
- * of the functions declared in 'Transmision_NBIOT.h'.
+ * @brief   Implementación de las funciones para la transmisión de datos vía NB-IoT.
+ * @details Este archivo contiene las definiciones de las variables globales y las implementaciones
+ * de las funciones declaradas en 'Transmision_NBIOT.h'.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -10,10 +10,10 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  This module is fundamental for connectivity and sending sensor-collected
- * data to a remote monitoring platform.
+ * @note  Este módulo es fundamental para la conectividad y el envío de datos recopilados
+ * por los sensores a una plataforma de monitoreo remoto.
  */
-
+ 
 #include "Configuracion.h"
 
 #if HABILITAR_NBIOT
@@ -24,66 +24,66 @@
 #include "Alarma.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_NBIOT  //!< Redefinition of the debug level for this source file.
-#define DEBUG_TAG "NBIOT"        //!< Tag when sending debug messages.
+#define DEBUG_LEVEL DEBUG_NBIOT  //!< Redefinición del nivel de depuración de este archivo fuente.
+#define DEBUG_TAG "NBIOT"        //!< Etiqueta al enviar mensajes de depuración.
 
 /**
- * @name      Global variables
- * @details   Here memory is assigned for the global variables used.
+ * @name      Variables globales
+ * @details   Aquí se asigna la memoria para las variables globales utilizadas.
  * @{
  */
-String ppm1 = "100";   //!< PM1.0 value (initial example)
-String ppm25 = "100";  //!< PM2.5 value (initial example)
-String ppm4 = "100";   //!< PM4.0 value (initial example)
-String ppm10 = "100";  //!< PM10.0 value (initial example)
-String temp = "22";    //!< Temperature value (initial example)
-String hum = "70";     //!< Humidity value (initial example)
-String co2 = "10";     //!< CO2 value (initial example)
-String voc = "15";     //!< VOC value (initial example)
-String nox = "100";    //!< NOx value (initial example)
-JsonDocument doc;      //!< JSON object
-String json_data;      //!< String that will contain the complete JSON payload
-String hexData;        //!< String that will contain the JSON data in hexadecimal format
+String ppm1 = "100";   //!< Valor de PM1.0 (ejemplo inicial)
+String ppm25 = "100";  //!< Valor de PM2.5 (ejemplo inicial)
+String ppm4 = "100";   //!< Valor de PM4.0 (ejemplo inicial)
+String ppm10 = "100";  //!< Valor de PM10.0 (ejemplo inicial)
+String temp = "22";    //!< Valor de temperatura (ejemplo inicial)
+String hum = "70";     //!< Valor de humedad (ejemplo inicial)
+String co2 = "10";     //!< Valor de CO2 (ejemplo inicial)
+String voc = "15";     //!< Valor de VOC (ejemplo inicial)
+String nox = "100";    //!< Valor de NOx (ejemplo inicial)
+JsonDocument doc;      //!< Objeto JSON
+String json_data;      //!< Cadena que contendrá el payload JSON completo
+String hexData;        //!< Cadena que contendrá los datos JSON en formato hexadecimal
 //!@}
 
 /**
- * @brief Array with the response types returned by the SIM7020 module.
+ * @brief Array con los tipos de respuesta que devuelve el módulo SIM7020.
  */
 const char* respuestas[5] = { "", "OK", "NOTOK", "TIMEOUTERR", "RST"};
 
 void nbiot_inicializar(void) {
 
-  SIM7020board.begin(SIM7020baud);  // Starts serial communication with the NB-IoT module.
-  delay(100);                       // Small wait for stabilization.
+  SIM7020board.begin(SIM7020baud);  // Inicia la comunicación serie con el módulo NB-IoT.
+  delay(100);                       // Pequeña espera para estabilización.
 
   SIM7020begin();
 
-  // Sends AT commands and waits for "OK" responses to verify communication and module status.
-  SIM7020command("AT", "OK", "yy", 3000, 2);  // Basic AT command to verify connection.
+  // Envía comandos AT y espera respuestas "OK" para verificar la comunicación y el estado del módulo.
+  SIM7020command("AT", "OK", "yy", 3000, 2);  // Comando AT básico para verificar la conexión.
   delay(500);
 
-  SIM7020command("AT+CSQ", "OK", "yy", 3000, 2);  // Checks signal quality.
+  SIM7020command("AT+CSQ", "OK", "yy", 3000, 2);  // Verifica la calidad de la señal.
   delay(500);
 
-  SIM7020command("AT+CFUN=0", "OK", "yy", 5000, 2);  // Turn off module radio
+  SIM7020command("AT+CFUN=0", "OK", "yy", 5000, 2);  // Apagar la radio del módulo
   delay(1000);
 
   SIM7020command("AT*MCGDEFCONT=\"IP\",\"" APN_NBIOT "\"", "OK", "yy", 3000, 1);  // Set Default PSD Connection Settings
   delay(1000);
 
-  SIM7020command("AT+CFUN=1", "OK", "yy", 5000, 2);  // Turn on module radio
+  SIM7020command("AT+CFUN=1", "OK", "yy", 5000, 2);  // Activar la radio del módulo
   delay(3000);
-  SIM7020command("AT+CGATT?", "OK", "yy", 5000, 2);  // Checks GPRS/NB-IoT connection status.
+  SIM7020command("AT+CGATT?", "OK", "yy", 5000, 2);  // Verifica el estado de conexión al GPRS/NB-IoT.
   delay(500);
   SIM7020command("AT+CGCONTRDP=?", "OK", "yy", 5000, 2);
   delay(500);
 
-  DEBUG_INFO("NB-IoT module initialized.");
+  DEBUG_INFO("Módulo NB-IoT inicializado.");
 }
 
 void nbiot_enviar(void) {
-  nbiot_paquete();     // Calls the function to create the JSON payload
-  nbiot_transmitir();  // Calls the function to perform the HTTP POST request
+  nbiot_paquete();     // Llama a la función para crear el payload JSON
+  nbiot_transmitir();  // Llama a la función para realizar la solicitud HTTP POST
 }
 
 void nbiot_paquete(void) {
@@ -102,9 +102,9 @@ void nbiot_paquete(void) {
   //doc["nox"] = String(avg_sen5x_nox);
 
   serializeJsonPretty(doc, json_data);
-  DEBUG_INFO("JSON: %s", json_data.c_str());  // Prints the JSON for debugging.
+  DEBUG_INFO("JSON: %s", json_data.c_str());  // Imprime el JSON para depuración.
 
-  // Converts the JSON to hexadecimal data
+  // Convierte el JSON a datos hexadecimales
   hexData = jsonToHex(doc);
   DEBUG_VERBOSE("hexData: %s", hexData.c_str());
 }
@@ -114,32 +114,32 @@ void nbiot_transmitir(void) {
 
   ans = SIM7020command("AT+CHTTPCREATE=\"" + String(SERVIDOR_IP) + ":" + String(SERVIDOR_PUERTO) + "\"", "OK", "yy", 3000, 2);
   delay(500);
-  DEBUG_INFO("Creating connection (AT+CHTTPCREATE)... %s", respuestas[ans]);
+  DEBUG_INFO("Creando conexion (AT+CHTTPCREATE)... %s", respuestas[ans]);
 
   ans = SIM7020command("AT+CHTTPCON=0", "OK", "yy", 5000, 2);
   if (ans != OK) {
-    DEBUG_ERROR("Connecting to server (AT+CHTTPCON)... %s", respuestas[ans]);
+    DEBUG_ERROR("Conectando al servidor (AT+CHTTPCON)... %s", respuestas[ans]);
     delay(5000);
     ReiniciarDispositivo();
   }
-  DEBUG_INFO("Connecting to server (AT+CHTTPCON)... %s", respuestas[ans]);
+  DEBUG_INFO("Conectando al servidor (AT+CHTTPCON)... %s", respuestas[ans]);
   delay(500);
 
   ans = SIM7020command("AT+CHTTPSEND=0,1,\"" SERVIDOR_API "\",,\"application/json\"," + hexData, "OK", "yy", 5000, 2);
   if (ans != OK) {
-    DEBUG_ERROR("Sending data (AT+CHTTPSEND)... %s", respuestas[ans]);
+    DEBUG_ERROR("Enviando datos (AT+CHTTPSEND)... %s", respuestas[ans]);
     delay(5000);
     ReiniciarDispositivo();
   }
-  DEBUG_INFO("Sending data (AT+CHTTPSEND)... %s", respuestas[ans]);
+  DEBUG_INFO("Enviando datos (AT+CHTTPSEND)... %s", respuestas[ans]);
   delay(500);
 
   ans = SIM7020command("AT+CHTTPDISCON=0", "OK", "yy", 5000, 2);
-  DEBUG_INFO("Disconnecting (AT+CHTTPDISCON)... %s", respuestas[ans]);
+  DEBUG_INFO("Desconectando (AT+CHTTPDISCON)... %s", respuestas[ans]);
   delay(500);
 
   ans = SIM7020command("AT+CHTTPDESTROY=0", "OK", "yy", 5000, 2);
-  DEBUG_INFO("Destroying connection (AT+CHTTPDESTROY)... %s", respuestas[ans]);
+  DEBUG_INFO("Destruyendo conexion (AT+CHTTPDESTROY)... %s", respuestas[ans]);
 }
 
 bool SIM7020begin(void) {
@@ -162,7 +162,7 @@ bool SIM7020begin(void) {
 
   if (SIM7020command("AT&F0", "OK", "yy", 5000, 2) == OK) {                   // Reset to factory settings
     if (SIM7020command("ATE0", "OK", "yy", 5000, 2) == OK) {                  // disable Echo
-      if (SIM7020command("AT+CMEE=2", "OK", "yy", 5000, 2) == OK) return OK;  // Enables extended error reports.
+      if (SIM7020command("AT+CMEE=2", "OK", "yy", 5000, 2) == OK) return OK;  // Habilita informes de error extendidos.
       else return NOTOK;
     }
   }
@@ -180,7 +180,7 @@ String SIM7020read(void) {
 byte SIM7020command(String command, String response1, String response2, unsigned long timeout, uint16_t repetitions) {
   byte returnValue = RST;
   uint16_t count = 0;
-  DEBUG_INFO("Command sent: %s", command.c_str());
+  DEBUG_INFO("Comando enviado: %s", command.c_str());
   while (count < repetitions && returnValue != OK) {
     SIM7020board.println(command);
     if (SIM7020waitFor(response1, response2, timeout) == OK) {
@@ -221,12 +221,12 @@ String jsonToHex(const JsonDocument& doc) {
   String hexString = "";
   serializeJson(doc, json_data);
 
-  // Iterates over each character of the JSON string
+  // Itera sobre cada carácter de la cadena JSON
   for (uint8_t i = 0; i < json_data.length(); i++) {
     hexString += String(json_data[i], HEX);
   }
 
-  return hexString;  // Returns the hexadecimal string
+  return hexString;  // Retorna la cadena hexadecimal
 }
 
 #endif  // HABILITAR_NBIOT

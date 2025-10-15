@@ -1,6 +1,6 @@
 /**
  * @file  SEN5X_API.cpp
- * @brief Implementación de las funciones para la lectura e inicialización del sensor SEN5X.
+ * @brief Implementation of functions for reading and initializing the SEN5X sensor.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -8,7 +8,7 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  Este módulo es una capa de abstracción sobre la librería SensirionI2CSen5x.
+ * @note  This module is an abstraction layer over the SensirionI2CSen5x library.
  */
 
 #include <SensirionI2CSen5x.h>
@@ -16,60 +16,60 @@
 #include "Debug.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_SEN5X  //!< Redefinición del nivel de depuración de este archivo fuente.
-#define DEBUG_TAG "SEN5X_API"    //!< Etiqueta al enviar mensajes de depuración.
+#define DEBUG_LEVEL DEBUG_SEN5X  //!< Redefinition of debug level for this source file.
+#define DEBUG_TAG "SEN5X_API"    //!< Tag when sending debug messages.
 
 /**
- * @name      Variables globales
- * @details   Aquí se asigna la memoria para las variables globales de los valores del sensor.
+ * @name      Global variables
+ * @details   Here memory is allocated for the global variables of sensor values.
  * @{
  */
-float sen5x_mc_1p0 = 0.0f;   //!< Concentración de masa PM1.0
-float sen5x_mc_2p5 = 0.0f;   //!< Concentración de masa PM2.5
-float sen5x_mc_4p0 = 0.0f;   //!< Concentración de masa PM4.0
-float sen5x_mc_10p0 = 0.0f;  //!< Concentración de masa PM10
-float sen5x_hum = 0.0f;      //!< Humedad relativa
-float sen5x_temp = 0.0f;     //!< Temperatura
-float sen5x_voc = 0.0f;      //!< Índice de Compuestos Orgánicos Volátiles (VOC)
-float sen5x_nox = 0.0f;      //!< Índice de Óxidos de Nitrógeno (NOx)
+float sen5x_mc_1p0 = 0.0f;   //!< PM1.0 mass concentration
+float sen5x_mc_2p5 = 0.0f;   //!< PM2.5 mass concentration
+float sen5x_mc_4p0 = 0.0f;   //!< PM4.0 mass concentration
+float sen5x_mc_10p0 = 0.0f;  //!< PM10 mass concentration
+float sen5x_hum = 0.0f;      //!< Relative humidity
+float sen5x_temp = 0.0f;     //!< Temperature
+float sen5x_voc = 0.0f;      //!< Volatile Organic Compounds (VOC) index
+float sen5x_nox = 0.0f;      //!< Nitrogen Oxides (NOx) index
 //!@}
 
-SensirionI2CSen5x sen5x;  //!< Instancia del objeto de la librería de Sensirion para el sensor SEN5X.
+SensirionI2CSen5x sen5x;  //!< Instance of Sensirion library object for the SEN5X sensor.
 
 void sen5x_inicializar(void) {
   Wire.begin();
-  sen5x.begin(Wire);  // Inicia la comunicación I2C.
+  sen5x.begin(Wire);  // Start I2C communication.
 
   uint16_t error;
 
-  // Reinicia el sensor para asegurar un estado conocido.
+  // Reset the sensor to ensure a known state.
   error = sen5x.deviceReset();
   if (error) {
-    DEBUG_ERROR("Error al reiniciar el dispositivo.");
+    DEBUG_ERROR("Error resetting device.");
   }
 
-  // Inicia las mediciones. El sensor medirá continuamente en segundo plano.
+  // Start measurements. The sensor will measure continuously in the background.
   error = sen5x.startMeasurement();
   if (error) {
-    DEBUG_ERROR("Error al iniciar las mediciones.");
+    DEBUG_ERROR("Error starting measurements.");
   }
 
-  DEBUG_INFO("Sensor inicializado.");
+  DEBUG_INFO("Sensor initialized.");
 }
 
 bool sen5x_leer(void) {
   uint16_t error;
 
-  // Lee los valores medidos del sensor
+  // Read measured values from the sensor
   error = sen5x.readMeasuredValues(
     sen5x_mc_1p0, sen5x_mc_2p5, sen5x_mc_4p0, sen5x_mc_10p0,
     sen5x_hum, sen5x_temp, sen5x_voc, sen5x_nox);
 
   if (error) {
-    DEBUG_ERROR("Error al leer los datos.");
+    DEBUG_ERROR("Error reading data.");
     return false;
   } else {
-    // Imprime los valores leídos si el nivel de depuración es alto
+    // Print the read values if debug level is high
     DEBUG_INFO("Temp: %f", sen5x_temp);
     DEBUG_INFO("Hum: %f", sen5x_hum);
     DEBUG_INFO("PM1.0: %f", sen5x_mc_1p0);

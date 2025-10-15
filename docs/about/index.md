@@ -1,8 +1,8 @@
 ---
 title: About
-subtitle: 
-description: 
-status: 
+subtitle:
+description:
+status:
 icon: material/information-variant-box-outline
 ---
 
@@ -13,16 +13,16 @@ under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the section entitled "GNU
-Free Documentation License". 
+Free Documentation License".
 -->
 
-# About
+## About
 
 <p align="center">
-  <img height="150" title="CICERONE Logo" src="/img/cicerone-logo.png" />
+  <img height="150" title="CICERONE Logo" src="../img/cicerone-logo.png" />
 </p>
 
-Artificial intelligence, smart sensing, and new physiological and environmental predictors for enhancing COPD management (aka CICERONE) [main site](https://cicerone.uca.es/)
+Artificial intelligence, smart sensing, and new physiological and environmental predictors for enhancing COPD management (aka CICERONE).
 
 COPD (chronic obstructive disease) is a progressive lung disease affecting millions of people worldwide, compromising their quality of life and presenting significant challenges for traditional healthcare.
 
@@ -43,5 +43,5 @@ The research proposed in **CICERONE**, coordinated by the Research Group in Bioe
 - **Grupo ATARI UCA**: Know more of the research group in our official website [Grupo ATARI UCA](https://tic212.uca.es)
 
 <p align="center">
-  <img height="100" title="ATARIUCA Logo" src="/img/grupoatari-logo.png" />
+  <img height="100" title="ATARIUCA Logo" src="../img/grupoatari-logo.png" />
 </p>

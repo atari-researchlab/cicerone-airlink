@@ -1,6 +1,6 @@
 /**
  * @file    T6793_API.cpp
- * @brief   Implementación de la API para el sensor de CO2 Telaire T6793-5K.
+ * @brief   Implementation of the API for the Telaire T6793-5K CO2 sensor.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -8,7 +8,7 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  Este módulo es una capa de abstracción sobre la librería T67XX.
+ * @note  This module is an abstraction layer over the T67XX library.
  */
 
 #include "T6793_API.h"
@@ -16,48 +16,48 @@
 #include "Debug.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinición del nivel de depuración de este archivo fuente.
-#define DEBUG_TAG "T6793_API"    //!< Etiqueta al enviar mensajes de depuración.
+#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinition of debug level for this source file.
+#define DEBUG_TAG "T6793_API"    //!< Tag when sending debug messages.
 
-T67XX t6793_sensor;      //!< Instancia del objeto de la librería para el sensor.
-uint16_t t6793_co2 = 0;  //!< Definición de la variable global.
+T67XX t6793_sensor;      //!< Instance of the library object for the sensor.
+uint16_t t6793_co2 = 0;  //!< Definition of the global variable.
 
 void t6793_inicializar(void) {
   uint16_t sensorStatus = 1;
 
   while (!t6793_sensor.begin()) {
-    DEBUG_ERROR("No se ha podido encontrar el sensor, verifique las conexiones");  // Mensaje de error si el sensor no es detectado.
-    delay(2000);                                                                   // Espera 2 segundos antes de reintentar.
+    DEBUG_ERROR("Sensor could not be found, check connections");  // Error message if sensor is not detected.
+    delay(2000);                                                  // Wait 2 seconds before retrying.
   }
-  DEBUG_INFO("Conexión establecida. Reiniciando...");  // Mensaje de éxito.
-  t6793_sensor.reset();                                // Reinicia el sensor para asegurar un estado conocido.
+  DEBUG_INFO("Connection established. Resetting...");  // Success message.
+  t6793_sensor.reset();                                // Reset the sensor to ensure a known state.
 
-  // Espera a que el sensor salga del estado de calentamiento o cualquier otro estado de error inicial.
+  // Wait for the sensor to exit warm-up state or any other initial error state.
   do {
-    sensorStatus = t6793_sensor.getStatus();                        // Lee el estado inicial del sensor.
-    DEBUG_INFO("Estado: %s", t6793_sensor.getStatusMsg().c_str());  // Imprime el mensaje de estado actual.
-    delay(T67XX_MEASURE_DELAY);                                     // Espera el tiempo de medición recomendado.
+    sensorStatus = t6793_sensor.getStatus();                        // Read initial sensor status.
+    DEBUG_INFO("Status: %s", t6793_sensor.getStatusMsg().c_str());  // Print current status message.
+    delay(T67XX_MEASURE_DELAY);                                     // Wait for recommended measurement time.
   } while (sensorStatus);
 
-  DEBUG_INFO("Firmware version: %u", t6793_sensor.getFirmwareVersion());  // Imprime la versión del firmware.
+  DEBUG_INFO("Firmware version: %u", t6793_sensor.getFirmwareVersion());  // Print firmware version.
 
-  DEBUG_VERBOSE("Habilitando autocalibración...");  // Mensaje informativo.
-  /* Habilita la calibración automática (ABC).
-   * Esto es recomendable en aplicaciones donde el sensor está expuesto
-   * regularmente a aire fresco (400 ppm de CO2). */
+  DEBUG_VERBOSE("Enabling autocalibration...");  // Informational message.
+  /* Enable automatic calibration (ABC).
+   * This is recommended in applications where the sensor is regularly
+   * exposed to fresh air (400 ppm CO2). */
   t6793_sensor.enableABCMode();
-  DEBUG_INFO("Autocalibración habilitada...");
+  DEBUG_INFO("Autocalibration enabled...");
 
-  DEBUG_INFO("Guardando configuración...");  // Mensaje informativo.
-  t6793_sensor.flashUpdate();                // Guarda las configuraciones en la memoria flash del sensor.
+  DEBUG_INFO("Saving configuration...");  // Informational message.
+  t6793_sensor.flashUpdate();             // Save settings to sensor's flash memory.
 
-  DEBUG_INFO("Sensor inicializado.");
+  DEBUG_INFO("Sensor initialized.");
 }
 
 bool t6793_leer(void) {
   uint16_t sensorStatus = t6793_sensor.getStatus();
   if (sensorStatus & (~(1u >> 0x0F) & 0x01)) {
-    DEBUG_WARN("Lectura de CO2 invalida (0 PPM). Estado: %s", t6793_sensor.getStatusMsg().c_str());
+    DEBUG_WARN("Invalid CO2 reading (0 PPM). Status: %s", t6793_sensor.getStatusMsg().c_str());
     t6793_co2 = 0;
     return false;
   }

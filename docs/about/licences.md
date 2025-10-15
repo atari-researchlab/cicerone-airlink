@@ -1,8 +1,8 @@
 ---
 title: Licences
-subtitle: 
-description: 
-status: 
+subtitle:
+description:
+status:
 icon: material/license
 ---
 
@@ -13,24 +13,24 @@ under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the section entitled "GNU
-Free Documentation License". 
+Free Documentation License".
 -->
 
-# Licences
+## Licences
 
 All hardware materials and designs, firmware and documentation provided here are licenced under the following licenses:
 
 <div class="grid cards" markdown>
 
--   :fontawesome-regular-file-code:{ .lg .middle } __Firmware__
+- :fontawesome-regular-file-code:{ .lg .middle } __Firmware__
 
     ---
 
     ![GNU General Public License version 3 or later Logo](../img/_lic/gplv3-or-later.svg)
-    
+
     [GNU General Public License version 3 or later](lic-firmware.md)
 
--   :material-file-document-multiple-outline:{ .lg .middle } __Documentation__
+- :material-file-document-multiple-outline:{ .lg .middle } __Documentation__
 
     ---
 
@@ -38,7 +38,7 @@ All hardware materials and designs, firmware and documentation provided here are
 
     [GNU Free Documentation License, Version 1.3 or later](lic-documentation.md)
 
--   :fontawesome-solid-microchip:{ .lg .middle } __Hardware__
+- :fontawesome-solid-microchip:{ .lg .middle } __Hardware__
 
     ---
 

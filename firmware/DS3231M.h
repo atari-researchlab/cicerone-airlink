@@ -1,11 +1,11 @@
 /**
  * @file    DS3231M.h
- * @brief   Este archivo implementa las funcionalidades para el módulo RTC DS3231M.
- * @details Proporciona métodos para leer y establecer la hora y fecha, gestionar alarmas y otras
- * configuraciones del RTC.
+ * @brief   This file implements functionalities for the DS3231M RTC module.
+ * @details Provides methods for reading and setting time and date, managing alarms and other
+ * RTC configurations.
  *
- * - Datasheet del DS3231M: https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf
- * - Repositorio de la librería DFRobot_DS3231M: https://github.com/DFRobot/DFRobot_DS3231M
+ * - DS3231M Datasheet: https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf
+ * - DFRobot_DS3231M library repository: https://github.com/DFRobot/DFRobot_DS3231M
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -13,12 +13,12 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note Este módulo se basa en la librería de DFRobot para el DS3231M
+ * @note This module is based on the DFRobot library for DS3231M
  * https://github.com/DFRobot/DFRobot_DS3231M
  *
  * Copyright 2010 DFRobot Co.Ltd
  *
- * Licencia: Licencia MIT
+ * License: MIT License
  */
 
 /*
@@ -44,283 +44,284 @@
 #include <Wire.h>
 
 /**
- * @name  Definición de registros y constantes del DS3231M
+ * @name  DS3231M register and constant definitions
  */
-#define DS3231M_IIC_ADDRESS 0x68             //!< Dirección I2C predeterminada del DS3231M.
-#define SECONDS_FROM_1970_TO_2000 946684800  //!< Constante para convertir segundos desde 1970 a segundos desde 2000.
-#define DS3231M_REG_RTC_SEC 0X00             //!< Registro de segundos del RTC.
-#define DS3231M_REG_RTC_MIN 0X01             //!< Registro de minutos del RTC.
-#define DS3231M_REG_RTC_HOUR 0X02            //!< Registro de horas del RTC.
-#define DS3231M_REG_RTC_DAY 0X03             //!< Registro del día de la semana del RTC.
-#define DS3231M_REG_RTC_DATE 0X04            //!< Registro del día del mes del RTC.
-#define DS3231M_REG_RTC_MONTH 0X05           //!< Registro del mes del RTC.
-#define DS3231M_REG_RTC_YEAR 0X06            //!< Registro del año del RTC.
-#define DS3231M_REG_ALARM1_SEC 0X07          //!< Registro de segundos de la alarma 1.
-#define DS3231M_REG_ALARM1_MIN 0X08          //!< Registro de minutos de la alarma 1.
-#define DS3231M_REG_ALARM1_HOUR 0X09         //!< Registro de horas de la alarma 1.
-#define DS3231M_REG_ALARM1_DAY 0X0A          //!< Registro del día/día de la semana de la alarma 1.
-#define DS3231M_REG_ALARM2_MIN 0X0B          //!< Registro de minutos de la alarma 2.
-#define DS3231M_REG_ALARM2_HOUR 0X0C         //!< Registro de horas de la alarma 2.
-#define DS3231M_REG_ALARM2_DAY 0X0D          //!< Registro del día/día de la semana de la alarma 2.
-#define DS3231M_REG_CTRL 0X0E                //!< Registro de control.
-#define DS3231M_REG_STATUS 0X0F              //!< Registro de estado.
-#define DS3231M_REG_TEMP 0X11                //!< Registro de temperatura.
+#define DS3231M_IIC_ADDRESS 0x68             //!< Default I2C address of DS3231M.
+#define SECONDS_FROM_1970_TO_2000 946684800  //!< Constant to convert seconds from 1970 to seconds from 2000.
+#define DS3231M_REG_RTC_SEC 0X00             //!< RTC seconds register.
+#define DS3231M_REG_RTC_MIN 0X01             //!< RTC minutes register.
+#define DS3231M_REG_RTC_HOUR 0X02            //!< RTC hours register.
+#define DS3231M_REG_RTC_DAY 0X03             //!< RTC day of the week register.
+#define DS3231M_REG_RTC_DATE 0X04            //!< RTC day of the month register.
+#define DS3231M_REG_RTC_MONTH 0X05           //!< RTC month register.
+#define DS3231M_REG_RTC_YEAR 0X06            //!< RTC year register.
+#define DS3231M_REG_ALARM1_SEC 0X07          //!< Alarm 1 seconds register.
+#define DS3231M_REG_ALARM1_MIN 0X08          //!< Alarm 1 minutes register.
+#define DS3231M_REG_ALARM1_HOUR 0X09         //!< Alarm 1 hours register.
+#define DS3231M_REG_ALARM1_DAY 0X0A          //!< Alarm 1 day/day of the week register.
+#define DS3231M_REG_ALARM2_MIN 0X0B          //!< Alarm 2 minutes register.
+#define DS3231M_REG_ALARM2_HOUR 0X0C         //!< Alarm 2 hours register.
+#define DS3231M_REG_ALARM2_DAY 0X0D          //!< Alarm 2 day/day of the week register.
+#define DS3231M_REG_CTRL 0X0E                //!< Control register.
+#define DS3231M_REG_STATUS 0X0F              //!< Status register.
+#define DS3231M_REG_TEMP 0X11                //!< Temperature register.
 //!@}
 
 /**
- * @brief Enumeración para definir los tipos de alarma disponibles.
+ * @brief Enumeration to define the available alarm types.
  */
 typedef enum {
-  eEverySecond,  //!< Alarma cada segundo.
-  eEveryMinute,  //!< Alarma cada minuto (en el segundo especificado).
-  eEveryHour,    //!< Alarma cada hora (en el minuto y segundo especificados).
-  eEveryDay,     //!< Alarma cada día (en la hora, minuto y segundo especificados).
-  eEveryWeek,    //!< Alarma cada semana (en el día de la semana, hora, minuto y segundo especificados).
-  eEveryMonth,   //!< Alarma cada mes (en el día del mes, hora, minuto y segundo especificados).
+  eEverySecond,  //!< Alarm every second.
+  eEveryMinute,  //!< Alarm every minute (at the specified second).
+  eEveryHour,    //!< Alarm every hour (at the specified minute and second).
+  eEveryDay,     //!< Alarm every day (at the specified hour, minute and second).
+  eEveryWeek,    //!< Alarm every week (at the specified day of the week, hour, minute and second).
+  eEveryMonth,   //!< Alarm every month (at the specified day of the month, hour, minute and second).
 } eAlarmType_t;
 
 /**
- * @brief Clase auxiliar para manejar la fecha y hora de manera conveniente.
+ * @brief Helper class to conveniently handle date and time.
  */
 class DateTime {
 public:
   /**
-    * @brief Constructor de la clase DateTime
-    * @param y Año
-    * @param m Mes
-    * @param d Día
-    * @param hh Horas
-    * @param mm Minutos
-    * @param ss Segundos
+    * @brief Constructor of the DateTime class
+    * @param y Year
+    * @param m Month
+    * @param d Day
+    * @param hh Hours
+    * @param mm Minutes
+    * @param ss Seconds
     */
   DateTime(uint16_t y = 0, uint8_t m = 0, uint8_t d = 0, uint8_t hh = 0, uint8_t mm = 0, uint8_t ss = 0)
     : y(y), m(m), d(d), hh(hh), mm(mm), ss(ss){};
 
   /**
-    * @brief Obtiene el año.
-    * @return Año.
+    * @brief Gets the year.
+    * @return Year.
     */
   uint16_t year() const {
     return y;
   }
   /**
-    * @brief Obtiene el mes.
-    * @return Mes.
+    * @brief Gets the month.
+    * @return Month.
     */
   uint8_t month() const {
     return m;
   }
   /**
-    * @brief Obtiene el día del mes.
-    * @return Día del mes.
+    * @brief Gets the day of the month.
+    * @return Day of the month.
     */
   uint8_t day() const {
     return d;
   }
   /**
-    * @brief Obtiene la hora.
-    * @return Hora.
+    * @brief Gets the hour.
+    * @return Hour.
     */
   uint8_t hour() const {
     return hh;
   }
   /**
-    * @brief Obtiene el minuto.
-    * @return Minuto.
+    * @brief Gets the minute.
+    * @return Minute.
     */
   uint8_t minute() const {
     return mm;
   }
   /**
-    * @brief Obtiene el segundo.
-    * @return Segundo.
+    * @brief Gets the second.
+    * @return Second.
     */
   uint8_t second() const {
     return ss;
   }
 
   /**
-    * @brief Calcula el día de la semana.
-    * @return Día de la semana (1 = Domingo, 2 = Lunes, ..., 7 = Sábado).
+    * @brief Calculates the day of the week.
+    * @return Day of the week (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
     */
   uint8_t dayOfTheWeek() const;
 
 protected:
-  uint16_t y;  //!< Año
-  uint8_t m;   //!< Mes
-  uint8_t d;   //!< Día del mes
-  uint8_t hh;  //!< Horas
-  uint8_t mm;  //!< Minutos
-  uint8_t ss;  //!< Segundos
+  uint16_t y;  //!< Year
+  uint8_t m;   //!< Month
+  uint8_t d;   //!< Day of the month
+  uint8_t hh;  //!< Hours
+  uint8_t mm;  //!< Minutes
+  uint8_t ss;  //!< Seconds
 };
 
 /**
- * @brief Clase para la comunicación del RTC DS3231M.
+ * @brief Class for DS3231M RTC communication.
  */
 class DS3231M {
+public:
   /**
-   * @brief Constructor de la clase DS3231M.
+   * @brief Constructor of the DS3231M class.
    *
-   * @param pWire   Periférico utilizado para la comunicación I2C.
+   * @param pWire   Peripheral used for I2C communication.
    */
   DS3231M(TwoWire* pWire = &Wire) {
     _pWire = pWire;
   };
 
   /**
-   * @brief Destructor de la clase DS3231M.
+   * @brief Destructor of the DS3231M class.
    */
   ~DS3231M(){};
 
   /**
-   * @brief Inicializa la comunicación I2C.
+   * @brief Initializes I2C communication.
    *
-   * @return Verdadero si tiene éxito la comunicación con el módulo, falso si es errónea.
+   * @return True if communication with the module succeeds, false if it fails.
    */
   bool begin(void);
 
   /**
-   * @brief Establece la hora y fecha del RTC.
+   * @brief Sets the RTC time and date.
    *
-   * @param year Año (ej. 2024).
-   * @param month Mes (1-12).
-   * @param day Día (1-31).
-   * @param hour Hora (0-23).
-   * @param minute Minuto (0-59).
-   * @param second Segundo (0-59).
+   * @param year Year (e.g. 2024).
+   * @param month Month (1-12).
+   * @param day Day (1-31).
+   * @param hour Hour (0-23).
+   * @param minute Minute (0-59).
+   * @param second Second (0-59).
    */
   void setRTCTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t second);
 
   /**
-   * @brief Obtiene la hora actual del RTC.
+   * @brief Gets the current RTC time.
    *
-   * @return Objeto DateTime que contiene la hora y fecha actuales.
+   * @return DateTime object containing the current time and date.
    */
   DateTime getRTCTime();
 
   /**
-   * @brief Establece la primera alarma del RTC (alarma 1).
+   * @brief Sets the first RTC alarm (alarm 1).
    *
-   * @param dt Objeto DateTime con la hora y fecha de la alarma.
-   * @param type Tipo de alarma (ej. cada minuto, cada hora, cada día, etc.).
+   * @param dt DateTime object with the alarm time and date.
+   * @param type Alarm type (e.g. every minute, every hour, every day, etc.).
    */
   void setAlarm1(const DateTime& dt, eAlarmType_t type);
 
   /**
-   * @brief Establece la segunda alarma del RTC (alarma 2).
+   * @brief Sets the second RTC alarm (alarm 2).
    *
-   * @param dt Objeto DateTime con la hora y fecha de la alarma.
-   * @param type Tipo de alarma (ej. cada minuto, cada hora, cada día, etc.).
+   * @param dt DateTime object with the alarm time and date.
+   * @param type Alarm type (e.g. every minute, every hour, every day, etc.).
    */
   void setAlarm2(const DateTime& dt, eAlarmType_t type);
 
   /**
-   * @brief Obtiene la temperatura actual del sensor DS3231M.
+   * @brief Gets the current temperature from the DS3231M sensor.
    *
-   * @return Temperatura en grados Celsius (float).
+   * @return Temperature in degrees Celsius (float).
    */
   float getTemp();
 
   /**
-   * @brief Verifica si alguna alarma se ha disparado.
+   * @brief Checks if any alarm has been triggered.
    *
-   * @return True si la alarma 1 o la alarma 2 se han disparado, false en caso contrario.
+   * @return True if alarm 1 or alarm 2 has been triggered, false otherwise.
    */
   bool isAlarm();
 
   /**
-   * @brief Limpia las banderas de alarma en el registro de estado.
+   * @brief Clears the alarm flags in the status register.
    *
-   * Esto es necesario después de que una alarma se ha disparado para que pueda volver a activarse.
+   * This is necessary after an alarm has been triggered so it can be activated again.
    */
   void clearAlarm();
 
   /**
-   * @brief Habilita la salida de onda cuadrada de 32kHz en el pin SQW/INT.
+   * @brief Enables the 32kHz square wave output on the SQW/INT pin.
    */
   void enable32k();
 
   /**
-   * @brief Deshabilita la salida de onda cuadrada de 32kHz en el pin SQW/INT.
+   * @brief Disables the 32kHz square wave output on the SQW/INT pin.
    */
   void disable32k();
 
   /**
-   * @brief Comprueba si el RTC perdió la alimentación auxiliar.
+   * @brief Checks if the RTC lost backup power.
    *
-   * @return Verdadero si se perdió la alimentación auxiliar.
+   * @return True if backup power was lost.
    */
   bool lostPower(void);
 
-  uint8_t rtc[7];  //!< Array para almacenar los datos de tiempo y fecha del RTC.
+  uint8_t rtc[7];  //!< Array to store RTC time and date data.
 
-  protected:
-    /**
-     * @brief Escribe datos en un registro específico del DS3231M a través de I2C.
-     *
-     * @param reg Dirección del registro a escribir.
-     * @param pBuf Puntero al buffer de datos a escribir.
-     * @param size Número de bytes a escribir.
-     */
-    virtual void writeReg(uint8_t reg, const void* pBuf, size_t size);
+protected:
+  /**
+   * @brief Writes data to a specific DS3231M register via I2C.
+   *
+   * @param reg Register address to write to.
+   * @param pBuf Pointer to the data buffer to write.
+   * @param size Number of bytes to write.
+   */
+  virtual void writeReg(uint8_t reg, const void* pBuf, size_t size);
 
-    /**
-     * @brief Lee datos de un registro específico del DS3231M a través de I2C.
-     *
-     * @param reg Dirección del registro a leer.
-     * @param pBuf Puntero al buffer donde se almacenarán los datos leídos.
-     * @param size Número de bytes a leer.
-     * @return El número de bytes leídos (0 en caso de error o si no se leyeron bytes).
-     */
-    virtual uint8_t readReg(uint8_t reg, const void* pBuf, size_t size);
+  /**
+   * @brief Reads data from a specific DS3231M register via I2C.
+   *
+   * @param reg Register address to read from.
+   * @param pBuf Pointer to the buffer where read data will be stored.
+   * @param size Number of bytes to read.
+   * @return The number of bytes read (0 in case of error or if no bytes were read).
+   */
+  virtual uint8_t readReg(uint8_t reg, const void* pBuf, size_t size);
 
-    /**
-     * @brief Convierte un valor BCD (Binary-Coded Decimal) a BIN (Binario).
-     *
-     * @param val Valor en formato BCD.
-     * @return Valor en formato BIN.
-     */
-    static uint8_t bcd2bin(uint8_t val);
+  /**
+   * @brief Converts a BCD (Binary-Coded Decimal) value to BIN (Binary).
+   *
+   * @param val Value in BCD format.
+   * @return Value in BIN format.
+   */
+  static uint8_t bcd2bin(uint8_t val);
 
-    /**
-     * @brief Convierte un valor BIN (Binario) a BCD (Binary-Coded Decimal).
-     *
-     * @param val Valor en formato BIN.
-     * @return Valor en formato BCD.
-     */
-    static uint8_t bin2bcd(uint8_t val);
+  /**
+   * @brief Converts a BIN (Binary) value to BCD (Binary-Coded Decimal).
+   *
+   * @param val Value in BIN format.
+   * @return Value in BCD format.
+   */
+  static uint8_t bin2bcd(uint8_t val);
 
-    /**
-     * @brief Calcula el día de la semana para una fecha dada.
-     *
-     * @param y Año.
-     * @param m Mes.
-     * @param d Día.
-     * @return Día de la semana (1 = Domingo, 2 = Lunes, ..., 7 = Sábado).
-     */
-    uint8_t dayOfTheWeek(uint16_t y, uint8_t m, uint8_t d) const;
+  /**
+   * @brief Calculates the day of the week for a given date.
+   *
+   * @param y Year.
+   * @param m Month.
+   * @param d Day.
+   * @return Day of the week (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
+   */
+  uint8_t dayOfTheWeek(uint16_t y, uint8_t m, uint8_t d) const;
 
-  private:
-    /**
-     * @brief Puntero al periferico I2C utilizado.
-     */
-    TwoWire* _pWire;
+private:
+  /**
+   * @brief Pointer to the I2C peripheral used.
+   */
+  TwoWire* _pWire;
 
-    /**
-     * @brief Dirección I2C del módulo RTC.
-     */
-    uint8_t _deviceAddr = DS3231M_IIC_ADDRESS;
+  /**
+   * @brief I2C address of the RTC module.
+   */
+  uint8_t _deviceAddr = DS3231M_IIC_ADDRESS;
 
-    /**
-     * @brief Array para almacenar los días de la semana en formato texto.
-     */
-    const char* daysOfTheWeek[7] = {"Sunday", "Monday", "Tuesday", "Wednesday",
-                                    "Thursday", "Friday", "Saturday"};
+  /**
+   * @brief Array to store the days of the week in text format.
+   */
+  const char* daysOfTheWeek[7] = {"Sunday", "Monday", "Tuesday", "Wednesday",
+                                  "Thursday", "Friday", "Saturday"};
 
-    /**
-     * @brief Array para almacenar el tipo de hora para el modo de 12 horas.
-     */
-    const char* hourOfAM[4] = { "", "", "AM", "PM" };
+  /**
+   * @brief Array to store the hour type for 12-hour mode.
+   */
+  const char* hourOfAM[4] = { "", "", "AM", "PM" };
 };
 
 #endif  // _DS3231M_H

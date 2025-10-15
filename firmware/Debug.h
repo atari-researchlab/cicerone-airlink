@@ -1,8 +1,8 @@
 /**
  * @file        Debug.h
- * @brief       Cabecera para la gestión de mensajes de depuración.
- * @details     Define un conjunto de macros que permiten imprimir mensajes en el puerto serie
- * dependiendo de un nivel de depuración establecido en "Configuracion.h".
+ * @brief       Header for debug message management.
+ * @details     Defines a set of macros that allow printing messages to the serial port
+ * depending on a debug level set in "Configuracion.h".
  *
  * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date        [2024-07-22/2025-10-15]
@@ -15,38 +15,38 @@
 #define DEBUG_H
 
 /**
- * @brief Descomenta la siguiente línea para habilitar la transmisión de promedios minutales.
- * @details Útil para depurar el envío de mensajes o la comunicación con los sensores.
+ * @brief Uncomment the following line to enable per-minute average transmission.
+ * @details Useful for debugging message sending or sensor communication.
  */
 #define TEST_MINUTAL 1
 
 /**
- * @name Configuración de los mensajes de depuración.
- * @details Controla la cantidad de información de cada módulo que se imprime en el Monitor Serie cada módulo
- * y de forma global. Si el nivel de depuración es 0, todas las macros de depuración se definen como vacías.
- * El compilador las optimizará y las eliminará del código final, ahorrando memoria.
+ * @name Debug message configuration.
+ * @details Controls the amount of information printed to the Serial Monitor for each module
+ * and globally. If the debug level is 0, all debug macros are defined as empty.
+ * The compiler will optimize and remove them from the final code, saving memory.
  *
- *   - 0 = Sin depuración. Ahorra memoria y hace el programa más rápido.
- *   - 1 = Errores (ERROR): Muestra solo mensajes críticos.
- *   - 2 = Advertencias (WARN): Muestra errores y advertencias importantes.
- *   - 3 = Información (INFO): Muestra el flujo general del programa (recomendado para depuración normal).
- *   - 4 = Detallado (VERBOSE): Muestra información muy detallada, como lecturas de sensores cada 5s.
+ *   - 0 = No debugging. Saves memory and makes the program faster.
+ *   - 1 = Errors (ERROR): Shows only critical messages.
+ *   - 2 = Warnings (WARN): Shows errors and important warnings.
+ *   - 3 = Information (INFO): Shows general program flow (recommended for normal debugging).
+ *   - 4 = Verbose (VERBOSE): Shows very detailed information, such as sensor readings every 5s.
  * @{
  */
-#define DEBUG_LEVEL 3    //!< Nivel de depuración global
-#define DEBUG_ALARMA 2   //!< Controla la cantidad de información de depuración del bucle de adquisición y promediado.
-#define DEBUG_SEN5X 2    //!< Controla la cantidad de información de depuración del sensor SEN5X.
-#define DEBUG_T6793 2    //!< Controla la cantidad de información de depuración del sensor T6793K (CO2).
-#define DEBUG_DS3231M 2  //!< Controla la cantidad de información depuración del RTC.
-#define DEBUG_NBIOT 2    //!< Controla la cantidad de información del módulo NB-IoT.
+#define DEBUG_LEVEL 3    //!< Global debug level
+#define DEBUG_ALARMA 2   //!< Controls debug information for acquisition and averaging loop.
+#define DEBUG_SEN5X 2    //!< Controls debug information for SEN5X sensor.
+#define DEBUG_T6793 2    //!< Controls debug information for T6793K sensor (CO2).
+#define DEBUG_DS3231M 2  //!< Controls debug information for RTC.
+#define DEBUG_NBIOT 2    //!< Controls debug information for NB-IoT module.
 //!@}
 
 #include <Arduino.h>
-#include <stdarg.h>  // Necesario para va_list, va_start, va_end
-#include <stdio.h>   // Necesario para snprintf
+#include <stdarg.h>  // Required for va_list, va_start, va_end
+#include <stdio.h>   // Required for snprintf
 
-#define DEBUG_PRINTF_BUFFER_SIZE 256                        //!< Ajusta el tamaño según la longitud máxima esperada de los mensajes a enviar.
-static char debug_printf_buffer[DEBUG_PRINTF_BUFFER_SIZE];  //!< Buffer para los mensajes de depuración formateados.
+#define DEBUG_PRINTF_BUFFER_SIZE 256                        //!< Adjust size according to expected maximum message length.
+static char debug_printf_buffer[DEBUG_PRINTF_BUFFER_SIZE];  //!< Buffer for formatted debug messages.
 
 #if DEBUG_LEVEL == 0
 #define DEBUG_ERROR(format, ...)
@@ -54,12 +54,12 @@ static char debug_printf_buffer[DEBUG_PRINTF_BUFFER_SIZE];  //!< Buffer para los
 #define DEBUG_INFO(format, ...)
 #define DEBUG_VERBOSE(format, ...)
 
-#else  // Si el nivel de depuración es > 0, se definen las macros para imprimir en el Serial.
+#else  // If debug level is > 0, macros are defined to print to Serial.
 
 /**
- * @brief Define un prefijo común para todos los mensajes de depuración.
- * @details Utiliza la macro DEBUG_TAG que debe ser definida en cada archivo .cpp para identificar
- * el origen del mensaje.
+ * @brief Defines a common prefix for all debug messages.
+ * @details Uses the DEBUG_TAG macro which must be defined in each .cpp file to identify
+ * the message source.
  *
  * ``` [level][millis()][DEBUG_TAG] ```
  */
@@ -73,16 +73,16 @@ static char debug_printf_buffer[DEBUG_PRINTF_BUFFER_SIZE];  //!< Buffer para los
   Serial.print(F("] "))
 
 /**
- * @name Macros de depuración.
- * @brief Se utilizan al igual que la función @c printf(). Agregan automaticamente el nivel de DEBUG,
- * los millis actuales a modo de _timestamp_ y el módulo que lo generó.
- * @details Ejemplo:
+ * @name Debug macros.
+ * @brief Used like the @c printf() function. Automatically adds the DEBUG level,
+ * current millis as a _timestamp_, and the module that generated it.
+ * @details Example:
  *
  * @code{.cpp}
-    DEBUG_ERROR("No es posible establecer la comunicación con el RTC");
+    DEBUG_ERROR("Unable to establish communication with RTC");
  * @endcode
  *
- * ``` [ERROR][1543][RTC] No es posible establecer la comunicación con el RTC ```
+ * ``` [ERROR][1543][RTC] Unable to establish communication with RTC ```
  * @{
  */
 

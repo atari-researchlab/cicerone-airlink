@@ -1,8 +1,8 @@
 /**
  * @file    T6793_API.h
- * @brief   Cabecera para la API del sensor de CO2 Telaire T6793-5K.
- * @details Declara las funciones y variables globales para este sensor específico, utilizando la
- * librería base T67XX.
+ * @brief   Header for the Telaire T6793-5K CO2 sensor API.
+ * @details Declares functions and global variables for this specific sensor, using the
+ * T67XX base library.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -10,7 +10,7 @@
  *
  * @copyright GNU General Public License version 3 or later
  *
- * @note  Este módulo es una capa de abstracción sobre la librería T67XX.
+ * @note  This module is an abstraction layer over the T67XX library.
  */
 
 #ifndef T6793_API_H
@@ -21,14 +21,14 @@
 extern uint16_t t6793_co2;
 
 /**
- * @brief Inicializa el sensor T6793, Configura la comunicación I2C y deshabilita la calibración
- * ABC.
+ * @brief Initializes the T6793 sensor, configures I2C communication and disables ABC
+ * calibration.
  */
 void t6793_inicializar(void);
 
 /**
- * @brief   Lee el valor de CO2 del sensor y actualiza la variable global 't6793_co2'.
- * @return  Verdadero si la lectura ha sido correcta.
+ * @brief   Reads the CO2 value from the sensor and updates the global variable 't6793_co2'.
+ * @return  True if the reading was successful.
  */
 bool t6793_leer(void);
 

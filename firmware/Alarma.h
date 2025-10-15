@@ -1,8 +1,8 @@
 /**
  * @file    Alarma.h
- * @brief   Cabecera para la gestión de alarmas temporizadas y promedio de datos.
- * @details Declara las funciones y variables globales para controlar tareas periódicas
- * (ej. cada 5s, cada 10min) y para manejar los datos de los sensores.
+ * @brief   Header for timed alarm and data averaging management.
+ * @details Declares functions and global variables to control periodic tasks
+ * (e.g., every 5s, every 10min) and to handle sensor data.
  *
  * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
  * @date      [2024-07-22/2025-10-15]
@@ -17,9 +17,9 @@
 #include <Arduino.h>
 #include "DS3231M.h"
 
-/* Declaración de las variables globales con el atributo **extern**. Este indica que estas 
- * variables existen, pero se  definen (se les asigna memoria) en otro archivo como Alarma.cpp. 
- * Esto permite que sean accesibles desde cualquier otro módulo que incluya Alarma.h.
+/* Declaration of global variables with the **extern** attribute. This indicates that these
+ * variables exist, but are defined (memory is allocated) in another file like Alarma.cpp.
+ * This allows them to be accessible from any other module that includes Alarma.h.
  */
 extern bool alarma_10min;
 extern bool alarma_5s;
@@ -51,42 +51,42 @@ extern String fecha;
 extern String hora;
 
 /**
- * @brief   Inicializa el módulo RTC y configura la primera alarma de 10 minutos.
- * @details Configura el RTC con una fecha y hora iniciales si es necesario, o lo sincroniza.
- * Esta función debe ser llamada en 'setup()'.
+ * @brief   Initializes the RTC module and configures the first 10-minute alarm.
+ * @details Configures the RTC with initial date and time if necessary, or synchronizes it.
+ * This function must be called in 'setup()'.
  */
 void rtc_alarma_inicializar(void);
 
 /**
- * @brief Comprueba si han pasado 5 segundos utilizando millis(). Si es así, activa la bandera alarma_5s.
- * @note  Debe llamarse continuamente en el loop principal.
+ * @brief Checks if 5 seconds have passed using millis(). If so, activates the alarma_5s flag.
+ * @note  Must be called continuously in the main loop.
  */
 void check_alarma_5s(void);
 
 /**
- * @brief   Lee los datos de todos los sensores y los acumula para el promedio.
- * @details Llama a las funciones de lectura de los módulos SEN55 y T6793 y suma sus valores
- * a los acumuladores \a sum_* correspondientes. Incrementa los contadores de promedio.
+ * @brief   Reads data from all sensors and accumulates them for averaging.
+ * @details Calls the reading functions of the SEN55 and T6793 modules and adds their values
+ * to the corresponding \a sum_* accumulators. Increments the averaging counters.
  */
 void acumular_datos(void);
 
 /**
- * @brief   Verifica si se ha completado el ciclo de 10 minutos. Si es así, activa la bandera alarma_10min.
- * @details Comprueba la hora del RTC para ver si se ha alcanzado el siguiente intervalo de 10
- * minutos (ej: 12:10, 12:20).
- * @note    Debe llamarse continuamente en el loop principal.
+ * @brief   Verifies if the 10-minute cycle has completed. If so, activates the alarma_10min flag.
+ * @details Checks the RTC time to see if the next 10-minute interval has been reached
+ * (e.g., 12:10, 12:20).
+ * @note    Must be called continuously in the main loop.
  */
 void check_alarma_10min(void);
 
 /**
- * @brief   Procesa los datos acumulados para calcular los promedios y los almacena.
- * @details Esta función se llama al final de cada período de promedio (ej. cada 10 minutos)
- * y los promedios se guardan en las variables \a avg_* correspondientes.
+ * @brief   Processes accumulated data to calculate averages and stores them.
+ * @details This function is called at the end of each averaging period (e.g., every 10 minutes)
+ * and the averages are stored in the corresponding \a avg_* variables.
  */
 void promediar_datos(void);
 
 /**
- * @brief Reinicia los contadores y acumuladores.
+ * @brief Resets counters and accumulators.
  */
 void reset_acumuladores(void);
 

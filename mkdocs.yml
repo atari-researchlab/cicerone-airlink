@@ -10,15 +10,27 @@ plugins:
       lang:
         - en
         - es
-  # - mkdoxy:
-  #     enabled: !ENV [ENABLE_MKDOXY, True]
-  #     projects:
-  #       firmware: # name of project must be alphanumeric + numbers (without spaces)
-  #         src-dirs: firmware # list of source directories (relative to the mkdocs.yml file)
-  #         doxy-cfg-file: .doxygen/Doxyfile # relative path to the Doxygen configuration file (relative to the mkdocs.yml file)s
-  #     save-api: #.mkdoxy # directory where the generated files will be saved (relative to the mkdocs.yml file)
-  #     debug: False # if True, it will print debug information
-  #     ignore-errors: False # if True, it will ignore errors and continue generating the documentation
+  - mkdoxy:
+      projects:
+        "es/firmware": # Spanish firmware documentation
+          src-dirs: firmware_es
+          full-doc: True
+          doxy-cfg:
+            FILE_PATTERNS: "*.cpp *.h *.ino"
+            RECURSIVE: NO
+            EXTRACT_ALL: YES
+            EXCLUDE: "build/*"
+        "firmware": # English firmware documentation
+          src-dirs: firmware
+          full-doc: True
+          doxy-cfg:
+            FILE_PATTERNS: "*.cpp *.h *.ino"
+            RECURSIVE: NO
+            EXTRACT_ALL: YES
+            EXCLUDE: "build/*"
+      #save-api: .mkdoxy
+      #debug: True
+      ignore-errors: False
   # - mkdocstrings:
   #     enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
   #     default_handler: c
@@ -113,33 +125,55 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-nav:
-  - Home: index.md
-  - Description:
-      - description/index.md
-      - description/electronics.md
-      - description/enclosure.md
-      - description/other-information.md
-  - User Guide:
-      - user-guide/index.md
-      - user-guide/assembly.md
-      - user-guide/firmware-configuration.md
-  - Reference:
-      - firmware/index.md
-      # - Class List: firmware/annotated.md
-      # - firmware/macros.md
-      # - firmware/functions.md
-      # - firmware/files.md
-      # - firmware/links.md
-  - About:
-      - about/index.md
-      - about/citations.md
-      - about/licences.md
-      - about/authors.md
-      - about/funding.md
+# nav:
+#   - Home: index.md
+#   - Description:
+#       - description/index.md
+#       - description/electronics.md
+#       - description/enclosure.md
+#       - description/other-information.md
+#   - User Guide:
+#       - user-guide/index.md
+#       - user-guide/assembly.md
+#       - user-guide/firmware-configuration.md
+#   - API Reference:
+#       - firmware/index.md
+#       - English:
+#           - Classes:   firmware/annotated.md
+#           - Files:     firmware/files.md
+#           - Functions: firmware/functions.md
+#           - Variables: firmware/variables.md
+#   - About:
+#       - about/index.md
+#       - about/citations.md
+#       - about/licences.md
+#       - about/authors.md
+#       - about/funding.md
 
 not_in_nav: |
-  lic-*.md           # lic files
+  */lic-*.md
+
+  firmware/_*.md
+  firmware/dir*.md
+  firmware/namespace_*.md
+  firmware/group_*.md
+  firmware/class_member*.md
+  firmware/union_*.md
+  firmware/struct_*.md
+  firmware/annotated.md
+  firmware/classes.md
+  firmware/hierarchy.md
+  firmware/links.md
+  firmware/macros.md
+  firmware/modules.md
+  firmware/namespaces.md
+  firmware/pages.md
+  firmware/firmware_*.md
+
+  es/
+
+exclude_docs: |
+  LICENSE.md
 
 # /requirements.txt  # Top-level "docs/requirements.txt".
 # *.py               # Any file with this extension anywhere.
