@@ -10,15 +10,19 @@ plugins:
       lang:
         - en
         - es
-  - mkdoxy:
-      enabled: !ENV [ENABLE_MKDOXY, True]
-      projects:
-        firmware: # name of project must be alphanumeric + numbers (without spaces)
-          src-dirs: firmware # list of source directories (relative to the mkdocs.yml file)
-          doxy-cfg-file: .doxygen/Doxyfile # relative path to the Doxygen configuration file (relative to the mkdocs.yml file)s
-      save-api: #.mkdoxy # directory where the generated files will be saved (relative to the mkdocs.yml file)
-      debug: False # if True, it will print debug information
-      ignore-errors: False # if True, it will ignore errors and continue generating the documentation
+  # - mkdoxy:
+  #     enabled: !ENV [ENABLE_MKDOXY, True]
+  #     projects:
+  #       firmware: # name of project must be alphanumeric + numbers (without spaces)
+  #         src-dirs: firmware # list of source directories (relative to the mkdocs.yml file)
+  #         doxy-cfg-file: .doxygen/Doxyfile # relative path to the Doxygen configuration file (relative to the mkdocs.yml file)s
+  #     save-api: #.mkdoxy # directory where the generated files will be saved (relative to the mkdocs.yml file)
+  #     debug: False # if True, it will print debug information
+  #     ignore-errors: False # if True, it will ignore errors and continue generating the documentation
+  # - mkdocstrings:
+  #     enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+  #     default_handler: c
+  #     locale: en
 
 extra:
   alternate:
@@ -122,11 +126,11 @@ nav:
       - user-guide/firmware-configuration.md
   - Reference:
       - firmware/index.md
-      - Class List: firmware/annotated.md
-      - firmware/macros.md
-      - firmware/functions.md
-      - firmware/files.md
-      - firmware/links.md
+      # - Class List: firmware/annotated.md
+      # - firmware/macros.md
+      # - firmware/functions.md
+      # - firmware/files.md
+      # - firmware/links.md
   - About:
       - about/index.md
       - about/citations.md
