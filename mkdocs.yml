@@ -154,11 +154,13 @@ not_in_nav: |
   */lic-*.md
 
   firmware/_*.md
+  firmware/*_8h.md
+  firmware/*_8cpp.md
+  firmware/class_member*.md
   firmware/dir*.md
   firmware/namespace_*.md
   firmware/group_*.md
-  firmware/class_member*.md
-  firmware/union_*.md
+  firmware/union*.md
   firmware/struct_*.md
   firmware/annotated.md
   firmware/classes.md
