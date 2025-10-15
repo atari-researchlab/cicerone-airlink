@@ -26,3 +26,4 @@ Gemfile.lock
 *.map
 /firmware/build/*
 !/firmware/build/arduino*/
+.github/copilot-instructions.md

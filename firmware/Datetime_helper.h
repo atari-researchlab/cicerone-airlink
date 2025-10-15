@@ -1,36 +1,46 @@
-/***********************************************************************************************************************
- * @file        Datetime_helper.h
- * @brief       Macros de preprocesador para convertir las macros @c __DATE__ y @c __TIME__
- * en valores numéricos para el RTC.
- * @details     Este archivo es una utilidad que permite establecer la hora del reloj RTC
+/**
+ * @file    Datetime_helper.h
+ * @brief   Macros de preprocesador para convertir las macros @c __DATE__ y @c __TIME__ en valores 
+ * numéricos para el RTC.
+ * @details Este archivo es una utilidad que permite establecer la hora del reloj RTC 
  * automáticamente a la hora en que se compiló el programa. No es necesario modificarlo.
+ *
  * Ejemplo de @c __DATE__: "Jul 22 2024"
+ *
  * Ejemplo de @c __TIME__: "18:30:00"
  *
  * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
- * @date        [2024-07-22]
- * @version     1.0
+ * @date        [2024-07-22/2025-10-15]
+ * @version     2.0
  *
  * @copyright   GNU General Public License version 3 or later
- * 
- **********************************************************************************************************************/
+ */
 
 #ifndef DATETIME_HELPER_H
 #define DATETIME_HELPER_H
 
-/** @brief Extrae el año de la cadena @c __DATE__ (ej: "Jul 22 2024" -> 2024). */
+/**
+ * @brief Extrae el año de la cadena @c __DATE__ (ej: "Jul 22 2024" -> 2024).
+ */
 #define BUILD_YEAR \
   ( \
-    (__DATE__[7] - '0') * 1000 + (__DATE__[8] - '0') * 100 + (__DATE__[9] - '0') * 10 + (__DATE__[10] - '0'))
+    (__DATE__[7] - '0') * 1000 + \
+    (__DATE__[8] - '0') * 100 +  \
+    (__DATE__[9] - '0') * 10 +   \
+    (__DATE__[10] - '0')         \
+   )
 
-/** @brief Extrae el día de la cadena @c __DATE__ (ej: "Jul 22 2024" -> 22).
- * Maneja el caso en que el día tiene un solo dígito (ej: "Jul  7 2024").
+/**
+ * @brief Extrae el día de la cadena @c __DATE__ (ej: "Jul 22 2024" -> 22). Maneja el caso en que
+ * el día tiene un solo dígito (ej: "Jul  7 2024").
  */
 #define BUILD_DAY \
   ( \
     ((__DATE__[4] >= '0') ? (__DATE__[4] - '0') * 10 : 0) + (__DATE__[5] - '0'))
 
-/** @brief Convierte el mes de texto a número (ej: "Jan" -> 1, "Feb" -> 2, etc). */
+/**
+ * @brief Convierte el mes de texto a número (ej: "Jan" -> 1, "Feb" -> 2, etc).
+ */
 #define BUILD_MONTH \
   ( \
     (__DATE__[0] == 'J' && __DATE__[1] == 'a' && __DATE__[2] == 'n') ? 1  : \
@@ -48,11 +58,19 @@
                                                                        0    \
   )
 
-/** @brief Extrae la hora de la cadena @c __TIME__ (ej: "18:30:00" -> 18). */
+/**
+ * @brief Extrae la hora de la cadena @c __TIME__ (ej: "18:30:00" -> 18).
+ */
 #define BUILD_HOUR ((__TIME__[0] - '0') * 10 + (__TIME__[1] - '0'))
-/** @brief Extrae el minuto de la cadena @c __TIME__ (ej: "18:30:00" -> 30). */
+
+/**
+ * @brief Extrae el minuto de la cadena @c __TIME__ (ej: "18:30:00" -> 30).
+ */
 #define BUILD_MIN ((__TIME__[3] - '0') * 10 + (__TIME__[4] - '0'))
-/** @brief Extrae el segundo de la cadena @c __TIME__ (ej: "18:30:00" -> 00). */
+
+/**
+ * @brief Extrae el segundo de la cadena @c __TIME__ (ej: "18:30:00" -> 00).
+ */
 #define BUILD_SEC ((__TIME__[6] - '0') * 10 + (__TIME__[7] - '0'))
 
 #endif  // DATETIME_HELPER_H

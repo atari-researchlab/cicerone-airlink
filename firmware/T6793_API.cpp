@@ -1,30 +1,27 @@
-/***********************************************************************************************************************
- * @file        T6793_API.cpp
- * @brief       Implementación de la API para el sensor de CO2 Telaire T6793-5K.
+/**
+ * @file    T6793_API.cpp
+ * @brief   Implementación de la API para el sensor de CO2 Telaire T6793-5K.
  *
- * @author      [ALD-DSL/ATARI_RESEARCH_LAB]
- * @date        [2024-07-22]
- * @version     1.0
+ * @author    [ALD-DSL/ATARI_RESEARCH_LAB]
+ * @date      [2024-07-22/2025-10-15]
+ * @version   2.0
  *
- * @copyright   GNU General Public License version 3 or later
+ * @copyright GNU General Public License version 3 or later
  *
- * @note        Este módulo es una capa de abstracción sobre la librería T67XX.
- **********************************************************************************************************************/
+ * @note  Este módulo es una capa de abstracción sobre la librería T67XX.
+ */
 
 #include "T6793_API.h"
 #include "T67XX.h"
 #include "Debug.h"
 
 #undef DEBUG_LEVEL
-#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinición del nivel de depuración en la compilación de este archivo fuente
-#define DEBUG_TAG "T6793_API"    //!< Etiqueta al enviar mensajes de depuración
+#define DEBUG_LEVEL DEBUG_T6793  //!< Redefinición del nivel de depuración de este archivo fuente.
+#define DEBUG_TAG "T6793_API"    //!< Etiqueta al enviar mensajes de depuración.
 
 T67XX t6793_sensor;      //!< Instancia del objeto de la librería para el sensor.
 uint16_t t6793_co2 = 0;  //!< Definición de la variable global.
 
-/**
- * @brief Inicializa el sensor T6793, Configura la comunicación I2C y deshabilita la calibración ABC.
- */
 void t6793_inicializar(void) {
   uint16_t sensorStatus = 1;
 
@@ -57,10 +54,6 @@ void t6793_inicializar(void) {
   DEBUG_INFO("Sensor inicializado.");
 }
 
-/**
- * @brief Lee el valor de CO2 del sensor y actualiza la variable global 't6793_co2'.
- * @return Verdadero si la lectura ha sido correcta
- */
 bool t6793_leer(void) {
   uint16_t sensorStatus = t6793_sensor.getStatus();
   if (sensorStatus & (~(1u >> 0x0F) & 0x01)) {
