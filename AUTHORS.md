@@ -14,7 +14,9 @@ Free Documentation License".
 
 ## Project Team
 
-The CICERONE AirLink project is developed and maintained by researchers at the **ATARI Research Lab** (Advanced Technologies for Ambient-Assisted Living and Research on Innovation), part of the University of Cádiz, Spain.
+The CICERONE AirLink project is developed and maintained by researchers at the
+**ATARI Research Lab** (Advanced Technologies for Ambient-Assisted Living and Research on
+Innovation), part of the University of Cádiz, Spain.
 
 ### Daniel Sanchez-Morillo
 
@@ -74,21 +76,21 @@ The CICERONE AirLink project is developed and maintained by researchers at the *
 
 ## Contribution Matrix
 
-| Role               | Daniel Sanchez-Morillo | Diego Sales-Lerida | Alejandro Lara-Doña | Patricia Camacho-Magriñán |
+|Role| Daniel Sanchez-Morillo | Diego Sales-Lerida | Alejandro Lara-Doña| Patricia Camacho-Magriñán|
 |--------------------|:----------------------:|:------------------:|:-------------------:|:-------------------------:|
-| Conceptualization  | ●                      | ◐                  | ○                   | ○                         |
-| Hardware           | ○                      | ●                  | ●                   | ○                         |
-| Enclosure          | ○                      | ◐                  | ◐                   | ●                         |
-| Firmware           | ○                      | ●                  | ●                   | ○                         |
-| Software           | ◐                      | ◐                  | ○                   | ●                         |
-| Testing            | ○                      | ●                  | ●                   | ●                         |
-| Documentation      | ◐                      | ●                  | ●                   | ◐                         |
-| Validation         | ●                      | ●                  | ●                   | ●                         |
-| Investigation      | ●                      | ●                  | ○                   | ●                         |
-| Data Curation      | ◐                      | ●                  | ○                   | ●                         |
-| Visualization      | ○                      | ●                  | ○                   | ●                         |
-| Supervision        | ●                      | ○                  | ○                   | ○                         |
-| Funding            | ●                      | ○                  | ○                   | ○                         |
+| Conceptualization  | ●                      | ◐                  | ○                   | ○       |
+| Hardware           | ○                      | ●                  | ●                   | ○       |
+| Enclosure          | ○                      | ◐                  | ◐                   | ●      |
+| Firmware           | ○                      | ●                  | ●                   | ○       |
+| Software           | ◐                      | ◐                  | ○                   | ●      |
+| Testing            | ○                      | ●                  | ●                   | ●       |
+| Documentation      | ◐                      | ●                  | ●                   | ◐      |
+| Validation         | ●                      | ●                  | ●                   | ●       |
+| Investigation      | ●                      | ●                  | ○                   | ●       |
+| Data Curation      | ◐                      | ●                  | ○                   | ●       |
+| Visualization      | ○                      | ●                  | ○                   | ●       |
+| Supervision        | ●                      | ○                  | ○                   | ○       |
+| Funding            | ●                      | ○                  | ○                   | ○       |
 
 **Legend**: ● Major contribution | ◐ Moderate contribution | ○ Minor/supporting contribution
 
@@ -114,7 +116,8 @@ PCB design, electronic circuit development, component selection and hardware int
 
 **Patricia Camacho-Magriñán**, Diego Sales-Lerida, Alejandro Lara-Doña
 
-Design and prototyping of device enclosure using CAD software (SOLIDWORKS/Fusion360), 3D printing and mechanical integration.
+Design and prototyping of device enclosure using CAD software (SOLIDWORKS/Fusion360), 3D printing
+and mechanical integration.
 
 ### Firmware Development
 
@@ -142,7 +145,8 @@ Creation and maintenance of technical documentation, user guides and API referen
 
 ### Validation
 
-All authors contributed to verification of system functionality, data quality and reproducibility of results.
+All authors contributed to verification of system functionality, data quality and reproducibility
+of results.
 
 ### Investigation
 
@@ -184,7 +188,8 @@ Acquisition of financial support for the research project.
 
 ## Funding
 
-This work was supported by the Spanish Ministry of Science and Innovation (MICINN) through grant **PID2021-126810OB-I00**, funded by MCIN/AEI/10.13039/501100011033 and the European Union.
+This work was supported by the Spanish Ministry of Science and Innovation (MICINN) through grant
+**PID2021-126810OB-I00**, funded by MCIN/AEI/10.13039/501100011033 and the European Union.
 
 ## Institutional Support
 

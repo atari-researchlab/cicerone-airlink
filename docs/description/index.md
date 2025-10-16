@@ -20,15 +20,17 @@ Free Documentation License".
 
 ## Overview
 
-The CICERONE AirLink firmware is a embedded system designed for continuous indoor air quality
+The CICERONE AirLink firmware is an embedded system designed for continuous indoor air quality
 monitoring with remote telemonitoring capabilities. Built on the Arduino framework for the **Nano 33
 BLE Sense Rev2**, the firmware implements a non-blocking, timer-based architecture that ensures
 reliable data collection and transmission.
 
 ### Key Features
 
-- **Multi-Sensor Integration**: Seamlessly interfaces with SEN54 (particulate matter & VOC) and T6793-5K (CO₂) sensors
-- **Periodic Data Acquisition**: Sensor readings every 5 seconds with 10-minute averaging cycles (144 data points per day)
+- **Multi-Sensor Integration**: Seamlessly interfaces with SEN54 (particulate matter & VOC) and
+  T6793-5K (CO₂) sensors
+- **Periodic Data Acquisition**: Sensor readings every 5 seconds with 10-minute averaging cycles
+  (144 data points per day)
 - **NB-IoT Connectivity**: Optional wireless data transmission via SIM7020G module
 - **Real-Time Clock**: Accurate timestamping using DS3231M RTC with battery backup
 - **Modular Design**: Clean separation of concerns with dedicated APIs for each component

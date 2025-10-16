@@ -8,7 +8,7 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD041 MD013 -->
 
 <p align="center">
   Grant <strong><em>PID2021-126810OB-I00</em></strong> funded by:<br />
@@ -20,7 +20,7 @@ Free Documentation License".
   <a href="https://www.instagram.com/grupoatari/" target="_blank"><img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="instagram logo"  /></a>
   <a href="https://tic212.uca.es/" target="_blank"><img src="https://img.shields.io/static/v1?message=ATARI%20Group%20Website&label=&color=blue&labelColor=&style=for-the-badge" height="40" alt="WWW" /></a>
   <a href="https://atari-researchlab.github.io/cicerone-airlink/" target="_blank"><img src="https://img.shields.io/badge/Documentation-018EF5?logo=readme&logoColor=fff&style=for-the-badge" height="40" alt="Documentation" /></a>
-  <img src="https://www.repostatus.org/badges/latest/active.svg" height="40" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." />
+  <img src="https://www.repostatus.org/badges/latest/active.svg" height="40" alt="Project Status: Active. The project has reached a stable, usable state and is being actively developed." />
 </p>
 
 * * *
@@ -28,12 +28,17 @@ Free Documentation License".
 <p align="center"><img height="150" alt="CICERONE Logo" src="docs/img/cicerone-logo.png" /></p>
 
 <p align="center"><img height="200" alt="CICERONE AirLink" src="docs/img/airlink-final-device.png" /> </p>
+<!-- markdownlint-enable MD013 -->
 
 # CICERONE AirLink
 
-CICERONE AirLink© is an indoor air quality telemonitoring device designed for the project CICERONE (*PID2021-126810OB-I00*).
+CICERONE AirLink© is an indoor air quality telemonitoring device designed for the project CICERONE
+(*PID2021-126810OB-I00*).
 
-The air quality device operates by transmitting data every ten minutes for all the parameters collected by the various sensors, thanks to the communication module created in conjunction with the RTC. This way, if there are no data transmission failures, a total of 144 daily data points are obtained for each of the parameters collected by the CO2 and PM/VOCs sensors.
+The air quality device operates by transmitting data every ten minutes for all the parameters
+collected by the various sensors, thanks to the communication module created in conjunction with the
+RTC. This way, if there are no data transmission failures, a total of 144 daily data points are
+obtained for each of the parameters collected by the CO2 and PM/VOCs sensors.
 
 ## Table of Contents
 
@@ -51,11 +56,14 @@ The air quality device operates by transmitting data every ten minutes for all t
 
 ## 🎓 Features
 
-- Sensors for measuring particulate matter (PM1, PM2.5, PM4, and PM10), volatile organic compounds (VOCs), carbon dioxide (CO2), temperature, and relative humidity.
+- Sensors for measuring particulate matter (PM1, PM2.5, PM4, and PM10), volatile organic compounds
+  (VOCs), carbon dioxide (CO2), temperature, and relative humidity.
 - Clock for synchronizing sensor data readings and configuring the data packets to be transmitted.
-- Autonomous data transmission independent of the user via an NB-IoT communication module. The device includes its own SIM card for sending average sensor values every ten minutes.
+- Autonomous data transmission independent of the user via an NB-IoT communication module. The
+  device includes its own SIM card for sending average sensor values every ten minutes.
 - Energy autonomy of up to 5 hours of operation on a fully charged battery.
-- Optional cough detection feature using a machine learning algorithm. The device can count the number of cough events within a desired time frame.
+- Optional cough detection feature using a machine learning algorithm. The device can count the
+  number of cough events within a desired time frame.
 
 [Back to top](#top)
 
@@ -71,18 +79,19 @@ The air quality device operates by transmitting data every ten minutes for all t
         - Ambient relative humidity
     - I/O
         - Power switch
-    - Comunication
+    - Communication
         - NB-IoT module (SIM7020G)
     - Others
         - 2-layer custom PCB
         - RTC
-        - 900mAh Lithium-ion battery
+        - 900 mAh Lithium-ion battery
         - 5V@1A AC-DC adapter
 - Mechanics
     - 3D-printed case
     - Developed in SOLIDWORKS® 2020
 - Firmware
-    - Sends the data to a server containing 10 minutes average measurements of all sensors via the NB-IoT module.
+    - Sends the data to a server containing 10 minutes average measurements of all sensors via the
+      NB-IoT module.
     - Developed in Arduino IDE
 
 [Back to top](#top)
@@ -106,18 +115,23 @@ Please consider citing our papers in your publications if the project helps your
 ### APA
 
 ``` text
-[1] Camacho-Magriñán, P.; Sales-Lerida, D.; León-Jiménez, A.; Sanchez-Morillo, D. Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review. Technologies 2025, 13, 122. https://doi.org/10.3390/technologies13030122
+[1] Camacho-Magriñán, P.; Sales-Lerida, D.; León-Jiménez, A.; Sanchez-Morillo, D. Indoor
+Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review. Technologies 2025,
+13, 122. https://doi.org/10.3390/technologies13030122
 ```
 
 ``` text
-[2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo. (2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
+[2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo.
+(2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII
+Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
 ```
 
 ### BibTeX
 
 ``` bibtex
 @Article{technologies13030122,
-AUTHOR = {Camacho-Magriñán, Patricia and Sales-Lerida, Diego and León-Jiménez, Antonio and Sanchez-Morillo, Daniel},
+AUTHOR = {Camacho-Magriñán, Patricia and Sales-Lerida, Diego and León-Jiménez, Antonio and
+Sanchez-Morillo, Daniel},
 TITLE = {Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review},
 JOURNAL = {Technologies},
 VOLUME = {13},
@@ -136,7 +150,8 @@ title={Sistema de telemonitorización de la calidad de aire interior para pacien
 ISBN={978-84-09-67332-2},
 booktitle={XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024},
 publisher={Sociedad Española de Ingeniería Biomédica (SEIB)},
-author={P. Camacho Magriñan and D. Sales Lerida and R. Moreno Mellado and A. Lara Doña and D. Sánchez Morillo},
+author={P. Camacho Magriñan and D. Sales Lerida and R. Moreno Mellado and A. Lara Doña and D.
+Sánchez Morillo},
 year={2024},
 pages={89-92}
 }
@@ -146,8 +161,9 @@ pages={89-92}
 
 ## 📃 Licences
 
-All hardware materials and designs, firmware and documentation provided here are licenced under the following licenses:
-
+All hardware materials and designs, firmware and documentation provided here are licenced under the
+following licenses:
+<!-- markdownlint-disable MD013 -->
 - Hardware: <a href="/hardware/LICENSE.md" target="_blank"><img src="docs/img/_lic/oshw-logo-filled-color.svg" height="25" alt="Open Source Hardware Logo" /> CERN Open Hardware Licence Version 2 - Strongly Reciprocal</a>
 - Firmware source code: <a href="firmware/LICENSE.md" target="_blank"><img src="docs/img/_lic/gplv3-or-later.svg" height="25" alt="GNU General Public License version 3 or later Logo" /> GNU General Public License version 3 or later</a>
 - Documentation: <a href="/docs/LICENSE.md" target="_blank"><img src="docs/img/_lic/gfdl-logo.svg" height="25" alt="GNU Free Documentation License, Version 1.3 or later Logo" /> GNU Free Documentation License, Version 1.3 or later</a>

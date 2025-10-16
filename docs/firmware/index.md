@@ -189,7 +189,7 @@ See [Debug Configuration Guide](../user-guide/debug-configuration.md) for debugg
 | **Averaging Period** | 10 minutes | 120 samples per average |
 | **Transmission Interval** | 10 minutes | 144 transmissions/day |
 | **Power Consumption** | ~120-180 mA | Average (5V input) |
-| **Battery Life** | ~4-6 hours | With 900mAh battery + NB-IoT |
+| **Battery Life** | ~5 hours | With 900 mAh battery + NB-IoT |
 
 ---
 
