@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - architecture.md
+  - program-flow.md
+  - sensor-interfaces.md
+  - data-transmission.md
+  - API reference: api

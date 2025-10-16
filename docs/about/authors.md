@@ -19,7 +19,9 @@ Free Documentation License".
 <!-- markdownlint-disable MD036 MD033 MD030 -->
 
 !!! info "About the Research Team"
-    The CICERONE AirLink project is developed and maintained by researchers at the **ATARI Research Lab** (Advanced Technologies for Ambient-Assisted Living and Research on Innovation), part of the University of Cádiz, Spain.
+    The CICERONE AirLink project is developed and maintained by researchers at the
+    **ATARI Research Lab** (Advanced Technologies for Ambient-Assisted Living and Research on
+    Innovation), part of the University of Cádiz, Spain.
 
 ## :fontawesome-solid-users: Project Team
 
@@ -108,21 +110,21 @@ Free Documentation License".
 
 <div class="annotate" markdown>
 
-| Role               | Daniel Sanchez-Morillo | Diego Sales-Lerida | Alejandro Lara-Doña | Patricia Camacho-Magriñán |
-|--------------------|:----------------------:|:------------------:|:-------------------:|:-------------------------:|
-| Conceptualization  | ●                      | ◐                  | ○                   | ○                         |
-| Hardware           | ○                      | ●                  | ●                   | ○                         |
-| Enclosure          | ○                      | ◐                  | ◐                   | ●                         |
-| Firmware           | ○                      | ●                  | ●                   | ○                         |
-| Software           | ◐                      | ◐                  | ○                   | ●                         |
-| Testing            | ○                      | ●                  | ●                   | ●                         |
-| Documentation      | ◐                      | ●                  | ●                   | ◐                         |
-| Validation         | ●                      | ●                  | ●                   | ●                         |
-| Investigation      | ●                      | ●                  | ○                   | ●                         |
-| Data Curation      | ◐                      | ●                  | ○                   | ●                         |
-| Visualization      | ○                      | ●                  | ○                   | ●                         |
-| Supervision        | ●                      | ○                  | ○                   | ○                         |
-| Funding            | ●                      | ○                  | ○                   | ○                         |
+|Role| Daniel Sanchez-Morillo | Diego Sales-Lerida | Alejandro Lara-Doña |Patricia Camacho-Magriñán|
+|--------------------|:----------------------:|:------------------:|:-------------------:|:-------:|
+| Conceptualization  | ●                      | ◐                  | ○                   | ○      |
+| Hardware           | ○                      | ●                  | ●                   | ○       |
+| Enclosure          | ○                      | ◐                  | ◐                   | ●      |
+| Firmware           | ○                      | ●                  | ●                   | ○       |
+| Software           | ◐                      | ◐                  | ○                   | ●      |
+| Testing            | ○                      | ●                  | ●                   | ●       |
+| Documentation      | ◐                      | ●                  | ●                   | ◐      |
+| Validation         | ●                      | ●                  | ●                   | ●       |
+| Investigation      | ●                      | ●                  | ○                   | ●       |
+| Data Curation      | ◐                      | ●                  | ○                   | ●      |
+| Visualization      | ○                      | ●                  | ○                   | ●       |
+| Supervision        | ●                      | ○                  | ○                   | ○       |
+| Funding            | ●                      | ○                  | ○                   | ○       |
 
 </div>
 
@@ -131,7 +133,8 @@ Free Documentation License".
 ## :material-certificate: CRediT (Contributor Roles Taxonomy)
 
 !!! abstract "About CRediT"
-    This project follows the [CRediT](https://credit.niso.org/) (Contributor Roles Taxonomy) standard for transparent and standardized attribution of scholarly contributions.
+    This project follows the [CRediT](https://credit.niso.org/) (Contributor Roles Taxonomy)
+    standard for transparent and standardized attribution of scholarly contributions.
 
 ### :material-lightbulb-on: Conceptualization
 
@@ -153,7 +156,8 @@ PCB design, electronic circuit development, component selection and hardware int
 
 **Patricia Camacho-Magriñán**, Diego Sales-Lerida, Alejandro Lara-Doña
 
-Design and prototyping of device enclosure using CAD software (SOLIDWORKS/Fusion360), 3D printing and mechanical integration.
+Design and prototyping of device enclosure using CAD software (SOLIDWORKS/Fusion360), 3D printing
+and mechanical integration.
 
 ---
 
@@ -177,7 +181,8 @@ Programming, software development, algorithm design and implementation of suppor
 
 Diego Sales-Lerida, Alejandro Lara-Doña, Patricia Camacho-Magriñán
 
-Comprehensive testing of assembled devices, quality assurance and validation of final units before deployment.
+Comprehensive testing of assembled devices, quality assurance and validation of final units before
+deployment.
 
 ---
 
@@ -191,7 +196,8 @@ Creation and maintenance of technical documentation, user guides and API referen
 
 ### :material-check-circle: Validation
 
-All authors contributed to verification of system functionality, data quality and reproducibility of results.
+All authors contributed to verification of system functionality, data quality and reproducibility
+of results.
 
 ---
 

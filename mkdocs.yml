@@ -13,15 +13,15 @@ plugins:
         - es
   - mkdoxy:
       projects:
-        "es/firmware": # Spanish firmware documentation
-          src-dirs: firmware_es
-          full-doc: True
-          doxy-cfg:
-            FILE_PATTERNS: "*.cpp *.h *.ino"
-            RECURSIVE: NO
-            EXTRACT_ALL: YES
-            EXCLUDE: "build/*"
-        "firmware": # English firmware documentation
+        # "es/firmware": # Spanish firmware documentation
+        #   src-dirs: firmware_es
+        #   full-doc: True
+        #   doxy-cfg:
+        #     FILE_PATTERNS: "*.cpp *.h *.ino"
+        #     RECURSIVE: NO
+        #     EXTRACT_ALL: YES
+        #     EXCLUDE: "build/*"
+        "firmware/api": # English firmware documentation
           src-dirs: firmware
           full-doc: True
           doxy-cfg:
@@ -129,23 +129,23 @@ markdown_extensions:
 not_in_nav: |
   */lic-*.md
 
-  firmware/_*.md
-  firmware/*_source.md
-  firmware/class_member*.md
-  firmware/dir*.md
-  firmware/namespace_*.md
-  firmware/group_*.md
-  firmware/union*.md
-  firmware/struct_*.md
-  firmware/annotated.md
-  firmware/classes.md
-  firmware/hierarchy.md
-  firmware/links.md
-  firmware/macros.md
-  firmware/modules.md
-  firmware/namespaces.md
-  firmware/pages.md
-  firmware/firmware_*.md
+  firmware/api/_*.md
+  firmware/api/*_source.md
+  firmware/api/class_member*.md
+  firmware/api/dir*.md
+  firmware/api/namespace_*.md
+  firmware/api/group_*.md
+  firmware/api/union*.md
+  firmware/api/struct_*.md
+  firmware/api/annotated.md
+  firmware/api/classes.md
+  firmware/api/hierarchy.md
+  firmware/api/links.md
+  firmware/api/macros.md
+  firmware/api/modules.md
+  firmware/api/namespaces.md
+  firmware/api/pages.md
+  firmware/api/firmware_*.md
 
   es/
 

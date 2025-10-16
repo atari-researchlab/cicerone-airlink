@@ -16,6 +16,8 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
+<!-- markdownlint-disable MD046 -->
+
 <!-- --8<-- [start:cite] -->
 Please consider citing our papers in your publications if the project helps your research.
 

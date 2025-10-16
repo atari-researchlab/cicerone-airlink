@@ -72,7 +72,8 @@ The deployment process consists of three main stages:
 
 ## Additional Resources
 
-- **[Firmware Architecture](../firmware/index.md)**: Understand the internal architecture, timer system, and data flow
+- **[Firmware Architecture](../firmware/index.md)**: Understand the internal architecture, timer
+  system, and data flow
 - **[Hardware Description](../description/electronics.md)**: Detailed PCB design and electronic components
 - **[Enclosure Design](../description/enclosure.md)**: 3D model specifications and mechanical integration
 

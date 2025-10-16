@@ -18,7 +18,9 @@ Free Documentation License".
 
 ## Overview
 
-The `Configuracion.h` file centralizes all configurable parameters for the CICERONE AirLink firmware. This allows you to customize the device behavior without modifying the core source code. All configuration options are defined using preprocessor directives (`#define`).
+The `Configuracion.h` file centralizes all configurable parameters for the CICERONE AirLink
+firmware. This allows you to customize the device behavior without modifying the core source code.
+All configuration options are defined using preprocessor directives (`#define`).
 
 !!! info "File Location"
     The configuration file is located at: `firmware/Configuracion.h`
@@ -29,7 +31,8 @@ The `Configuracion.h` file centralizes all configurable parameters for the CICER
 
 #### `ID_USUARIO`
 
-Defines a unique identifier for this device. This ID is included in all data transmissions to identify the source device on the server.
+Defines a unique identifier for this device. This ID is included in all data transmissions to
+identify the source device on the server.
 
 **Default value:**
 
@@ -53,7 +56,8 @@ Defines a unique identifier for this device. This ID is included in all data tra
 
 #### `HABILITAR_NBIOT`
 
-Enables or disables the NB-IoT communication module. When disabled, the device will still collect sensor data but will not transmit it to the server.
+Enables or disables the NB-IoT communication module. When disabled, the device will still collect
+sensor data but will not transmit it to the server.
 
 **Default value:**
 
@@ -79,7 +83,8 @@ Enables or disables the NB-IoT communication module. When disabled, the device w
 ```
 
 !!! tip "Power Saving"
-    Disabling NB-IoT can significantly extend battery life if you only need local data logging via the serial monitor.
+    Disabling NB-IoT can significantly extend battery life if you only need local data logging via
+    the serial monitor.
 
 ### Server Configuration
 
@@ -200,7 +205,8 @@ Access Point Name (APN) for the mobile network operator's data service.
 ```
 
 !!! warning "Important"
-    Using an incorrect APN will prevent the device from connecting to the internet. Always verify with your SIM card provider.
+    Using an incorrect APN will prevent the device from connecting to the internet. Always verify
+    with your SIM card provider.
 
 ## Configuration Workflow
 
@@ -258,11 +264,13 @@ Here's a complete example configuration for a typical deployment:
 ## Compilation Notes
 
 !!! info "Preprocessor Directives"
-    All configuration options use `#define` preprocessor directives. Changes take effect at compile time, so you must recompile and upload the firmware after modifying `Configuracion.h`.
+    All configuration options use `#define` preprocessor directives. Changes take effect at compile
+    time, so you must recompile and upload the firmware after modifying `Configuracion.h`.
 
 ### Conditional Compilation
 
-The `HABILITAR_NBIOT` flag uses conditional compilation. When set to `0`, all NB-IoT related code is excluded from the compiled binary, resulting in:
+The `HABILITAR_NBIOT` flag uses conditional compilation. When set to `0`, all NB-IoT related code
+is excluded from the compiled binary, resulting in:
 
 - Smaller program size
 - Reduced memory usage
@@ -303,7 +311,7 @@ Monitor the serial output (115200 baud) to see connection attempts and error mes
 ## Related Documentation
 
 - [Debug Configuration](debug-configuration.md) - Configure debug output levels
-- [API Reference](../firmware/files.md) - Complete firmware documentation
+- [API Reference](../firmware/api/files.md) - Complete firmware documentation
 - [Hardware Assembly](assembly.md) - Physical device setup
 
 ## See Also

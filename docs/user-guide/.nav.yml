@@ -1,0 +1,5 @@
+nav:
+  - index.md
+  - assembly.md
+  - firmware-configuration.md
+  - debug-configuration.md

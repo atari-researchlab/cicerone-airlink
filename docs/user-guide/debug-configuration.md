@@ -18,13 +18,16 @@ Free Documentation License".
 
 ## Overview
 
-The `Debug.h` file provides a comprehensive debug message management system for the CICERONE AirLink firmware. It implements a multi-level logging framework that allows you to control the verbosity of debug output on a per-module basis through the serial monitor.
+The `Debug.h` file provides a comprehensive debug message management system for the CICERONE
+AirLink firmware. It implements a multi-level logging framework that allows you to control the
+verbosity of debug output on a per-module basis through the serial monitor.
 
 !!! info "File Location"
     The debug configuration file is located at: `firmware/Debug.h`
 
 !!! tip "Memory Optimization"
-    When `DEBUG_LEVEL` is set to 0, all debug macros compile to empty statements. The compiler optimizes them out completely, saving both flash memory and RAM while improving performance.
+    When `DEBUG_LEVEL` is set to 0, all debug macros compile to empty statements. The compiler
+    optimizes them out completely, saving both flash memory and RAM while improving performance.
 
 ## Debug System Architecture
 
@@ -64,7 +67,8 @@ The debug system implements a hierarchical logging system with four severity lev
 | **4** | 4 | **VERBOSE** | Detailed information | Deep debugging (e.g., sensor readings every 5s) |
 
 !!! note "Hierarchical System"
-    Setting a debug level automatically enables all lower levels. For example, `DEBUG_LEVEL = 3` (INFO) will also display WARN and ERROR messages.
+    Setting a debug level automatically enables all lower levels. For example, `DEBUG_LEVEL = 3`
+    (INFO) will also display WARN and ERROR messages.
 
 ## Configuration Parameters
 
@@ -90,7 +94,8 @@ Controls the global verbosity threshold for all debug messages.
 
 **Usage:**
 
-Set this value based on your debugging needs. For production deployments, always set to `0` to save memory and improve performance.
+Set this value based on your debugging needs. For production deployments, always set to `0` to save
+memory and improve performance.
 
 **Examples:**
 
@@ -102,7 +107,8 @@ Set this value based on your debugging needs. For production deployments, always
 
 ### Per-Module Debug Levels
 
-The debug system allows fine-grained control over each firmware module independently. This is useful when troubleshooting a specific component without being overwhelmed by messages from other modules.
+The debug system allows fine-grained control over each firmware module independently. This is useful
+when troubleshooting a specific component without being overwhelmed by messages from other modules.
 
 #### `DEBUG_ALARMA`
 
@@ -229,7 +235,8 @@ This is extremely useful for:
 - Verifying JSON packet format
 
 !!! warning "Testing Only"
-    Always disable `TEST_MINUTAL` (set to `0`) for production deployments. Sending data every minute significantly increases:
+    Always disable `TEST_MINUTAL` (set to `0`) for production deployments. Sending data every minute
+    significantly increases:
     <!-- markdownlint-disable MD046 -->
     - Power consumption
     - Data costs
@@ -238,7 +245,8 @@ This is extremely useful for:
 
 ## Debug Macros
 
-The debug system provides four macros that work like `printf()` with automatic formatting and module tagging.
+The debug system provides four macros that work like `printf()` with automatic formatting and module
+tagging.
 
 ### Available Macros
 
@@ -316,7 +324,8 @@ DEBUG_VERBOSE("AT command: %s, Response: %s", cmd, response);
 
 ## Module Identification with DEBUG_TAG
 
-Each source file (`.cpp`) defines its own `DEBUG_TAG` macro to identify the source of debug messages. This tag appears in the `[MODULE]` field of every debug message.
+Each source file (`.cpp`) defines its own `DEBUG_TAG` macro to identify the source of debug
+messages. This tag appears in the `[MODULE]` field of every debug message.
 
 ### How DEBUG_TAG Works
 
@@ -485,7 +494,8 @@ The debug system uses a static buffer for formatting messages:
 **Buffer size:** `256 bytes` (defined by `DEBUG_PRINTF_BUFFER_SIZE`)
 
 !!! info "Buffer Overflow Prevention"
-    Keep debug messages under 256 characters. Longer messages will be truncated. If you need longer messages, increase `DEBUG_PRINTF_BUFFER_SIZE` in `Debug.h`.
+    Keep debug messages under 256 characters. Longer messages will be truncated. If you need longer
+    messages, increase `DEBUG_PRINTF_BUFFER_SIZE` in `Debug.h`.
 
 ## Troubleshooting
 
@@ -544,7 +554,8 @@ The debug system uses preprocessor conditionals to completely eliminate debug co
 #endif
 ```
 
-When `DEBUG_LEVEL = 0`, the macros expand to nothing, and the compiler's optimization pass removes all debug-related code, resulting in:
+When `DEBUG_LEVEL = 0`, the macros expand to nothing, and the compiler's optimization pass removes
+all debug-related code, resulting in:
 
 - Smaller binary size
 - No runtime overhead
@@ -552,12 +563,13 @@ When `DEBUG_LEVEL = 0`, the macros expand to nothing, and the compiler's optimiz
 - Faster execution
 
 !!! success "Zero-Cost Abstraction"
-    When debugging is disabled, there is literally **zero performance or memory cost** - it's as if the debug code never existed.
+    When debugging is disabled, there is literally **zero performance or memory cost** - it's as if
+    the debug code never existed.
 
 ## Related Documentation
 
 - [Firmware Configuration](firmware-configuration.md) - Configure device ID, server, and NB-IoT settings
-- [API Reference](../firmware/files.md) - Complete firmware documentation
+- [API Reference](../firmware/api/files.md) - Complete firmware documentation
 - [Hardware Assembly](assembly.md) - Physical device setup
 
 ## See Also
