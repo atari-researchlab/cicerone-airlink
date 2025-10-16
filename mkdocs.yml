@@ -6,6 +6,7 @@ copyright: Copyright © 2025 Grupo ATARI –
   <a href="#__consent">Change cookie settings</a>
 
 plugins:
+  - awesome-nav
   - search:
       lang:
         - en
@@ -124,31 +125,6 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
-
-# nav:
-#   - Home: index.md
-#   - Description:
-#       - description/index.md
-#       - description/electronics.md
-#       - description/enclosure.md
-#       - description/other-information.md
-#   - User Guide:
-#       - user-guide/index.md
-#       - user-guide/assembly.md
-#       - user-guide/firmware-configuration.md
-#   - API Reference:
-#       - firmware/index.md
-#       - English:
-#           - Classes:   firmware/annotated.md
-#           - Files:     firmware/files.md
-#           - Functions: firmware/functions.md
-#           - Variables: firmware/variables.md
-#   - About:
-#       - about/index.md
-#       - about/citations.md
-#       - about/licences.md
-#       - about/authors.md
-#       - about/funding.md
 
 not_in_nav: |
   */lic-*.md

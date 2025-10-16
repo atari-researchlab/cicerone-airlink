@@ -1,23 +1,44 @@
-# 🔒 Security Policy
+# Security Policy
 
-## Reporting a Vulnerability
+## Overview
 
-We sincerely appreciate anyone who takes the time to report a security vulnerability. Your contribution is essential for improving the security of this project.
+The CICERONE AirLink project team takes security seriously. We appreciate the security research community's efforts in responsibly disclosing vulnerabilities and are committed to working with researchers to verify and address security issues promptly.
 
-To report a vulnerability, please use GitHub's "Security Advisories" feature. This allows us to manage the information privately and coordinate a solution before making the vulnerability public.
+We strongly recommend using the latest version from the `main` branch to ensure you have the most recent security patches and updates.
 
-1. Go to the Security tab on the main repository menu.
+## Disclaimer
 
-2. Click on Advisories.
+**THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.**
 
-3. Click the New draft security advisory button and follow the instructions to submit a detailed report.
+The CICERONE AirLink project is provided under the terms of the GNU General Public License v3.0. While we make reasonable efforts to address security vulnerabilities, we provide no warranties regarding:
 
-## Disclaimer of Liability
+- The security of the software
+- Freedom from defects or vulnerabilities
+- Fitness for any particular purpose
+- Merchantability
 
-This project is provided "as is" and without any warranty of any kind, either express or implied. The project team assumes no responsibility for any direct, indirect, incidental, special, exemplary, or consequential damages that may result from the use of this software.
+**USE AT YOUR OWN RISK.** The project maintainers and contributors shall not be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software.
 
-By using this software, you agree that you do so at your own risk. We offer no warranties, whether implied or explicit, regarding its security. The responsibility for ensuring the security of your environment and data rests solely with the user.
+Users are solely responsible for:
 
-## Supported Versions
+- Assessing the security of their deployment environment
+- Implementing appropriate security controls
+- Protecting sensitive data
+- Compliance with applicable regulations and standards
 
-We currently only provide security patches for the latest main branch of the project. We encourage users to stay updated to receive the most recent security fixes.
+## Security Best Practices for Users
+
+To maintain a secure deployment of CICERONE AirLink:
+
+- **Keep Updated**: Regularly pull the latest changes from the `main` branch
+- **Review Configuration**: Ensure `Configuracion.h` settings follow security best practices
+- **Secure Communications**: Use HTTPS for server communications when possible
+- **Physical Security**: Implement appropriate physical access controls for deployed devices
+- **Monitor Logs**: Enable and regularly review debug logs for anomalous behavior
+- **Network Isolation**: Deploy devices on isolated network segments when possible
+
+---
+
+**Last Updated**: October 2025
+
+**Version**: 1.1

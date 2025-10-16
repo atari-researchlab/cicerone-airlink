@@ -5,7 +5,7 @@ under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 A copy of the license is included in the section entitled "GNU
-Free Documentation License". 
+Free Documentation License".
 -->
 
 <!-- markdownlint-disable MD041 -->
@@ -37,6 +37,7 @@ The air quality device operates by transmitting data every ten minutes for all t
 
 ## Table of Contents
 
+<!-- markdownlint-disable MD007 -->
 - [CICERONE AirLink](#cicerone-airlink)
   - [Table of Contents](#table-of-contents)
   - [🎓 Features](#-features)
@@ -46,6 +47,7 @@ The air quality device operates by transmitting data every ten minutes for all t
     - [APA](#apa)
     - [BibTeX](#bibtex)
   - [📃 Licences](#-licences)
+<!-- markdownlint-enable MD007 -->
 
 ## 🎓 Features
 
@@ -60,28 +62,28 @@ The air quality device operates by transmitting data every ten minutes for all t
 ## 📝 Specifications
 
 - Electronics
-  - Microcontroller
-    - Arduino Nano 33 BLE Sense Rev2
-  - Sensors
-    - PM/VOC
-    - CO2
-    - Temperature
-    - Ambient relative humidity
-  - I/O
-    - Power switch
-  - Comunication
-    - NB-IoT module (SIM7020G)
-  - Others
-    - 2-layer custom PCB
-    - RTC
-    - 900mAh Lithium-ion battery
-    - 5V@1A AC-DC adapter
+    - Microcontroller
+        - Arduino Nano 33 BLE Sense Rev2
+    - Sensors
+        - PM/VOC
+        - CO2
+        - Temperature
+        - Ambient relative humidity
+    - I/O
+        - Power switch
+    - Comunication
+        - NB-IoT module (SIM7020G)
+    - Others
+        - 2-layer custom PCB
+        - RTC
+        - 900mAh Lithium-ion battery
+        - 5V@1A AC-DC adapter
 - Mechanics
-  - 3D-printed case
-  - Developed in SOLIDWORKS® 2020
+    - 3D-printed case
+    - Developed in SOLIDWORKS® 2020
 - Firmware
-  - Sends the data to a server containing 10 minutes average measurements of all sensors via the NB-IoT module.
-  - Developed in Arduino IDE
+    - Sends the data to a server containing 10 minutes average measurements of all sensors via the NB-IoT module.
+    - Developed in Arduino IDE
 
 [Back to top](#top)
 
@@ -89,11 +91,11 @@ The air quality device operates by transmitting data every ten minutes for all t
 
 - [Documentation](https://atari-researchlab.github.io/cicerone-airlink/)
 - [Description](https://atari-researchlab.github.io/cicerone-airlink/description/)
-  - [Electronics](https://atari-researchlab.github.io/cicerone-airlink/description/electronics/)
-  - [Firmware](https://atari-researchlab.github.io/cicerone-airlink/description/firmware/)
+    - [Electronics](https://atari-researchlab.github.io/cicerone-airlink/description/electronics/)
+    - [Firmware](https://atari-researchlab.github.io/cicerone-airlink/description/firmware/)
 - [User guide](https://atari-researchlab.github.io/cicerone-airlink/user-guide/)
-  - [Assembly](https://atari-researchlab.github.io/cicerone-airlink/user-guide/assembly/)
-  - [Firmware customization](https://atari-researchlab.github.io/cicerone-airlink/user-guide/firmware-configuration/)
+    - [Assembly](https://atari-researchlab.github.io/cicerone-airlink/user-guide/assembly/)
+    - [Firmware customization](https://atari-researchlab.github.io/cicerone-airlink/user-guide/firmware-configuration/)
 
 [Back to top](#top)
 
@@ -103,17 +105,17 @@ Please consider citing our papers in your publications if the project helps your
 
 ### APA
 
-````
+``` text
 [1] Camacho-Magriñán, P.; Sales-Lerida, D.; León-Jiménez, A.; Sanchez-Morillo, D. Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review. Technologies 2025, 13, 122. https://doi.org/10.3390/technologies13030122
-````
+```
 
-````
+``` text
 [2] P. Camacho Magriñan, D. Sales Lerida, R. Moreno Mellado, A. Lara Doña, & D. Sánchez Morillo. (2024). Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC. XLII Congreso Anual de la Sociedad Española de Ingeniería Biomédica. CASEIB 2024, 89-92.
-````
+```
 
 ### BibTeX
 
-```` bibtex
+``` bibtex
 @Article{technologies13030122,
 AUTHOR = {Camacho-Magriñán, Patricia and Sales-Lerida, Diego and León-Jiménez, Antonio and Sanchez-Morillo, Daniel},
 TITLE = {Indoor Environmental Monitoring and Chronic Respiratory Diseases: A Systematic Review},
@@ -126,9 +128,9 @@ URL = {https://www.mdpi.com/2227-7080/13/3/122},
 ISSN = {2227-7080},
 DOI = {10.3390/technologies13030122}
 }
-````
+```
 
-```` bibtex
+``` bibtex
 @inproceedings{6842c68c8a34bb2df9fc79a9,
 title={Sistema de telemonitorización de la calidad de aire interior para pacientes con EPOC},
 ISBN={978-84-09-67332-2},
@@ -138,7 +140,7 @@ author={P. Camacho Magriñan and D. Sales Lerida and R. Moreno Mellado and A. La
 year={2024},
 pages={89-92}
 }
-````
+```
 
 [Back to top](#top)
 

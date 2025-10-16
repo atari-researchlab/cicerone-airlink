@@ -16,8 +16,6 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-## Citations
-
 <!-- --8<-- [start:cite] -->
 Please consider citing our papers in your publications if the project helps your research.
 

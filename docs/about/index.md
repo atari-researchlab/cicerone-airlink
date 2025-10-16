@@ -16,10 +16,8 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License".
 -->
 
-## About
-
 <p align="center">
-  <img height="150" title="CICERONE Logo" src="../img/cicerone-logo.png" />
+  <img height="150" title="CICERONE Logo" src="../img/cicerone-logo.png" alt="CICERONE Project Logo"/>
 </p>
 
 Artificial intelligence, smart sensing, and new physiological and environmental predictors for enhancing COPD management (aka CICERONE).
@@ -37,11 +35,9 @@ The research proposed in **CICERONE**, coordinated by the Research Group in Bioe
 ## 🗨️ Contact information
 
 - **Email**: Send us your inquiries or support requests at grupoibt "at" uca.es
-
 - **Website**: Visit the CICERONE project oficial website for more information [Cicerone](https://cicerone.uca.es)
-
 - **Grupo ATARI UCA**: Know more of the research group in our official website [Grupo ATARI UCA](https://tic212.uca.es)
 
 <p align="center">
-  <img height="100" title="ATARIUCA Logo" src="../img/grupoatari-logo.png" />
+  <img height="100" title="ATARIUCA Logo" src="../img/grupoatari-logo.png" alt="ATARIUCA Research lab logo"/>
 </p>

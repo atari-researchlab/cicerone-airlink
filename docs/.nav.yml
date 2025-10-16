@@ -1,0 +1,6 @@
+nav:
+  - Home: index.md
+  - Description: description
+  - User Guide: user-guide
+  - API reference: firmware
+  - About: about

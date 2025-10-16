@@ -8,7 +8,7 @@
   "yaml.schemas": {
     "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
   },
-  "yaml.customTags": [ 
+  "yaml.customTags": [
     "!ENV scalar",
     "!ENV sequence",
     "!relative scalar",
@@ -27,9 +27,21 @@
   "docwriter.progress.trackClasses": true,
   "docwriter.progress.trackTypes": true,
   "docwriter.style": "Doxygen",
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": true,
+    "editor.unicodeHighlight.invisibleCharacters": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "editor.renderWhitespace": "boundary",
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 100 }"
 }
