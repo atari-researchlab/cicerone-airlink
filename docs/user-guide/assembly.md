@@ -69,10 +69,10 @@ not to pinch the antenna cable when closing the casing.
 ![Connector for the dc power and switch under the lipo-rider][final-device]
 
 [airlink-exploded]: ../img/airlink-exploded.png
-[assembly1]: ../img/assembly/assembly-1.png
-[assembly2]: ../img/assembly/assembly-2.png
-[assembly3]: ../img/assembly/assembly-3.png
-[assembly4]: ../img/assembly/assembly-4.png
-[connector]: ../img/assembly/connector-charger-switch.jpg
-[antenna]: ../img/assembly/antenna.jpg
+[assembly1]: assembly/assembly-1.png
+[assembly2]: assembly/assembly-2.png
+[assembly3]: assembly/assembly-3.png
+[assembly4]: assembly/assembly-4.png
+[connector]: assembly/connector-charger-switch.jpg
+[antenna]: assembly/antenna.jpg
 [final-device]: ../img/airlink-final-device.png
