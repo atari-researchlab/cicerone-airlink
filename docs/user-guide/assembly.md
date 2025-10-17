@@ -28,9 +28,6 @@ from step 2.
 Step 6: Place the cable gland in the hole, as shown. To do this, you will have to open the inner
 nut beforehand.
 
-!!! bug
-    Fix numeration to 6, 7 y 8.
-
 ![Assembly Diagram 2 - Placing the cable gland, securing the battery and communications module][assembly2]
 
 Steps 7 and 8: Secure the LiPo battery and the M5Stack communications module to the base of the
@@ -44,22 +41,15 @@ figure. During this process, you will need to take the following steps into acco
 * Check that the battery cable passes through the rectangular cutout on the left side of the PCB.
 * Check that the antenna cable passes through the space where the RTC is placed.
 
-!!! bug
-    Fix numeration to 9.
-
 ![Assembly Diagram 3 - Placing the PCB in the enclosure][assembly3]
 
 Step 10: Assemble the two cables from the AC-DC Converter (charger) and the two cables from the
 switch into a 4-pin female header connector, as shown.
 
-!!! bug
-    Missing image with the connector under the lipo-rider
+![Connector for the dc power and switch under the lipo-rider][connector]
 
 Step 11: Place the standoff screw (bottom-left image) and 3 screws into the remaining holes to fix
 the PCB to the casing.
-
-!!! bug
-    Fix numeration to 11, 12 y 13.
 
 ![Assembly Diagram 4 - Fixing the PCB to the enclosure][assembly4]
 
@@ -71,17 +61,18 @@ left in the OFF state.
 
 Step 14: Adhere the antenna to the inner face of the top part of the casing.
 
-!!! bug
-    Missing image with the antenna position.
+![Connector for the dc power and switch under the lipo-rider][antenna]
 
 Step 15: Slide the top part of the casing along the guides provided for this purpose. Be careful
 not to pinch the antenna cable when closing the casing.
 
-!!! bug
-    Missing image with the device closed
+![Connector for the dc power and switch under the lipo-rider][final-device]
 
 [airlink-exploded]: ../img/airlink-exploded.png
 [assembly1]: ../img/assembly/assembly-1.png
 [assembly2]: ../img/assembly/assembly-2.png
 [assembly3]: ../img/assembly/assembly-3.png
 [assembly4]: ../img/assembly/assembly-4.png
+[connector]: ../img/assembly/connector-charger-switch.jpg
+[antenna]: ../img/assembly/antenna.jpg
+[final-device]: ../img/airlink-final-device.png

@@ -23,10 +23,6 @@
   "editor.autoIndentOnPaste": true,
   "yaml.format.printWidth": 100,
   "editor.minimap.maxColumn": 100,
-  "docwriter.custom.author": "Alejandro Lara-Doña (alejandro.lara@uca.es)",
-  "docwriter.progress.trackClasses": true,
-  "docwriter.progress.trackTypes": true,
-  "docwriter.style": "Doxygen",
   "[markdown]": {
     "editor.unicodeHighlight.ambiguousCharacters": true,
     "editor.unicodeHighlight.invisibleCharacters": true,
