@@ -1,6 +1,7 @@
 # Contributing to CICERONE AirLink
 
-Thank you for your interest in contributing to CICERONE AirLink! This document provides guidelines and instructions for contributing to this project.
+Thank you for your interest in contributing to CICERONE AirLink! This document provides guidelines
+and instructions for contributing to this project.
 
 ## Table of Contents
 
@@ -18,7 +19,9 @@ Thank you for your interest in contributing to CICERONE AirLink! This document p
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers through GitHub.
+This project and everyone participating in it is governed by our Code of Conduct. By participating,
+you are expected to uphold this code. Please report unacceptable behavior to the project maintainers
+through GitHub.
 
 ### Our Standards
 

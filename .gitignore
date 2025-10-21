@@ -3,6 +3,7 @@ _site
 Gemfile.lock
 *.gem
 .jekyll-cache
+.github/copilot-instructions.md
 
 # Logs
 *.log
@@ -27,4 +28,3 @@ site
 *.map
 /firmware/build/*
 !/firmware/build/arduino*/
-.github/copilot-instructions.md
