@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="unionT67XX_1_1StatusRegister" kind="union" language="C++" prot="public">
+    <compoundname>T67XX::StatusRegister</compoundname>
+    <includes refid="T67XX_8h" local="no">T67XX.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a55d854b781c5f736b9f0d790c552c31b" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::raw_value</definition>
+        <argsstring></argsstring>
+        <name>raw_value</name>
+        <qualifiedname>T67XX::StatusRegister::raw_value</qualifiedname>
+        <briefdescription>
+<para>Access to the complete 16-bit status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="223" column="14" bodyfile="firmware/T67XX.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a2f49faa9c440616f7bba2d079461b097" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::ERROR</definition>
+        <argsstring></argsstring>
+        <name>ERROR</name>
+        <qualifiedname>T67XX::StatusRegister::ERROR</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Bit 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="229" column="16" bodyfile="firmware/T67XX.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a43743cec60f307842d9df5f43a95073b" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::FLASH_ERROR</definition>
+        <argsstring></argsstring>
+        <name>FLASH_ERROR</name>
+        <qualifiedname>T67XX::StatusRegister::FLASH_ERROR</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Bit 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="230" column="16" bodyfile="firmware/T67XX.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a9356982819979be72bf5afded5361ac4" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::CALIBRATION_ERROR</definition>
+        <argsstring></argsstring>
+        <name>CALIBRATION_ERROR</name>
+        <qualifiedname>T67XX::StatusRegister::CALIBRATION_ERROR</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Bit 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="231" column="16" bodyfile="firmware/T67XX.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1aac56a245b733e6ec765d876281a77189" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::__pad0__</definition>
+        <argsstring></argsstring>
+        <name>__pad0__</name>
+        <qualifiedname>T67XX::StatusRegister::__pad0__</qualifiedname>
+        <bitfield> 7</bitfield>
+        <briefdescription>
+<para>Bits 3-9 (unused, ignored) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="232" column="7" bodyfile="firmware/T67XX.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a9da4e2282332badc5f2c29eb768c1d39" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::REBOOT</definition>
+        <argsstring></argsstring>
+        <name>REBOOT</name>
+        <qualifiedname>T67XX::StatusRegister::REBOOT</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Bit 10. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="233" column="16" bodyfile="firmware/T67XX.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1aa6d0ef1e3f9cddf0aa5a85770a7d8588" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::WARMUP</definition>
+        <argsstring></argsstring>
+        <name>WARMUP</name>
+        <qualifiedname>T67XX::StatusRegister::WARMUP</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Bit 11. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="234" column="16" bodyfile="firmware/T67XX.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a690a84349826eca6e34b2ad8fdbe7913" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::__pad1__</definition>
+        <argsstring></argsstring>
+        <name>__pad1__</name>
+        <qualifiedname>T67XX::StatusRegister::__pad1__</qualifiedname>
+        <bitfield> 3</bitfield>
+        <briefdescription>
+<para>Bits 12-14 (unused) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="235" column="7" bodyfile="firmware/T67XX.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a8c88ec47b74f556dead6c4136ecf1edb" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::StatusRegister::SINGLE_POINT_CAL</definition>
+        <argsstring></argsstring>
+        <name>SINGLE_POINT_CAL</name>
+        <qualifiedname>T67XX::StatusRegister::SINGLE_POINT_CAL</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+<para>Bit 15. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="236" column="16" bodyfile="firmware/T67XX.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionT67XX_1_1StatusRegister_1a318feb0952b93bc168fe10d903806672" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="unionT67XX_1_1StatusRegister" kindref="compound">T67XX::StatusRegister</ref></type>
+        <definition>struct T67XX::StatusRegister T67XX::StatusRegister::bits</definition>
+        <argsstring></argsstring>
+        <name>bits</name>
+        <qualifiedname>T67XX::StatusRegister::bits</qualifiedname>
+        <briefdescription>
+<para>Access to individual bits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="237" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Each bit represents the status of a device function or error. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Allows verification of device status and the different errors that can occur.</para>
+<para>Under error conditions, a &quot;1&quot; indicates an error; a &quot;0&quot; indicates no error. A Flash error is fatal (i.e., no recovery). Calibration errors can be cleared by running the calibration procedure again with correct results.</para>
+<para>Under calibration conditions, a &quot;1&quot; indicates that the calibration cycle is in progress. No other calibration cycle can be started while one is in progress and the Modbus response will report an error to the new calibration request.</para>
+<para>If the warmup bit (<emphasis>WARMUP</emphasis>) is active, the sensor is in a mode where internal registers and gas data (ppm) are being initialized and are not necessarily correct. </para>
+    </detaileddescription>
+    <location file="firmware/T67XX.h" line="218" column="3" bodyfile="firmware/T67XX.h" bodystart="218" bodyend="238"/>
+    <listofallmembers>
+      <member refid="unionT67XX_1_1StatusRegister_1aac56a245b733e6ec765d876281a77189" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>__pad0__</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a690a84349826eca6e34b2ad8fdbe7913" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>__pad1__</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a318feb0952b93bc168fe10d903806672" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>bits</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a9356982819979be72bf5afded5361ac4" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>CALIBRATION_ERROR</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a2f49faa9c440616f7bba2d079461b097" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>ERROR</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a43743cec60f307842d9df5f43a95073b" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>FLASH_ERROR</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a55d854b781c5f736b9f0d790c552c31b" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>raw_value</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a9da4e2282332badc5f2c29eb768c1d39" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>REBOOT</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1a8c88ec47b74f556dead6c4136ecf1edb" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>SINGLE_POINT_CAL</name></member>
+      <member refid="unionT67XX_1_1StatusRegister_1aa6d0ef1e3f9cddf0aa5a85770a7d8588" prot="public" virt="non-virtual"><scope>T67XX::StatusRegister</scope><name>WARMUP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="dir_d9edf6c004b4a7ff14fe9ae7a92214ee" kind="dir">
+    <compoundname>firmware</compoundname>
+    <innerfile refid="Alarma_8cpp">Alarma.cpp</innerfile>
+    <innerfile refid="Alarma_8h">Alarma.h</innerfile>
+    <innerfile refid="Configuracion_8h">Configuracion.h</innerfile>
+    <innerfile refid="Datetime__helper_8h">Datetime_helper.h</innerfile>
+    <innerfile refid="Debug_8h">Debug.h</innerfile>
+    <innerfile refid="DS3231M_8cpp">DS3231M.cpp</innerfile>
+    <innerfile refid="DS3231M_8h">DS3231M.h</innerfile>
+    <innerfile refid="firmware_8ino">firmware.ino</innerfile>
+    <innerfile refid="SEN5X__API_8cpp">SEN5X_API.cpp</innerfile>
+    <innerfile refid="SEN5X__API_8h">SEN5X_API.h</innerfile>
+    <innerfile refid="T6793__API_8cpp">T6793_API.cpp</innerfile>
+    <innerfile refid="T6793__API_8h">T6793_API.h</innerfile>
+    <innerfile refid="T67XX_8cpp">T67XX.cpp</innerfile>
+    <innerfile refid="T67XX_8h">T67XX.h</innerfile>
+    <innerfile refid="Transmision__NBIOT_8cpp">Transmision_NBIOT.cpp</innerfile>
+    <innerfile refid="Transmision__NBIOT_8h">Transmision_NBIOT.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="firmware/"/>
+  </compounddef>
+</doxygen>

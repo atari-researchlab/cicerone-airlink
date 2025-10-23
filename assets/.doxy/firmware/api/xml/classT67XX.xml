@@ -1,0 +1,582 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="classT67XX" kind="class" language="C++" prot="public">
+    <compoundname>T67XX</compoundname>
+    <includes refid="T67XX_8h" local="no">T67XX.h</includes>
+    <innerclass refid="unionT67XX_1_1StatusRegister" prot="public">T67XX::StatusRegister</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classT67XX_1a533652a8c271b8dfb817d7de8cd4beb4" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t T67XX::_data[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>_data</name>
+        <qualifiedname>T67XX::_data</qualifiedname>
+        <briefdescription>
+<para>Array to store data read from device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="244" column="11" bodyfile="firmware/T67XX.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classT67XX_1a33d5360dc9a699b62a2accd690b02a3f" prot="private" static="no" mutable="no">
+        <type>TwoWire *</type>
+        <definition>TwoWire* T67XX::_pWire</definition>
+        <argsstring></argsstring>
+        <name>_pWire</name>
+        <qualifiedname>T67XX::_pWire</qualifiedname>
+        <briefdescription>
+<para>Pointer to the I2C peripheral used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="279" column="11" bodyfile="firmware/T67XX.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classT67XX_1a84943fa620846cfb5809cd0a5650d265" prot="private" static="no" mutable="no">
+        <type><ref refid="unionT67XX_1_1StatusRegister" kindref="compound">StatusRegister</ref></type>
+        <definition>StatusRegister T67XX::_status</definition>
+        <argsstring></argsstring>
+        <name>_status</name>
+        <qualifiedname>T67XX::_status</qualifiedname>
+        <briefdescription>
+<para>Last status read from device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="284" column="18" bodyfile="firmware/T67XX.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classT67XX_1a7788ed45480e247a71dfda8295b0751d" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t T67XX::_deviceAddr</definition>
+        <argsstring></argsstring>
+        <name>_deviceAddr</name>
+        <qualifiedname>T67XX::_deviceAddr</qualifiedname>
+        <briefdescription>
+<para>I2C address of the <ref refid="classT67XX" kindref="compound">T67XX</ref> module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="289" column="11" bodyfile="firmware/T67XX.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classT67XX_1a1d74c868e8ec604e027803e800da2497" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>T67XX::T67XX</definition>
+        <argsstring>(TwoWire *pWire=&amp;Wire, uint8_t deviceAddress=T67XX_DEFAULT_I2C_ADDR)</argsstring>
+        <name>T67XX</name>
+        <qualifiedname>T67XX::T67XX</qualifiedname>
+        <param>
+          <type>TwoWire *</type>
+          <declname>pWire</declname>
+          <defval>&amp;Wire</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>deviceAddress</declname>
+          <defval><ref refid="T67XX_8h_1a8f48fb7331714a037461c2db4f73febd" kindref="member">T67XX_DEFAULT_I2C_ADDR</ref></defval>
+        </param>
+        <briefdescription>
+<para><ref refid="classT67XX" kindref="compound">T67XX</ref> class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pWire</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral used for I2C communication. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deviceAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>I2C address of the sensor used. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="101" column="3" bodyfile="firmware/T67XX.h" bodystart="101" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a1f4d9562a0c81fc0e126e48ef39d1751" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>T67XX::~T67XX</definition>
+        <argsstring>()</argsstring>
+        <name>~T67XX</name>
+        <qualifiedname>T67XX::~T67XX</qualifiedname>
+        <briefdescription>
+<para><ref refid="classT67XX" kindref="compound">T67XX</ref> class destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="107" column="3" bodyfile="firmware/T67XX.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1aac12eed2212007f454a49ac054a2c824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool T67XX::begin</definition>
+        <argsstring>(void)</argsstring>
+        <name>begin</name>
+        <qualifiedname>T67XX::begin</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes I2C communication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if communication with the module is successful, false if it fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="113" column="8" bodyfile="firmware/T67XX.cpp" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a0c01b3dbe3677210964239346d13a2d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::readPPM</definition>
+        <argsstring>(void)</argsstring>
+        <name>readPPM</name>
+        <qualifiedname>T67XX::readPPM</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the current CO2 value from the sensor in PPM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>CO2 value in PPM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="119" column="12" bodyfile="firmware/T67XX.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a4b5cd427e993e14e0f9e36f39c165087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::getStatus</definition>
+        <argsstring>(void)</argsstring>
+        <name>getStatus</name>
+        <qualifiedname>T67XX::getStatus</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the current sensor status and stores it in the internal variable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current sensor status. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="125" column="12" bodyfile="firmware/T67XX.cpp" bodystart="43" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a6ff3dbc1dbeb3f2533258c0dd7a06178" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::getFirmwareVersion</definition>
+        <argsstring>(void)</argsstring>
+        <name>getFirmwareVersion</name>
+        <qualifiedname>T67XX::getFirmwareVersion</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the sensor firmware version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Firmware version. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="131" column="12" bodyfile="firmware/T67XX.cpp" bodystart="58" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a4594b4c82e4f90efdfe5f6466e99f7ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void T67XX::reset</definition>
+        <argsstring>(void)</argsstring>
+        <name>reset</name>
+        <qualifiedname>T67XX::reset</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Resets the sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="136" column="8" bodyfile="firmware/T67XX.cpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a8fe8a4f7ce7348e552d39c5bdd1bdcf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void T67XX::enableABCMode</definition>
+        <argsstring>(void)</argsstring>
+        <name>enableABCMode</name>
+        <qualifiedname>T67XX::enableABCMode</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Enable ABC autocalibration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Automatic Background Logic (ABC) is a patented autocalibration technique designed for use in applications where concentrations drop to outdoor ambient conditions (400 ppm) at least once (15 minutes) in a 7-day period, which typically occurs during unoccupied periods.</para>
+<para>Full accuracy is achieved using ABC Logic. With ABC Logic enabled, the sensor generally reaches its operational accuracy after 25 hours of continuous operation, provided it has been exposed to reference ambient air levels of 400 ppm ±10ppm CO2. The sensor will maintain accuracy specifications with ABC Logic enabled, as long as it is exposed to the reference value at least once every 7 days, and this reference value is the lowest concentration to which the sensor is exposed.</para>
+<para><simplesect kind="note"><para>ABC Logic requires continuous sensor operation in increments of at least 4 hours each.</para>
+</simplesect>
+<simplesect kind="warning"><para>Not recommended for applications where the sensor is not regularly exposed to fresh air (400 ppm CO2). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="155" column="8" bodyfile="firmware/T67XX.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1abe1256a791a71836113af31ed666048f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void T67XX::disableABCMode</definition>
+        <argsstring>(void)</argsstring>
+        <name>disableABCMode</name>
+        <qualifiedname>T67XX::disableABCMode</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Disable ABC autocalibration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classT67XX_1a8fe8a4f7ce7348e552d39c5bdd1bdcf6" kindref="member">enableABCMode()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="161" column="8" bodyfile="firmware/T67XX.cpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1ac1cc4d61525547efa76e3ce5da52da90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t T67XX::setSlaveAddress</definition>
+        <argsstring>(uint8_t newAddress)</argsstring>
+        <name>setSlaveAddress</name>
+        <qualifiedname>T67XX::setSlaveAddress</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>newAddress</declname>
+        </param>
+        <briefdescription>
+<para>Modifies the sensor&apos;s internal I2C address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures a new sensor I2C address and resets it to apply the changes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New sensor I2C address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if communication with the module at the new address is successful, false if it fails.</para>
+</simplesect>
+<simplesect kind="warning"><para>This change is permanent when the sensor is reset. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="172" column="11" bodyfile="firmware/T67XX.cpp" bodystart="80" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a447a65c4d22a8907e30c82e2e23aadce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void T67XX::flashUpdate</definition>
+        <argsstring>(void)</argsstring>
+        <name>flashUpdate</name>
+        <qualifiedname>T67XX::flashUpdate</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Saves configuration to flash. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="177" column="8" bodyfile="firmware/T67XX.cpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a35bdb687ba69478216327811272524bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool T67XX::beginCalibration</definition>
+        <argsstring>(bool waitForCompletion=false)</argsstring>
+        <name>beginCalibration</name>
+        <qualifiedname>T67XX::beginCalibration</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>waitForCompletion</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Starts the single point calibration routine. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The single point calibration routine is generally performed at room temperature (~500 ppm, 25 °C) and takes several minutes to complete after starting (approximately 6 minutes). During this time, the sensor status and current ppm gas readings can be queried. The user can check the calibration status by reading the status register and noting if the single point calibration bit is active. Calibration can be stopped before it finishes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>waitForCompletion</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional: Wait for calibration to finish (disabled by default). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if calibration has finished. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="190" column="8" bodyfile="firmware/T67XX.cpp" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a3ab24fa2a494b983bc718334d2f5b9a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void T67XX::endCalibration</definition>
+        <argsstring>(void)</argsstring>
+        <name>endCalibration</name>
+        <qualifiedname>T67XX::endCalibration</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Stops the single point calibration routine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="195" column="8" bodyfile="firmware/T67XX.cpp" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1aa742ac80ca8e9b011ee9cbf247344d08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String T67XX::getStatusMsg</definition>
+        <argsstring>(void)</argsstring>
+        <name>getStatusMsg</name>
+        <qualifiedname>T67XX::getStatusMsg</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Genera un mensaje con el estado actual del sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Cadena con el estado actual del sensor. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="201" column="10" bodyfile="firmware/T67XX.cpp" bodystart="204" bodyend="224"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classT67XX_1a3db077b48444613b521ee9ce76fa49bc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t T67XX::read8</definition>
+        <argsstring>(uint16_t registerAddress)</argsstring>
+        <name>read8</name>
+        <qualifiedname>T67XX::read8</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>registerAddress</declname>
+        </param>
+        <briefdescription>
+<para>Reads the current value of an 8-bit register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registerAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the register to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value of the register read. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="251" column="11" bodyfile="firmware/T67XX.cpp" bodystart="114" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a198a72f14ad3a99c9f67bfe745b836f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::read16</definition>
+        <argsstring>(uint16_t registerAddress)</argsstring>
+        <name>read16</name>
+        <qualifiedname>T67XX::read16</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>registerAddress</declname>
+        </param>
+        <briefdescription>
+<para>Reads the current value of a 16-bit register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registerAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the register to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value of the register read. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="258" column="12" bodyfile="firmware/T67XX.cpp" bodystart="136" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1a64cc363f9de44f23879b362f8b6dcd4f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t T67XX::write8</definition>
+        <argsstring>(uint16_t registerAddress, uint8_t data)</argsstring>
+        <name>write8</name>
+        <qualifiedname>T67XX::write8</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>registerAddress</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Writes data to an 8-bit register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registerAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the register to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Register value after writing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="266" column="11" bodyfile="firmware/T67XX.cpp" bodystart="158" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classT67XX_1ac82470832646e615929832f78353fd2f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t T67XX::write16</definition>
+        <argsstring>(uint16_t registerAddress, uint16_t data)</argsstring>
+        <name>write16</name>
+        <qualifiedname>T67XX::write16</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>registerAddress</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Writes data to a 16-bit register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registerAddress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the register to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Register value after writing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="274" column="12" bodyfile="firmware/T67XX.cpp" bodystart="181" bodyend="202"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for <ref refid="classT67XX" kindref="compound">T67XX</ref> CO2 sensor communication. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="firmware/T67XX.h" line="94" column="1" bodyfile="firmware/T67XX.h" bodystart="94" bodyend="290"/>
+    <listofallmembers>
+      <member refid="classT67XX_1a533652a8c271b8dfb817d7de8cd4beb4" prot="private" virt="non-virtual"><scope>T67XX</scope><name>_data</name></member>
+      <member refid="classT67XX_1a7788ed45480e247a71dfda8295b0751d" prot="private" virt="non-virtual"><scope>T67XX</scope><name>_deviceAddr</name></member>
+      <member refid="classT67XX_1a33d5360dc9a699b62a2accd690b02a3f" prot="private" virt="non-virtual"><scope>T67XX</scope><name>_pWire</name></member>
+      <member refid="classT67XX_1a84943fa620846cfb5809cd0a5650d265" prot="private" virt="non-virtual"><scope>T67XX</scope><name>_status</name></member>
+      <member refid="classT67XX_1aac12eed2212007f454a49ac054a2c824" prot="public" virt="non-virtual"><scope>T67XX</scope><name>begin</name></member>
+      <member refid="classT67XX_1a35bdb687ba69478216327811272524bb" prot="public" virt="non-virtual"><scope>T67XX</scope><name>beginCalibration</name></member>
+      <member refid="classT67XX_1abe1256a791a71836113af31ed666048f" prot="public" virt="non-virtual"><scope>T67XX</scope><name>disableABCMode</name></member>
+      <member refid="classT67XX_1a8fe8a4f7ce7348e552d39c5bdd1bdcf6" prot="public" virt="non-virtual"><scope>T67XX</scope><name>enableABCMode</name></member>
+      <member refid="classT67XX_1a3ab24fa2a494b983bc718334d2f5b9a5" prot="public" virt="non-virtual"><scope>T67XX</scope><name>endCalibration</name></member>
+      <member refid="classT67XX_1a447a65c4d22a8907e30c82e2e23aadce" prot="public" virt="non-virtual"><scope>T67XX</scope><name>flashUpdate</name></member>
+      <member refid="classT67XX_1a6ff3dbc1dbeb3f2533258c0dd7a06178" prot="public" virt="non-virtual"><scope>T67XX</scope><name>getFirmwareVersion</name></member>
+      <member refid="classT67XX_1a4b5cd427e993e14e0f9e36f39c165087" prot="public" virt="non-virtual"><scope>T67XX</scope><name>getStatus</name></member>
+      <member refid="classT67XX_1aa742ac80ca8e9b011ee9cbf247344d08" prot="public" virt="non-virtual"><scope>T67XX</scope><name>getStatusMsg</name></member>
+      <member refid="classT67XX_1a198a72f14ad3a99c9f67bfe745b836f2" prot="private" virt="non-virtual"><scope>T67XX</scope><name>read16</name></member>
+      <member refid="classT67XX_1a3db077b48444613b521ee9ce76fa49bc" prot="private" virt="non-virtual"><scope>T67XX</scope><name>read8</name></member>
+      <member refid="classT67XX_1a0c01b3dbe3677210964239346d13a2d7" prot="public" virt="non-virtual"><scope>T67XX</scope><name>readPPM</name></member>
+      <member refid="classT67XX_1a4594b4c82e4f90efdfe5f6466e99f7ae" prot="public" virt="non-virtual"><scope>T67XX</scope><name>reset</name></member>
+      <member refid="classT67XX_1ac1cc4d61525547efa76e3ce5da52da90" prot="public" virt="non-virtual"><scope>T67XX</scope><name>setSlaveAddress</name></member>
+      <member refid="classT67XX_1a1d74c868e8ec604e027803e800da2497" prot="public" virt="non-virtual"><scope>T67XX</scope><name>T67XX</name></member>
+      <member refid="classT67XX_1ac82470832646e615929832f78353fd2f" prot="private" virt="non-virtual"><scope>T67XX</scope><name>write16</name></member>
+      <member refid="classT67XX_1a64cc363f9de44f23879b362f8b6dcd4f" prot="private" virt="non-virtual"><scope>T67XX</scope><name>write8</name></member>
+      <member refid="classT67XX_1a1f4d9562a0c81fc0e126e48ef39d1751" prot="public" virt="non-virtual"><scope>T67XX</scope><name>~T67XX</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

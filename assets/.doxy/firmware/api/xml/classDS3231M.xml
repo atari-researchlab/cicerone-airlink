@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="classDS3231M" kind="class" language="C++" prot="public">
+    <compoundname>DS3231M</compoundname>
+    <includes refid="DS3231M_8h" local="no">DS3231M.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DS3231M::rtc[7]</definition>
+        <argsstring>[7]</argsstring>
+        <name>rtc</name>
+        <qualifiedname>DS3231M::rtc</qualifiedname>
+        <briefdescription>
+<para>Array to store RTC time and date data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="256" column="11" bodyfile="firmware/DS3231M.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDS3231M_1a48cdbe9fb2ab6f8712c5ebd611e19518" prot="private" static="no" mutable="no">
+        <type>TwoWire *</type>
+        <definition>TwoWire* DS3231M::_pWire</definition>
+        <argsstring></argsstring>
+        <name>_pWire</name>
+        <qualifiedname>DS3231M::_pWire</qualifiedname>
+        <briefdescription>
+<para>Pointer to the I2C peripheral used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="308" column="11" bodyfile="firmware/DS3231M.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDS3231M_1a67c639b46a661e95d956aac42551e0bc" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DS3231M::_deviceAddr</definition>
+        <argsstring></argsstring>
+        <name>_deviceAddr</name>
+        <qualifiedname>DS3231M::_deviceAddr</qualifiedname>
+        <initializer>= <ref refid="DS3231M_8h_1a4950465338b1c9121e50c1addb122ac0" kindref="member">DS3231M_IIC_ADDRESS</ref></initializer>
+        <briefdescription>
+<para>I2C address of the RTC module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="313" column="11" bodyfile="firmware/DS3231M.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDS3231M_1aaf90ad88ed4cc75de4e4e12b7213e241" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* DS3231M::daysOfTheWeek[7]</definition>
+        <argsstring>[7]</argsstring>
+        <name>daysOfTheWeek</name>
+        <qualifiedname>DS3231M::daysOfTheWeek</qualifiedname>
+        <initializer>= {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
+                                  &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}</initializer>
+        <briefdescription>
+<para>Array to store the days of the week in text format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="318" column="14" bodyfile="firmware/DS3231M.h" bodystart="318" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDS3231M_1a335666d54d6b2cbf9b8cbd31548ec0e0" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* DS3231M::hourOfAM[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>hourOfAM</name>
+        <qualifiedname>DS3231M::hourOfAM</qualifiedname>
+        <initializer>= { &quot;&quot;, &quot;&quot;, &quot;AM&quot;, &quot;PM&quot; }</initializer>
+        <briefdescription>
+<para>Array to store the hour type for 12-hour mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="324" column="14" bodyfile="firmware/DS3231M.h" bodystart="324" bodyend="324"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDS3231M_1afc4fa389897461921a38ac73e3aebfac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DS3231M::DS3231M</definition>
+        <argsstring>(TwoWire *pWire=&amp;Wire)</argsstring>
+        <name>DS3231M</name>
+        <qualifiedname>DS3231M::DS3231M</qualifiedname>
+        <param>
+          <type>TwoWire *</type>
+          <declname>pWire</declname>
+          <defval>&amp;Wire</defval>
+        </param>
+        <briefdescription>
+<para>Constructor of the <ref refid="classDS3231M" kindref="compound">DS3231M</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pWire</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Peripheral used for I2C communication. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="167" column="3" bodyfile="firmware/DS3231M.h" bodystart="167" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a912a3bd0ca29becf6c96853e8ceb993c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DS3231M::~DS3231M</definition>
+        <argsstring>()</argsstring>
+        <name>~DS3231M</name>
+        <qualifiedname>DS3231M::~DS3231M</qualifiedname>
+        <briefdescription>
+<para>Destructor of the <ref refid="classDS3231M" kindref="compound">DS3231M</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="174" column="3" bodyfile="firmware/DS3231M.h" bodystart="174" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a6ee677638bff968b61fd10dba40ffe83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DS3231M::begin</definition>
+        <argsstring>(void)</argsstring>
+        <name>begin</name>
+        <qualifiedname>DS3231M::begin</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes I2C communication. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if communication with the module succeeds, false if it fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="181" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="49" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a9b387cfaa2358d17827b92745aed543e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DS3231M::setRTCTime</definition>
+        <argsstring>(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t second)</argsstring>
+        <name>setRTCTime</name>
+        <qualifiedname>DS3231M::setRTCTime</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>day</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>hour</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>minute</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>second</declname>
+        </param>
+        <briefdescription>
+<para>Sets the RTC time and date. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>year</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Year (e.g. 2024). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>month</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Month (1-12). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>day</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Day (1-31). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hour (0-23). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minute</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minute (0-59). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>second</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second (0-59). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="193" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="59" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a82744f08291258337c73905ed6b76567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classDateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime DS3231M::getRTCTime</definition>
+        <argsstring>()</argsstring>
+        <name>getRTCTime</name>
+        <qualifiedname>DS3231M::getRTCTime</qualifiedname>
+        <briefdescription>
+<para>Gets the current RTC time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="classDateTime" kindref="compound">DateTime</ref> object containing the current time and date. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="200" column="12" bodyfile="firmware/DS3231M.cpp" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a1ec527b10c92e03d520e7094aa8953bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DS3231M::setAlarm1</definition>
+        <argsstring>(const DateTime &amp;dt, eAlarmType_t type)</argsstring>
+        <name>setAlarm1</name>
+        <qualifiedname>DS3231M::setAlarm1</qualifiedname>
+        <param>
+          <type>const <ref refid="classDateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89" kindref="member">eAlarmType_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Sets the first RTC alarm (alarm 1). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classDateTime" kindref="compound">DateTime</ref> object with the alarm time and date. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Alarm type (e.g. every minute, every hour, every day, etc.). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="208" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="82" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a52ea69700d5680dc87cfe1cb1b19d816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DS3231M::setAlarm2</definition>
+        <argsstring>(const DateTime &amp;dt, eAlarmType_t type)</argsstring>
+        <name>setAlarm2</name>
+        <qualifiedname>DS3231M::setAlarm2</qualifiedname>
+        <param>
+          <type>const <ref refid="classDateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89" kindref="member">eAlarmType_t</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Sets the second RTC alarm (alarm 2). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classDateTime" kindref="compound">DateTime</ref> object with the alarm time and date. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Alarm type (e.g. every minute, every hour, every day, etc.). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="216" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="132" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a618cc2a142b6b7de1754831cc5bf7467" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float DS3231M::getTemp</definition>
+        <argsstring>()</argsstring>
+        <name>getTemp</name>
+        <qualifiedname>DS3231M::getTemp</qualifiedname>
+        <briefdescription>
+<para>Gets the current temperature from the <ref refid="classDS3231M" kindref="compound">DS3231M</ref> sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Temperature in degrees Celsius (float). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="223" column="9" bodyfile="firmware/DS3231M.cpp" bodystart="174" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a502740afcadc58891aa1106d51c19426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DS3231M::isAlarm</definition>
+        <argsstring>()</argsstring>
+        <name>isAlarm</name>
+        <qualifiedname>DS3231M::isAlarm</qualifiedname>
+        <briefdescription>
+<para>Checks if any alarm has been triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if alarm 1 or alarm 2 has been triggered, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="230" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="182" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a4c6094efbba06d68163271a39cce7cf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DS3231M::clearAlarm</definition>
+        <argsstring>()</argsstring>
+        <name>clearAlarm</name>
+        <qualifiedname>DS3231M::clearAlarm</qualifiedname>
+        <briefdescription>
+<para>Clears the alarm flags in the status register. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is necessary after an alarm has been triggered so it can be activated again. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="237" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="188" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a5b03b76ec9f255ac96438d0a3ff0e88c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DS3231M::enable32k</definition>
+        <argsstring>()</argsstring>
+        <name>enable32k</name>
+        <qualifiedname>DS3231M::enable32k</qualifiedname>
+        <briefdescription>
+<para>Enables the 32kHz square wave output on the SQW/INT pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="242" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="195" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a668cc40959df649d1cf5844cb8a7d640" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DS3231M::disable32k</definition>
+        <argsstring>()</argsstring>
+        <name>disable32k</name>
+        <qualifiedname>DS3231M::disable32k</qualifiedname>
+        <briefdescription>
+<para>Disables the 32kHz square wave output on the SQW/INT pin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="247" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="202" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a57adc05f6ab49e0ea185d1b201a20ddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DS3231M::lostPower</definition>
+        <argsstring>(void)</argsstring>
+        <name>lostPower</name>
+        <qualifiedname>DS3231M::lostPower</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks if the RTC lost backup power. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if backup power was lost. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="254" column="8" bodyfile="firmware/DS3231M.cpp" bodystart="209" bodyend="213"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void DS3231M::writeReg</definition>
+        <argsstring>(uint8_t reg, const void *pBuf, size_t size)</argsstring>
+        <name>writeReg</name>
+        <qualifiedname>DS3231M::writeReg</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pBuf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes data to a specific <ref refid="classDS3231M" kindref="compound">DS3231M</ref> register via I2C. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address to write to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pBuf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the data buffer to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="266" column="16" bodyfile="firmware/DS3231M.cpp" bodystart="215" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DS3231M::readReg</definition>
+        <argsstring>(uint8_t reg, const void *pBuf, size_t size)</argsstring>
+        <name>readReg</name>
+        <qualifiedname>DS3231M::readReg</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>pBuf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Reads data from a specific <ref refid="classDS3231M" kindref="compound">DS3231M</ref> register via I2C. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>reg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Register address to read from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pBuf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer where read data will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to read. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes read (0 in case of error or if no bytes were read). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="276" column="19" bodyfile="firmware/DS3231M.cpp" bodystart="230" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1a265a432d3af74297880a641fff30b478" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DS3231M::dayOfTheWeek</definition>
+        <argsstring>(uint16_t y, uint8_t m, uint8_t d) const</argsstring>
+        <name>dayOfTheWeek</name>
+        <qualifiedname>DS3231M::dayOfTheWeek</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Calculates the day of the week for a given date. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Year. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Month. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Day. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Day of the week (1 = Sunday, 2 = Monday, ..., 7 = Saturday). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="302" column="11" bodyfile="firmware/DS3231M.cpp" bodystart="262" bodyend="285"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DS3231M::bcd2bin</definition>
+        <argsstring>(uint8_t val)</argsstring>
+        <name>bcd2bin</name>
+        <qualifiedname>DS3231M::bcd2bin</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Converts a BCD (Binary-Coded Decimal) value to BIN (Binary). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value in BCD format. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value in BIN format. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="284" column="18" bodyfile="firmware/DS3231M.cpp" bodystart="254" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="classDS3231M_1ab31bcae648d280f88e274999b2019360" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DS3231M::bin2bcd</definition>
+        <argsstring>(uint8_t val)</argsstring>
+        <name>bin2bcd</name>
+        <qualifiedname>DS3231M::bin2bcd</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Converts a BIN (Binary) value to BCD (Binary-Coded Decimal). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value in BIN format. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value in BCD format. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="292" column="18" bodyfile="firmware/DS3231M.cpp" bodystart="258" bodyend="260"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Class for <ref refid="classDS3231M" kindref="compound">DS3231M</ref> RTC communication. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="firmware/DS3231M.h" line="160" column="1" bodyfile="firmware/DS3231M.h" bodystart="160" bodyend="325"/>
+    <listofallmembers>
+      <member refid="classDS3231M_1a67c639b46a661e95d956aac42551e0bc" prot="private" virt="non-virtual"><scope>DS3231M</scope><name>_deviceAddr</name></member>
+      <member refid="classDS3231M_1a48cdbe9fb2ab6f8712c5ebd611e19518" prot="private" virt="non-virtual"><scope>DS3231M</scope><name>_pWire</name></member>
+      <member refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" prot="protected" virt="non-virtual"><scope>DS3231M</scope><name>bcd2bin</name></member>
+      <member refid="classDS3231M_1a6ee677638bff968b61fd10dba40ffe83" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>begin</name></member>
+      <member refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" prot="protected" virt="non-virtual"><scope>DS3231M</scope><name>bin2bcd</name></member>
+      <member refid="classDS3231M_1a4c6094efbba06d68163271a39cce7cf4" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>clearAlarm</name></member>
+      <member refid="classDS3231M_1a265a432d3af74297880a641fff30b478" prot="protected" virt="non-virtual"><scope>DS3231M</scope><name>dayOfTheWeek</name></member>
+      <member refid="classDS3231M_1aaf90ad88ed4cc75de4e4e12b7213e241" prot="private" virt="non-virtual"><scope>DS3231M</scope><name>daysOfTheWeek</name></member>
+      <member refid="classDS3231M_1a668cc40959df649d1cf5844cb8a7d640" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>disable32k</name></member>
+      <member refid="classDS3231M_1afc4fa389897461921a38ac73e3aebfac" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>DS3231M</name></member>
+      <member refid="classDS3231M_1a5b03b76ec9f255ac96438d0a3ff0e88c" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>enable32k</name></member>
+      <member refid="classDS3231M_1a82744f08291258337c73905ed6b76567" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>getRTCTime</name></member>
+      <member refid="classDS3231M_1a618cc2a142b6b7de1754831cc5bf7467" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>getTemp</name></member>
+      <member refid="classDS3231M_1a335666d54d6b2cbf9b8cbd31548ec0e0" prot="private" virt="non-virtual"><scope>DS3231M</scope><name>hourOfAM</name></member>
+      <member refid="classDS3231M_1a502740afcadc58891aa1106d51c19426" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>isAlarm</name></member>
+      <member refid="classDS3231M_1a57adc05f6ab49e0ea185d1b201a20ddb" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>lostPower</name></member>
+      <member refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" prot="protected" virt="virtual"><scope>DS3231M</scope><name>readReg</name></member>
+      <member refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>rtc</name></member>
+      <member refid="classDS3231M_1a1ec527b10c92e03d520e7094aa8953bc" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>setAlarm1</name></member>
+      <member refid="classDS3231M_1a52ea69700d5680dc87cfe1cb1b19d816" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>setAlarm2</name></member>
+      <member refid="classDS3231M_1a9b387cfaa2358d17827b92745aed543e" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>setRTCTime</name></member>
+      <member refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" prot="protected" virt="virtual"><scope>DS3231M</scope><name>writeReg</name></member>
+      <member refid="classDS3231M_1a912a3bd0ca29becf6c96853e8ceb993c" prot="public" virt="non-virtual"><scope>DS3231M</scope><name>~DS3231M</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

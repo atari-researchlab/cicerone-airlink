@@ -1,0 +1,466 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="Alarma_8cpp" kind="file" language="C++">
+    <compoundname>Alarma.cpp</compoundname>
+    <includes refid="Alarma_8h" local="yes">Alarma.h</includes>
+    <includes refid="Configuracion_8h" local="yes">Configuracion.h</includes>
+    <includes refid="Debug_8h" local="yes">Debug.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/Alarma.cpp</label>
+        <link refid="Alarma_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Alarma.h</label>
+        <link refid="Alarma_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Configuracion.h</label>
+        <link refid="Configuracion_8h"/>
+      </node>
+      <node id="4">
+        <label>DS3231M.h</label>
+        <link refid="DS3231M_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+      <node id="5">
+        <label>Wire.h</label>
+      </node>
+      <node id="8">
+        <label>stdarg.h</label>
+      </node>
+      <node id="9">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="user-defined">
+      <header>Alarm control flags</header>
+      <member refid="group__gVarGlobales_1ga58b6bf214cc8f4778e43d4ad23e103a5" kind="variable"><name>alarma_10min</name></member>
+      <member refid="group__gVarGlobales_1ga79464d94fe55194ebc16027aadb2fea2" kind="variable"><name>alarma_5s</name></member>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Variables for 5s timer based on millis()</header>
+      <member refid="group__gVarGlobales_1gaf98d63570c80893936f4777e5c2db841" kind="variable"><name>prev_millis</name></member>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Variables for 10min alarm based on RTC</header>
+      <member refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kind="variable"><name>minuto_actual</name></member>
+      <member refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kind="variable"><name>minuto_siguiente</name></member>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Counters for data averaging</header>
+      <member refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kind="variable"><name>cont1</name></member>
+      <member refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kind="variable"><name>cont2</name></member>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Accumulators for averaging sensor readings</header>
+      <member refid="group__gVarGlobales_1ga61ce78eef398ed24d99fc84d0192ca2c" kind="variable"><name>sum_sen5x_voc</name></member>
+      <member refid="group__gVarGlobales_1gaa6a6e837c1f48356fdcd871b63509418" kind="variable"><name>sum_sen5x_mc_1p0</name></member>
+      <member refid="group__gVarGlobales_1ga01d98b93fb3a355d6381b7e4494691a5" kind="variable"><name>sum_sen5x_mc_2p5</name></member>
+      <member refid="group__gVarGlobales_1ga597eb267421642e297f66bb67ee9ca4c" kind="variable"><name>sum_sen5x_mc_4p0</name></member>
+      <member refid="group__gVarGlobales_1ga042b1d724a5e51331e7e9decd8900ec0" kind="variable"><name>sum_sen5x_mc_10p0</name></member>
+      <member refid="group__gVarGlobales_1ga4a786320f25f4c8f00e569b288cddddd" kind="variable"><name>sum_temp</name></member>
+      <member refid="group__gVarGlobales_1ga35bb62392baeacd0ff6f8f092d276374" kind="variable"><name>sum_hum</name></member>
+      <member refid="group__gVarGlobales_1ga3ad95fa8385d600411e0bf05e5e3aba8" kind="variable"><name>sum_sen5x_nox</name></member>
+      <member refid="group__gVarGlobales_1gaf80d2eb200a110f0bf3be97f96cb221f" kind="variable"><name>sum_t6793_co2</name></member>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Variables to store averages</header>
+      <member refid="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" kind="variable"><name>avg_sen5x_voc</name></member>
+      <member refid="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" kind="variable"><name>avg_sen5x_mc_1p0</name></member>
+      <member refid="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" kind="variable"><name>avg_sen5x_mc_2p5</name></member>
+      <member refid="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" kind="variable"><name>avg_sen5x_mc_4p0</name></member>
+      <member refid="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" kind="variable"><name>avg_sen5x_mc_10p0</name></member>
+      <member refid="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" kind="variable"><name>avg_temp</name></member>
+      <member refid="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" kind="variable"><name>avg_hum</name></member>
+      <member refid="group__gVarGlobales_1ga758e7fc7a2e86eb8f5fb211416248925" kind="variable"><name>avg_sen5x_nox</name></member>
+      <member refid="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" kind="variable"><name>avg_t6793_co2</name></member>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Date and time variables and RTC object instance</header>
+      <member refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kind="variable"><name>rtc</name></member>
+      <member refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kind="variable"><name>now</name></member>
+      <member refid="group__gVarGlobales_1ga6bb9278a044df647409ac8f7a329ffde" kind="variable"><name>fecha</name></member>
+      <member refid="group__gVarGlobales_1ga1591103044c45c7b7501ce6123a4ab2a" kind="variable"><name>hora</name></member>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="Alarma_8cpp_1a2118064f8d135aad572d96f8b1ff98d4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void imprimir_hora</definition>
+        <argsstring>(void)</argsstring>
+        <name>imprimir_hora</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Prints the current time to the serial port (for debugging). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Private function (no prototype). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="104" column="20" bodyfile="firmware/Alarma.cpp" bodystart="104" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="Alarma_8cpp_1aae0bd1154c80331474947c4deb683876" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtc_alarma_inicializar</definition>
+        <argsstring>(void)</argsstring>
+        <name>rtc_alarma_inicializar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the RTC module and configures the first 10-minute alarm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures the RTC with initial date and time if necessary, or synchronizes it. This function must be called in &apos;setup()&apos;. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="109" column="6" bodyfile="firmware/Alarma.cpp" bodystart="109" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="Alarma_8cpp_1a0d1efe8696206659f07d8d3760f1b0dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void check_alarma_5s</definition>
+        <argsstring>(void)</argsstring>
+        <name>check_alarma_5s</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks if 5 seconds have passed using millis(). If so, activates the alarma_5s flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Must be called continuously in the main loop. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="146" column="6" bodyfile="firmware/Alarma.cpp" bodystart="146" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="Alarma_8cpp_1a28be7c3a0620ea52a10d5230224935e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void acumular_datos</definition>
+        <argsstring>(void)</argsstring>
+        <name>acumular_datos</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads data from all sensors and accumulates them for averaging. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls the reading functions of the SEN55 and T6793 modules and adds their values to the corresponding <emphasis>sum_*</emphasis> accumulators. Increments the averaging counters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="154" column="6" bodyfile="firmware/Alarma.cpp" bodystart="154" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="Alarma_8cpp_1aa20672da3be9e5779c6e7035c81d7198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void check_alarma_10min</definition>
+        <argsstring>(void)</argsstring>
+        <name>check_alarma_10min</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Verifies if the 10-minute cycle has completed. If so, activates the alarma_10min flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the RTC time to see if the next 10-minute interval has been reached (e.g., 12:10, 12:20). <simplesect kind="note"><para>Must be called continuously in the main loop. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="181" column="6" bodyfile="firmware/Alarma.cpp" bodystart="181" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="Alarma_8cpp_1a9201ff349cabab6b836383ab043d8400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void promediar_datos</definition>
+        <argsstring>(void)</argsstring>
+        <name>promediar_datos</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Processes accumulated data to calculate averages and stores them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is called at the end of each averaging period (e.g., every 10 minutes) and the averages are stored in the corresponding <emphasis>avg_*</emphasis> variables. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="213" column="6" bodyfile="firmware/Alarma.cpp" bodystart="213" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="Alarma_8cpp_1a35c26beb2363dfa3b53dfa4590ed0f90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void reset_acumuladores</definition>
+        <argsstring>(void)</argsstring>
+        <name>reset_acumuladores</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Resets counters and accumulators. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="244" column="6" bodyfile="firmware/Alarma.cpp" bodystart="244" bodyend="257"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Implementation of functions for alarm management and data averaging. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2025-07-22] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Alarma_8h" kindref="compound">Alarma.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Configuracion_8h" kindref="compound">Configuracion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Debug_8h" kindref="compound">Debug.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Datetime__helper_8h" kindref="compound">Datetime_helper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="SEN5X__API_8h" kindref="compound">SEN5X_API.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="T6793__API_8h" kindref="compound">T6793_API.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>DEBUG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_LEVEL<sp/>DEBUG_ALARMA<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_TAG<sp/>&quot;ALARMA&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga58b6bf214cc8f4778e43d4ad23e103a5" kindref="member">alarma_10min</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga79464d94fe55194ebc16027aadb2fea2" kindref="member">alarma_5s</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gaf98d63570c80893936f4777e5c2db841" kindref="member">prev_millis</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">uint8_t<sp/><ref refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kindref="member">minuto_actual</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">uint8_t<sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">uint16_t<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref><sp/>=<sp/>0;<sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">uint16_t<sp/><ref refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kindref="member">cont2</ref><sp/>=<sp/>0;<sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga61ce78eef398ed24d99fc84d0192ca2c" kindref="member">sum_sen5x_voc</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gaa6a6e837c1f48356fdcd871b63509418" kindref="member">sum_sen5x_mc_1p0</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga01d98b93fb3a355d6381b7e4494691a5" kindref="member">sum_sen5x_mc_2p5</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga597eb267421642e297f66bb67ee9ca4c" kindref="member">sum_sen5x_mc_4p0</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga042b1d724a5e51331e7e9decd8900ec0" kindref="member">sum_sen5x_mc_10p0</ref><sp/>=<sp/>0.0f;<sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga4a786320f25f4c8f00e569b288cddddd" kindref="member">sum_temp</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga35bb62392baeacd0ff6f8f092d276374" kindref="member">sum_hum</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga3ad95fa8385d600411e0bf05e5e3aba8" kindref="member">sum_sen5x_nox</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gaf80d2eb200a110f0bf3be97f96cb221f" kindref="member">sum_t6793_co2</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" kindref="member">avg_sen5x_voc</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" kindref="member">avg_sen5x_mc_1p0</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" kindref="member">avg_sen5x_mc_2p5</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" kindref="member">avg_sen5x_mc_4p0</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" kindref="member">avg_sen5x_mc_10p0</ref><sp/>=<sp/>0.0f;<sp/><sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" kindref="member">avg_temp</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" kindref="member">avg_hum</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1ga758e7fc7a2e86eb8f5fb211416248925" kindref="member">avg_sen5x_nox</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" kindref="member">avg_t6793_co2</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><ref refid="classDS3231M" kindref="compound">DS3231M</ref><sp/><ref refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kindref="member">rtc</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><ref refid="classDateTime" kindref="compound">DateTime</ref><sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">String<sp/><ref refid="group__gVarGlobales_1ga6bb9278a044df647409ac8f7a329ffde" kindref="member">fecha</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">String<sp/><ref refid="group__gVarGlobales_1ga1591103044c45c7b7501ce6123a4ab2a" kindref="member">hora</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>imprimir_hora(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;%04d-%02d-%02d\t%02d:%02d:%02d&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.year(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.month(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.day(),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.hour(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.second());</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Alarma_8cpp_1aae0bd1154c80331474947c4deb683876" kindref="member">rtc_alarma_inicializar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!<ref refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kindref="member">rtc</ref>.begin())<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;RTC:<sp/>initialization<sp/>error.<sp/>Check<sp/>that<sp/>the<sp/>connection<sp/>is<sp/>correct...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(1000);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adjust<sp/>date<sp/>and<sp/>time<sp/>if<sp/>auxiliary<sp/>power<sp/>was<sp/>lost</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kindref="member">rtc</ref>.lostPower())<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a049ef4d56885f132f21a5e963d79acc6" kindref="member">DEBUG_WARN</ref>(</highlight><highlight class="stringliteral">&quot;RTC:<sp/>auxiliary<sp/>power<sp/>lost.<sp/>Setting<sp/>date/time<sp/>to<sp/>compile<sp/>time&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>time<sp/>using<sp/>macros<sp/>from<sp/>Datetime_helper.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kindref="member">rtc</ref>.setRTCTime(<ref refid="Datetime__helper_8h_1abb9ec68a7385d7febaad9e0267b2f7a9" kindref="member">BUILD_YEAR</ref>,<sp/><ref refid="Datetime__helper_8h_1a028c55cbe44447e1b8046ece3dbb9a02" kindref="member">BUILD_MONTH</ref>,<sp/><ref refid="Datetime__helper_8h_1a048ec1bde6610d83e24c409356dc88c4" kindref="member">BUILD_DAY</ref>,<sp/><ref refid="Datetime__helper_8h_1ac7d6c96c7fe1a6237703b6d520c9b369" kindref="member">BUILD_HOUR</ref>,<sp/><ref refid="Datetime__helper_8h_1a60a2b7146eedffee3f0c3f85f6d48e84" kindref="member">BUILD_MIN</ref>,<sp/><ref refid="Datetime__helper_8h_1a98797ed3ea6b0c6d9a04de5899070f32" kindref="member">BUILD_SEC</ref>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;RTC<sp/>and<sp/>Alarms<sp/>initialized.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kindref="member">rtc</ref>.getRTCTime();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>the<sp/>first<sp/>10-minute<sp/>alarm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kindref="member">minuto_actual</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>(<ref refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kindref="member">minuto_actual</ref><sp/>/<sp/>10<sp/>+<sp/>1)<sp/>*<sp/>10;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>&gt;=<sp/>60)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>TEST_MINUTAL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute()<sp/>+<sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>Per-minute<sp/>average</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>&gt;<sp/>59)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>((<ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute()<sp/>/<sp/>10)<sp/>+<sp/>1)<sp/>*<sp/>10;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>&gt;<sp/>50)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Next<sp/>10min<sp/>alarm<sp/>scheduled<sp/>for<sp/>minute:<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref>);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Alarma_8cpp_1a0d1efe8696206659f07d8d3760f1b0dd" kindref="member">check_alarma_5s</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>current_millis<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(current_millis<sp/>-<sp/><ref refid="group__gVarGlobales_1gaf98d63570c80893936f4777e5c2db841" kindref="member">prev_millis</ref><sp/>&gt;=<sp/>5000)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>5000<sp/>ms<sp/>=<sp/>5s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gaf98d63570c80893936f4777e5c2db841" kindref="member">prev_millis</ref><sp/>=<sp/>current_millis;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga79464d94fe55194ebc16027aadb2fea2" kindref="member">alarma_5s</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Alarma_8cpp_1a28be7c3a0620ea52a10d5230224935e7" kindref="member">acumular_datos</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="SEN5X__API_8cpp_1a59d9dee416fffab4fb8fe13e69897628" kindref="member">sen5x_leer</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga61ce78eef398ed24d99fc84d0192ca2c" kindref="member">sum_sen5x_voc</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1a614d9e327ecb9c09db17dcc7c3bc8cd9" kindref="member">sen5x_voc</ref>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gaa6a6e837c1f48356fdcd871b63509418" kindref="member">sum_sen5x_mc_1p0</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1a443ca79de801a6fcd77b280ee12c12d2" kindref="member">sen5x_mc_1p0</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga01d98b93fb3a355d6381b7e4494691a5" kindref="member">sum_sen5x_mc_2p5</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1ac1ee8cc6d666fd47173ff0c6f3b0ecf5" kindref="member">sen5x_mc_2p5</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga597eb267421642e297f66bb67ee9ca4c" kindref="member">sum_sen5x_mc_4p0</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1a587d0b0d6f2c126878c293f0ad36b136" kindref="member">sen5x_mc_4p0</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga042b1d724a5e51331e7e9decd8900ec0" kindref="member">sum_sen5x_mc_10p0</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1a4db1cfb240d8d516613efceef253d5cd" kindref="member">sen5x_mc_10p0</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga4a786320f25f4c8f00e569b288cddddd" kindref="member">sum_temp</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1aefbd0a54c88b8c5992e3d52e7e06b4de" kindref="member">sen5x_temp</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga35bb62392baeacd0ff6f8f092d276374" kindref="member">sum_hum</ref><sp/>+=<sp/><ref refid="SEN5X__API_8cpp_1ae562fbcfe876d53a39354ef5060eca6e" kindref="member">sen5x_hum</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//sum_sen5x_nox<sp/>+=<sp/>sen5x_nox;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref><sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Accumulated<sp/>SEN5X<sp/>samples:<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a049ef4d56885f132f21a5e963d79acc6" kindref="member">DEBUG_WARN</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>reading<sp/>SEN5X.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="T6793__API_8cpp_1a5b5414b7744475e9835a9579bc0d4717" kindref="member">t6793_leer</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gaf80d2eb200a110f0bf3be97f96cb221f" kindref="member">sum_t6793_co2</ref><sp/>+=<sp/><ref refid="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" kindref="member">t6793_co2</ref>;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kindref="member">cont2</ref><sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Accumulated<sp/>T6793<sp/>samples:<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kindref="member">cont2</ref>);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a049ef4d56885f132f21a5e963d79acc6" kindref="member">DEBUG_WARN</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>reading<sp/>T6793.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Alarma_8cpp_1aa20672da3be9e5779c6e7035c81d7198" kindref="member">check_alarma_10min</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" kindref="member">rtc</ref>.getRTCTime();</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>the<sp/>first<sp/>10-minute<sp/>alarm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kindref="member">minuto_actual</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute();</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kindref="member">minuto_actual</ref><sp/>==<sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga58b6bf214cc8f4778e43d4ad23e103a5" kindref="member">alarma_10min</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>(<ref refid="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" kindref="member">minuto_actual</ref><sp/>/<sp/>10<sp/>+<sp/>1)<sp/>*<sp/>10;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>&gt;=<sp/>60)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>TEST_MINUTAL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute()<sp/>+<sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>Per-minute<sp/>average</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>&gt;<sp/>59)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>((<ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute()<sp/>/<sp/>10)<sp/>+<sp/>1)<sp/>*<sp/>10;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>&gt;<sp/>50)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>date<sp/>and<sp/>time<sp/>strings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[25];</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>snprintf(buffer,<sp/>25,<sp/></highlight><highlight class="stringliteral">&quot;%04d-%02d-%02d&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.year(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.month(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.day());</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga6bb9278a044df647409ac8f7a329ffde" kindref="member">fecha</ref><sp/>=<sp/>String(buffer);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>snprintf(buffer,<sp/>25,<sp/></highlight><highlight class="stringliteral">&quot;%02d:%02d:%02d&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.hour(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.minute(),<sp/><ref refid="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" kindref="member">now</ref>.second());</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga1591103044c45c7b7501ce6123a4ab2a" kindref="member">hora</ref><sp/>=<sp/>String(buffer);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Next<sp/>10min<sp/>alarm<sp/>scheduled<sp/>for<sp/>minute:<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" kindref="member">minuto_siguiente</ref>);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Alarma_8cpp_1a9201ff349cabab6b836383ab043d8400" kindref="member">promediar_datos</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref><sp/>&gt;<sp/>0)<sp/>{<sp/><sp/></highlight><highlight class="comment">//<sp/>Avoid<sp/>division<sp/>by<sp/>zero</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" kindref="member">avg_sen5x_voc</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga61ce78eef398ed24d99fc84d0192ca2c" kindref="member">sum_sen5x_voc</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" kindref="member">avg_sen5x_mc_1p0</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gaa6a6e837c1f48356fdcd871b63509418" kindref="member">sum_sen5x_mc_1p0</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" kindref="member">avg_sen5x_mc_2p5</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga01d98b93fb3a355d6381b7e4494691a5" kindref="member">sum_sen5x_mc_2p5</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" kindref="member">avg_sen5x_mc_4p0</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga597eb267421642e297f66bb67ee9ca4c" kindref="member">sum_sen5x_mc_4p0</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" kindref="member">avg_sen5x_mc_10p0</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga042b1d724a5e51331e7e9decd8900ec0" kindref="member">sum_sen5x_mc_10p0</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" kindref="member">avg_temp</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga4a786320f25f4c8f00e569b288cddddd" kindref="member">sum_temp</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" kindref="member">avg_hum</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga35bb62392baeacd0ff6f8f092d276374" kindref="member">sum_hum</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1ga758e7fc7a2e86eb8f5fb211416248925" kindref="member">avg_sen5x_nox</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1ga3ad95fa8385d600411e0bf05e5e3aba8" kindref="member">sum_sen5x_nox</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref>;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kindref="member">cont2</ref><sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" kindref="member">avg_t6793_co2</ref><sp/>=<sp/><ref refid="group__gVarGlobales_1gaf80d2eb200a110f0bf3be97f96cb221f" kindref="member">sum_t6793_co2</ref><sp/>/<sp/><ref refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kindref="member">cont2</ref>;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/>imprimir_hora();</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>Temp:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" kindref="member">avg_temp</ref>);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>RH:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" kindref="member">avg_hum</ref>);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>PM1:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" kindref="member">avg_sen5x_mc_1p0</ref>);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>PM2:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" kindref="member">avg_sen5x_mc_2p5</ref>);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>PM4:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" kindref="member">avg_sen5x_mc_4p0</ref>);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>PM10:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" kindref="member">avg_sen5x_mc_10p0</ref>);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>VOC:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" kindref="member">avg_sen5x_voc</ref>);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>NOx:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga758e7fc7a2e86eb8f5fb211416248925" kindref="member">avg_sen5x_nox</ref>);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Avg.<sp/>CO2:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" kindref="member">avg_t6793_co2</ref>);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;%f\t%f\t%f\t%f\t%f\t%f\t%f\t%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" kindref="member">avg_temp</ref>,<sp/><ref refid="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" kindref="member">avg_hum</ref>,<sp/><ref refid="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" kindref="member">avg_sen5x_mc_1p0</ref>,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" kindref="member">avg_sen5x_mc_2p5</ref>,<sp/><ref refid="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" kindref="member">avg_sen5x_mc_4p0</ref>,<sp/><ref refid="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" kindref="member">avg_sen5x_mc_10p0</ref>,<sp/><ref refid="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" kindref="member">avg_sen5x_voc</ref>,<sp/><ref refid="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" kindref="member">avg_t6793_co2</ref>);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><ref refid="Alarma_8cpp_1a35c26beb2363dfa3b53dfa4590ed0f90" kindref="member">reset_acumuladores</ref>();</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Alarma_8cpp_1a35c26beb2363dfa3b53dfa4590ed0f90" kindref="member">reset_acumuladores</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga61ce78eef398ed24d99fc84d0192ca2c" kindref="member">sum_sen5x_voc</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1gaa6a6e837c1f48356fdcd871b63509418" kindref="member">sum_sen5x_mc_1p0</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga01d98b93fb3a355d6381b7e4494691a5" kindref="member">sum_sen5x_mc_2p5</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga597eb267421642e297f66bb67ee9ca4c" kindref="member">sum_sen5x_mc_4p0</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga042b1d724a5e51331e7e9decd8900ec0" kindref="member">sum_sen5x_mc_10p0</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga4a786320f25f4c8f00e569b288cddddd" kindref="member">sum_temp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga35bb62392baeacd0ff6f8f092d276374" kindref="member">sum_hum</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga3ad95fa8385d600411e0bf05e5e3aba8" kindref="member">sum_sen5x_nox</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1gaf80d2eb200a110f0bf3be97f96cb221f" kindref="member">sum_t6793_co2</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" kindref="member">cont1</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><ref refid="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" kindref="member">cont2</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Accumulators<sp/>reset&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="firmware/Alarma.cpp"/>
+  </compounddef>
+</doxygen>

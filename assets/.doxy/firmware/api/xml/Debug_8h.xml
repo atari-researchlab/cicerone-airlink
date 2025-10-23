@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="Debug_8h" kind="file" language="C++">
+    <compoundname>Debug.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">stdarg.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includedby refid="Alarma_8cpp" local="yes">firmware/Alarma.cpp</includedby>
+    <includedby refid="DS3231M_8cpp" local="yes">firmware/DS3231M.cpp</includedby>
+    <includedby refid="SEN5X__API_8cpp" local="yes">firmware/SEN5X_API.cpp</includedby>
+    <includedby refid="T6793__API_8cpp" local="yes">firmware/T6793_API.cpp</includedby>
+    <includedby refid="T67XX_8cpp" local="yes">firmware/T67XX.cpp</includedby>
+    <includedby refid="Transmision__NBIOT_8cpp" local="yes">firmware/Transmision_NBIOT.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>stdarg.h</label>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>firmware/Alarma.cpp</label>
+        <link refid="Alarma_8cpp"/>
+      </node>
+      <node id="3">
+        <label>firmware/DS3231M.cpp</label>
+        <link refid="DS3231M_8cpp"/>
+      </node>
+      <node id="1">
+        <label>firmware/Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>firmware/SEN5X_API.cpp</label>
+        <link refid="SEN5X__API_8cpp"/>
+      </node>
+      <node id="5">
+        <label>firmware/T6793_API.cpp</label>
+        <link refid="T6793__API_8cpp"/>
+      </node>
+      <node id="6">
+        <label>firmware/T67XX.cpp</label>
+        <link refid="T67XX_8cpp"/>
+      </node>
+      <node id="7">
+        <label>firmware/Transmision_NBIOT.cpp</label>
+        <link refid="Transmision__NBIOT_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="user-defined">
+      <header>Debug message configuration.</header>
+      <description><para>Controls the amount of information printed to the Serial Monitor for each module and globally. If the debug level is 0, all debug macros are defined as empty. The compiler will optimize and remove them from the final code, saving memory.</para>
+<para><itemizedlist>
+<listitem><para>0 = No debugging. Saves memory and makes the program faster.</para>
+</listitem><listitem><para>1 = Errors (ERROR): Shows only critical messages.</para>
+</listitem><listitem><para>2 = Warnings (WARN): Shows errors and important warnings.</para>
+</listitem><listitem><para>3 = Information (INFO): Shows general program flow (recommended for normal debugging).</para>
+</listitem><listitem><para>4 = Verbose (VERBOSE): Shows very detailed information, such as sensor readings every 5s. </para>
+</listitem></itemizedlist>
+</para>
+</description>
+      <memberdef kind="define" id="Debug_8h_1ac2d33ccaf63f5d5b66552b95426c0137" prot="public" static="no">
+        <name>DEBUG_LEVEL</name>
+        <initializer>3</initializer>
+        <briefdescription>
+<para>Global debug level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="36" column="9" bodyfile="firmware/Debug.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1ac0293ba7c243042ec7874c6cfbd80b48" prot="public" static="no">
+        <name>DEBUG_ALARMA</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Controls debug information for acquisition and averaging loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="37" column="9" bodyfile="firmware/Debug.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a2c764103787ecadfd3b3ef7b29ef5a67" prot="public" static="no">
+        <name>DEBUG_SEN5X</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Controls debug information for SEN5X sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="38" column="9" bodyfile="firmware/Debug.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a81eb0cce531cbba9485b95191044da40" prot="public" static="no">
+        <name>DEBUG_T6793</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Controls debug information for T6793K sensor (CO2). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="39" column="9" bodyfile="firmware/Debug.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a728fdda4e30485a833d294a74a2cc69b" prot="public" static="no">
+        <name>DEBUG_DS3231M</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Controls debug information for RTC. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="40" column="9" bodyfile="firmware/Debug.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1ac2ccf7324863099ea2fec03402e9b03a" prot="public" static="no">
+        <name>DEBUG_NBIOT</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Controls debug information for NB-IoT module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="41" column="9" bodyfile="firmware/Debug.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Debug macros.</header>
+      <description><para>Defines a common prefix for all debug messages.</para>
+<para>Uses the DEBUG_TAG macro which must be defined in each .cpp file to identify the message source.</para>
+<para><programlisting><codeline><highlight class="normal">[level][millis()][<ref refid="DS3231M_8cpp_1ae6f84e8321c3bc4f546cf4a2a4798064" kindref="member">DEBUG_TAG</ref>]<sp/></highlight></codeline>
+</programlisting> */ #define DEBUG_PRINT_PREFIX(level) \ Serial.print(F(&quot;[&quot;)); \ Serial.print(level); \ Serial.print(F(&quot;][&quot;)); \ Serial.print(millis()); \ Serial.print(F(&quot;][&quot;)); \ Serial.print(DEBUG_TAG); \ Serial.print(F(&quot;] &quot;))</para>
+<para>/**</para>
+<para>Used like the <computeroutput>printf()</computeroutput> function. Automatically adds the DEBUG level, current millis as a <emphasis>timestamp</emphasis>, and the module that generated it.</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>establish<sp/>communication<sp/>with<sp/>RTC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting></para>
+<para><programlisting><codeline><highlight class="normal">[ERROR][1543][RTC]<sp/>Unable<sp/>to<sp/>establish<sp/>communication<sp/>with<sp/>RTC<sp/></highlight></codeline>
+</programlisting> </para>
+</description>
+      <memberdef kind="define" id="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" prot="public" static="no">
+        <name>DEBUG_ERROR</name>
+        <param><defname>format</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  if (<ref refid="Debug_8h_1ac2d33ccaf63f5d5b66552b95426c0137" kindref="member">DEBUG_LEVEL</ref> &gt;= 1) { \
+    DEBUG_PRINT_PREFIX(&quot;ERROR&quot;); \
+    do { \
+      snprintf(debug_printf_buffer, <ref refid="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" kindref="member">DEBUG_PRINTF_BUFFER_SIZE</ref>, format, ##__VA_ARGS__); \
+      Serial.println(debug_printf_buffer); \
+    } while (0); \
+  }</initializer>
+        <briefdescription>
+<para>DEBUG_LEVEL &gt;= 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="92" column="9" bodyfile="firmware/Debug.h" bodystart="92" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a049ef4d56885f132f21a5e963d79acc6" prot="public" static="no">
+        <name>DEBUG_WARN</name>
+        <param><defname>format</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  if (<ref refid="Debug_8h_1ac2d33ccaf63f5d5b66552b95426c0137" kindref="member">DEBUG_LEVEL</ref> &gt;= 2) { \
+    DEBUG_PRINT_PREFIX(&quot;WARN&quot;); \
+    do { \
+      snprintf(debug_printf_buffer, <ref refid="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" kindref="member">DEBUG_PRINTF_BUFFER_SIZE</ref>, format, ##__VA_ARGS__); \
+      Serial.println(debug_printf_buffer); \
+    } while (0); \
+  }</initializer>
+        <briefdescription>
+<para>DEBUG_LEVEL &gt;= 2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="104" column="9" bodyfile="firmware/Debug.h" bodystart="104" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" prot="public" static="no">
+        <name>DEBUG_INFO</name>
+        <param><defname>format</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  if (<ref refid="Debug_8h_1ac2d33ccaf63f5d5b66552b95426c0137" kindref="member">DEBUG_LEVEL</ref> &gt;= 3) { \
+    DEBUG_PRINT_PREFIX(&quot;INFO&quot;); \
+    do { \
+      snprintf(debug_printf_buffer, <ref refid="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" kindref="member">DEBUG_PRINTF_BUFFER_SIZE</ref>, format, ##__VA_ARGS__); \
+      Serial.println(debug_printf_buffer); \
+    } while (0); \
+  }</initializer>
+        <briefdescription>
+<para>DEBUG_LEVEL &gt;= 3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="116" column="9" bodyfile="firmware/Debug.h" bodystart="116" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" prot="public" static="no">
+        <name>DEBUG_VERBOSE</name>
+        <param><defname>format</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>  if (<ref refid="Debug_8h_1ac2d33ccaf63f5d5b66552b95426c0137" kindref="member">DEBUG_LEVEL</ref> &gt;= 4) { \
+    DEBUG_PRINT_PREFIX(&quot;VERBO&quot;); \
+    do { \
+      snprintf(debug_printf_buffer, <ref refid="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" kindref="member">DEBUG_PRINTF_BUFFER_SIZE</ref>, format, ##__VA_ARGS__); \
+      Serial.println(debug_printf_buffer); \
+    } while (0); \
+  }</initializer>
+        <briefdescription>
+<para>DEBUG_LEVEL &gt;= 4. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="128" column="9" bodyfile="firmware/Debug.h" bodystart="128" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="Debug_8h_1a34a2a806af67fc92ba46da0d0f2f74f4" prot="public" static="no">
+        <name>TEST_MINUTAL</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Uncomment the following line to enable per-minute average transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Useful for debugging message sending or sensor communication. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="21" column="9" bodyfile="firmware/Debug.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" prot="public" static="no">
+        <name>DEBUG_PRINTF_BUFFER_SIZE</name>
+        <initializer>256</initializer>
+        <briefdescription>
+<para>Adjust size according to expected maximum message length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="48" column="9" bodyfile="firmware/Debug.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="Debug_8h_1a80d506184afe46d52a26e1618207a9ec" prot="public" static="yes" mutable="no">
+        <type>char</type>
+        <definition>char debug_printf_buffer[DEBUG_PRINTF_BUFFER_SIZE]</definition>
+        <argsstring>[DEBUG_PRINTF_BUFFER_SIZE]</argsstring>
+        <name>debug_printf_buffer</name>
+        <briefdescription>
+<para>Buffer for formatted debug messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Debug.h" line="49" column="13" bodyfile="firmware/Debug.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Header for debug message management. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Defines a set of macros that allow printing messages to the serial port depending on a debug level set in &quot;Configuracion.h&quot;.</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>1.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DEBUG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="Debug_8h_1a34a2a806af67fc92ba46da0d0f2f74f4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_MINUTAL<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="Debug_8h_1ac2d33ccaf63f5d5b66552b95426c0137" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_LEVEL<sp/>3<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="Debug_8h_1ac0293ba7c243042ec7874c6cfbd80b48" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_ALARMA<sp/>2<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="Debug_8h_1a2c764103787ecadfd3b3ef7b29ef5a67" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_SEN5X<sp/>2<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="Debug_8h_1a81eb0cce531cbba9485b95191044da40" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_T6793<sp/>2<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="Debug_8h_1a728fdda4e30485a833d294a74a2cc69b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_DS3231M<sp/>2<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="Debug_8h_1ac2ccf7324863099ea2fec03402e9b03a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_NBIOT<sp/>2<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdarg.h&gt;</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Required<sp/>for<sp/>va_list,<sp/>va_start,<sp/>va_end</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Required<sp/>for<sp/>snprintf</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_PRINTF_BUFFER_SIZE<sp/>256<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>debug_printf_buffer[<ref refid="Debug_8h_1a85899658b2a6c1e8dc8f18b97fde810d" kindref="member">DEBUG_PRINTF_BUFFER_SIZE</ref>];<sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>DEBUG_LEVEL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_ERROR(format,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_WARN(format,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_INFO(format,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_VERBOSE(format,<sp/>...)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>debug<sp/>level<sp/>is<sp/>&gt;<sp/>0,<sp/>macros<sp/>are<sp/>defined<sp/>to<sp/>print<sp/>to<sp/>Serial.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_PRINT_PREFIX(level)<sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/>Serial.print(F(&quot;[&quot;));<sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/>Serial.print(level);<sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/>Serial.print(F(&quot;][&quot;));<sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/>Serial.print(millis());<sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/>Serial.print(F(&quot;][&quot;));<sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/>Serial.print(DEBUG_TAG);<sp/>\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"><sp/><sp/>Serial.print(F(&quot;]<sp/>&quot;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_ERROR(format,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"><sp/><sp/>if<sp/>(DEBUG_LEVEL<sp/>&gt;=<sp/>1)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>DEBUG_PRINT_PREFIX(&quot;ERROR&quot;);<sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>snprintf(debug_printf_buffer,<sp/>DEBUG_PRINTF_BUFFER_SIZE,<sp/>format,<sp/>##__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(debug_printf_buffer);<sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0);<sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="Debug_8h_1a049ef4d56885f132f21a5e963d79acc6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_WARN(format,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"><sp/><sp/>if<sp/>(DEBUG_LEVEL<sp/>&gt;=<sp/>2)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>DEBUG_PRINT_PREFIX(&quot;WARN&quot;);<sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>snprintf(debug_printf_buffer,<sp/>DEBUG_PRINTF_BUFFER_SIZE,<sp/>format,<sp/>##__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(debug_printf_buffer);<sp/>\</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0);<sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_INFO(format,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="117"><highlight class="preprocessor"><sp/><sp/>if<sp/>(DEBUG_LEVEL<sp/>&gt;=<sp/>3)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>DEBUG_PRINT_PREFIX(&quot;INFO&quot;);<sp/>\</highlight></codeline>
+<codeline lineno="119"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="120"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>snprintf(debug_printf_buffer,<sp/>DEBUG_PRINTF_BUFFER_SIZE,<sp/>format,<sp/>##__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(debug_printf_buffer);<sp/>\</highlight></codeline>
+<codeline lineno="122"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0);<sp/>\</highlight></codeline>
+<codeline lineno="123"><highlight class="preprocessor"><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_VERBOSE(format,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="129"><highlight class="preprocessor"><sp/><sp/>if<sp/>(DEBUG_LEVEL<sp/>&gt;=<sp/>4)<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="130"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>DEBUG_PRINT_PREFIX(&quot;VERBO&quot;);<sp/>\</highlight></codeline>
+<codeline lineno="131"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="132"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>snprintf(debug_printf_buffer,<sp/>DEBUG_PRINTF_BUFFER_SIZE,<sp/>format,<sp/>##__VA_ARGS__);<sp/>\</highlight></codeline>
+<codeline lineno="133"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(debug_printf_buffer);<sp/>\</highlight></codeline>
+<codeline lineno="134"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/>while<sp/>(0);<sp/>\</highlight></codeline>
+<codeline lineno="135"><highlight class="preprocessor"><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>DEBUG_LEVEL<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>DEBUG_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/Debug.h"/>
+  </compounddef>
+</doxygen>

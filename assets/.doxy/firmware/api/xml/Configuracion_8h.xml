@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="Configuracion_8h" kind="file" language="C++">
+    <compoundname>Configuracion.h</compoundname>
+    <includedby refid="Alarma_8cpp" local="yes">firmware/Alarma.cpp</includedby>
+    <includedby refid="Transmision__NBIOT_8cpp" local="yes">firmware/Transmision_NBIOT.cpp</includedby>
+    <includedby refid="Transmision__NBIOT_8h" local="yes">firmware/Transmision_NBIOT.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>firmware/Alarma.cpp</label>
+        <link refid="Alarma_8cpp"/>
+      </node>
+      <node id="1">
+        <label>firmware/Configuracion.h</label>
+        <link refid="Configuracion_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>firmware/Transmision_NBIOT.cpp</label>
+        <link refid="Transmision__NBIOT_8cpp"/>
+      </node>
+      <node id="4">
+        <label>firmware/Transmision_NBIOT.h</label>
+        <link refid="Transmision__NBIOT_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="user-defined">
+      <header>Server configuration for NB-IoT transmission</header>
+      <description><para>Defines the IP address and port of the server where data will be sent, as well as the API endpoint. </para>
+</description>
+      <memberdef kind="define" id="Configuracion_8h_1a81881e26e5643b4308e9a2f61f98989f" prot="public" static="no">
+        <name>SERVIDOR_IP</name>
+        <initializer>&quot;http://direccion.servidor.com&quot;</initializer>
+        <briefdescription>
+<para>Server IP where data will be sent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Configuracion.h" line="37" column="9" bodyfile="firmware/Configuracion.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Configuracion_8h_1aec4eae30dfa884321877ea7f342c5ec9" prot="public" static="no">
+        <name>SERVIDOR_PUERTO</name>
+        <initializer>&quot;64340&quot;</initializer>
+        <briefdescription>
+<para>Server port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Configuracion.h" line="38" column="9" bodyfile="firmware/Configuracion.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Configuracion_8h_1a379d3ed6f4c648cf7e51487722b60882" prot="public" static="no">
+        <name>SERVIDOR_API</name>
+        <initializer>&quot;/aqindoor&quot;</initializer>
+        <briefdescription>
+<para>API location for HTTP transmissions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Configuracion.h" line="39" column="9" bodyfile="firmware/Configuracion.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="Configuracion_8h_1ac85fa5e76448212e95d38502a87a93aa" prot="public" static="no">
+        <name>ID_USUARIO</name>
+        <initializer>&quot;AIRLINK_01&quot;</initializer>
+        <briefdescription>
+<para>Device identification. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines a unique ID for this device. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Configuracion.h" line="23" column="9" bodyfile="firmware/Configuracion.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Configuracion_8h_1a2698f25b190fb8df935df4d12b774982" prot="public" static="no">
+        <name>HABILITAR_NBIOT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Uncomment to enable data transmission via NB-IoT. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Comment or uncomment these lines to include or exclude functionalities from the final program. This is useful to save memory and power if not all modules are used. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Configuracion.h" line="30" column="9" bodyfile="firmware/Configuracion.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Configuracion_8h_1aaa8f45ecb0591e631a6b73d30458386f" prot="public" static="no">
+        <name>APN_NBIOT</name>
+        <initializer>&quot;iot.1nce.net&quot;</initializer>
+        <briefdescription>
+<para>Internet provider APN. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Enter the internet provider APN. Some providers do not require an APN to be entered.</para>
+<para>Examples:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#define<sp/>APN_NBIOT<sp/>&quot;&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>No<sp/>APN</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>APN_NBIOT<sp/>&quot;iot.1nce.net&quot;<sp/></highlight><highlight class="comment">//<sp/>1NCE<sp/>APN</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>APN_NBIOT<sp/>&quot;TM&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ThingMobile<sp/>APN</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Configuracion.h" line="54" column="9" bodyfile="firmware/Configuracion.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Global configuration file for the Airlink project. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file centralizes all options that can be adjusted to change the firmware behavior without modifying the source code.</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>Modify this file to change the program behavior without altering the main code. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CONFIGURACION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIGURACION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="Configuracion_8h_1ac85fa5e76448212e95d38502a87a93aa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ID_USUARIO<sp/>&quot;AIRLINK_01&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="Configuracion_8h_1a2698f25b190fb8df935df4d12b774982" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HABILITAR_NBIOT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="Configuracion_8h_1a81881e26e5643b4308e9a2f61f98989f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVIDOR_IP<sp/>&quot;http://direccion.servidor.com&quot;<sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="Configuracion_8h_1aec4eae30dfa884321877ea7f342c5ec9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVIDOR_PUERTO<sp/>&quot;64340&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="Configuracion_8h_1a379d3ed6f4c648cf7e51487722b60882" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVIDOR_API<sp/>&quot;/aqindoor&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="Configuracion_8h_1aaa8f45ecb0591e631a6b73d30458386f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>APN_NBIOT<sp/>&quot;iot.1nce.net&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>CONFIGURACION_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/Configuracion.h"/>
+  </compounddef>
+</doxygen>

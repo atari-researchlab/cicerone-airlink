@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="SEN5X__API_8cpp" kind="file" language="C++">
+    <compoundname>SEN5X_API.cpp</compoundname>
+    <includes local="no">SensirionI2CSen5x.h</includes>
+    <includes refid="SEN5X__API_8h" local="yes">SEN5X_API.h</includes>
+    <includes refid="Debug_8h" local="yes">Debug.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>firmware/SEN5X_API.cpp</label>
+        <link refid="SEN5X__API_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SEN5X_API.h</label>
+        <link refid="SEN5X__API_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Arduino.h</label>
+      </node>
+      <node id="2">
+        <label>SensirionI2CSen5x.h</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="user-defined">
+      <header>Global variables</header>
+      <description><para>Here memory is allocated for the global variables of sensor values. </para>
+</description>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1a443ca79de801a6fcd77b280ee12c12d2" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_mc_1p0</definition>
+        <argsstring></argsstring>
+        <name>sen5x_mc_1p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>PM1.0 mass concentration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="27" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1ac1ee8cc6d666fd47173ff0c6f3b0ecf5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_mc_2p5</definition>
+        <argsstring></argsstring>
+        <name>sen5x_mc_2p5</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>PM2.5 mass concentration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="28" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1a587d0b0d6f2c126878c293f0ad36b136" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_mc_4p0</definition>
+        <argsstring></argsstring>
+        <name>sen5x_mc_4p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>PM4.0 mass concentration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="29" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1a4db1cfb240d8d516613efceef253d5cd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_mc_10p0</definition>
+        <argsstring></argsstring>
+        <name>sen5x_mc_10p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>PM10 mass concentration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="30" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1ae562fbcfe876d53a39354ef5060eca6e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_hum</definition>
+        <argsstring></argsstring>
+        <name>sen5x_hum</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Relative humidity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="31" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1aefbd0a54c88b8c5992e3d52e7e06b4de" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_temp</definition>
+        <argsstring></argsstring>
+        <name>sen5x_temp</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Temperature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="32" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1a614d9e327ecb9c09db17dcc7c3bc8cd9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_voc</definition>
+        <argsstring></argsstring>
+        <name>sen5x_voc</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Volatile Organic Compounds (VOC) index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="33" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1a49e3d123abc98e062c9dee754c4e06ec" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sen5x_nox</definition>
+        <argsstring></argsstring>
+        <name>sen5x_nox</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Nitrogen Oxides (NOx) index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="34" column="7" bodyfile="firmware/SEN5X_API.cpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="SEN5X__API_8cpp_1ac2d33ccaf63f5d5b66552b95426c0137" prot="public" static="no">
+        <name>DEBUG_LEVEL</name>
+        <initializer><ref refid="Debug_8h_1a2c764103787ecadfd3b3ef7b29ef5a67" kindref="member">DEBUG_SEN5X</ref></initializer>
+        <briefdescription>
+<para>Redefinition of debug level for this source file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="19" column="10" bodyfile="firmware/SEN5X_API.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="SEN5X__API_8cpp_1ae6f84e8321c3bc4f546cf4a2a4798064" prot="public" static="no">
+        <name>DEBUG_TAG</name>
+        <initializer>&quot;SEN5X_API&quot;</initializer>
+        <briefdescription>
+<para>Tag when sending debug messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="20" column="9" bodyfile="firmware/SEN5X_API.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="SEN5X__API_8cpp_1a99ceee6e812127fe437667ddd3c2749b" prot="public" static="no" mutable="no">
+        <type>SensirionI2CSen5x</type>
+        <definition>SensirionI2CSen5x sen5x</definition>
+        <argsstring></argsstring>
+        <name>sen5x</name>
+        <briefdescription>
+<para>Instance of Sensirion library object for the SEN5X sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="37" column="19" bodyfile="firmware/SEN5X_API.cpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="SEN5X__API_8cpp_1a0824ffb4cb49abcccf7f735f557991fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void sen5x_inicializar</definition>
+        <argsstring>(void)</argsstring>
+        <name>sen5x_inicializar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the SEN5X sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Searches for the sensor on the I2C bus, resets it, and starts measurements. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="39" column="6" bodyfile="firmware/SEN5X_API.cpp" bodystart="39" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="SEN5X__API_8cpp_1a59d9dee416fffab4fb8fe13e69897628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool sen5x_leer</definition>
+        <argsstring>(void)</argsstring>
+        <name>sen5x_leer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads the latest data measured by the sensor and updates the global variables <computeroutput>sen5x_*</computeroutput> with the new values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the reading was successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/SEN5X_API.cpp" line="60" column="6" bodyfile="firmware/SEN5X_API.cpp" bodystart="60" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Implementation of functions for reading and initializing the SEN5X sensor. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>This module is an abstraction layer over the SensirionI2CSen5x library. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SensirionI2CSen5x.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="SEN5X__API_8h" kindref="compound">SEN5X_API.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Debug_8h" kindref="compound">Debug.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>DEBUG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_LEVEL<sp/>DEBUG_SEN5X<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_TAG<sp/>&quot;SEN5X_API&quot;<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a443ca79de801a6fcd77b280ee12c12d2" kindref="member">sen5x_mc_1p0</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1ac1ee8cc6d666fd47173ff0c6f3b0ecf5" kindref="member">sen5x_mc_2p5</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a587d0b0d6f2c126878c293f0ad36b136" kindref="member">sen5x_mc_4p0</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a4db1cfb240d8d516613efceef253d5cd" kindref="member">sen5x_mc_10p0</ref><sp/>=<sp/>0.0f;<sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1ae562fbcfe876d53a39354ef5060eca6e" kindref="member">sen5x_hum</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1aefbd0a54c88b8c5992e3d52e7e06b4de" kindref="member">sen5x_temp</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a614d9e327ecb9c09db17dcc7c3bc8cd9" kindref="member">sen5x_voc</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a49e3d123abc98e062c9dee754c4e06ec" kindref="member">sen5x_nox</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">SensirionI2CSen5x<sp/><ref refid="SEN5X__API_8cpp_1a99ceee6e812127fe437667ddd3c2749b" kindref="member">sen5x</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a0824ffb4cb49abcccf7f735f557991fc" kindref="member">sen5x_inicializar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>Wire.begin();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="SEN5X__API_8cpp_1a99ceee6e812127fe437667ddd3c2749b" kindref="member">sen5x</ref>.begin(Wire);<sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>I2C<sp/>communication.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>uint16_t<sp/>error;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>the<sp/>sensor<sp/>to<sp/>ensure<sp/>a<sp/>known<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>error<sp/>=<sp/><ref refid="SEN5X__API_8cpp_1a99ceee6e812127fe437667ddd3c2749b" kindref="member">sen5x</ref>.deviceReset();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>resetting<sp/>device.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>measurements.<sp/>The<sp/>sensor<sp/>will<sp/>measure<sp/>continuously<sp/>in<sp/>the<sp/>background.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>error<sp/>=<sp/><ref refid="SEN5X__API_8cpp_1a99ceee6e812127fe437667ddd3c2749b" kindref="member">sen5x</ref>.startMeasurement();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>starting<sp/>measurements.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>initialized.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="SEN5X__API_8cpp_1a59d9dee416fffab4fb8fe13e69897628" kindref="member">sen5x_leer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>uint16_t<sp/>error;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>measured<sp/>values<sp/>from<sp/>the<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>error<sp/>=<sp/><ref refid="SEN5X__API_8cpp_1a99ceee6e812127fe437667ddd3c2749b" kindref="member">sen5x</ref>.readMeasuredValues(</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SEN5X__API_8cpp_1a443ca79de801a6fcd77b280ee12c12d2" kindref="member">sen5x_mc_1p0</ref>,<sp/><ref refid="SEN5X__API_8cpp_1ac1ee8cc6d666fd47173ff0c6f3b0ecf5" kindref="member">sen5x_mc_2p5</ref>,<sp/><ref refid="SEN5X__API_8cpp_1a587d0b0d6f2c126878c293f0ad36b136" kindref="member">sen5x_mc_4p0</ref>,<sp/><ref refid="SEN5X__API_8cpp_1a4db1cfb240d8d516613efceef253d5cd" kindref="member">sen5x_mc_10p0</ref>,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SEN5X__API_8cpp_1ae562fbcfe876d53a39354ef5060eca6e" kindref="member">sen5x_hum</ref>,<sp/><ref refid="SEN5X__API_8cpp_1aefbd0a54c88b8c5992e3d52e7e06b4de" kindref="member">sen5x_temp</ref>,<sp/><ref refid="SEN5X__API_8cpp_1a614d9e327ecb9c09db17dcc7c3bc8cd9" kindref="member">sen5x_voc</ref>,<sp/><ref refid="SEN5X__API_8cpp_1a49e3d123abc98e062c9dee754c4e06ec" kindref="member">sen5x_nox</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(error)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>reading<sp/>data.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>the<sp/>read<sp/>values<sp/>if<sp/>debug<sp/>level<sp/>is<sp/>high</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Temp:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1aefbd0a54c88b8c5992e3d52e7e06b4de" kindref="member">sen5x_temp</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Hum:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1ae562fbcfe876d53a39354ef5060eca6e" kindref="member">sen5x_hum</ref>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;PM1.0:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1a443ca79de801a6fcd77b280ee12c12d2" kindref="member">sen5x_mc_1p0</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;PM2.5:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1ac1ee8cc6d666fd47173ff0c6f3b0ecf5" kindref="member">sen5x_mc_2p5</ref>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;PM4.0:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1a587d0b0d6f2c126878c293f0ad36b136" kindref="member">sen5x_mc_4p0</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;PM10.0:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1a4db1cfb240d8d516613efceef253d5cd" kindref="member">sen5x_mc_10p0</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;VOC:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1a614d9e327ecb9c09db17dcc7c3bc8cd9" kindref="member">sen5x_voc</ref>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;NOx:<sp/>%f&quot;</highlight><highlight class="normal">,<sp/><ref refid="SEN5X__API_8cpp_1a49e3d123abc98e062c9dee754c4e06ec" kindref="member">sen5x_nox</ref>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="firmware/SEN5X_API.cpp"/>
+  </compounddef>
+</doxygen>

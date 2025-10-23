@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="Transmision__NBIOT_8h" kind="file" language="C++">
+    <compoundname>Transmision_NBIOT.h</compoundname>
+    <includes refid="Configuracion_8h" local="yes">Configuracion.h</includes>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">ArduinoJson.h</includes>
+    <includedby refid="Transmision__NBIOT_8cpp" local="yes">firmware/Transmision_NBIOT.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Configuracion.h</label>
+        <link refid="Configuracion_8h"/>
+      </node>
+      <node id="1">
+        <label>firmware/Transmision_NBIOT.h</label>
+        <link refid="Transmision__NBIOT_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+      <node id="4">
+        <label>ArduinoJson.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>firmware/Transmision_NBIOT.cpp</label>
+        <link refid="Transmision__NBIOT_8cpp"/>
+      </node>
+      <node id="1">
+        <label>firmware/Transmision_NBIOT.h</label>
+        <link refid="Transmision__NBIOT_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" prot="public" static="no">
+        <name>OK</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="26" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" prot="public" static="no">
+        <name>NOTOK</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="27" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1a8a4fbf2ef1e747999d1c3fb87712c2bb" prot="public" static="no">
+        <name>TIMEOUTERR</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="28" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1ac5d957e4fd3dc11cd97a54cf9ca057a4" prot="public" static="no">
+        <name>RST</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="29" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" prot="public" static="no">
+        <name>SIM7020board</name>
+        <initializer>Serial1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="30" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1a9bfb03dc278b791cf89503fb931bec65" prot="public" static="no">
+        <name>SIM7020baud</name>
+        <initializer>115200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="31" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8h_1a114a3f9da390b125d807f6fdc512b607" prot="public" static="no">
+        <name>SERIALTIMEOUT</name>
+        <initializer>3000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="32" column="9" bodyfile="firmware/Transmision_NBIOT.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1a3d9c5dd2c5b0fbd996ebb80126fa393a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_inicializar</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_inicializar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the NB-IoT module (SIM7020). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures the serial port for communication with the module and executes a series of AT commands to ensure the module is operational and connected to the network. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="39" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="54" bodyend="82" declfile="firmware/Transmision_NBIOT.h" declline="39" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1a490a0bd721b14fdd42c9dcdb59275bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_enviar</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_enviar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Transmits sensor data to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the main function for data transmission. Builds the JSON, converts it to hexadecimal and performs the HTTP POST request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="46" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="84" bodyend="87" declfile="firmware/Transmision_NBIOT.h" declline="46" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1a8f4ef6a6c416259187c24e6107732aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_paquete</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_paquete</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Creates the JSON payload with current sensor data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Data is obtained from global variables and formatted into a JSON string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="52" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="89" bodyend="110" declfile="firmware/Transmision_NBIOT.h" declline="52" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1abcf8299e969233305f7b0e594f49ca61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_transmitir</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_transmitir</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Performs an HTTP POST request to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses SIM7020 module-specific AT commands to create an HTTP connection and send hexadecimal data as payload. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="59" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="112" bodyend="143" declfile="firmware/Transmision_NBIOT.h" declline="59" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1ab0c3e7552196213d07fe9c5f4045e6fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SIM7020begin</definition>
+        <argsstring>(void)</argsstring>
+        <name>SIM7020begin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes communication with the SIM7020 module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses SIM7020 module-specific AT commands to detect if communication is correct and resets configuration to a predefined state.</para>
+<para><simplesect kind="return"><para>True if communication and configuration were successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="68" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="145" bodyend="170" declfile="firmware/Transmision_NBIOT.h" declline="68" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1ae7b27375b8acc7a7b10c117833a6ac90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String SIM7020read</definition>
+        <argsstring>(void)</argsstring>
+        <name>SIM7020read</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads messages sent by the SIM7020 module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>String with the received message. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="74" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="172" bodyend="178" declfile="firmware/Transmision_NBIOT.h" declline="74" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1aeaf33cebccebe5ef0e6291eb48325f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte SIM7020command</definition>
+        <argsstring>(String command, String response1, String response2, unsigned long timeout, uint16_t repetitions)</argsstring>
+        <name>SIM7020command</name>
+        <param>
+          <type>String</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>response1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>response2</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>timeout</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>repetitions</declname>
+        </param>
+        <briefdescription>
+<para>Sends an AT command to the SIM7020 module and waits for a specific response. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AT command to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expected response string to consider the command successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String to search for if an &quot;OK&quot; response is not expected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum wait time for the response in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>repetitions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of retries if the response is not as expected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OK if the response is as expected, NOTOK if not, TIMEOUTERR if timeout occurs. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="85" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="180" bodyend="194" declfile="firmware/Transmision_NBIOT.h" declline="85" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1a34cf3c12e89f1a3800e0f3851dae368c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte SIM7020waitFor</definition>
+        <argsstring>(String response1, String response2, unsigned long timeOut)</argsstring>
+        <name>SIM7020waitFor</name>
+        <param>
+          <type>String</type>
+          <declname>response1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>response2</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>timeOut</declname>
+        </param>
+        <briefdescription>
+<para>Function that waits for a specific response with maximum time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>response1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expected response string to consider the command successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String to search for if an &quot;OK&quot; response is not expected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum wait time for the response in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OK if the response is as expected, NOTOK if not, TIMEOUTERR if timeout occurs. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="95" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="196" bodyend="218" declfile="firmware/Transmision_NBIOT.h" declline="95" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1a3257972fdc1d88a6b7952bdf661b731d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String jsonToHex</definition>
+        <argsstring>(const JsonDocument &amp;doc)</argsstring>
+        <name>jsonToHex</name>
+        <param>
+          <type>const JsonDocument &amp;</type>
+          <declname>doc</declname>
+        </param>
+        <briefdescription>
+<para>Converts a JSON object to a hexadecimal string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>doc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The DynamicJsonDocument object to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representing the JSON in hexadecimal format. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="102" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="220" bodyend="230" declfile="firmware/Transmision_NBIOT.h" declline="102" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8h_1a74bdb3dd17d489a22116a73feb58510b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReiniciarDispositivo</definition>
+        <argsstring>(void)</argsstring>
+        <name>ReiniciarDispositivo</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Restarts the microcontroller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Used for cases where it is not possible to establish a connection to the server. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.h" line="108" column="13" bodyfile="firmware/Transmision_NBIOT.h" bodystart="108" bodyend="110"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Configuracion_8h" kindref="compound">Configuracion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>HABILITAR_NBIOT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>TRANSMISION_NBIOT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TRANSMISION_NBIOT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ArduinoJson.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>OK<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NOTOK<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="Transmision__NBIOT_8h_1a8a4fbf2ef1e747999d1c3fb87712c2bb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TIMEOUTERR<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="Transmision__NBIOT_8h_1ac5d957e4fd3dc11cd97a54cf9ca057a4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RST<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIM7020board<sp/>Serial1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="Transmision__NBIOT_8h_1a9bfb03dc278b791cf89503fb931bec65" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIM7020baud<sp/>115200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="Transmision__NBIOT_8h_1a114a3f9da390b125d807f6fdc512b607" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERIALTIMEOUT<sp/>3000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a3d9c5dd2c5b0fbd996ebb80126fa393a" kindref="member">nbiot_inicializar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a490a0bd721b14fdd42c9dcdb59275bb0" kindref="member">nbiot_enviar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a8f4ef6a6c416259187c24e6107732aff" kindref="member">nbiot_paquete</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1abcf8299e969233305f7b0e594f49ca61" kindref="member">nbiot_transmitir</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1ab0c3e7552196213d07fe9c5f4045e6fc" kindref="member">SIM7020begin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8h_1ae7b27375b8acc7a7b10c117833a6ac90" kindref="member">SIM7020read</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(String<sp/>command,<sp/>String<sp/>response1,<sp/>String<sp/>response2,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeout,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>repetitions);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a34cf3c12e89f1a3800e0f3851dae368c" kindref="member">SIM7020waitFor</ref>(String<sp/>response1,<sp/>String<sp/>response2,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeOut);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8h_1a3257972fdc1d88a6b7952bdf661b731d" kindref="member">jsonToHex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>JsonDocument&amp;<sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="Transmision__NBIOT_8h_1a74bdb3dd17d489a22116a73feb58510b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a74bdb3dd17d489a22116a73feb58510b" kindref="member">ReiniciarDispositivo</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//NVIC_SystemReset();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//TRANSMISION_NBIOT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>HABILITAR_NBIOT</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/Transmision_NBIOT.h"/>
+  </compounddef>
+</doxygen>

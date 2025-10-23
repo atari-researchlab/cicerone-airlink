@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="DS3231M_8cpp" kind="file" language="C++">
+    <compoundname>DS3231M.cpp</compoundname>
+    <includes local="yes">Wire.h</includes>
+    <includes refid="DS3231M_8h" local="yes">DS3231M.h</includes>
+    <includes refid="Debug_8h" local="yes">Debug.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/DS3231M.cpp</label>
+        <link refid="DS3231M_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>DS3231M.h</label>
+        <link refid="DS3231M_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Arduino.h</label>
+      </node>
+      <node id="2">
+        <label>Wire.h</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="DS3231M_8cpp_1ac2d33ccaf63f5d5b66552b95426c0137" prot="public" static="no">
+        <name>DEBUG_LEVEL</name>
+        <initializer><ref refid="Debug_8h_1a728fdda4e30485a833d294a74a2cc69b" kindref="member">DEBUG_DS3231M</ref></initializer>
+        <briefdescription>
+<para>Redefinition of the debug level for this source file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.cpp" line="46" column="10" bodyfile="firmware/DS3231M.cpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="DS3231M_8cpp_1ae6f84e8321c3bc4f546cf4a2a4798064" prot="public" static="no">
+        <name>DEBUG_TAG</name>
+        <initializer>&quot;DS3231M&quot;</initializer>
+        <briefdescription>
+<para>Tag when sending debug messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.cpp" line="47" column="9" bodyfile="firmware/DS3231M.cpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This file implements functionalities for the <ref refid="classDS3231M" kindref="compound">DS3231M</ref> RTC module. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides methods for reading and setting time and date, managing alarms and other RTC configurations.</para>
+<para><itemizedlist>
+<listitem><para><ref refid="classDS3231M" kindref="compound">DS3231M</ref> Datasheet: <ulink url="https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf">https://dfimg.dfrobot.com/nobody/wiki/456426e32d698477163ee658755f4d05.pdf</ulink></para>
+</listitem><listitem><para>DFRobot_DS3231M library repository: <ulink url="https://github.com/DFRobot/DFRobot_DS3231M">https://github.com/DFRobot/DFRobot_DS3231M</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>This module is based on the DFRobot library for the <ref refid="classDS3231M" kindref="compound">DS3231M</ref> <ulink url="https://github.com/DFRobot/DFRobot_DS3231M">https://github.com/DFRobot/DFRobot_DS3231M</ulink></para>
+</simplesect>
+Copyright 2010 DFRobot Co.Ltd</para>
+<para>License: MIT License </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy<sp/>of<sp/>this<sp/>software</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>sublicense,<sp/>and/or<sp/>sell<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all<sp/>copies<sp/>or</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR<sp/>IMPLIED,<sp/>INCLUDING</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>DAMAGES<sp/>OR<sp/>OTHER<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Wire.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="DS3231M_8h" kindref="compound">DS3231M.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Debug_8h" kindref="compound">Debug.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>DEBUG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_LEVEL<sp/>DEBUG_DS3231M<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_TAG<sp/>&quot;DS3231M&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a6ee677638bff968b61fd10dba40ffe83" kindref="member">DS3231M::begin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>_pWire-&gt;begin();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>_pWire-&gt;beginTransmission(_deviceAddr);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_pWire-&gt;endTransmission()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a9b387cfaa2358d17827b92745aed543e" kindref="member">DS3231M::setRTCTime</ref>(uint16_t<sp/>year,<sp/>uint8_t<sp/>month,<sp/>uint8_t<sp/>day,<sp/>uint8_t<sp/>hour,<sp/>uint8_t<sp/>minute,<sp/>uint8_t<sp/>second)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Stores<sp/>values<sp/>in<sp/>the<sp/>rtc<sp/>array<sp/>and<sp/>converts<sp/>them<sp/>to<sp/>BCD<sp/>(Binary-Coded<sp/>Decimal)<sp/>format</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>which<sp/>is<sp/>the<sp/>format<sp/>used<sp/>by<sp/>the<sp/>DS3231M.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[0]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(second);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[1]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(minute);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[2]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(hour);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[3]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(<ref refid="classDS3231M_1a265a432d3af74297880a641fff30b478" kindref="member">dayOfTheWeek</ref>(year,<sp/>month,<sp/>day));<sp/><sp/></highlight><highlight class="comment">//<sp/>Calculates<sp/>the<sp/>day<sp/>of<sp/>the<sp/>week.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[4]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(day);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[5]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(month);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[6]<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(year<sp/>-<sp/>2000);<sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>DS3231M<sp/>chip<sp/>stores<sp/>the<sp/>year<sp/>as<sp/>an<sp/>offset<sp/>from<sp/>2000.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Writes<sp/>the<sp/>data<sp/>to<sp/>the<sp/>RTC<sp/>registers<sp/>via<sp/>I2C.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a2cb35f90ce176704e101835e963a4ed4" kindref="member">DS3231M_REG_RTC_SEC</ref>,<sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>,<sp/>7);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="classDateTime" kindref="compound">DateTime</ref><sp/><ref refid="classDS3231M_1a82744f08291258337c73905ed6b76567" kindref="member">DS3231M::getRTCTime</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>7<sp/>time<sp/>and<sp/>date<sp/>registers<sp/>from<sp/>the<sp/>DS3231M.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a2cb35f90ce176704e101835e963a4ed4" kindref="member">DS3231M_REG_RTC_SEC</ref>,<sp/><ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>,<sp/>7);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Converts<sp/>BCD<sp/>values<sp/>to<sp/>BIN<sp/>and<sp/>creates<sp/>a<sp/>DateTime<sp/>object.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>DateTime(<ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">bcd2bin</ref>(<ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[6])<sp/>+<sp/>2000,<sp/><ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">bcd2bin</ref>(<ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[5]),<sp/><ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">bcd2bin</ref>(<ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[4]),<sp/><ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">bcd2bin</ref>(<ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[2]),<sp/><ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">bcd2bin</ref>(<ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[1]),<sp/><ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">bcd2bin</ref>(<ref refid="classDS3231M_1a224eef1fcbaef684ffb5878e7780972b" kindref="member">rtc</ref>[0]));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a1ec527b10c92e03d520e7094aa8953bc" kindref="member">DS3231M::setAlarm1</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classDateTime" kindref="compound">DateTime</ref>&amp;<sp/>dt,<sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89" kindref="member">eAlarmType_t</ref><sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>uint8_t<sp/>sec<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1adacdb3c0984bc73c2b48e5d1995a6c01" kindref="member">second</ref>());</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>uint8_t<sp/>min<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1a8dac4d21cf40f1b6f1ec5973024709ed" kindref="member">minute</ref>());</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>uint8_t<sp/>hour<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1ac17441fb0c669bcf3be5de278335e8d0" kindref="member">hour</ref>());</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>uint8_t<sp/>day<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1a6e653eaef31e4956ee9bf67b4874a9a8" kindref="member">day</ref>());</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>uint8_t<sp/>dy;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configures<sp/>the<sp/>control<sp/>bit<sp/>for<sp/>the<sp/>alarm<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(type)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a67f444206d38dd97dc0db07270dff768" kindref="member">eEverySecond</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>second</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sec<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hour<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a5434c36a4d4ca19ec69d27cfdb3bd94a" kindref="member">eEveryMinute</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>minute<sp/>(at<sp/>the<sp/>specified<sp/>second)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hour<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89afd9f73e4e26648c1743bdc8076ab8a5b" kindref="member">eEveryHour</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>hour<sp/>(at<sp/>the<sp/>specified<sp/>minute<sp/>and<sp/>second)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hour<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a635ed11d551e48acc57b4a15fb7b78c4" kindref="member">eEveryDay</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>day<sp/>(at<sp/>the<sp/>specified<sp/>hour,<sp/>minute<sp/>and<sp/>second)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89af2d6b23bd7b148977ceed6e655fdc8db" kindref="member">eEveryWeek</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>week<sp/>(at<sp/>the<sp/>specified<sp/>day<sp/>of<sp/>the<sp/>week,<sp/>hour,<sp/>minute<sp/>and<sp/>second)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dy<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1a958229f0d6a46d092658028d25a9e65c" kindref="member">dayOfTheWeek</ref>());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>=<sp/>dy<sp/>|<sp/>0x40;<sp/><sp/></highlight><highlight class="comment">//<sp/>Bit<sp/>6<sp/>to<sp/>indicate<sp/>day<sp/>of<sp/>the<sp/>week<sp/>instead<sp/>of<sp/>day<sp/>of<sp/>the<sp/>month.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a25b8fe8daa25ca23fee60903e8e73612" kindref="member">eEveryMonth</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>month<sp/>(at<sp/>the<sp/>specified<sp/>day<sp/>of<sp/>the<sp/>month,<sp/>hour,<sp/>minute<sp/>and<sp/>second)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Invalid<sp/>alarm<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Writes<sp/>the<sp/>alarm<sp/>values<sp/>to<sp/>the<sp/>corresponding<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1ac18984df535f222a73f9ea436e07a2b3" kindref="member">DS3231M_REG_ALARM1_SEC</ref>,<sp/>&amp;sec,<sp/>1);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a00bc6b405c3bdd52cb9aba95c56e2d3d" kindref="member">DS3231M_REG_ALARM1_MIN</ref>,<sp/>&amp;min,<sp/>1);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a86c96315a96479cc3cca47d3f6f92d26" kindref="member">DS3231M_REG_ALARM1_HOUR</ref>,<sp/>&amp;hour,<sp/>1);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a6b6cfc92d4822683a7a417f7b79a6116" kindref="member">DS3231M_REG_ALARM1_DAY</ref>,<sp/>&amp;day,<sp/>1);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enables<sp/>alarm<sp/>1<sp/>interrupt<sp/>(A1IE)<sp/>in<sp/>the<sp/>control<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>uint8_t<sp/>ctrl[1];</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a90e3e184455e59ec91f0f45952e21f00" kindref="member">DS3231M_REG_CTRL</ref>,<sp/>ctrl,<sp/>1);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>ctrl[0]<sp/>|=<sp/>0x01;<sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>A1IE<sp/>bit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a90e3e184455e59ec91f0f45952e21f00" kindref="member">DS3231M_REG_CTRL</ref>,<sp/>ctrl,<sp/>1);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a52ea69700d5680dc87cfe1cb1b19d816" kindref="member">DS3231M::setAlarm2</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classDateTime" kindref="compound">DateTime</ref>&amp;<sp/>dt,<sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89" kindref="member">eAlarmType_t</ref><sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>uint8_t<sp/>min<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1a8dac4d21cf40f1b6f1ec5973024709ed" kindref="member">minute</ref>());</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>uint8_t<sp/>hour<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1ac17441fb0c669bcf3be5de278335e8d0" kindref="member">hour</ref>());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>uint8_t<sp/>day<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1a6e653eaef31e4956ee9bf67b4874a9a8" kindref="member">day</ref>());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>uint8_t<sp/>dy;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configures<sp/>the<sp/>control<sp/>bit<sp/>for<sp/>the<sp/>alarm<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(type)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a5434c36a4d4ca19ec69d27cfdb3bd94a" kindref="member">eEveryMinute</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>minute<sp/>(at<sp/>the<sp/>specified<sp/>minute)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hour<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89afd9f73e4e26648c1743bdc8076ab8a5b" kindref="member">eEveryHour</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>hour<sp/>(at<sp/>the<sp/>specified<sp/>minute)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hour<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a635ed11d551e48acc57b4a15fb7b78c4" kindref="member">eEveryDay</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>day<sp/>(at<sp/>the<sp/>specified<sp/>hour<sp/>and<sp/>minute)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>|=<sp/>0x80;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89af2d6b23bd7b148977ceed6e655fdc8db" kindref="member">eEveryWeek</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>week<sp/>(at<sp/>the<sp/>specified<sp/>day<sp/>of<sp/>the<sp/>week,<sp/>hour<sp/>and<sp/>minute)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>dy<sp/>=<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">bin2bcd</ref>(dt.<ref refid="classDateTime_1a958229f0d6a46d092658028d25a9e65c" kindref="member">dayOfTheWeek</ref>());</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>day<sp/>=<sp/>dy<sp/>|<sp/>0x40;<sp/><sp/></highlight><highlight class="comment">//<sp/>Bit<sp/>6<sp/>to<sp/>indicate<sp/>day<sp/>of<sp/>the<sp/>week<sp/>instead<sp/>of<sp/>day<sp/>of<sp/>the<sp/>month.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="DS3231M_8h_1a37f6e16a9105ce3f1ed3d66d94987f89a25b8fe8daa25ca23fee60903e8e73612" kindref="member">eEveryMonth</ref>:<sp/><sp/></highlight><highlight class="comment">//<sp/>Every<sp/>month<sp/>(at<sp/>the<sp/>specified<sp/>day<sp/>of<sp/>the<sp/>month,<sp/>hour<sp/>and<sp/>minute)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>Invalid<sp/>alarm<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Writes<sp/>the<sp/>alarm<sp/>values<sp/>to<sp/>the<sp/>corresponding<sp/>registers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1ad175f8ae69d52c66308cd6ec7ae459ff" kindref="member">DS3231M_REG_ALARM2_MIN</ref>,<sp/>&amp;min,<sp/>1);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1ade2175c3ec3a7b61a14596bdf40ba5b4" kindref="member">DS3231M_REG_ALARM2_HOUR</ref>,<sp/>&amp;hour,<sp/>1);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a8ebd5e3b9c771490faca6064fce51d52" kindref="member">DS3231M_REG_ALARM2_DAY</ref>,<sp/>&amp;day,<sp/>1);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Enables<sp/>alarm<sp/>2<sp/>interrupt<sp/>(A2IE)<sp/>in<sp/>the<sp/>control<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>uint8_t<sp/>ctrl[1];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a90e3e184455e59ec91f0f45952e21f00" kindref="member">DS3231M_REG_CTRL</ref>,<sp/>ctrl,<sp/>1);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>ctrl[0]<sp/>|=<sp/>0x02;<sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>A2IE<sp/>bit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a90e3e184455e59ec91f0f45952e21f00" kindref="member">DS3231M_REG_CTRL</ref>,<sp/>ctrl,<sp/>1);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a618cc2a142b6b7de1754831cc5bf7467" kindref="member">DS3231M::getTemp</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="Transmision__NBIOT_8cpp_1af8808d607d0ac42ef0c1d0473f827ce2" kindref="member">temp</ref>[2];</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>two<sp/>bytes<sp/>from<sp/>the<sp/>temperature<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a8cf1c374fc0e86c8de4e9a34f24401c5" kindref="member">DS3231M_REG_TEMP</ref>,<sp/><ref refid="Transmision__NBIOT_8cpp_1af8808d607d0ac42ef0c1d0473f827ce2" kindref="member">temp</ref>,<sp/>2);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Combines<sp/>the<sp/>bytes<sp/>to<sp/>obtain<sp/>the<sp/>temperature<sp/>and<sp/>converts<sp/>it<sp/>to<sp/>float.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)<ref refid="Transmision__NBIOT_8cpp_1af8808d607d0ac42ef0c1d0473f827ce2" kindref="member">temp</ref>[0]<sp/>+<sp/>((<ref refid="Transmision__NBIOT_8cpp_1af8808d607d0ac42ef0c1d0473f827ce2" kindref="member">temp</ref>[1]<sp/>&gt;&gt;<sp/>6)<sp/>*<sp/>0.25);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a502740afcadc58891aa1106d51c19426" kindref="member">DS3231M::isAlarm</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status[1];</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>status<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status[0]<sp/>&amp;<sp/>3;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>true<sp/>if<sp/>bits<sp/>0<sp/>(A1F)<sp/>or<sp/>1<sp/>(A2F)<sp/>are<sp/>set.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a4c6094efbba06d68163271a39cce7cf4" kindref="member">DS3231M::clearAlarm</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status[1];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>status<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>status[0]<sp/>&amp;=<sp/>0xFC;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clears<sp/>bits<sp/>A1F<sp/>(bit<sp/>0)<sp/>and<sp/>A2F<sp/>(bit<sp/>1).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/></highlight><highlight class="comment">//<sp/>Writes<sp/>the<sp/>new<sp/>status<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a5b03b76ec9f255ac96438d0a3ff0e88c" kindref="member">DS3231M::enable32k</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status[1];</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>status<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>status[0]<sp/>|=<sp/>0x08;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>the<sp/>EN32kHz<sp/>bit<sp/>(bit<sp/>3).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/></highlight><highlight class="comment">//<sp/>Writes<sp/>the<sp/>new<sp/>status<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a668cc40959df649d1cf5844cb8a7d640" kindref="member">DS3231M::disable32k</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status[1];</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>status<sp/>register.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>status[0]<sp/>&amp;=<sp/>0xF7;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clears<sp/>the<sp/>EN32kHz<sp/>bit<sp/>(bit<sp/>3).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">writeReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);<sp/><sp/></highlight><highlight class="comment">//<sp/>Writes<sp/>the<sp/>new<sp/>status<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a57adc05f6ab49e0ea185d1b201a20ddb" kindref="member">DS3231M::lostPower</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>uint8_t<sp/>status[1];</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">readReg</ref>(<ref refid="DS3231M_8h_1a1267ac8b9138747e0f70815481f7344f" kindref="member">DS3231M_REG_STATUS</ref>,<sp/>status,<sp/>1);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status[0]<sp/>&gt;&gt;<sp/>7;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classDS3231M_1a4916ff1863488a8d5075eb75d9bdacc3" kindref="member">DS3231M::writeReg</ref>(uint8_t<sp/>reg,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pBuf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pBuf<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>a<sp/>debug<sp/>message<sp/>if<sp/>the<sp/>pointer<sp/>is<sp/>null.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;pBuf<sp/>null<sp/>pointer&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>uint8_t*<sp/>_pBuf<sp/>=<sp/>(uint8_t*)pBuf;<sp/><sp/></highlight><highlight class="comment">//<sp/>Casts<sp/>the<sp/>pointer<sp/>to<sp/>uint8_t<sp/>for<sp/>iteration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>_pWire-&gt;beginTransmission(<ref refid="DS3231M_8h_1a4950465338b1c9121e50c1addb122ac0" kindref="member">DS3231M_IIC_ADDRESS</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Starts<sp/>I2C<sp/>transmission<sp/>to<sp/>the<sp/>DS3231M.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>_pWire-&gt;write(reg);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Sends<sp/>the<sp/>register<sp/>address.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>_pWire-&gt;write(_pBuf[i]);<sp/><sp/></highlight><highlight class="comment">//<sp/>Sends<sp/>each<sp/>byte<sp/>from<sp/>the<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>_pWire-&gt;endTransmission();<sp/><sp/></highlight><highlight class="comment">//<sp/>Ends<sp/>I2C<sp/>transmission.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">uint8_t<sp/><ref refid="classDS3231M_1aec56b24c8b37c3431ed153dc77d5d72a" kindref="member">DS3231M::readReg</ref>(uint8_t<sp/>reg,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>pBuf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pBuf<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>a<sp/>debug<sp/>message<sp/>if<sp/>the<sp/>pointer<sp/>is<sp/>null.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;pBuf<sp/>null<sp/>pointer&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>uint8_t*<sp/>_pBuf<sp/>=<sp/>(uint8_t*)pBuf;<sp/><sp/></highlight><highlight class="comment">//<sp/>Casts<sp/>the<sp/>pointer<sp/>to<sp/>uint8_t<sp/>for<sp/>iteration.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/>_pWire-&gt;beginTransmission(<ref refid="DS3231M_8h_1a4950465338b1c9121e50c1addb122ac0" kindref="member">DS3231M_IIC_ADDRESS</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Starts<sp/>I2C<sp/>transmission<sp/>to<sp/>the<sp/>DS3231M.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>_pWire-&gt;write(reg);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Sends<sp/>the<sp/>register<sp/>address<sp/>to<sp/>read.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>_pWire-&gt;endTransmission(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ends<sp/>transmission<sp/>but<sp/>keeps<sp/>the<sp/>connection<sp/>(repeated<sp/>start).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Requests<sp/>&apos;size&apos;<sp/>bytes<sp/>from<sp/>the<sp/>DS3231M</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>uint8_t<sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>_pWire-&gt;requestFrom(<ref refid="DS3231M_8h_1a4950465338b1c9121e50c1addb122ac0" kindref="member">DS3231M_IIC_ADDRESS</ref>,<sp/>size);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(_pWire-&gt;available())<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_pBuf[i++]<sp/>=<sp/>_pWire-&gt;read();<sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>bytes<sp/>and<sp/>stores<sp/>them<sp/>in<sp/>the<sp/>buffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_pWire-&gt;read();<sp/><sp/></highlight><highlight class="comment">//<sp/>Discards<sp/>extra<sp/>bytes<sp/>if<sp/>more<sp/>than<sp/>requested<sp/>are<sp/>read.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;<sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>number<sp/>of<sp/>bytes<sp/>read.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal">uint8_t<sp/><ref refid="classDS3231M_1a5655b91db2b80c0001f54c3c048e9799" kindref="member">DS3231M::bcd2bin</ref>(uint8_t<sp/>val)<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val<sp/>-<sp/>6<sp/>*<sp/>(val<sp/>&gt;&gt;<sp/>4);<sp/><sp/></highlight><highlight class="comment">//<sp/>BCD<sp/>to<sp/>BIN<sp/>conversion.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">uint8_t<sp/><ref refid="classDS3231M_1ab31bcae648d280f88e274999b2019360" kindref="member">DS3231M::bin2bcd</ref>(uint8_t<sp/>val)<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val<sp/>+<sp/>6<sp/>*<sp/>(val<sp/>/<sp/>10);<sp/><sp/></highlight><highlight class="comment">//<sp/>BIN<sp/>to<sp/>BCD<sp/>conversion.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal">uint8_t<sp/><ref refid="classDS3231M_1a265a432d3af74297880a641fff30b478" kindref="member">DS3231M::dayOfTheWeek</ref>(uint16_t<sp/>y,<sp/>uint8_t<sp/>m,<sp/>uint8_t<sp/>d)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Implementation<sp/>of<sp/>Zeller&apos;s<sp/>algorithm<sp/>to<sp/>calculate<sp/>the<sp/>day<sp/>of<sp/>the<sp/>week.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>k<sp/>=<sp/>day<sp/>of<sp/>the<sp/>month</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>m<sp/>=<sp/>month<sp/>(3=March,<sp/>4=April,<sp/>...,<sp/>12=December,<sp/>1=January,<sp/>2=February)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>D<sp/>=<sp/>year<sp/>of<sp/>the<sp/>century<sp/>(e.g.<sp/>for<sp/>2024,<sp/>D=24)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>C<sp/>=<sp/>century<sp/>(e.g.<sp/>for<sp/>2024,<sp/>C=20)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/>uint8_t<sp/>k<sp/>=<sp/>d;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/>uint8_t<sp/>month<sp/>=<sp/>m;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/>uint16_t<sp/>year<sp/>=<sp/>y;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(month<sp/>&lt;=<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>month<sp/>+=<sp/>12;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>year<sp/>-=<sp/>1;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/>uint8_t<sp/>D<sp/>=<sp/>year<sp/>%<sp/>100;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>uint8_t<sp/>C<sp/>=<sp/>year<sp/>/<sp/>100;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Zeller&apos;s<sp/>formula:<sp/>h<sp/>=<sp/>(k<sp/>+<sp/>floor(2.6<sp/>*<sp/>m<sp/>-<sp/>0.2)<sp/>+<sp/>D<sp/>+<sp/>floor(D/4)<sp/>+<sp/>floor(C/4)<sp/>-<sp/>2<sp/>*<sp/>C)<sp/>mod<sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>result<sp/>is<sp/>0=Saturday,<sp/>1=Sunday,<sp/>...,<sp/>6=Friday.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adjusted<sp/>so<sp/>that<sp/>1=Sunday,<sp/>...,<sp/>7=Saturday.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>uint8_t<sp/>dayOfWeek<sp/>=<sp/>(k<sp/>+<sp/>(26<sp/>*<sp/>(month<sp/>+<sp/>1))<sp/>/<sp/>10<sp/>+<sp/>D<sp/>+<sp/>D<sp/>/<sp/>4<sp/>+<sp/>C<sp/>/<sp/>4<sp/>+<sp/>5<sp/>*<sp/>C)<sp/>%<sp/>7;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(dayOfWeek<sp/>==<sp/>0)<sp/>?<sp/>7<sp/>:<sp/>dayOfWeek;<sp/><sp/></highlight><highlight class="comment">//<sp/>Adjusts<sp/>so<sp/>that<sp/>Sunday<sp/>is<sp/>7<sp/>or<sp/>1<sp/>depending<sp/>on<sp/>the<sp/>convention.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/DS3231M.cpp"/>
+  </compounddef>
+</doxygen>

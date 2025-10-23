@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="group__gVarGlobales" kind="group">
+    <compoundname>gVarGlobales</compoundname>
+    <title>Global variables</title>
+    <sectiondef kind="user-defined">
+      <header>Alarm control flags</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga58b6bf214cc8f4778e43d4ad23e103a5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool alarma_10min</definition>
+        <argsstring></argsstring>
+        <name>alarma_10min</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Set to &apos;true&apos; when the 10-minute cycle is completed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="32" column="6" bodyfile="firmware/Alarma.cpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga79464d94fe55194ebc16027aadb2fea2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool alarma_5s</definition>
+        <argsstring></argsstring>
+        <name>alarma_5s</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Set to &apos;true&apos; when the 5-second cycle is completed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="33" column="6" bodyfile="firmware/Alarma.cpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Variables for 5s timer based on millis()</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1gaf98d63570c80893936f4777e5c2db841" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long prev_millis</definition>
+        <argsstring></argsstring>
+        <name>prev_millis</name>
+        <briefdescription>
+<para>Stores the time of the last 5s alarm activation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="40" column="15" bodyfile="firmware/Alarma.cpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Variables for 10min alarm based on RTC</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga0c67d73808f48939df30e8397273fa3a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t minuto_actual</definition>
+        <argsstring></argsstring>
+        <name>minuto_actual</name>
+        <briefdescription>
+<para>Stores the current minute read from RTC. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="47" column="9" bodyfile="firmware/Alarma.cpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga6e1d46f56be2a46123873a8dfc191e66" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t minuto_siguiente</definition>
+        <argsstring></argsstring>
+        <name>minuto_siguiente</name>
+        <briefdescription>
+<para>Calculates and stores the next minute when the alarm will trigger (e.g., 10, 20, 30...). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="48" column="9" bodyfile="firmware/Alarma.cpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Counters for data averaging</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga714f8f475646fb99aa8fd2e1c5f1fcb0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t cont1</definition>
+        <argsstring></argsstring>
+        <name>cont1</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Counter for averaging the first sensor groups. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="55" column="10" bodyfile="firmware/Alarma.cpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga85e43e75f13bdcd6bd4986da91b9848f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t cont2</definition>
+        <argsstring></argsstring>
+        <name>cont2</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Counter for averaging the second sensor groups. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="56" column="10" bodyfile="firmware/Alarma.cpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Accumulators for averaging sensor readings</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga61ce78eef398ed24d99fc84d0192ca2c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_sen5x_voc</definition>
+        <argsstring></argsstring>
+        <name>sum_sen5x_voc</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for SEN5X VOC index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="63" column="7" bodyfile="firmware/Alarma.cpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gaa6a6e837c1f48356fdcd871b63509418" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_sen5x_mc_1p0</definition>
+        <argsstring></argsstring>
+        <name>sum_sen5x_mc_1p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for SEN5X PM1.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="64" column="7" bodyfile="firmware/Alarma.cpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga01d98b93fb3a355d6381b7e4494691a5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_sen5x_mc_2p5</definition>
+        <argsstring></argsstring>
+        <name>sum_sen5x_mc_2p5</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for SEN5X PM2.5. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="65" column="7" bodyfile="firmware/Alarma.cpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga597eb267421642e297f66bb67ee9ca4c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_sen5x_mc_4p0</definition>
+        <argsstring></argsstring>
+        <name>sum_sen5x_mc_4p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for SEN5X PM4.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="66" column="7" bodyfile="firmware/Alarma.cpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga042b1d724a5e51331e7e9decd8900ec0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_sen5x_mc_10p0</definition>
+        <argsstring></argsstring>
+        <name>sum_sen5x_mc_10p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for SEN5X PM10.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="67" column="7" bodyfile="firmware/Alarma.cpp" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga4a786320f25f4c8f00e569b288cddddd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_temp</definition>
+        <argsstring></argsstring>
+        <name>sum_temp</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for ambient temperature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="68" column="7" bodyfile="firmware/Alarma.cpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga35bb62392baeacd0ff6f8f092d276374" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_hum</definition>
+        <argsstring></argsstring>
+        <name>sum_hum</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for ambient humidity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="69" column="7" bodyfile="firmware/Alarma.cpp" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga3ad95fa8385d600411e0bf05e5e3aba8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_sen5x_nox</definition>
+        <argsstring></argsstring>
+        <name>sum_sen5x_nox</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for SEN55 NOx index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="70" column="7" bodyfile="firmware/Alarma.cpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gaf80d2eb200a110f0bf3be97f96cb221f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float sum_t6793_co2</definition>
+        <argsstring></argsstring>
+        <name>sum_t6793_co2</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Accumulator for T6793 CO2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="71" column="7" bodyfile="firmware/Alarma.cpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Variables to store averages</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_sen5x_voc</definition>
+        <argsstring></argsstring>
+        <name>avg_sen5x_voc</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of SEN5X VOC index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="78" column="7" bodyfile="firmware/Alarma.cpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_sen5x_mc_1p0</definition>
+        <argsstring></argsstring>
+        <name>avg_sen5x_mc_1p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of SEN5X PM1.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="79" column="7" bodyfile="firmware/Alarma.cpp" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_sen5x_mc_2p5</definition>
+        <argsstring></argsstring>
+        <name>avg_sen5x_mc_2p5</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of SEN5X PM2.5. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="80" column="7" bodyfile="firmware/Alarma.cpp" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_sen5x_mc_4p0</definition>
+        <argsstring></argsstring>
+        <name>avg_sen5x_mc_4p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of SEN5X PM4.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="81" column="7" bodyfile="firmware/Alarma.cpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_sen5x_mc_10p0</definition>
+        <argsstring></argsstring>
+        <name>avg_sen5x_mc_10p0</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of SEN5X PM10.0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="82" column="7" bodyfile="firmware/Alarma.cpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_temp</definition>
+        <argsstring></argsstring>
+        <name>avg_temp</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of ambient temperature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="83" column="7" bodyfile="firmware/Alarma.cpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_hum</definition>
+        <argsstring></argsstring>
+        <name>avg_hum</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of ambient humidity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="84" column="7" bodyfile="firmware/Alarma.cpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga758e7fc7a2e86eb8f5fb211416248925" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_sen5x_nox</definition>
+        <argsstring></argsstring>
+        <name>avg_sen5x_nox</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of SEN55 NOx index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="85" column="7" bodyfile="firmware/Alarma.cpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float avg_t6793_co2</definition>
+        <argsstring></argsstring>
+        <name>avg_t6793_co2</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Average of T6793 CO2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="86" column="7" bodyfile="firmware/Alarma.cpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="user-defined">
+      <header>Date and time variables and RTC object instance</header>
+      <memberdef kind="variable" id="group__gVarGlobales_1gadb7fa728c1dffb5fe91dc6208048f771" prot="public" static="no" mutable="no">
+        <type><ref refid="classDS3231M" kindref="compound">DS3231M</ref></type>
+        <definition>DS3231M rtc</definition>
+        <argsstring></argsstring>
+        <name>rtc</name>
+        <briefdescription>
+<para>RTC object instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="93" column="9" bodyfile="firmware/Alarma.cpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1gac023874b2154eac7297a7575008605fe" prot="public" static="no" mutable="no">
+        <type><ref refid="classDateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime now</definition>
+        <argsstring></argsstring>
+        <name>now</name>
+        <briefdescription>
+<para>Structure to store current date and time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="94" column="10" bodyfile="firmware/Alarma.cpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga6bb9278a044df647409ac8f7a329ffde" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String fecha</definition>
+        <argsstring></argsstring>
+        <name>fecha</name>
+        <briefdescription>
+<para>String to store current date (e.g., &quot;YYYY-MM-DD&quot;). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="95" column="8" bodyfile="firmware/Alarma.cpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__gVarGlobales_1ga1591103044c45c7b7501ce6123a4ab2a" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String hora</definition>
+        <argsstring></argsstring>
+        <name>hora</name>
+        <briefdescription>
+<para>String to store current time (e.g., &quot;HH:MM:SS&quot;). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Alarma.cpp" line="96" column="8" bodyfile="firmware/Alarma.cpp" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Definition and memory allocation of global variables used by other modules. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

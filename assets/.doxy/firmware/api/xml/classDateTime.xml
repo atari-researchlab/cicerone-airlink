@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="classDateTime" kind="class" language="C++" prot="public">
+    <compoundname>DateTime</compoundname>
+    <includes refid="DS3231M_8h" local="no">DS3231M.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classDateTime_1afcac4f5f2f5e8b280ad9b2abb15f6384" prot="protected" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t DateTime::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>DateTime::y</qualifiedname>
+        <briefdescription>
+<para>Year. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="149" column="12" bodyfile="firmware/DS3231M.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDateTime_1a04c79ec05511462bc6a015e5b1088609" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <qualifiedname>DateTime::m</qualifiedname>
+        <briefdescription>
+<para>Month. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="150" column="11" bodyfile="firmware/DS3231M.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDateTime_1abad2ae4520c8a7f87fd242c0d9a53256" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>DateTime::d</qualifiedname>
+        <briefdescription>
+<para>Day of the month. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="151" column="11" bodyfile="firmware/DS3231M.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDateTime_1ad65c31b7b4bf0430311e5bdf3f343371" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::hh</definition>
+        <argsstring></argsstring>
+        <name>hh</name>
+        <qualifiedname>DateTime::hh</qualifiedname>
+        <briefdescription>
+<para>Hours. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="152" column="11" bodyfile="firmware/DS3231M.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDateTime_1af2cbffff9349832135c3280a18d21510" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::mm</definition>
+        <argsstring></argsstring>
+        <name>mm</name>
+        <qualifiedname>DateTime::mm</qualifiedname>
+        <briefdescription>
+<para>Minutes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="153" column="11" bodyfile="firmware/DS3231M.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDateTime_1a38da3481e6355fcf8ceb4c57eb9db0ce" prot="protected" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::ss</definition>
+        <argsstring></argsstring>
+        <name>ss</name>
+        <qualifiedname>DateTime::ss</qualifiedname>
+        <briefdescription>
+<para>Seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="154" column="11" bodyfile="firmware/DS3231M.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDateTime_1aac6b8521436ee0ca6a48d58d119e4a5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DateTime::DateTime</definition>
+        <argsstring>(uint16_t y=0, uint8_t m=0, uint8_t d=0, uint8_t hh=0, uint8_t mm=0, uint8_t ss=0)</argsstring>
+        <name>DateTime</name>
+        <qualifiedname>DateTime::DateTime</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>y</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>m</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>d</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>hh</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>mm</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>ss</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor of the <ref refid="classDateTime" kindref="compound">DateTime</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Year </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Month </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Day </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hours </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minutes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ss</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Seconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="96" column="3" bodyfile="firmware/DS3231M.h" bodystart="96" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1a04bc8f3d3452bf8fcc5f1e82d86d7fe8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t DateTime::year</definition>
+        <argsstring>() const</argsstring>
+        <name>year</name>
+        <qualifiedname>DateTime::year</qualifiedname>
+        <briefdescription>
+<para>Gets the year. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Year. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="103" column="12" bodyfile="firmware/DS3231M.h" bodystart="103" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1a10d35aa20ebb179cdb4b61f90dfcfe74" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::month</definition>
+        <argsstring>() const</argsstring>
+        <name>month</name>
+        <qualifiedname>DateTime::month</qualifiedname>
+        <briefdescription>
+<para>Gets the month. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Month. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="110" column="11" bodyfile="firmware/DS3231M.h" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1a6e653eaef31e4956ee9bf67b4874a9a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::day</definition>
+        <argsstring>() const</argsstring>
+        <name>day</name>
+        <qualifiedname>DateTime::day</qualifiedname>
+        <briefdescription>
+<para>Gets the day of the month. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Day of the month. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="117" column="11" bodyfile="firmware/DS3231M.h" bodystart="117" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1ac17441fb0c669bcf3be5de278335e8d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::hour</definition>
+        <argsstring>() const</argsstring>
+        <name>hour</name>
+        <qualifiedname>DateTime::hour</qualifiedname>
+        <briefdescription>
+<para>Gets the hour. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Hour. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="124" column="11" bodyfile="firmware/DS3231M.h" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1a8dac4d21cf40f1b6f1ec5973024709ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::minute</definition>
+        <argsstring>() const</argsstring>
+        <name>minute</name>
+        <qualifiedname>DateTime::minute</qualifiedname>
+        <briefdescription>
+<para>Gets the minute. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Minute. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="131" column="11" bodyfile="firmware/DS3231M.h" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1adacdb3c0984bc73c2b48e5d1995a6c01" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::second</definition>
+        <argsstring>() const</argsstring>
+        <name>second</name>
+        <qualifiedname>DateTime::second</qualifiedname>
+        <briefdescription>
+<para>Gets the second. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Second. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="138" column="11" bodyfile="firmware/DS3231M.h" bodystart="138" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classDateTime_1a958229f0d6a46d092658028d25a9e65c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t DateTime::dayOfTheWeek</definition>
+        <argsstring>() const</argsstring>
+        <name>dayOfTheWeek</name>
+        <qualifiedname>DateTime::dayOfTheWeek</qualifiedname>
+        <briefdescription>
+<para>Calculates the day of the week. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Day of the week (1 = Sunday, 2 = Monday, ..., 7 = Saturday). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/DS3231M.h" line="146" column="11"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Helper class to conveniently handle date and time. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="firmware/DS3231M.h" line="85" column="1" bodyfile="firmware/DS3231M.h" bodystart="85" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classDateTime_1abad2ae4520c8a7f87fd242c0d9a53256" prot="protected" virt="non-virtual"><scope>DateTime</scope><name>d</name></member>
+      <member refid="classDateTime_1aac6b8521436ee0ca6a48d58d119e4a5a" prot="public" virt="non-virtual"><scope>DateTime</scope><name>DateTime</name></member>
+      <member refid="classDateTime_1a6e653eaef31e4956ee9bf67b4874a9a8" prot="public" virt="non-virtual"><scope>DateTime</scope><name>day</name></member>
+      <member refid="classDateTime_1a958229f0d6a46d092658028d25a9e65c" prot="public" virt="non-virtual"><scope>DateTime</scope><name>dayOfTheWeek</name></member>
+      <member refid="classDateTime_1ad65c31b7b4bf0430311e5bdf3f343371" prot="protected" virt="non-virtual"><scope>DateTime</scope><name>hh</name></member>
+      <member refid="classDateTime_1ac17441fb0c669bcf3be5de278335e8d0" prot="public" virt="non-virtual"><scope>DateTime</scope><name>hour</name></member>
+      <member refid="classDateTime_1a04c79ec05511462bc6a015e5b1088609" prot="protected" virt="non-virtual"><scope>DateTime</scope><name>m</name></member>
+      <member refid="classDateTime_1a8dac4d21cf40f1b6f1ec5973024709ed" prot="public" virt="non-virtual"><scope>DateTime</scope><name>minute</name></member>
+      <member refid="classDateTime_1af2cbffff9349832135c3280a18d21510" prot="protected" virt="non-virtual"><scope>DateTime</scope><name>mm</name></member>
+      <member refid="classDateTime_1a10d35aa20ebb179cdb4b61f90dfcfe74" prot="public" virt="non-virtual"><scope>DateTime</scope><name>month</name></member>
+      <member refid="classDateTime_1adacdb3c0984bc73c2b48e5d1995a6c01" prot="public" virt="non-virtual"><scope>DateTime</scope><name>second</name></member>
+      <member refid="classDateTime_1a38da3481e6355fcf8ceb4c57eb9db0ce" prot="protected" virt="non-virtual"><scope>DateTime</scope><name>ss</name></member>
+      <member refid="classDateTime_1afcac4f5f2f5e8b280ad9b2abb15f6384" prot="protected" virt="non-virtual"><scope>DateTime</scope><name>y</name></member>
+      <member refid="classDateTime_1a04bc8f3d3452bf8fcc5f1e82d86d7fe8" prot="public" virt="non-virtual"><scope>DateTime</scope><name>year</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

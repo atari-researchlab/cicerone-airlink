@@ -1,0 +1,814 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="Transmision__NBIOT_8cpp" kind="file" language="C++">
+    <compoundname>Transmision_NBIOT.cpp</compoundname>
+    <includes refid="Configuracion_8h" local="yes">Configuracion.h</includes>
+    <includes local="no">ArduinoJson.h</includes>
+    <includes refid="Debug_8h" local="yes">Debug.h</includes>
+    <includes refid="Transmision__NBIOT_8h" local="yes">Transmision_NBIOT.h</includes>
+    <includes refid="Alarma_8h" local="yes">Alarma.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>Alarma.h</label>
+        <link refid="Alarma_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Configuracion.h</label>
+        <link refid="Configuracion_8h"/>
+      </node>
+      <node id="10">
+        <label>DS3231M.h</label>
+        <link refid="DS3231M_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>firmware/Transmision_NBIOT.cpp</label>
+        <link refid="Transmision__NBIOT_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Transmision_NBIOT.h</label>
+        <link refid="Transmision__NBIOT_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>ArduinoJson.h</label>
+      </node>
+      <node id="11">
+        <label>Wire.h</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="user-defined">
+      <header>Global variables</header>
+      <description><para>Here memory is assigned for the global variables used. </para>
+</description>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a1dbe243472d2f9af499686859d2d56a6" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ppm1</definition>
+        <argsstring></argsstring>
+        <name>ppm1</name>
+        <initializer>= &quot;100&quot;</initializer>
+        <briefdescription>
+<para>PM1.0 value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="35" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a1c521b319a0023e05e3ce11affc18099" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ppm25</definition>
+        <argsstring></argsstring>
+        <name>ppm25</name>
+        <initializer>= &quot;100&quot;</initializer>
+        <briefdescription>
+<para>PM2.5 value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="36" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1ad365c5f95821ac9f99a138749bd84647" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ppm4</definition>
+        <argsstring></argsstring>
+        <name>ppm4</name>
+        <initializer>= &quot;100&quot;</initializer>
+        <briefdescription>
+<para>PM4.0 value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="37" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a8f8d2879814103c033519935b5fdc42d" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String ppm10</definition>
+        <argsstring></argsstring>
+        <name>ppm10</name>
+        <initializer>= &quot;100&quot;</initializer>
+        <briefdescription>
+<para>PM10.0 value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="38" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1af8808d607d0ac42ef0c1d0473f827ce2" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String temp</definition>
+        <argsstring></argsstring>
+        <name>temp</name>
+        <initializer>= &quot;22&quot;</initializer>
+        <briefdescription>
+<para>Temperature value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="39" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a49fed8946396a3f94c43a35a250e37f9" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String hum</definition>
+        <argsstring></argsstring>
+        <name>hum</name>
+        <initializer>= &quot;70&quot;</initializer>
+        <briefdescription>
+<para>Humidity value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="40" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a728edfd2f5809b1c26f74d77897b6f9e" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String co2</definition>
+        <argsstring></argsstring>
+        <name>co2</name>
+        <initializer>= &quot;10&quot;</initializer>
+        <briefdescription>
+<para>CO2 value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="41" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a7a2194c6e7d1c71d3e206b1d59410580" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String voc</definition>
+        <argsstring></argsstring>
+        <name>voc</name>
+        <initializer>= &quot;15&quot;</initializer>
+        <briefdescription>
+<para>VOC value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="42" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1ae8b8e94e511d9ff193142cedab9980d9" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String nox</definition>
+        <argsstring></argsstring>
+        <name>nox</name>
+        <initializer>= &quot;100&quot;</initializer>
+        <briefdescription>
+<para>NOx value (initial example) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="43" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" prot="public" static="no" mutable="no">
+        <type>JsonDocument</type>
+        <definition>JsonDocument doc</definition>
+        <argsstring></argsstring>
+        <name>doc</name>
+        <briefdescription>
+<para>JSON object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="44" column="14" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String json_data</definition>
+        <argsstring></argsstring>
+        <name>json_data</name>
+        <briefdescription>
+<para>String that will contain the complete JSON payload. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="45" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1af26c86d28717558f3e9b23f8a9e0cef4" prot="public" static="no" mutable="no">
+        <type>String</type>
+        <definition>String hexData</definition>
+        <argsstring></argsstring>
+        <name>hexData</name>
+        <briefdescription>
+<para>String that will contain the JSON data in hexadecimal format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="46" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="Transmision__NBIOT_8cpp_1ac2d33ccaf63f5d5b66552b95426c0137" prot="public" static="no">
+        <name>DEBUG_LEVEL</name>
+        <initializer><ref refid="Debug_8h_1ac2ccf7324863099ea2fec03402e9b03a" kindref="member">DEBUG_NBIOT</ref></initializer>
+        <briefdescription>
+<para>Redefinition of the debug level for this source file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="27" column="10" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Transmision__NBIOT_8cpp_1ae6f84e8321c3bc4f546cf4a2a4798064" prot="public" static="no">
+        <name>DEBUG_TAG</name>
+        <initializer>&quot;NBIOT&quot;</initializer>
+        <briefdescription>
+<para>Tag when sending debug messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="28" column="9" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* respuestas[5]</definition>
+        <argsstring>[5]</argsstring>
+        <name>respuestas</name>
+        <initializer>= { &quot;&quot;, &quot;OK&quot;, &quot;NOTOK&quot;, &quot;TIMEOUTERR&quot;, &quot;RST&quot;}</initializer>
+        <briefdescription>
+<para>Array with the response types returned by the SIM7020 module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="52" column="12" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1a3d9c5dd2c5b0fbd996ebb80126fa393a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_inicializar</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_inicializar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the NB-IoT module (SIM7020). </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Configures the serial port for communication with the module and executes a series of AT commands to ensure the module is operational and connected to the network. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="54" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="54" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1a490a0bd721b14fdd42c9dcdb59275bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_enviar</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_enviar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Transmits sensor data to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the main function for data transmission. Builds the JSON, converts it to hexadecimal and performs the HTTP POST request. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="84" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1a8f4ef6a6c416259187c24e6107732aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_paquete</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_paquete</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Creates the JSON payload with current sensor data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Data is obtained from global variables and formatted into a JSON string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="89" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="89" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1abcf8299e969233305f7b0e594f49ca61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nbiot_transmitir</definition>
+        <argsstring>(void)</argsstring>
+        <name>nbiot_transmitir</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Performs an HTTP POST request to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses SIM7020 module-specific AT commands to create an HTTP connection and send hexadecimal data as payload. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="112" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="112" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1ab0c3e7552196213d07fe9c5f4045e6fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SIM7020begin</definition>
+        <argsstring>(void)</argsstring>
+        <name>SIM7020begin</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes communication with the SIM7020 module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Uses SIM7020 module-specific AT commands to detect if communication is correct and resets configuration to a predefined state.</para>
+<para><simplesect kind="return"><para>True if communication and configuration were successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="145" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="145" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1ae7b27375b8acc7a7b10c117833a6ac90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String SIM7020read</definition>
+        <argsstring>(void)</argsstring>
+        <name>SIM7020read</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads messages sent by the SIM7020 module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>String with the received message. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="172" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="172" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte SIM7020command</definition>
+        <argsstring>(String command, String response1, String response2, unsigned long timeout, uint16_t repetitions)</argsstring>
+        <name>SIM7020command</name>
+        <param>
+          <type>String</type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>response1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>response2</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>timeout</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>repetitions</declname>
+        </param>
+        <briefdescription>
+<para>Sends an AT command to the SIM7020 module and waits for a specific response. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The AT command to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expected response string to consider the command successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String to search for if an &quot;OK&quot; response is not expected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum wait time for the response in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>repetitions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of retries if the response is not as expected. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OK if the response is as expected, NOTOK if not, TIMEOUTERR if timeout occurs. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="180" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="180" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1a73a3d39091f4e6c3c4b39a23a8e8c901" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte SIM7020waitFor</definition>
+        <argsstring>(String response1, String response2, unsigned long timeout)</argsstring>
+        <name>SIM7020waitFor</name>
+        <param>
+          <type>String</type>
+          <declname>response1</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>response2</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>timeOut</declname>
+          <defname>timeout</defname>
+        </param>
+        <briefdescription>
+<para>Function that waits for a specific response with maximum time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>response1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expected response string to consider the command successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String to search for if an &quot;OK&quot; response is not expected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum wait time for the response in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>OK if the response is as expected, NOTOK if not, TIMEOUTERR if timeout occurs. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="196" column="6" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="196" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="Transmision__NBIOT_8cpp_1a3257972fdc1d88a6b7952bdf661b731d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>String</type>
+        <definition>String jsonToHex</definition>
+        <argsstring>(const JsonDocument &amp;doc)</argsstring>
+        <name>jsonToHex</name>
+        <param>
+          <type>const JsonDocument &amp;</type>
+          <declname>doc</declname>
+        </param>
+        <briefdescription>
+<para>Converts a JSON object to a hexadecimal string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>doc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The DynamicJsonDocument object to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representing the JSON in hexadecimal format. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Transmision_NBIOT.cpp" line="220" column="8" bodyfile="firmware/Transmision_NBIOT.cpp" bodystart="220" bodyend="230"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Implementation of functions for NB-IoT data transmission. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file contains global variable definitions and implementations of the functions declared in &apos;<ref refid="Transmision__NBIOT_8h" kindref="compound">Transmision_NBIOT.h</ref>&apos;.</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>This module is fundamental for connectivity and sending sensor-collected data to a remote monitoring platform. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Configuracion_8h" kindref="compound">Configuracion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>HABILITAR_NBIOT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ArduinoJson.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Debug_8h" kindref="compound">Debug.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Transmision__NBIOT_8h" kindref="compound">Transmision_NBIOT.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Alarma_8h" kindref="compound">Alarma.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>DEBUG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_LEVEL<sp/>DEBUG_NBIOT<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_TAG<sp/>&quot;NBIOT&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a1dbe243472d2f9af499686859d2d56a6" kindref="member">ppm1</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a1c521b319a0023e05e3ce11affc18099" kindref="member">ppm25</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100&quot;</highlight><highlight class="normal">;<sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1ad365c5f95821ac9f99a138749bd84647" kindref="member">ppm4</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a8f8d2879814103c033519935b5fdc42d" kindref="member">ppm10</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100&quot;</highlight><highlight class="normal">;<sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1af8808d607d0ac42ef0c1d0473f827ce2" kindref="member">temp</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;22&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a49fed8946396a3f94c43a35a250e37f9" kindref="member">hum</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;70&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a728edfd2f5809b1c26f74d77897b6f9e" kindref="member">co2</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;10&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a7a2194c6e7d1c71d3e206b1d59410580" kindref="member">voc</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;15&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1ae8b8e94e511d9ff193142cedab9980d9" kindref="member">nox</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;100&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">JsonDocument<sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" kindref="member">json_data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1af26c86d28717558f3e9b23f8a9e0cef4" kindref="member">hexData</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[5]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;NOTOK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;TIMEOUTERR&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;RST&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1a3d9c5dd2c5b0fbd996ebb80126fa393a" kindref="member">nbiot_inicializar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" kindref="member">SIM7020board</ref>.begin(<ref refid="Transmision__NBIOT_8h_1a9bfb03dc278b791cf89503fb931bec65" kindref="member">SIM7020baud</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>Starts<sp/>serial<sp/>communication<sp/>with<sp/>the<sp/>NB-IoT<sp/>module.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>delay(100);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Small<sp/>wait<sp/>for<sp/>stabilization.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1ab0c3e7552196213d07fe9c5f4045e6fc" kindref="member">SIM7020begin</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sends<sp/>AT<sp/>commands<sp/>and<sp/>waits<sp/>for<sp/>&quot;OK&quot;<sp/>responses<sp/>to<sp/>verify<sp/>communication<sp/>and<sp/>module<sp/>status.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>3000,<sp/>2);<sp/><sp/></highlight><highlight class="comment">//<sp/>Basic<sp/>AT<sp/>command<sp/>to<sp/>verify<sp/>connection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CSQ&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>3000,<sp/>2);<sp/><sp/></highlight><highlight class="comment">//<sp/>Checks<sp/>signal<sp/>quality.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CFUN=0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);<sp/><sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>off<sp/>module<sp/>radio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>delay(1000);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT*MCGDEFCONT=\&quot;IP\&quot;,\&quot;&quot;</highlight><highlight class="normal"><sp/><ref refid="Configuracion_8h_1aaa8f45ecb0591e631a6b73d30458386f" kindref="member">APN_NBIOT</ref><sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>3000,<sp/>1);<sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>Default<sp/>PSD<sp/>Connection<sp/>Settings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>delay(1000);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CFUN=1&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);<sp/><sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>on<sp/>module<sp/>radio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>delay(3000);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CGATT?&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);<sp/><sp/></highlight><highlight class="comment">//<sp/>Checks<sp/>GPRS/NB-IoT<sp/>connection<sp/>status.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CGCONTRDP=?&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;NB-IoT<sp/>module<sp/>initialized.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1a490a0bd721b14fdd42c9dcdb59275bb0" kindref="member">nbiot_enviar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1a8f4ef6a6c416259187c24e6107732aff" kindref="member">nbiot_paquete</ref>();<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calls<sp/>the<sp/>function<sp/>to<sp/>create<sp/>the<sp/>JSON<sp/>payload</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1abcf8299e969233305f7b0e594f49ca61" kindref="member">nbiot_transmitir</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>Calls<sp/>the<sp/>function<sp/>to<sp/>perform<sp/>the<sp/>HTTP<sp/>POST<sp/>request</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1a8f4ef6a6c416259187c24e6107732aff" kindref="member">nbiot_paquete</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">]<sp/>=<sp/><ref refid="Configuracion_8h_1ac85fa5e76448212e95d38502a87a93aa" kindref="member">ID_USUARIO</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;fecha&quot;</highlight><highlight class="normal">]<sp/>=<sp/><ref refid="group__gVarGlobales_1ga6bb9278a044df647409ac8f7a329ffde" kindref="member">fecha</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;hora&quot;</highlight><highlight class="normal">]<sp/>=<sp/><ref refid="group__gVarGlobales_1ga1591103044c45c7b7501ce6123a4ab2a" kindref="member">hora</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;ppm1&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1ga2962c9d6fa97f11b2c652034af7908a3" kindref="member">avg_sen5x_mc_1p0</ref>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;ppm25&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1gafef987d3df6488b58dca8ffd906c9c0f" kindref="member">avg_sen5x_mc_2p5</ref>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;ppm4&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1gaa72b2d13a6ee5ac718e59251e2a58967" kindref="member">avg_sen5x_mc_4p0</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;ppm10&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1gab9db0f6a04c9038f5510607b28200541" kindref="member">avg_sen5x_mc_10p0</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;temp&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1ga2b1addc8e56d0ebf95ad0698103eeccb" kindref="member">avg_temp</ref>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;hum&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1ga82ec054dcc4c2e739877c3846d807135" kindref="member">avg_hum</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;co2&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1gaa5f41777a3e55f0b178b2e0107c709f6" kindref="member">avg_t6793_co2</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>[</highlight><highlight class="stringliteral">&quot;voc&quot;</highlight><highlight class="normal">]<sp/>=<sp/>String(<ref refid="group__gVarGlobales_1ga757cdba77edc202a47cacd8d52cf2c3e" kindref="member">avg_sen5x_voc</ref>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//doc[&quot;nox&quot;]<sp/>=<sp/>String(avg_sen5x_nox);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>serializeJsonPretty(<ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>,<sp/><ref refid="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" kindref="member">json_data</ref>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;JSON:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" kindref="member">json_data</ref>.c_str());<sp/><sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>the<sp/>JSON<sp/>for<sp/>debugging.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Converts<sp/>the<sp/>JSON<sp/>to<sp/>hexadecimal<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="Transmision__NBIOT_8cpp_1af26c86d28717558f3e9b23f8a9e0cef4" kindref="member">hexData</ref><sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1a3257972fdc1d88a6b7952bdf661b731d" kindref="member">jsonToHex</ref>(<ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;hexData:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1af26c86d28717558f3e9b23f8a9e0cef4" kindref="member">hexData</ref>.c_str());</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1abcf8299e969233305f7b0e594f49ca61" kindref="member">nbiot_transmitir</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>ans<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" kindref="member">NOTOK</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>ans<sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CHTTPCREATE=\&quot;&quot;</highlight><highlight class="normal"><sp/>+<sp/>String(<ref refid="Configuracion_8h_1a81881e26e5643b4308e9a2f61f98989f" kindref="member">SERVIDOR_IP</ref>)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>String(<ref refid="Configuracion_8h_1aec4eae30dfa884321877ea7f342c5ec9" kindref="member">SERVIDOR_PUERTO</ref>)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>3000,<sp/>2);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Creating<sp/>connection<sp/>(AT+CHTTPCREATE)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>ans<sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CHTTPCON=0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ans<sp/>!=<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Connecting<sp/>to<sp/>server<sp/>(AT+CHTTPCON)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5000);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Transmision__NBIOT_8h_1a74bdb3dd17d489a22116a73feb58510b" kindref="member">ReiniciarDispositivo</ref>();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Connecting<sp/>to<sp/>server<sp/>(AT+CHTTPCON)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>ans<sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CHTTPSEND=0,1,\&quot;&quot;</highlight><highlight class="normal"><sp/><ref refid="Configuracion_8h_1a379d3ed6f4c648cf7e51487722b60882" kindref="member">SERVIDOR_API</ref><sp/></highlight><highlight class="stringliteral">&quot;\&quot;,,\&quot;application/json\&quot;,&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="Transmision__NBIOT_8cpp_1af26c86d28717558f3e9b23f8a9e0cef4" kindref="member">hexData</ref>,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ans<sp/>!=<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Sending<sp/>data<sp/>(AT+CHTTPSEND)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(5000);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Transmision__NBIOT_8h_1a74bdb3dd17d489a22116a73feb58510b" kindref="member">ReiniciarDispositivo</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Sending<sp/>data<sp/>(AT+CHTTPSEND)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>ans<sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CHTTPDISCON=0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Disconnecting<sp/>(AT+CHTTPDISCON)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>ans<sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CHTTPDESTROY=0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Destroying<sp/>connection<sp/>(AT+CHTTPDESTROY)...<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[ans]);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1ab0c3e7552196213d07fe9c5f4045e6fc" kindref="member">SIM7020begin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>uint16_t<sp/>reintentos<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>hi;<sp/><sp/></highlight><highlight class="comment">//<sp/>1:<sp/>registered,<sp/>home<sp/>network<sp/>;<sp/>5:<sp/>registered,<sp/>roaming</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" kindref="member">SIM7020board</ref>.println(</highlight><highlight class="stringliteral">&quot;AT+CREG?&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>hi<sp/>=<sp/><ref refid="Transmision__NBIOT_8cpp_1a73a3d39091f4e6c3c4b39a23a8e8c901" kindref="member">SIM7020waitFor</ref>(</highlight><highlight class="stringliteral">&quot;0,&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;1,&quot;</highlight><highlight class="normal">,<sp/>2500);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>reintentos<sp/>+=<sp/>1;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(reintentos<sp/>&gt;<sp/>1000)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(LED_BUILTIN,<sp/>1);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>digitalWrite(LED_BUILTIN,<sp/>0);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>delay(500);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(hi<sp/>!=<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT&amp;F0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2)<sp/>==<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>to<sp/>factory<sp/>settings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;ATE0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2)<sp/>==<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>disable<sp/>Echo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(</highlight><highlight class="stringliteral">&quot;AT+CMEE=2&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;yy&quot;</highlight><highlight class="normal">,<sp/>5000,<sp/>2)<sp/>==<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>Enables<sp/>extended<sp/>error<sp/>reports.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" kindref="member">NOTOK</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" kindref="member">NOTOK</ref>;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1ae7b27375b8acc7a7b10c117833a6ac90" kindref="member">SIM7020read</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>String<sp/>reply<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" kindref="member">SIM7020board</ref>.available())<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>reply<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" kindref="member">SIM7020board</ref>.readString();</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>reply;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1aeaf33cebccebe5ef0e6291eb48325f66" kindref="member">SIM7020command</ref>(String<sp/>command,<sp/>String<sp/>response1,<sp/>String<sp/>response2,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeout,<sp/>uint16_t<sp/>repetitions)<sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>returnValue<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1ac5d957e4fd3dc11cd97a54cf9ca057a4" kindref="member">RST</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>uint16_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Command<sp/>sent:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>command.c_str());</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(count<sp/>&lt;<sp/>repetitions<sp/>&amp;&amp;<sp/>returnValue<sp/>!=<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" kindref="member">SIM7020board</ref>.println(command);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Transmision__NBIOT_8cpp_1a73a3d39091f4e6c3c4b39a23a8e8c901" kindref="member">SIM7020waitFor</ref>(response1,<sp/>response2,<sp/>timeout)<sp/>==<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>returnValue<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>returnValue<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" kindref="member">NOTOK</ref>;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Ans:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="Transmision__NBIOT_8cpp_1a075c10a17335bcabbf63a40024adc59a" kindref="member">respuestas</ref>[returnValue]);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnValue;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/><ref refid="Transmision__NBIOT_8cpp_1a73a3d39091f4e6c3c4b39a23a8e8c901" kindref="member">SIM7020waitFor</ref>(String<sp/>response1,<sp/>String<sp/>response2,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeout)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>millis0<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>String<sp/>reply;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal"><sp/>retVal<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1ac5d957e4fd3dc11cd97a54cf9ca057a4" kindref="member">RST</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>reply<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1a8712f1505f5fb7d7f9f9f47f1346ad78" kindref="member">SIM7020board</ref>.readString();<sp/><sp/></highlight><highlight class="comment">//SIM7020read();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(reply<sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>reply.replace(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Ans:<sp/>%s<sp/>in<sp/>%lu<sp/>ms&quot;</highlight><highlight class="normal">,<sp/>reply.c_str(),<sp/>(millis()<sp/>-<sp/>millis0));</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>((reply.indexOf(response1)<sp/>+<sp/>reply.indexOf(response2)<sp/>==<sp/>-2)<sp/>&amp;&amp;<sp/>(millis()<sp/>-<sp/>millis0)<sp/>&lt;<sp/>timeout);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((millis()<sp/>-<sp/>millis0)<sp/>&gt;=<sp/>timeout)<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1a8a4fbf2ef1e747999d1c3fb87712c2bb" kindref="member">TIMEOUTERR</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(reply.indexOf(response1)<sp/>+<sp/>reply.indexOf(response2)<sp/>&gt;<sp/>-2)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1aba51915c87d64af47fb1cc59348961c9" kindref="member">OK</ref>;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>retVal<sp/>=<sp/><ref refid="Transmision__NBIOT_8h_1a02812505694442b6f833040489d550d6" kindref="member">NOTOK</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>retVal;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal">String<sp/><ref refid="Transmision__NBIOT_8cpp_1a3257972fdc1d88a6b7952bdf661b731d" kindref="member">jsonToHex</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>JsonDocument&amp;<sp/><ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>String<sp/>hexString<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>serializeJson(<ref refid="Transmision__NBIOT_8cpp_1acc70417be3b0e73fb50f78212b2ee44b" kindref="member">doc</ref>,<sp/><ref refid="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" kindref="member">json_data</ref>);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Iterates<sp/>over<sp/>each<sp/>character<sp/>of<sp/>the<sp/>JSON<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" kindref="member">json_data</ref>.length();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>hexString<sp/>+=<sp/>String(<ref refid="Transmision__NBIOT_8cpp_1a94b648c9ffc9bd278b03852fc7d5b378" kindref="member">json_data</ref>[i],<sp/>HEX);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hexString;<sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>hexadecimal<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>HABILITAR_NBIOT</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/Transmision_NBIOT.cpp"/>
+  </compounddef>
+</doxygen>

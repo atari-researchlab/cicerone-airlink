@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="firmware_8ino" kind="file" language="C++">
+    <compoundname>firmware.ino</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">/***********************************************************************************************************************</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@file<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>firmware.ino</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@brief<sp/><sp/><sp/><sp/><sp/><sp/><sp/>Main<sp/>code<sp/>for<sp/>an<sp/>air<sp/>quality<sp/>monitoring<sp/>system<sp/>(&quot;Airlink&quot;).</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@details<sp/><sp/><sp/><sp/><sp/>This<sp/>program<sp/>integrates<sp/>readings<sp/>from<sp/>various<sp/>sensors<sp/>and<sp/>manages<sp/>their<sp/>operation</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>through<sp/>non-blocking<sp/>timers<sp/>(millis).<sp/>It<sp/>includes<sp/>optional<sp/>modules</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>for<sp/>data<sp/>transmission<sp/>via<sp/>NB-IoT<sp/>and<sp/>for<sp/>cough<sp/>detection<sp/>using<sp/>Edge<sp/>Impulse.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@author<sp/><sp/><sp/><sp/><sp/><sp/>[ALD-DSL/ATARI_RESEARCH_LAB]</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@date<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[2024-07-22<sp/>/<sp/>Last<sp/>Modified]</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@version<sp/><sp/><sp/><sp/><sp/>1.0-rc1</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@copyright<sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>version<sp/>3<sp/>or<sp/>later</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@warning<sp/><sp/><sp/><sp/><sp/>Server<sp/>values<sp/>and<sp/>APN<sp/>must<sp/>be<sp/>correctly<sp/>configured<sp/>to<sp/>use<sp/>the<sp/>IoT<sp/>module.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@see<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Configuracion.h</highlight></codeline>
+<codeline><highlight class="normal"><sp/>**********************************************************************************************************************/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Configuracion.h&quot;<sp/><sp/>//<sp/>Central<sp/>configuration<sp/>file<sp/>to<sp/>enable/disable<sp/>modules.</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Debug.h&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Contains<sp/>macros<sp/>to<sp/>control<sp/>debug<sp/>output<sp/>via<sp/>Serial.</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Alarma.h&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Custom<sp/>module<sp/>for<sp/>timer<sp/>management<sp/>(periodic<sp/>alarms).</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;SEN5X_API.h&quot;<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>API<sp/>for<sp/>handling<sp/>the<sp/>Sensirion<sp/>SEN5X<sp/>sensor.</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;T6793_API.h&quot;<sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>API<sp/>for<sp/>handling<sp/>the<sp/>T6793-5K<sp/>CO2<sp/>sensor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>---<sp/>Conditional<sp/>module<sp/>inclusion<sp/>(controlled<sp/>from<sp/>Configuracion.h)<sp/>---</highlight></codeline>
+<codeline><highlight class="normal">#if<sp/>HABILITAR_NBIOT</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;Transmision_NBIOT.h&quot;<sp/><sp/>//<sp/>Module<sp/>for<sp/>data<sp/>transmission<sp/>via<sp/>Narrowband<sp/>IoT.</highlight></codeline>
+<codeline><highlight class="normal">#endif</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#define<sp/>DEBUG_TAG<sp/>&quot;MAIN&quot;<sp/><sp/>//!&lt;<sp/>Tag<sp/>when<sp/>sending<sp/>debug<sp/>messages</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/**</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@brief<sp/>Initializes<sp/>communications,<sp/>sensors,<sp/>and<sp/>system<sp/>modules.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Runs<sp/>only<sp/>once<sp/>when<sp/>the<sp/>microcontroller<sp/>is<sp/>powered<sp/>on<sp/>or<sp/>reset.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>setup()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Serial<sp/>port<sp/>initialization<sp/>if<sp/>debugging<sp/>is<sp/>enabled<sp/>in<sp/>Configuracion.h</highlight></codeline>
+<codeline><highlight class="normal">#if<sp/>(DEBUG_LEVEL<sp/>&gt;=<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Serial.begin(115200);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>On<sp/>some<sp/>boards<sp/>(like<sp/>ESP32),<sp/>it&apos;s<sp/>useful<sp/>to<sp/>wait<sp/>for<sp/>the<sp/>serial<sp/>port<sp/>to<sp/>connect.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>while<sp/>(!Serial)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>;<sp/><sp/>//<sp/>Wait<sp/>loop</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">#endif</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>DEBUG_INFO(&quot;**********************************************&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>DEBUG_INFO(&quot;*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>AIRLINK<sp/>Monitoring<sp/>System<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>DEBUG_INFO(&quot;**********************************************&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>DEBUG_INFO(&quot;Initializing<sp/>system...&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Initialize<sp/>the<sp/>RTC<sp/>(Real-Time<sp/>Clock)<sp/>and<sp/>periodic<sp/>alarms</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>rtc_alarma_inicializar();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Initialize<sp/>the<sp/>T6793<sp/>sensor</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>t6793_inicializar();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Initialize<sp/>the<sp/>SEN5X<sp/>sensor</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sen5x_inicializar();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Conditional<sp/>module<sp/>initialization</highlight></codeline>
+<codeline><highlight class="normal">#if<sp/>HABILITAR_NBIOT</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>nbiot_inicializar();</highlight></codeline>
+<codeline><highlight class="normal">#endif</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>DEBUG_INFO(&quot;Initialization<sp/>completed.<sp/>Starting<sp/>main<sp/>loop.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">/**</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>@brief<sp/>Runs<sp/>repeatedly<sp/>after<sp/>setup()<sp/>has<sp/>finished.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>This<sp/>is<sp/>the<sp/>heart<sp/>of<sp/>the<sp/>program,<sp/>where<sp/>periodic<sp/>tasks<sp/>are<sp/>checked<sp/>and<sp/>executed.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>loop()<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Check<sp/>if<sp/>the<sp/>5-second<sp/>alarm<sp/>has<sp/>been<sp/>triggered<sp/>to<sp/>read<sp/>sensors.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>This<sp/>function<sp/>is<sp/>non-blocking<sp/>and<sp/>based<sp/>on<sp/>millis().</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>check_alarma_5s();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>Check<sp/>if<sp/>the<sp/>10-minute<sp/>alarm<sp/>has<sp/>been<sp/>triggered<sp/>to<sp/>average<sp/>and<sp/>send<sp/>data.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>This<sp/>function<sp/>is<sp/>based<sp/>on<sp/>the<sp/>RTC<sp/>clock.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>check_alarma_10min();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>If<sp/>the<sp/>5-second<sp/>flag<sp/>is<sp/>active,<sp/>execute<sp/>the<sp/>readings.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(alarma_5s)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>DEBUG_INFO(&quot;5s<sp/>alarm<sp/>triggered.<sp/>Reading<sp/>sensors...&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Accumulate<sp/>the<sp/>read<sp/>data<sp/>for<sp/>later<sp/>averaging</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>acumular_datos();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Reset<sp/>the<sp/>flag<sp/>for<sp/>the<sp/>next<sp/>iteration</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>alarma_5s<sp/>=<sp/>false;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>//<sp/>If<sp/>the<sp/>10-minute<sp/>flag<sp/>is<sp/>active,<sp/>execute<sp/>averaging<sp/>and<sp/>transmission.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>(alarma_10min)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>DEBUG_INFO(&quot;10min<sp/>alarm<sp/>triggered.<sp/>Processing<sp/>and<sp/>sending<sp/>data...&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Calculate<sp/>the<sp/>average<sp/>of<sp/>accumulated<sp/>readings</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>promediar_datos();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Transmit<sp/>the<sp/>averaged<sp/>data<sp/>if<sp/>the<sp/>module<sp/>is<sp/>enabled</highlight></codeline>
+<codeline><highlight class="normal">#if<sp/>HABILITAR_NBIOT</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>nbiot_enviar();</highlight></codeline>
+<codeline><highlight class="normal">#endif</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Reset<sp/>the<sp/>flag<sp/>for<sp/>the<sp/>next<sp/>iteration</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>alarma_10min<sp/>=<sp/>false;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="firmware/firmware.ino"/>
+  </compounddef>
+</doxygen>

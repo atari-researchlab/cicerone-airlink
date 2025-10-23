@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="T6793__API_8h" kind="file" language="C++">
+    <compoundname>T6793_API.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includedby refid="T6793__API_8cpp" local="yes">firmware/T6793_API.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/T6793_API.h</label>
+        <link refid="T6793__API_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>firmware/T6793_API.cpp</label>
+        <link refid="T6793__API_8cpp"/>
+      </node>
+      <node id="1">
+        <label>firmware/T6793_API.h</label>
+        <link refid="T6793__API_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="T6793__API_8h_1a3ffab8bb38d8c1efa1ef459145deb64e" prot="public" static="no" extern="yes" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t t6793_co2</definition>
+        <argsstring></argsstring>
+        <name>t6793_co2</name>
+        <briefdescription>
+<para>Definition of the global variable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.h" line="21" column="17" bodyfile="firmware/T6793_API.cpp" bodystart="23" bodyend="-1" declfile="firmware/T6793_API.h" declline="21" declcolumn="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="T6793__API_8h_1af0d236e25ab100f0182047342d9a7553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t6793_inicializar</definition>
+        <argsstring>(void)</argsstring>
+        <name>t6793_inicializar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the T6793 sensor, configures I2C communication and disables ABC calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.h" line="27" column="6" bodyfile="firmware/T6793_API.cpp" bodystart="25" bodyend="55" declfile="firmware/T6793_API.h" declline="27" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="T6793__API_8h_1a5b5414b7744475e9835a9579bc0d4717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool t6793_leer</definition>
+        <argsstring>(void)</argsstring>
+        <name>t6793_leer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads the CO2 value from the sensor and updates the global variable &apos;t6793_co2&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the reading was successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.h" line="33" column="6" bodyfile="firmware/T6793_API.cpp" bodystart="57" bodyend="70" declfile="firmware/T6793_API.h" declline="33" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Header for the Telaire T6793-5K CO2 sensor API. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Declares functions and global variables for this specific sensor, using the <ref refid="classT67XX" kindref="compound">T67XX</ref> base library.</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>This module is an abstraction layer over the <ref refid="classT67XX" kindref="compound">T67XX</ref> library. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>T6793_API_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T6793_API_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" kindref="member">t6793_co2</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="T6793__API_8h_1af0d236e25ab100f0182047342d9a7553" kindref="member">t6793_inicializar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="T6793__API_8h_1a5b5414b7744475e9835a9579bc0d4717" kindref="member">t6793_leer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>T6793_API_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/T6793_API.h"/>
+  </compounddef>
+</doxygen>

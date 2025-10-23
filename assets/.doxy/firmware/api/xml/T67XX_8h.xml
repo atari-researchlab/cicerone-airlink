@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="T67XX_8h" kind="file" language="C++">
+    <compoundname>T67XX.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">Wire.h</includes>
+    <includedby refid="T6793__API_8cpp" local="yes">firmware/T6793_API.cpp</includedby>
+    <includedby refid="T67XX_8cpp" local="yes">firmware/T67XX.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>firmware/T67XX.h</label>
+        <link refid="T67XX_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>Wire.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>firmware/T6793_API.cpp</label>
+        <link refid="T6793__API_8cpp"/>
+      </node>
+      <node id="3">
+        <label>firmware/T67XX.cpp</label>
+        <link refid="T67XX_8cpp"/>
+      </node>
+      <node id="1">
+        <label>firmware/T67XX.h</label>
+        <link refid="T67XX_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classT67XX" prot="public">T67XX</innerclass>
+    <innerclass refid="unionT67XX_1_1StatusRegister" prot="public">T67XX::StatusRegister</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="T67XX_8h_1a8f48fb7331714a037461c2db4f73febd" prot="public" static="no">
+        <name>T67XX_DEFAULT_I2C_ADDR</name>
+        <initializer>0x15</initializer>
+        <briefdescription>
+<para>Default I2C address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="29" column="9" bodyfile="firmware/T67XX.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="T67XX_8h_1a59e2dfe79b908eeb2700b49cc4a05a83" prot="public" static="no">
+        <name>T67XX_REG_VAL_ENABLE</name>
+        <initializer>0xFF00</initializer>
+        <briefdescription>
+<para>Value to enable a register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="34" column="9" bodyfile="firmware/T67XX.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="T67XX_8h_1ae4a4b685d83e4b1207f02dedf06e5e48" prot="public" static="no">
+        <name>T67XX_REG_VAL_DISABLE</name>
+        <initializer>0x0000</initializer>
+        <briefdescription>
+<para>Value to disable a register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="39" column="9" bodyfile="firmware/T67XX.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="T67XX_8h_1a80677f47489aee3be0c28a9a8a4e3d99" prot="public" static="no">
+        <name>T67XX_READ_DELAY</name>
+        <initializer>10</initializer>
+        <briefdescription>
+<para>Delay between read/write transmissions (manufacturer recommended value). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="44" column="9" bodyfile="firmware/T67XX.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="T67XX_8h_1a6ba5ac47df7e988bda67aeda40a9c3b0" prot="public" static="no">
+        <name>T67XX_MEASURE_DELAY</name>
+        <initializer>2250</initializer>
+        <briefdescription>
+<para>Delay between starting PPM measurement and reading the data (manufacturer recommended value). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="50" column="9" bodyfile="firmware/T67XX.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Modbus_FC</name>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a756a18d22e04816566ebb06c232bae06" prot="public">
+          <name>MODBUS_READ_COIL</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+<para>Read 1bit <emphasis>Coil</emphasis> type. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a2310174b4bf83f04719d21f78f19f805" prot="public">
+          <name>MODBUS_READ_DISCRETE_INPUT</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+<para>Read 1bit <emphasis>Discrete Input</emphasis> type. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a25182463100a55067063d860f59d26a2" prot="public">
+          <name>MODBUS_READ_MULTIPLE_HOLDING_REGISTERS</name>
+          <initializer>= 0x03</initializer>
+          <briefdescription>
+<para>Read 1 or more 16bit <emphasis>Holding Registers</emphasis> </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a3b4005a5211ca21d20828b1d05be1e0e" prot="public">
+          <name>MODBUS_READ_INPUT_REGISTERS</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+<para>Read 1 or more 16bit <emphasis>Input Registers</emphasis> </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a31b1554c069e47cd2a5ff2b944b5e698" prot="public">
+          <name>MODBUS_WRITE_SINGLE_COIL</name>
+          <initializer>= 0x05</initializer>
+          <briefdescription>
+<para>Write 1 1bit <emphasis>Coil</emphasis> </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029addf0f551ecf16480dee53bafed890f22" prot="public">
+          <name>MODBUS_WRITE_SINGLE_REGISTER</name>
+          <initializer>= 0x06</initializer>
+          <briefdescription>
+<para>Write 1 16bit <emphasis>Holding Register</emphasis> </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029ad46c11213c0594b168f96cc4d7f38e36" prot="public">
+          <name>MODBUS_WRITE_MULTIPLE_COILS</name>
+          <initializer>= 0x0F</initializer>
+          <briefdescription>
+<para>Write multiple 1bit <emphasis>Coils</emphasis> </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1adc0834105b7819b95d3a57ec57644029acf8e1ce060ea0b682124b6010009a352" prot="public">
+          <name>MODBUS_WRITE_MULTIPLE_REGISTERS</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+<para>Write multiple 16bit <emphasis>Holding Registers</emphasis> </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Modbus function codes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The I2C implementation uses the Modbus protocol and encapsulates the message in I2C format; however, in this case CRC is not included. Function codes vary according to the data type and whether a single or multiple read/write is performed.</para>
+<para>Modbus data model:</para>
+<para><itemizedlist>
+<listitem><para>Discrete Inputs: 1bit. Read only.</para>
+</listitem><listitem><para>Coils: 1bit. Read/Write.</para>
+</listitem><listitem><para>Input Registers: 16bits. Read only.</para>
+</listitem><listitem><para>Holding Registers: 16bits. Read/Write. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="65" column="1" bodyfile="firmware/T67XX.h" bodystart="65" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="enum" id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>T67XX_Registers</name>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba0778fcb9b76350756ea24bddb426a560" prot="public">
+          <name>T67XX_REG_FIRMWARE</name>
+          <initializer>= 0x1389</initializer>
+          <briefdescription>
+<para>Device firmware revision (RO) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9d62631f577a73d16962fc2f5b0e4bf8" prot="public">
+          <name>T67XX_REG_STATUS</name>
+          <initializer>= 0x138A</initializer>
+          <briefdescription>
+<para>Device status (RO) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba1b61703d5c48f83f218c3ee3421735a8" prot="public">
+          <name>T67XX_REG_PPM</name>
+          <initializer>= 0x138B</initializer>
+          <briefdescription>
+<para>Measured CO2 value (RO) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bae274db194620b7c9890ae325b8049d68" prot="public">
+          <name>T67XX_REG_RESET</name>
+          <initializer>= 0x03E8</initializer>
+          <briefdescription>
+<para>Reset the device (WO) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bac588e91b22859157c9ad11f804794afd" prot="public">
+          <name>T67XX_REG_SPCAL</name>
+          <initializer>= 0x03EC</initializer>
+          <briefdescription>
+<para>Start single point calibration (WO) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9374a475c8e0dea2b9c1f20d0688b5b7" prot="public">
+          <name>T67XX_REG_FLASH_UPDATE</name>
+          <initializer>= 0x03ED</initializer>
+          <briefdescription>
+<para>Save configuration to flash (WO) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bab67882f687683704d3adcfb2adb3a017" prot="public">
+          <name>T67XX_REG_ADDRESS</name>
+          <initializer>= 0x0FA5</initializer>
+          <briefdescription>
+<para>Device I2C address (RW) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9bad7f27aa06b54f49d6380d2fc03b08" prot="public">
+          <name>T67XX_REG_ABC_LOGIC</name>
+          <initializer>= 0x03EE</initializer>
+          <briefdescription>
+<para>Enable or disable ABC autocalibration (RW) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba3d8b428cd24c8814edbcdade871ddf0f" prot="public">
+          <name>T67XX_REG_MOD_MODE</name>
+          <initializer>= 0x100B</initializer>
+          <briefdescription>
+<para>Enable or disable measurement on demand (MOD) (RW) </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para><ref refid="classT67XX" kindref="compound">T67XX</ref> register addresses. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T67XX.h" line="79" column="1" bodyfile="firmware/T67XX.h" bodystart="79" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This is a library for the Telaire <ref refid="classT67XX" kindref="compound">T67XX</ref> series miniature CO2 sensor module. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>These sensors use UART and I2C to communicate. This library is designed for the I2C communication option. 2 pins are required for the interface. To enable I2C communication, connect pin CTRL (pin 6 of the module) to GND.</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>This module is based on the library by Yaroslav Osadchyy (<ulink url="mailto:drug123@gmail.com">drug123@gmail.com</ulink>) with MIT License</para>
+</simplesect>
+Copyright (c) 2020 Yaroslav Osadchyy (<ulink url="mailto:drug123@gmail.com">drug123@gmail.com</ulink>) <ulink url="https://github.com/drug123/T67XX">https://github.com/drug123/T67XX</ulink></para>
+<para>MIT license, all text above must be included in any redistribution </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>T67XX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T67XX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Wire.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="T67XX_8h_1a8f48fb7331714a037461c2db4f73febd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T67XX_DEFAULT_I2C_ADDR<sp/>0x15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="T67XX_8h_1a59e2dfe79b908eeb2700b49cc4a05a83" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T67XX_REG_VAL_ENABLE<sp/>0xFF00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="T67XX_8h_1ae4a4b685d83e4b1207f02dedf06e5e48" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T67XX_REG_VAL_DISABLE<sp/>0x0000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="T67XX_8h_1a80677f47489aee3be0c28a9a8a4e3d99" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T67XX_READ_DELAY<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="T67XX_8h_1a6ba5ac47df7e988bda67aeda40a9c3b0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>T67XX_MEASURE_DELAY<sp/>2250</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029" kindref="member">Modbus_FC</ref><sp/>{</highlight></codeline>
+<codeline lineno="66" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a756a18d22e04816566ebb06c232bae06" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a756a18d22e04816566ebb06c232bae06" kindref="member">MODBUS_READ_COIL</ref><sp/>=<sp/>0x01,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a2310174b4bf83f04719d21f78f19f805" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a2310174b4bf83f04719d21f78f19f805" kindref="member">MODBUS_READ_DISCRETE_INPUT</ref><sp/>=<sp/>0x02,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a25182463100a55067063d860f59d26a2" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a25182463100a55067063d860f59d26a2" kindref="member">MODBUS_READ_MULTIPLE_HOLDING_REGISTERS</ref><sp/>=<sp/>0x03,<sp/><sp/></highlight></codeline>
+<codeline lineno="69" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a3b4005a5211ca21d20828b1d05be1e0e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a3b4005a5211ca21d20828b1d05be1e0e" kindref="member">MODBUS_READ_INPUT_REGISTERS</ref><sp/>=<sp/>0x04,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a31b1554c069e47cd2a5ff2b944b5e698" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029a31b1554c069e47cd2a5ff2b944b5e698" kindref="member">MODBUS_WRITE_SINGLE_COIL</ref><sp/>=<sp/>0x05,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029addf0f551ecf16480dee53bafed890f22" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029addf0f551ecf16480dee53bafed890f22" kindref="member">MODBUS_WRITE_SINGLE_REGISTER</ref><sp/>=<sp/>0x06,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029ad46c11213c0594b168f96cc4d7f38e36" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029ad46c11213c0594b168f96cc4d7f38e36" kindref="member">MODBUS_WRITE_MULTIPLE_COILS</ref><sp/>=<sp/>0x0F,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73" refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029acf8e1ce060ea0b682124b6010009a352" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1adc0834105b7819b95d3a57ec57644029acf8e1ce060ea0b682124b6010009a352" kindref="member">MODBUS_WRITE_MULTIPLE_REGISTERS</ref><sp/>=<sp/>0x10,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22b" kindref="member">T67XX_Registers</ref><sp/>{</highlight></codeline>
+<codeline lineno="80" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba0778fcb9b76350756ea24bddb426a560" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba0778fcb9b76350756ea24bddb426a560" kindref="member">T67XX_REG_FIRMWARE</ref><sp/>=<sp/>0x1389,<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9d62631f577a73d16962fc2f5b0e4bf8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9d62631f577a73d16962fc2f5b0e4bf8" kindref="member">T67XX_REG_STATUS</ref><sp/>=<sp/>0x138A,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba1b61703d5c48f83f218c3ee3421735a8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba1b61703d5c48f83f218c3ee3421735a8" kindref="member">T67XX_REG_PPM</ref><sp/>=<sp/>0x138B,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bae274db194620b7c9890ae325b8049d68" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bae274db194620b7c9890ae325b8049d68" kindref="member">T67XX_REG_RESET</ref><sp/>=<sp/>0x03E8,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bac588e91b22859157c9ad11f804794afd" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bac588e91b22859157c9ad11f804794afd" kindref="member">T67XX_REG_SPCAL</ref><sp/>=<sp/>0x03EC,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9374a475c8e0dea2b9c1f20d0688b5b7" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9374a475c8e0dea2b9c1f20d0688b5b7" kindref="member">T67XX_REG_FLASH_UPDATE</ref><sp/>=<sp/>0x03ED,<sp/><sp/></highlight></codeline>
+<codeline lineno="86" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bab67882f687683704d3adcfb2adb3a017" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22bab67882f687683704d3adcfb2adb3a017" kindref="member">T67XX_REG_ADDRESS</ref><sp/>=<sp/>0x0FA5,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9bad7f27aa06b54f49d6380d2fc03b08" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba9bad7f27aa06b54f49d6380d2fc03b08" kindref="member">T67XX_REG_ABC_LOGIC</ref><sp/>=<sp/>0x03EE,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba3d8b428cd24c8814edbcdade871ddf0f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="T67XX_8h_1aa6a863488c95bfbabc2d36ff7aebc22ba3d8b428cd24c8814edbcdade871ddf0f" kindref="member">T67XX_REG_MOD_MODE</ref><sp/>=<sp/>0x100B<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="classT67XX" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classT67XX_1a1d74c868e8ec604e027803e800da2497" kindref="member">T67XX</ref><sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="101" refid="classT67XX_1a1d74c868e8ec604e027803e800da2497" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classT67XX_1a1d74c868e8ec604e027803e800da2497" kindref="member">T67XX</ref>(TwoWire*<sp/>pWire<sp/>=<sp/>&amp;Wire,<sp/>uint8_t<sp/>deviceAddress<sp/>=<sp/><ref refid="T67XX_8h_1a8f48fb7331714a037461c2db4f73febd" kindref="member">T67XX_DEFAULT_I2C_ADDR</ref>)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_pWire(pWire),<sp/>_deviceAddr(deviceAddress){};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classT67XX_1a1f4d9562a0c81fc0e126e48ef39d1751" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classT67XX_1a1f4d9562a0c81fc0e126e48ef39d1751" kindref="member">~T67XX</ref>(){};</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1aac12eed2212007f454a49ac054a2c824" kindref="member">begin</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="classT67XX_1a0c01b3dbe3677210964239346d13a2d7" kindref="member">readPPM</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="classT67XX_1a4b5cd427e993e14e0f9e36f39c165087" kindref="member">getStatus</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="classT67XX_1a6ff3dbc1dbeb3f2533258c0dd7a06178" kindref="member">getFirmwareVersion</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1a4594b4c82e4f90efdfe5f6466e99f7ae" kindref="member">reset</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1a8fe8a4f7ce7348e552d39c5bdd1bdcf6" kindref="member">enableABCMode</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1abe1256a791a71836113af31ed666048f" kindref="member">disableABCMode</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="classT67XX_1ac1cc4d61525547efa76e3ce5da52da90" kindref="member">setSlaveAddress</ref>(uint8_t<sp/>newAddress);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1a447a65c4d22a8907e30c82e2e23aadce" kindref="member">flashUpdate</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1a35bdb687ba69478216327811272524bb" kindref="member">beginCalibration</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>waitForCompletion<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classT67XX_1a3ab24fa2a494b983bc718334d2f5b9a5" kindref="member">endCalibration</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>String<sp/><ref refid="classT67XX_1aa742ac80ca8e9b011ee9cbf247344d08" kindref="member">getStatusMsg</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="unionT67XX_1_1StatusRegister" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal"><ref refid="unionT67XX_1_1StatusRegister" kindref="compound">StatusRegister</ref><sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="unionT67XX_1_1StatusRegister_1a55d854b781c5f736b9f0d790c552c31b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1a55d854b781c5f736b9f0d790c552c31b" kindref="member">raw_value</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="229" refid="unionT67XX_1_1StatusRegister_1a2f49faa9c440616f7bba2d079461b097" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1a2f49faa9c440616f7bba2d079461b097" kindref="member">ERROR</ref><sp/>:<sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="230" refid="unionT67XX_1_1StatusRegister_1a43743cec60f307842d9df5f43a95073b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1a43743cec60f307842d9df5f43a95073b" kindref="member">FLASH_ERROR</ref><sp/>:<sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="231" refid="unionT67XX_1_1StatusRegister_1a9356982819979be72bf5afded5361ac4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1a9356982819979be72bf5afded5361ac4" kindref="member">CALIBRATION_ERROR</ref><sp/>:<sp/>1;<sp/><sp/></highlight></codeline>
+<codeline lineno="232" refid="unionT67XX_1_1StatusRegister_1aac56a245b733e6ec765d876281a77189" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>:<sp/>7;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="233" refid="unionT67XX_1_1StatusRegister_1a9da4e2282332badc5f2c29eb768c1d39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1a9da4e2282332badc5f2c29eb768c1d39" kindref="member">REBOOT</ref><sp/>:<sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="234" refid="unionT67XX_1_1StatusRegister_1aa6d0ef1e3f9cddf0aa5a85770a7d8588" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1aa6d0ef1e3f9cddf0aa5a85770a7d8588" kindref="member">WARMUP</ref><sp/>:<sp/>1;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="235" refid="unionT67XX_1_1StatusRegister_1a690a84349826eca6e34b2ad8fdbe7913" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>:<sp/>3;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="236" refid="unionT67XX_1_1StatusRegister_1a8c88ec47b74f556dead6c4136ecf1edb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="unionT67XX_1_1StatusRegister_1a8c88ec47b74f556dead6c4136ecf1edb" kindref="member">SINGLE_POINT_CAL</ref><sp/>:<sp/>1;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="237" refid="unionT67XX_1_1StatusRegister_1a318feb0952b93bc168fe10d903806672" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><ref refid="unionT67XX_1_1StatusRegister_1a318feb0952b93bc168fe10d903806672" kindref="member">bits</ref>;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>uint8_t<sp/>_data[6];</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>uint8_t<sp/>read8(uint16_t<sp/>registerAddress);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>uint16_t<sp/>read16(uint16_t<sp/>registerAddress);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>uint8_t<sp/>write8(uint16_t<sp/>registerAddress,<sp/>uint8_t<sp/>data);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>uint16_t<sp/>write16(uint16_t<sp/>registerAddress,<sp/>uint16_t<sp/>data);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>TwoWire*<sp/>_pWire;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>StatusRegister<sp/>_status;</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/>uint8_t<sp/>_deviceAddr;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>T67XX_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/T67XX.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="T6793__API_8cpp" kind="file" language="C++">
+    <compoundname>T6793_API.cpp</compoundname>
+    <includes refid="T6793__API_8h" local="yes">T6793_API.h</includes>
+    <includes refid="T67XX_8h" local="yes">T67XX.h</includes>
+    <includes refid="Debug_8h" local="yes">Debug.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>Debug.h</label>
+        <link refid="Debug_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>firmware/T6793_API.cpp</label>
+        <link refid="T6793__API_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>T6793_API.h</label>
+        <link refid="T6793__API_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>T67XX.h</label>
+        <link refid="T67XX_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+      <node id="5">
+        <label>Wire.h</label>
+      </node>
+      <node id="7">
+        <label>stdarg.h</label>
+      </node>
+      <node id="8">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="T6793__API_8cpp_1ac2d33ccaf63f5d5b66552b95426c0137" prot="public" static="no">
+        <name>DEBUG_LEVEL</name>
+        <initializer><ref refid="Debug_8h_1a81eb0cce531cbba9485b95191044da40" kindref="member">DEBUG_T6793</ref></initializer>
+        <briefdescription>
+<para>Redefinition of debug level for this source file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.cpp" line="19" column="10" bodyfile="firmware/T6793_API.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="T6793__API_8cpp_1ae6f84e8321c3bc4f546cf4a2a4798064" prot="public" static="no">
+        <name>DEBUG_TAG</name>
+        <initializer>&quot;T6793_API&quot;</initializer>
+        <briefdescription>
+<para>Tag when sending debug messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.cpp" line="20" column="9" bodyfile="firmware/T6793_API.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" prot="public" static="no" mutable="no">
+        <type><ref refid="classT67XX" kindref="compound">T67XX</ref></type>
+        <definition>T67XX t6793_sensor</definition>
+        <argsstring></argsstring>
+        <name>t6793_sensor</name>
+        <briefdescription>
+<para>Instance of the library object for the sensor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.cpp" line="22" column="7" bodyfile="firmware/T6793_API.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t t6793_co2</definition>
+        <argsstring></argsstring>
+        <name>t6793_co2</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Definition of the global variable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.cpp" line="23" column="10" bodyfile="firmware/T6793_API.cpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="T6793__API_8cpp_1af0d236e25ab100f0182047342d9a7553" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void t6793_inicializar</definition>
+        <argsstring>(void)</argsstring>
+        <name>t6793_inicializar</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the T6793 sensor, configures I2C communication and disables ABC calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.cpp" line="25" column="6" bodyfile="firmware/T6793_API.cpp" bodystart="25" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="T6793__API_8cpp_1a5b5414b7744475e9835a9579bc0d4717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool t6793_leer</definition>
+        <argsstring>(void)</argsstring>
+        <name>t6793_leer</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Reads the CO2 value from the sensor and updates the global variable &apos;t6793_co2&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the reading was successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/T6793_API.cpp" line="57" column="6" bodyfile="firmware/T6793_API.cpp" bodystart="57" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Implementation of the API for the Telaire T6793-5K CO2 sensor. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later</para>
+</simplesect>
+<simplesect kind="note"><para>This module is an abstraction layer over the <ref refid="classT67XX" kindref="compound">T67XX</ref> library. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="T6793__API_8h" kindref="compound">T6793_API.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="T67XX_8h" kindref="compound">T67XX.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Debug_8h" kindref="compound">Debug.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>DEBUG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_LEVEL<sp/>DEBUG_T6793<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEBUG_TAG<sp/>&quot;T6793_API&quot;<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="classT67XX" kindref="compound">T67XX</ref><sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">uint16_t<sp/><ref refid="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" kindref="member">t6793_co2</ref><sp/>=<sp/>0;<sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="T6793__API_8cpp_1af0d236e25ab100f0182047342d9a7553" kindref="member">t6793_inicializar</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>uint16_t<sp/>sensorStatus<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!<ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.begin())<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a1c488ea7efca861a91f3c31f88ac647c" kindref="member">DEBUG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>could<sp/>not<sp/>be<sp/>found,<sp/>check<sp/>connections&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>Error<sp/>message<sp/>if<sp/>sensor<sp/>is<sp/>not<sp/>detected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(2000);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>2<sp/>seconds<sp/>before<sp/>retrying.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Connection<sp/>established.<sp/>Resetting...&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>Success<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.reset();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>the<sp/>sensor<sp/>to<sp/>ensure<sp/>a<sp/>known<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>for<sp/>the<sp/>sensor<sp/>to<sp/>exit<sp/>warm-up<sp/>state<sp/>or<sp/>any<sp/>other<sp/>initial<sp/>error<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>sensorStatus<sp/>=<sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.getStatus();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>initial<sp/>sensor<sp/>status.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Status:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.getStatusMsg().c_str());<sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>current<sp/>status<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>delay(<ref refid="T67XX_8h_1a6ba5ac47df7e988bda67aeda40a9c3b0" kindref="member">T67XX_MEASURE_DELAY</ref>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>for<sp/>recommended<sp/>measurement<sp/>time.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(sensorStatus);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Firmware<sp/>version:<sp/>%u&quot;</highlight><highlight class="normal">,<sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.getFirmwareVersion());<sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>firmware<sp/>version.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a06d9825b6c7fe75d1b772dc51be15750" kindref="member">DEBUG_VERBOSE</ref>(</highlight><highlight class="stringliteral">&quot;Enabling<sp/>autocalibration...&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>Informational<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Enable<sp/>automatic<sp/>calibration<sp/>(ABC).</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/>*<sp/>This<sp/>is<sp/>recommended<sp/>in<sp/>applications<sp/>where<sp/>the<sp/>sensor<sp/>is<sp/>regularly</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/>*<sp/>exposed<sp/>to<sp/>fresh<sp/>air<sp/>(400<sp/>ppm<sp/>CO2).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.enableABCMode();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Autocalibration<sp/>enabled...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Saving<sp/>configuration...&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight><highlight class="comment">//<sp/>Informational<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.flashUpdate();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Save<sp/>settings<sp/>to<sp/>sensor&apos;s<sp/>flash<sp/>memory.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>initialized.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="T6793__API_8cpp_1a5b5414b7744475e9835a9579bc0d4717" kindref="member">t6793_leer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>uint16_t<sp/>sensorStatus<sp/>=<sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.getStatus();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sensorStatus<sp/>&amp;<sp/>(~(1u<sp/>&gt;&gt;<sp/>0x0F)<sp/>&amp;<sp/>0x01))<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Debug_8h_1a049ef4d56885f132f21a5e963d79acc6" kindref="member">DEBUG_WARN</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>CO2<sp/>reading<sp/>(0<sp/>PPM).<sp/>Status:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.getStatusMsg().c_str());</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" kindref="member">t6793_co2</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" kindref="member">t6793_co2</ref><sp/>=<sp/><ref refid="T6793__API_8cpp_1aa8092177fbd2dbb9c9e8229dc9a6ed65" kindref="member">t6793_sensor</ref>.readPPM();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="Debug_8h_1a994994514490b70ee6a5dd679f28acbc" kindref="member">DEBUG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;CO2:<sp/>%u<sp/>ppm&quot;</highlight><highlight class="normal">,<sp/><ref refid="T6793__API_8cpp_1a3ffab8bb38d8c1efa1ef459145deb64e" kindref="member">t6793_co2</ref>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="firmware/T6793_API.cpp"/>
+  </compounddef>
+</doxygen>

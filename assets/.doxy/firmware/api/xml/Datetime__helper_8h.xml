@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="Datetime__helper_8h" kind="file" language="C++">
+    <compoundname>Datetime_helper.h</compoundname>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="Datetime__helper_8h_1abb9ec68a7385d7febaad9e0267b2f7a9" prot="public" static="no">
+        <name>BUILD_YEAR</name>
+        <initializer>  ( \
+    (__DATE__[7] - &apos;0&apos;) * 1000 + \
+    (__DATE__[8] - &apos;0&apos;) * 100 +  \
+    (__DATE__[9] - &apos;0&apos;) * 10 +   \
+    (__DATE__[10] - &apos;0&apos;)         \
+   )</initializer>
+        <briefdescription>
+<para>Extracts the year from the <computeroutput>__DATE__</computeroutput> string (e.g.: &quot;Jul 22 2024&quot; -&gt; 2024). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Datetime_helper.h" line="25" column="9" bodyfile="firmware/Datetime_helper.h" bodystart="25" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="define" id="Datetime__helper_8h_1a048ec1bde6610d83e24c409356dc88c4" prot="public" static="no">
+        <name>BUILD_DAY</name>
+        <initializer>  ( \
+    ((__DATE__[4] &gt;= &apos;0&apos;) ? (__DATE__[4] - &apos;0&apos;) * 10 : 0) + (__DATE__[5] - &apos;0&apos;))</initializer>
+        <briefdescription>
+<para>Extracts the day from the <computeroutput>__DATE__</computeroutput> string (e.g.: &quot;Jul 22 2024&quot; -&gt; 22). Handles the case where the day has a single digit (e.g.: &quot;Jul  7 2024&quot;). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Datetime_helper.h" line="37" column="9" bodyfile="firmware/Datetime_helper.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="define" id="Datetime__helper_8h_1a028c55cbe44447e1b8046ece3dbb9a02" prot="public" static="no">
+        <name>BUILD_MONTH</name>
+        <initializer>  ( \
+    (__DATE__[0] == &apos;J&apos; &amp;&amp; __DATE__[1] == &apos;a&apos; &amp;&amp; __DATE__[2] == &apos;n&apos;) ? 1  : \
+    (__DATE__[0] == &apos;F&apos;)                                             ? 2  : \
+    (__DATE__[0] == &apos;M&apos; &amp;&amp; __DATE__[1] == &apos;a&apos; &amp;&amp; __DATE__[2] == &apos;r&apos;) ? 3  : \
+    (__DATE__[0] == &apos;A&apos; &amp;&amp; __DATE__[1] == &apos;p&apos;)                       ? 4  : \
+    (__DATE__[0] == &apos;M&apos; &amp;&amp; __DATE__[1] == &apos;a&apos; &amp;&amp; __DATE__[2] == &apos;y&apos;) ? 5  : \
+    (__DATE__[0] == &apos;J&apos; &amp;&amp; __DATE__[1] == &apos;u&apos; &amp;&amp; __DATE__[2] == &apos;n&apos;) ? 6  : \
+    (__DATE__[0] == &apos;J&apos; &amp;&amp; __DATE__[1] == &apos;u&apos; &amp;&amp; __DATE__[2] == &apos;l&apos;) ? 7  : \
+    (__DATE__[0] == &apos;A&apos; &amp;&amp; __DATE__[1] == &apos;u&apos;)                       ? 8  : \
+    (__DATE__[0] == &apos;S&apos;)                                             ? 9  : \
+    (__DATE__[0] == &apos;O&apos;)                                             ? 10 : \
+    (__DATE__[0] == &apos;N&apos;)                                             ? 11 : \
+    (__DATE__[0] == &apos;D&apos;)                                             ? 12 : \
+                                                                       0    \
+  )</initializer>
+        <briefdescription>
+<para>Converts the text month to number (e.g.: &quot;Jan&quot; -&gt; 1, &quot;Feb&quot; -&gt; 2, etc). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Datetime_helper.h" line="44" column="9" bodyfile="firmware/Datetime_helper.h" bodystart="44" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="define" id="Datetime__helper_8h_1ac7d6c96c7fe1a6237703b6d520c9b369" prot="public" static="no">
+        <name>BUILD_HOUR</name>
+        <initializer>((__TIME__[0] - &apos;0&apos;) * 10 + (__TIME__[1] - &apos;0&apos;))</initializer>
+        <briefdescription>
+<para>Extracts the hour from the <computeroutput>__TIME__</computeroutput> string (e.g.: &quot;18:30:00&quot; -&gt; 18). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Datetime_helper.h" line="64" column="9" bodyfile="firmware/Datetime_helper.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Datetime__helper_8h_1a60a2b7146eedffee3f0c3f85f6d48e84" prot="public" static="no">
+        <name>BUILD_MIN</name>
+        <initializer>((__TIME__[3] - &apos;0&apos;) * 10 + (__TIME__[4] - &apos;0&apos;))</initializer>
+        <briefdescription>
+<para>Extracts the minute from the <computeroutput>__TIME__</computeroutput> string (e.g.: &quot;18:30:00&quot; -&gt; 30). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Datetime_helper.h" line="69" column="9" bodyfile="firmware/Datetime_helper.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="Datetime__helper_8h_1a98797ed3ea6b0c6d9a04de5899070f32" prot="public" static="no">
+        <name>BUILD_SEC</name>
+        <initializer>((__TIME__[6] - &apos;0&apos;) * 10 + (__TIME__[7] - &apos;0&apos;))</initializer>
+        <briefdescription>
+<para>Extracts the second from the <computeroutput>__TIME__</computeroutput> string (e.g.: &quot;18:30:00&quot; -&gt; 00). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="firmware/Datetime_helper.h" line="74" column="9" bodyfile="firmware/Datetime_helper.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Preprocessor macros to convert <computeroutput>__DATE__</computeroutput> and <computeroutput>__TIME__</computeroutput> macros into numeric values for the RTC. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file is a utility that allows setting the RTC clock time automatically to the time when the program was compiled. No modification is necessary.</para>
+<para>Example of <computeroutput>__DATE__:</computeroutput> &quot;Jul 22 2024&quot;</para>
+<para>Example of <computeroutput>__TIME__:</computeroutput> &quot;18:30:00&quot;</para>
+<para><simplesect kind="author"><para>[ALD-DSL/ATARI_RESEARCH_LAB] </para>
+</simplesect>
+<simplesect kind="date"><para>[2024-07-22/2025-10-15] </para>
+</simplesect>
+<simplesect kind="version"><para>2.0</para>
+</simplesect>
+<simplesect kind="copyright"><para>GNU General Public License version 3 or later </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DATETIME_HELPER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATETIME_HELPER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="Datetime__helper_8h_1abb9ec68a7385d7febaad9e0267b2f7a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUILD_YEAR<sp/>\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/>(<sp/>\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[7]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>1000<sp/>+<sp/>\</highlight></codeline>
+<codeline lineno="28"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[8]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>100<sp/>+<sp/><sp/>\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[9]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>10<sp/>+<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[10]<sp/>-<sp/>&apos;0&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"><sp/><sp/><sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="Datetime__helper_8h_1a048ec1bde6610d83e24c409356dc88c4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUILD_DAY<sp/>\</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"><sp/><sp/>(<sp/>\</highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>((__DATE__[4]<sp/>&gt;=<sp/>&apos;0&apos;)<sp/>?<sp/>(__DATE__[4]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>10<sp/>:<sp/>0)<sp/>+<sp/>(__DATE__[5]<sp/>-<sp/>&apos;0&apos;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="Datetime__helper_8h_1a028c55cbe44447e1b8046ece3dbb9a02" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUILD_MONTH<sp/>\</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"><sp/><sp/>(<sp/>\</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;J&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;a&apos;<sp/>&amp;&amp;<sp/>__DATE__[2]<sp/>==<sp/>&apos;n&apos;)<sp/>?<sp/>1<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;F&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>2<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;M&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;a&apos;<sp/>&amp;&amp;<sp/>__DATE__[2]<sp/>==<sp/>&apos;r&apos;)<sp/>?<sp/>3<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;A&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;p&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>4<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="50"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;M&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;a&apos;<sp/>&amp;&amp;<sp/>__DATE__[2]<sp/>==<sp/>&apos;y&apos;)<sp/>?<sp/>5<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="51"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;J&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;u&apos;<sp/>&amp;&amp;<sp/>__DATE__[2]<sp/>==<sp/>&apos;n&apos;)<sp/>?<sp/>6<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;J&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;u&apos;<sp/>&amp;&amp;<sp/>__DATE__[2]<sp/>==<sp/>&apos;l&apos;)<sp/>?<sp/>7<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;A&apos;<sp/>&amp;&amp;<sp/>__DATE__[1]<sp/>==<sp/>&apos;u&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>8<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;S&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>9<sp/><sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;O&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>10<sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;N&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>11<sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(__DATE__[0]<sp/>==<sp/>&apos;D&apos;)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>12<sp/>:<sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="59"><highlight class="preprocessor"><sp/><sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="Datetime__helper_8h_1ac7d6c96c7fe1a6237703b6d520c9b369" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUILD_HOUR<sp/>((__TIME__[0]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>10<sp/>+<sp/>(__TIME__[1]<sp/>-<sp/>&apos;0&apos;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="Datetime__helper_8h_1a60a2b7146eedffee3f0c3f85f6d48e84" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUILD_MIN<sp/>((__TIME__[3]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>10<sp/>+<sp/>(__TIME__[4]<sp/>-<sp/>&apos;0&apos;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="Datetime__helper_8h_1a98797ed3ea6b0c6d9a04de5899070f32" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUILD_SEC<sp/>((__TIME__[6]<sp/>-<sp/>&apos;0&apos;)<sp/>*<sp/>10<sp/>+<sp/>(__TIME__[7]<sp/>-<sp/>&apos;0&apos;))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>DATETIME_HELPER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="firmware/Datetime_helper.h"/>
+  </compounddef>
+</doxygen>
